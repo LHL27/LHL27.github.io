@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>数独 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="数独你一定听说过“数独”游戏。如玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个同色九宫内的数字均含1-9，不重复。 数独的答案都是唯一的，所以，多个解也称为无解。 本图的数字据说是芬兰数学家花了3个月的时间设计出来的较难的题目。但对会使用计算机编程的你来说，恐怕易如反掌了。 本题的要求就是输入数独题目，程序输出数独的唯一解。我们保证所有已知数据的格式都是">
+<meta name="keywords" content="蓝桥杯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数独">
+<meta property="og:url" content="https://LHL27.github.io/2019/03/03/数独/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="数独你一定听说过“数独”游戏。如玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个同色九宫内的数字均含1-9，不重复。 数独的答案都是唯一的，所以，多个解也称为无解。 本图的数字据说是芬兰数学家花了3个月的时间设计出来的较难的题目。但对会使用计算机编程的你来说，恐怕易如反掌了。 本题的要求就是输入数独题目，程序输出数独的唯一解。我们保证所有已知数据的格式都是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/03/数独/2019-03-03-数独/shudu.jpg">
+<meta property="og:updated_time" content="2019-03-03T06:40:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数独">
+<meta name="twitter:description" content="数独你一定听说过“数独”游戏。如玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个同色九宫内的数字均含1-9，不重复。 数独的答案都是唯一的，所以，多个解也称为无解。 本图的数字据说是芬兰数学家花了3个月的时间设计出来的较难的题目。但对会使用计算机编程的你来说，恐怕易如反掌了。 本题的要求就是输入数独题目，程序输出数独的唯一解。我们保证所有已知数据的格式都是">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/03/03/数独/2019-03-03-数独/shudu.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-数独" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      数独
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/03/数独/" class="article-date">
+  <time datetime="2019-03-03T04:47:54.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h2 id="数独"><a href="#数独" class="headerlink" title="数独"></a>数独</h2><p>你一定听说过“数独”游戏。如<img src="/2019/03/03/数独/2019-03-03-数独/shudu.jpg" alt="数独图">玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个同色九宫内的数字均含1-9，不重复。</p>
+<p>数独的答案都是唯一的，所以，多个解也称为无解。</p>
+<p>本图的数字据说是芬兰数学家花了3个月的时间设计出来的较难的题目。但对会使用计算机编程的你来说，恐怕易如反掌了。</p>
+<p>本题的要求就是输入数独题目，程序输出数独的唯一解。我们保证所有已知数据的格式都是合法的，并且题目有唯一的解。</p>
+<p>格式要求，输入9行，每行9个字符，0代表未知，其它数字为已知。<br>输出9行，每行9个数字表示数独的解。</p>
+<p>例如：<br>输入（即图中题目）：<br>005300000<br>800000020<br>070010500<br>400005300<br>010070006<br>003200080<br>060500009<br>004000030<br>000009700</p>
+<p>程序应该输出：<br>145327698<br>839654127<br>672918543<br>496185372<br>218473956<br>753296481<br>367542819<br>984761235<br>521839764</p>
+<p>再例如，输入：<br>800000000<br>003600000<br>070090200<br>050007000<br>000045700<br>000100030<br>001000068<br>008500010<br>090000400</p>
+<p>程序应该输出：<br>812753649<br>943682175<br>675491283<br>154237896<br>369845721<br>287169534<br>521974368<br>438526917<br>796318452</p>
+<p>资源约定：<br>峰值内存消耗 &lt; 256M<br>CPU消耗  &lt; 2000ms</p>
+<p>请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。</p>
+<p>所有代码放在同一个源文件中，调试通过后，拷贝提交该源码。</p>
+<p>注意: main函数需要返回0<br>注意: 只使用ANSI C/ANSI C++ 标准，不要调用依赖于编译环境或操作系统的特殊函数。<br>注意: 所有依赖的函数必须明确地在源文件中 #include <xxx>， 不能通过工程设置而省略常用头文件。</xxx></p>
+<p>提交时，注意选择所期望的编译器类型。</p>
+<h2 id="递归算法"><a href="#递归算法" class="headerlink" title="递归算法"></a>递归算法</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//递归算法</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int map[9][9],demo[9][9],sum=0;				//sum:记录有多少个解；demo数组:用来记录唯一的解</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void display()&#123;								//输出解</span><br><span class="line">	int i,j;</span><br><span class="line">	for(i=0;i&lt;9;i++)&#123;</span><br><span class="line">		for(j=0;j&lt;9;j++)&#123;</span><br><span class="line">			cout&lt;&lt;demo[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void memory()&#123;						//存储一个正确的解</span><br><span class="line">	int i,j;</span><br><span class="line">	for(i=0;i&lt;=8;i++)&#123;</span><br><span class="line">		for(j=0;j&lt;=8;j++)&#123;</span><br><span class="line">			demo[i][j]=map[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bool check(int c)&#123;					//检查c是否是符合题意的</span><br><span class="line">	int x,y,i,j,dx,dy;</span><br><span class="line">	x=(c)/9;</span><br><span class="line">	y=(c)%9;</span><br><span class="line">	for(i=0;i&lt;9;i++)&#123;</span><br><span class="line">		if(map[i][y]==map[x][y]&amp;&amp;x!=i)			//检查同一列</span><br><span class="line">			return false;</span><br><span class="line">	&#125;</span><br><span class="line">	for(j=0;j&lt;9;j++)&#123;</span><br><span class="line">		if(map[x][j]==map[x][y]&amp;&amp;y!=j)			//检查同一行</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	dx=x/3*3;          //dx表示每一个同色九宫格的第一个格子的行坐标</span><br><span class="line">	dy=y/3*3;          //dy表示每一个同色九宫格的第一个格子的纵坐标</span><br><span class="line">	for(i=dx;i&lt;dx+3;i++)&#123;						//检查同色九宫格</span><br><span class="line">		for(j=dy;j&lt;dy+3;j++)&#123;</span><br><span class="line">			if(map[i][j]==map[x][y]&amp;&amp;i!=x&amp;&amp;j!=y)</span><br><span class="line">				return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">void backtrack(int n)&#123;</span><br><span class="line">	int x,y;</span><br><span class="line">	if(n==81)&#123;</span><br><span class="line">		if(check(80))&#123;		//符合题目要求的，记录</span><br><span class="line">			sum++;</span><br><span class="line">			memory();</span><br><span class="line">		&#125;</span><br><span class="line">		return ;</span><br><span class="line">	&#125;</span><br><span class="line">	x=(n)/9;						//x:行</span><br><span class="line">	y=(n)%9;						//y:列</span><br><span class="line">	if(map[x][y]==0)&#123;				//map[x][y]未知</span><br><span class="line">		for(int k=1;k&lt;=9;k++)&#123;		//0到9皆可取</span><br><span class="line">			map[x][y]=k;</span><br><span class="line">			if(check(n))&#123;</span><br><span class="line">				backtrack(n+1);</span><br><span class="line">			&#125;</span><br><span class="line">			map[x][y]=0;         //请注意此处应当清零，如果不清零下一次就没有办法触发！！！ </span><br><span class="line">		&#125;</span><br><span class="line">		map[x][y]=0;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;							//map[x][y]已知</span><br><span class="line">		backtrack(n+1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	int i,j;</span><br><span class="line">	char s;</span><br><span class="line">	i=0;						//输入原始数据,必须要用字符输入，然后转换成整型</span><br><span class="line">	while(i&lt;=8)&#123;			</span><br><span class="line">		j=0;</span><br><span class="line">		while(j&lt;=8)&#123;</span><br><span class="line">			s=getchar();</span><br><span class="line">			if(s==&apos;\n&apos;)&#123;				//去除每一行末的回车</span><br><span class="line">				s=getchar();</span><br><span class="line">			&#125;</span><br><span class="line">			map[i][j]=s-48;				//map数组存储原始数据</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	backtrack(0);</span><br><span class="line">	if(sum==1)			//只有唯一的解，多个解也称为无解</span><br><span class="line">		display();	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h2><p><font color="red" size="5px"> 由于往后加1的时候，要考虑该格子是否未知，分为未知、已知两种情况讨论，有可能是这里出现了死循环，实属大坑，程序无法停止，待我弄明白在来更新代码，希望各大佬不吝赐教。</font><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//回溯算法  错误代码，在往后点出现了死循环</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#define M 9</span><br><span class="line">using namespace std;</span><br><span class="line">int s,ori[M][M],a[M][M]=&#123;0&#125;,z[81];</span><br></pre></td></tr></table></figure></div></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bool check(int x,int y)&#123;			//检查九宫格</span><br><span class="line">	int i,j,xx,yy;</span><br><span class="line">	xx=x/3*3;</span><br><span class="line">	yy=y/3*3;</span><br><span class="line">	for(i=xx;i&lt;xx+3;i++)&#123;						//检查同色九宫格</span><br><span class="line">		for(j=yy;j&lt;yy+3;j++)&#123;</span><br><span class="line">			if(a[i][j]==a[x][y]&amp;&amp;i!=x&amp;&amp;j!=y)</span><br><span class="line">				return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	int i,j,k,g,x,y;</span><br><span class="line">	char c;</span><br><span class="line"></span><br><span class="line">	i=0;							//输入数据</span><br><span class="line">	while(i&lt;=8)&#123;</span><br><span class="line">		j=0;</span><br><span class="line">		while(j&lt;=8)&#123;</span><br><span class="line">			c=getchar();</span><br><span class="line">			if(c==&apos;\n&apos;)&#123;</span><br><span class="line">				c=getchar();</span><br><span class="line">			&#125;</span><br><span class="line">			ori[i][j]=c-48;				//ori数组存储原始数据</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//cout&lt;&lt;&quot;lin&quot;&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">	i=0;			//i从0到80</span><br><span class="line">	if(ori[0][0]==0)</span><br><span class="line">		z[i]=1;</span><br><span class="line">	else z[i]=ori[0][0];</span><br><span class="line">	x=i/9;y=i%9;			//x:行 y:列</span><br><span class="line">	a[x][y]=z[i];</span><br><span class="line"></span><br><span class="line">	while(1)&#123;</span><br><span class="line">		for(g=1,k=8;k&gt;=0;k--)&#123;		//检查同一行</span><br><span class="line">			if(a[x][y]==a[x][k] &amp;&amp; k!=y)&#123;</span><br><span class="line">				g=0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(g==1)&#123;</span><br><span class="line">			for(k=8;k&gt;=0;k--)&#123;		//检查同一列</span><br><span class="line">				if(a[x][y]==a[k][y] &amp;&amp; k!=x)&#123;</span><br><span class="line">					g=0;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(g==1)&#123;</span><br><span class="line">			if(check(x,y)==false)&#123;		//检查九宫格</span><br><span class="line">				g=0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(g==1 &amp;&amp; i&gt;=80)&#123;				//输出条件</span><br><span class="line">			s++;</span><br><span class="line">			cout&lt;&lt;&quot;第&quot;&lt;&lt;s&lt;&lt;&quot;种&quot;&lt;&lt;endl;			//输出</span><br><span class="line">			for(int p=0;p&lt;=8;p++)&#123;</span><br><span class="line">				for(int q=0;q&lt;=8;q++)&#123;</span><br><span class="line">					cout&lt;&lt;a[p][q]&lt;&lt;&quot; &quot;;</span><br><span class="line">				&#125;</span><br><span class="line">				cout&lt;&lt;endl;</span><br><span class="line">			&#125;</span><br><span class="line">			cout&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(i&lt;80 &amp;&amp; g==1)&#123;				//往下点</span><br><span class="line">		//	cout&lt;&lt;&quot;linhonglian&quot;&lt;&lt;endl;</span><br><span class="line">			i++;</span><br><span class="line">			x=i/9;y=i%9;				//x:行 y:列</span><br><span class="line">			if(ori[x][y]==0)</span><br><span class="line">				z[i]=1;</span><br><span class="line">			else z[i]=ori[x][y];</span><br><span class="line">			a[x][y]=z[i];</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		while(z[i]==9 &amp;&amp; i&gt;0)&#123;			//回溯点</span><br><span class="line">			i--;</span><br><span class="line">			x=i/9;y=i%9;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(z[i]==9 &amp;&amp; i==0)&#123;			//退出点</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;							//往后点</span><br><span class="line">			while(ori[i/9][i%9]!=0)&#123;</span><br><span class="line">				i--;</span><br><span class="line">				x=i/9;y=i%9;</span><br><span class="line">			&#125;</span><br><span class="line">			z[i]++;</span><br><span class="line">			a[x][y]=z[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/03/05/回溯、递归、dfs的个人总结/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            回溯、递归、dfs的个人总结
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/03/03/HTML基础标签/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">HTML基础</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/官方文档/">官方文档</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/demo/">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/demo/" style="font-size: 10px;">demo</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/13/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/11/JSP/">JSP的基础</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/10/大数加减乘除的实现/">大数的加减乘除法的实现（1）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/05/回溯、递归、dfs的个人总结/">回溯、递归、dfs的个人总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/数独/">数独</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
