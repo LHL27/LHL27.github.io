@@ -17,17 +17,17 @@
 <meta property="og:site_name" content="ľľ">
 <meta property="og:description" content="回溯、递归、dfs的个人总结在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯要素点.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯框架1.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯框架2.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/dfs框架.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/dfs例子1.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/dfs例子2.jpg">
-<meta property="og:updated_time" content="2019-03-06T01:16:10.000Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯要素点.jpg">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯框架1.jpg">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯框架2.jpg">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/dfs框架.jpg">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/dfs例子1.jpg">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/dfs例子2.jpg">
+<meta property="og:updated_time" content="2019-03-14T12:14:47.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回溯、递归、dfs的个人总结">
 <meta name="twitter:description" content="回溯、递归、dfs的个人总结在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂">
-<meta name="twitter:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯要素点.jpg">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯要素点.jpg">
   
     <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
   
@@ -96,11 +96,11 @@
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
         <h2 id="回溯、递归、dfs的个人总结"><a href="#回溯、递归、dfs的个人总结" class="headerlink" title="回溯、递归、dfs的个人总结"></a>回溯、递归、dfs的个人总结</h2><p>在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。<br>因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂度。<br>枚举、递归、回溯都可以表示循环的意义。<br>递归了定义不同的函数意义，分步实现，通过调用自身，返回或继续调用，即可实现循环，还可以使用条件语句，选择不同的循环。<br>回溯直接通过取值点的不同取值实现循环，记住回溯的要素点、使用的框架，直接套用，就可以解决问题了。<br>关于dfs，个人觉得，dfs就是回溯和递归的融合。它也可以实现循环的意义。</p>
-<h3 id="回溯的要素点（9个）"><a href="#回溯的要素点（9个）" class="headerlink" title="回溯的要素点（9个）"></a>回溯的要素点（9个）</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯要素点.jpg" alt="回溯算法的要素点"></p>
-<h3 id="回溯的框架"><a href="#回溯的框架" class="headerlink" title="回溯的框架"></a>回溯的框架</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯框架1.jpg" alt="回溯算法的框架1"><br><img src="/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/回溯框架2.jpg" alt="回溯算法的框架2"><br>拓展：可以使用一个数组来表示每行的取值点、取值初值、回溯点等，如使用数组来表示回溯点</p>
+<h3 id="回溯的要素点（9个）"><a href="#回溯的要素点（9个）" class="headerlink" title="回溯的要素点（9个）"></a>回溯的要素点（9个）</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/回溯要素点.jpg" alt="回溯算法的要素点"></p>
+<h3 id="回溯的框架"><a href="#回溯的框架" class="headerlink" title="回溯的框架"></a>回溯的框架</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/回溯框架1.jpg" alt="回溯算法的框架1"><br><img src="/2019/03/05/回溯、递归、dfs的个人总结/回溯框架2.jpg" alt="回溯算法的框架2"><br>拓展：可以使用一个数组来表示每行的取值点、取值初值、回溯点等，如使用数组来表示回溯点</p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b[5]=&#123;0,2,2,4,4&#125;,则</span><br><span class="line">a[i]==b[i] &amp;&amp; i&gt;1 时，回溯到上一层</span><br></pre></td></tr></table></figure></div>
-<h3 id="dfs的框架"><a href="#dfs的框架" class="headerlink" title="dfs的框架"></a>dfs的框架</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/dfs框架.jpg" alt="dfs的框架"></p>
-<h3 id="dfs的例子"><a href="#dfs的例子" class="headerlink" title="dfs的例子"></a>dfs的例子</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/dfs例子1.jpg" alt="dfs的例子1"><br><img src="/2019/03/05/回溯、递归、dfs的个人总结/2019-03-05-回溯、递归、dfs的个人总结/dfs例子2.jpg" alt="dfs的例子2"></p>
+<h3 id="dfs的框架"><a href="#dfs的框架" class="headerlink" title="dfs的框架"></a>dfs的框架</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/dfs框架.jpg" alt="dfs的框架"></p>
+<h3 id="dfs的例子"><a href="#dfs的例子" class="headerlink" title="dfs的例子"></a>dfs的例子</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/dfs例子1.jpg" alt="dfs的例子1"><br><img src="/2019/03/05/回溯、递归、dfs的个人总结/dfs例子2.jpg" alt="dfs的例子2"></p>
 
       
     </div>
