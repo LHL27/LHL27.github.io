@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="ľľ">
 <meta property="og:description" content="JSP的基础jsp的简介静态网页：指没有后台数据库、不含程序、不可交互的网页。适用于不经常更改的网页。动态网页：指显示的内容不是固定的，是根据服务器执行代码的结果来确定具体的显示内容。JSP:(  java server pages  ) java 服务器页面，是一种服务器脚本语言，在服务器执行，返回客户端一个HTML文件。 jsp的组成JSP组成部分包括HTML、Java、JSP代码HTML:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/11/JSP基础/2019-03-11-JSP基础/include动作.png">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/11/JSP基础/2019-03-11-JSP基础/forward动作.png">
-<meta property="og:updated_time" content="2019-03-14T12:01:26.052Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/11/JSP基础/include动作.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/11/JSP基础/forward动作.png">
+<meta property="og:updated_time" content="2019-03-14T12:09:23.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP的基础">
 <meta name="twitter:description" content="JSP的基础jsp的简介静态网页：指没有后台数据库、不含程序、不可交互的网页。适用于不经常更改的网页。动态网页：指显示的内容不是固定的，是根据服务器执行代码的结果来确定具体的显示内容。JSP:(  java server pages  ) java 服务器页面，是一种服务器脚本语言，在服务器执行，返回客户端一个HTML文件。 jsp的组成JSP组成部分包括HTML、Java、JSP代码HTML:">
-<meta name="twitter:image" content="https://lhl27.github.io/2019/03/11/JSP基础/2019-03-11-JSP基础/include动作.png">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/03/11/JSP基础/include动作.png">
   
     <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
   
@@ -147,7 +147,7 @@
 <h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><p>传递参数的页面————chuandi.jsp<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;传递参数页面&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h3&gt;该页面传递一个参数QQ，直线下是接受参数页面的内容&lt;/h3&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;jsp:include page=&quot;jieshou.jsp&quot;&gt;</span><br><span class="line">        &lt;jsp:param name=&quot;userName&quot; value=&quot;QQ&quot;/&gt;</span><br><span class="line">    &lt;/jsp:include&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div></p>
 <p>接受参数的页面————jieshou.jsp</p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;接受参数页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">        &lt;p&gt;接受参数，并显示结果页面&lt;/p&gt;</span><br><span class="line">    &lt;%  String str=request.getParameter(&quot;userName&quot;);%&gt;</span><br><span class="line">        &lt;font color=&quot;blue&quot; size=&quot;12&quot;&gt;&lt;%=str%&gt;&lt;/font&gt;你好,欢迎你访问！</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div>
-<p>运行结果如下:<br><img src="/2019/03/11/JSP基础/2019-03-11-JSP基础/include动作.png" alt="include动作"><br>可见，传递参数页面中包含了接受参数页面；如果将传递参数页面中的<code>&lt;jsp:include page=&quot;&quot;&gt;</code>改成<code>&lt;jsp:forward page=&quot;&quot;/&gt;</code>,结果如下：<br><img src="/2019/03/11/JSP基础/2019-03-11-JSP基础/forward动作.png" alt="forward动作"><br>浏览器中的地址显示的是传递参数的页面，但内容显示的是接受参数的页面<br>。</p>
+<p>运行结果如下:<br><img src="/2019/03/11/JSP基础/include动作.png" alt="include动作"><br>可见，传递参数页面中包含了接受参数页面；如果将传递参数页面中的<code>&lt;jsp:include page=&quot;&quot;&gt;</code>改成<code>&lt;jsp:forward page=&quot;&quot;/&gt;</code>,结果如下：<br><img src="/2019/03/11/JSP基础/forward动作.png" alt="forward动作"><br>浏览器中的地址显示的是传递参数的页面，但内容显示的是接受参数的页面<br>。</p>
 
       
     </div>
