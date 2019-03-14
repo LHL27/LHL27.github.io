@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>大数的加减乘除法的实现（2） | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="大数的加减乘除法的实现（2）大数的乘法思路参照普通整型的乘法的实现过程。其中一个因数的每一数位上的数字分别乘以另一个因数的每一个数位上的数字，把进位的数值记录下来，加到更高的数位上，只记录积的最低一位的数值作为本位的数值。难点：本程序的最难点在于，因数数位上的对齐，且每一次的乘积的最低位的控制，用以下的图来说明。  因数b的数位上的每一位乘以因数a的数位上的每一位（a:0~3;b:0~1），相乘的">
+<meta name="keywords" content="经典案例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数的加减乘除法的实现（2）">
+<meta property="og:url" content="https://LHL27.github.io/2019/03/14/大数加减乘除的实现/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="大数的加减乘除法的实现（2）大数的乘法思路参照普通整型的乘法的实现过程。其中一个因数的每一数位上的数字分别乘以另一个因数的每一个数位上的数字，把进位的数值记录下来，加到更高的数位上，只记录积的最低一位的数值作为本位的数值。难点：本程序的最难点在于，因数数位上的对齐，且每一次的乘积的最低位的控制，用以下的图来说明。  因数b的数位上的每一位乘以因数a的数位上的每一位（a:0~3;b:0~1），相乘的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/14/大数加减乘除的实现/乘法.jpg">
+<meta property="og:updated_time" content="2019-03-14T14:14:19.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数的加减乘除法的实现（2）">
+<meta name="twitter:description" content="大数的加减乘除法的实现（2）大数的乘法思路参照普通整型的乘法的实现过程。其中一个因数的每一数位上的数字分别乘以另一个因数的每一个数位上的数字，把进位的数值记录下来，加到更高的数位上，只记录积的最低一位的数值作为本位的数值。难点：本程序的最难点在于，因数数位上的对齐，且每一次的乘积的最低位的控制，用以下的图来说明。  因数b的数位上的每一位乘以因数a的数位上的每一位（a:0~3;b:0~1），相乘的">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/03/14/大数加减乘除的实现/乘法.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-大数加减乘除的实现" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      大数的加减乘除法的实现（2）
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/14/大数加减乘除的实现/" class="article-date">
+  <time datetime="2019-03-13T16:00:00.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典案例/">经典案例</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="大数的加减乘除法的实现（2）"><a href="#大数的加减乘除法的实现（2）" class="headerlink" title="大数的加减乘除法的实现（2）"></a>大数的加减乘除法的实现（2）</h1><h2 id="大数的乘法"><a href="#大数的乘法" class="headerlink" title="大数的乘法"></a>大数的乘法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>参照普通整型的乘法的实现过程。其中一个因数的每一数位上的数字分别乘以另一个因数的每一个数位上的数字，把进位的数值记录下来，加到更高的数位上，只记录积的最低一位的数值作为本位的数值。<br>难点：本程序的最难点在于，因数数位上的对齐，且每一次的乘积的最低位的控制，用以下的图来说明。</p>
+<p><img src="/2019/03/14/大数加减乘除的实现/乘法.jpg" alt="乘法"></p>
+<p>因数b的数位上的每一位乘以因数a的数位上的每一位<code>（a:0~3;b:0~1）</code>，相乘的积用ans来存储。显然，a、b的积的最低位是a的数位加上b的数位，即图中的<code>i+j</code>。<code>i=0,j=0时</code>，a[j]=4,b[i]=7,a[j]<em>b[i]=28,2作为更高一位的进位，记录下来。8作为ans[i+j]的数值。<code>i=0,j=1时</code>,a[j]=3,b[i]=7,a[j]</em>b[i]=21,21再加上前一位的进位2，为23；2作为更高一位的进位，记录下来。3作为ans[i+j]的数值。以此类推，当j到达4时，a[i]不能乘了，但前一位还可能有进位，要加在ans[i+j]上，且进位置零，作为下一次的进位。i=1，j=0,再开始相乘。<br>ans的处理：ans要将对应的位数的积相加，作为最终的得数，在这里并不是将全部的积求出来了再相加，而是采用了a[j]与b[i]乘一次，ans[i+j]相加一次。ans除了要加上a[j]与b[i]相乘的积的最低位外，还要加上本身的数值和前一位的进位。当<code>ans[i+j]&gt;&#39;9&#39;时</code>，要进位一次，ans[i+j]减少10。</p>
+<h3 id="代码实现如下"><a href="#代码实现如下" class="headerlink" title="代码实现如下"></a>代码实现如下</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">//大数的乘法</span><br><span class="line">//以字符串的形式存储数据</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;algorithm&gt; </span><br><span class="line">#include&lt;sstream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void i2s(int n,string &amp;str)&#123;		//整型转换成字符型函数 </span><br><span class="line">	stringstream stmp;</span><br><span class="line">	stmp &lt;&lt; n;</span><br><span class="line">	stmp &gt;&gt;str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">string multiplicative(string a,string b)&#123;</span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos||b.find_first_not_of(&apos;0&apos;))	//判断a,b是否等于0，其中一个等于0，返回0 </span><br><span class="line">		return &quot;0&quot;;</span><br><span class="line">//a,b均不等于0，进行相乘 </span><br><span class="line">	a=a.substr(a.find_first_not_of(&apos;0&apos;));		//a，b去掉前面的0 </span><br><span class="line">	b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	reverse(a.begin(),a.end());				//a，b翻转，低位在左侧，并对齐 </span><br><span class="line">	reverse(b.begin(),b.end());</span><br><span class="line">	</span><br><span class="line">	string ans(a.length()+b.length(),&apos;0&apos;);			//ans表示积</span><br><span class="line">	int numtmp=0;		//numtmp:表示前一位的进位 </span><br><span class="line">	int num=0; 			//每两位的积 </span><br><span class="line">	int anstmp=0;		//ans前一位的进位 </span><br><span class="line">	</span><br><span class="line">	int i,j;</span><br><span class="line">	for(i=0;i&lt;b.length();i++)&#123;				//b的每一个数位乘以a </span><br><span class="line">		for(j=0;j&lt;a.length();j++)&#123;			//乘以a的每一个数位 </span><br><span class="line">			num=(a[j]-&apos;0&apos;)*(b[i]-&apos;0&apos;);		 </span><br><span class="line">			num+=numtmp;			 </span><br><span class="line">			ans[j+i]=ans[j+i]+num%10+anstmp;	//ans的值的处理 </span><br><span class="line">			anstmp=0;							//ans已进位，须清零 </span><br><span class="line">			numtmp=num/10;</span><br><span class="line">			while(ans[j+i]&gt;&apos;9&apos;)&#123;			//ans大于’9‘，有进位 </span><br><span class="line">				ans[j+i]=ans[j+i]-10;</span><br><span class="line">				anstmp++;					//ans进位给后一位 </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans[j+i]=ans[j+i]+anstmp+numtmp;	//a已遍历完了，处理前一位的进位 </span><br><span class="line">		anstmp=0;							//ans进位清零 </span><br><span class="line">		numtmp=0;							//每一个b[j]与a[0]相乘，前一位的进位为零 </span><br><span class="line">	&#125;</span><br><span class="line">	reverse(ans.begin(),ans.end());			//ans翻转回来 </span><br><span class="line">	return ans.substr(ans.find_first_not_of(&apos;0&apos;));		//ans去掉前面的零 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	string a,b;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b;			//输入两个因数 </span><br><span class="line">	cout&lt;&lt;multiplicative(a,b)&lt;&lt;endl;		//输出积 </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="大数的除法"><a href="#大数的除法" class="headerlink" title="大数的除法"></a>大数的除法</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>除法主要转换为<code>减法</code>来实现。<br>比如：求a/b</p>
+<h4 id="整数部分："><a href="#整数部分：" class="headerlink" title="整数部分："></a>整数部分：</h4><p>输入a与b的约束：<br>若a等于0，即被除数为0，商一定为0；<br>若b等于0，即除数为0，商无意义；<br>若a&gt;=b,则用a去减b,可以减几次b,则整数为几。</p>
+<h4 id="小数部分："><a href="#小数部分：" class="headerlink" title="小数部分："></a>小数部分：</h4><p>若a等于，剩下的部分皆为0；<br>若a&lt;b,则在a后补0，再去减b;<br>循环执行，直到达到了要求的精确度。</p>
+<h3 id="代码实现如下-1"><a href="#代码实现如下-1" class="headerlink" title="代码实现如下"></a>代码实现如下</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//大数除法的实现，并可实现精确到多少位小数， 精确方法采用截尾法 </span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include &lt;sstream&gt; </span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">string subtract(string a,string b)&#123;			//减法函数 </span><br><span class="line">	bool flag=false;	//标记a,b的比较，a&lt;b为true，结果为负 </span><br><span class="line">	if( a.length()&lt;b.length() || a.length()==b.length()&amp;&amp;a&lt;b)&#123;	//如果b&gt;a,交换 </span><br><span class="line">		flag=true;</span><br><span class="line">		string tmp = b;			//a,b交换 </span><br><span class="line">		b=a;</span><br><span class="line">		a=tmp;</span><br><span class="line">	&#125; </span><br><span class="line">//翻转，低位在左边，先运算 </span><br><span class="line">	reverse(a.begin(),a.end());</span><br><span class="line">	reverse(b.begin(),b.end());</span><br><span class="line">//按位做减法</span><br><span class="line">	for(int i=0;i&lt;b.length();++i)&#123;</span><br><span class="line">		if(a[i]&gt;=b[i])&#123;			//本位够减 </span><br><span class="line">			a[i]=a[i]-b[i]+&apos;0&apos;;</span><br><span class="line">		&#125;else&#123;					//不够减，需借位 </span><br><span class="line">			int k=1;</span><br><span class="line">			while(a[i+k]==&apos;0&apos;)&#123;		//如果下一位只有0，借出1，置9，再往后一位借1 </span><br><span class="line">				a[i+k]=&apos;9&apos;;			</span><br><span class="line">				k++;</span><br><span class="line">			&#125; </span><br><span class="line">			a[i+k]=a[i+k]-&apos;1&apos;+&apos;0&apos;;					//i+k位借出了1 </span><br><span class="line">			a[i]=(a[i]-&apos;0&apos;)+10-(b[i]-&apos;0&apos;)+&apos;0&apos;;		//i位借来了10，相减 </span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	reverse(a.begin(),a.end());		//翻转回来</span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos)	//string::npos指如果没找到，返回一个标志；这里指；如果a全部为零，则进入 </span><br><span class="line">		return &quot;0&quot;;</span><br><span class="line">	if(flag) &#123;							//负数的处理 </span><br><span class="line">		string ans(a.length()+1,&apos;0&apos;);	//声明一个长度为a.length()+1,字符全部为‘0’的字符串 </span><br><span class="line">		ans[0]=&apos;-&apos;;						//加上负号 </span><br><span class="line">		for(int i=a.length()+1;i&gt;0;i--)&#123;	//将a赋值给ans,a的第1位放到ans的第2位，以此类推 。。。 </span><br><span class="line">			ans[i]=a[i-1];</span><br><span class="line">		&#125;				//字符串前面全部去掉零 </span><br><span class="line">		return ans.substr(ans.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	&#125;</span><br><span class="line">	return a.substr(a.find_first_not_of(&apos;0&apos;)); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void i2s(int n, string &amp;str) &#123;		//将整型转换成字符型 </span><br><span class="line">    stringstream ss;		//字符流 </span><br><span class="line">    ss &lt;&lt; n;</span><br><span class="line">    ss &gt;&gt; str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool compare(string a,string b)&#123;	//比较a,b；若a&gt;=b;返回true </span><br><span class="line">	return (a.length()&gt;b.length()||a.length()==b.length()&amp;&amp;a&gt;=b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">string divide(string a,string b,long long count)&#123;				//除法函数 </span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos)&#123;	//a字符串全为0，即被除数为0 </span><br><span class="line">		a=&quot;0.&quot;;</span><br><span class="line">		for(int i=0;i&lt;count;i++)&#123;		//精确到count位小数 </span><br><span class="line">			a.append(&quot;0&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		return a;</span><br><span class="line">	&#125;		</span><br><span class="line">	else a=a.substr(a.find_first_not_of(&apos;0&apos;));		//去掉a字符串前面的零 </span><br><span class="line">	if(b.find_first_not_of(&apos;0&apos;)==string::npos)		//b字符串全为0，即除数为0，无意义 </span><br><span class="line">		return &quot;ERROR&quot;;</span><br><span class="line">	else b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	</span><br><span class="line">//整数部分的处理 </span><br><span class="line">	int t=0;				//t:保存a可以减多少次b,即a/b的商 </span><br><span class="line">	string t_str=&quot;0&quot;;		//t_str是t的字符串形式 </span><br><span class="line">	while(compare(a,b))&#123;	//若a&gt;=b </span><br><span class="line">		a=subtract(a,b);</span><br><span class="line">		t++;</span><br><span class="line">	&#125;</span><br><span class="line">	i2s(t,t_str);			//将整型t转换成字符型t_str </span><br><span class="line">	string ans=t_str;		//ans存储a/b的商 </span><br><span class="line">	ans.append(&quot;.&quot;);				//加上小数点 </span><br><span class="line">	</span><br><span class="line">//小数部分的处理 </span><br><span class="line">	for(int i=0;i&lt;count;i++)&#123;				//count：表示截尾精确到count位小数</span><br><span class="line">		if(a.find_first_not_of(&quot;0&quot;)==string::npos)		//若a字符全为0 </span><br><span class="line">			ans.append(&quot;0&quot;); </span><br><span class="line">		else&#123;</span><br><span class="line">			a.append(&quot;0&quot;);				//a补0 </span><br><span class="line">			t=0;</span><br><span class="line">			t_str=&quot;0&quot;; </span><br><span class="line">			while(compare(a,b))&#123;</span><br><span class="line">				a=subtract(a,b);</span><br><span class="line">				t++;</span><br><span class="line">			&#125;</span><br><span class="line">			i2s(t,t_str);				//t表示a可以减多少次b，t_str是t的字符串形式 </span><br><span class="line">			ans.append(t_str);			//再加上一位小数 </span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	string a,b;</span><br><span class="line">	long long count;</span><br><span class="line">	cout&lt;&lt;&quot;请输入被除数:&quot;;</span><br><span class="line">	cin&gt;&gt;a;</span><br><span class="line">	cout&lt;&lt;&quot;请输入除数:&quot;; </span><br><span class="line">	cin&gt;&gt;b;</span><br><span class="line">	cout&lt;&lt;&quot;请输入精确位数:&quot;;</span><br><span class="line">	cin&gt;&gt;count; </span><br><span class="line">	cout&lt;&lt;divide(a,b,count)&lt;&lt;endl;		 </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ol>
+<li>乘法、除法程序只可处理整数，不可处理负数。</li>
+<li>除法中使用的减法函数使用了上一篇博客中的减法实现程序，其中考虑到了，a&lt;b的情况，但除法中的减法函数不需要用到a&lt;b的情况，可根据实际要求更改一下。</li>
+<li>以上仅仅是个人的见解，如还有其他情况未考虑到，希望大佬们可以批评指出，感谢！</li>
+</ol>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/03/11/JSP基础/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JSP的基础</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/官方文档/">官方文档</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/demo/">demo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/demo/" style="font-size: 10px;">demo</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/14/大数加减乘除的实现/">大数的加减乘除法的实现（2）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/11/JSP基础/">JSP的基础</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/10/大数加减乘除的实现/">大数的加减乘除法的实现（1）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/05/回溯、递归、dfs的个人总结/">回溯、递归、dfs的个人总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/数独/">数独</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
