@@ -5,23 +5,27 @@
   
 
   
-  <title>Hello World | ľľ</title>
+  <title>JSP内置对象 | ľľ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="demo">
+  <meta name="description" content="内置对象技术什么是内置对象在JSP中，不需要声明和创建就可以直接使用的对象，就是内置对象。 9个内置对象reuqest（请求对象）response（响应对象）session（会话对象）application（应用程序对象）out（输出对象）page（页面对象）config（配置对象）exception（异常对象）pageContext（页面上下文对象） 对象的作用域（生命周期）out对象功能1.o">
+<meta name="keywords" content="内置对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://LHL27.github.io/2019/02/26/你好/index.html">
+<meta property="og:title" content="JSP内置对象">
+<meta property="og:url" content="https://LHL27.github.io/2019/03/24/JSP内置对对象/index.html">
 <meta property="og:site_name" content="ľľ">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="内置对象技术什么是内置对象在JSP中，不需要声明和创建就可以直接使用的对象，就是内置对象。 9个内置对象reuqest（请求对象）response（响应对象）session（会话对象）application（应用程序对象）out（输出对象）page（页面对象）config（配置对象）exception（异常对象）pageContext（页面上下文对象） 对象的作用域（生命周期）out对象功能1.o">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T08:13:56.000Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象/out代码.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象/out浏览器显示.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象/out_HTML代码.png">
+<meta property="og:updated_time" content="2019-03-25T11:07:45.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="JSP内置对象">
+<meta name="twitter:description" content="内置对象技术什么是内置对象在JSP中，不需要声明和创建就可以直接使用的对象，就是内置对象。 9个内置对象reuqest（请求对象）response（响应对象）session（会话对象）application（应用程序对象）out（输出对象）page（页面对象）config（配置对象）exception（异常对象）pageContext（页面上下文对象） 对象的作用域（生命周期）out对象功能1.o">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象/out代码.png">
   
     <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
   
@@ -56,29 +60,29 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-你好" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JSP内置对对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      JSP内置对象
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/02/26/你好/" class="article-date">
-  <time datetime="2019-02-25T16:00:00.000Z" itemprop="datePublished">2019-02-26</time>
+    <a href="/2019/03/24/JSP内置对对象/" class="article-date">
+  <time datetime="2019-03-23T16:00:00.000Z" itemprop="datePublished">2019-03-24</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/官方文档/">官方文档</a>
+    <a class="article-category-link" href="/categories/Java-Web/">Java Web</a>
   </div>
 
     
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/demo/">demo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内置对象/">内置对象</a></li></ul>
 
   </div>
   
@@ -91,15 +95,16 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="内置对象技术"><a href="#内置对象技术" class="headerlink" title="内置对象技术"></a>内置对象技术</h1><h3 id="什么是内置对象"><a href="#什么是内置对象" class="headerlink" title="什么是内置对象"></a>什么是内置对象</h3><p>在JSP中，不需要声明和创建就可以直接使用的对象，就是内置对象。</p>
+<h3 id="9个内置对象"><a href="#9个内置对象" class="headerlink" title="9个内置对象"></a>9个内置对象</h3><p>reuqest（请求对象）<br>response（响应对象）<br>session（会话对象）<br>application（应用程序对象）<br>out（输出对象）<br>page（页面对象）<br>config（配置对象）<br>exception（异常对象）<br>pageContext（页面上下文对象）</p>
+<h3 id="对象的作用域（生命周期）"><a href="#对象的作用域（生命周期）" class="headerlink" title="对象的作用域（生命周期）"></a>对象的作用域（生命周期）</h3><h2 id="out对象"><a href="#out对象" class="headerlink" title="out对象"></a>out对象</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>1.out对象代表向客户端输出数据。JSP中out输出的数据只是输出在HTML上，这些数据是怎样显示在浏览器上，还是显不显示，还要结合HTML的代码来分析。<br>2.out对象还管理应用服务器上输出缓冲区。</p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear()				清除缓冲区的内容</span><br><span class="line">clearBuffer()			清除缓冲区当前的内容</span><br><span class="line">flush()				清空流</span><br><span class="line">getBufferSize()			返回缓冲区字节数的大小，默认为8KB</span><br><span class="line">getRemaining()			返回缓冲区剩余多少可用</span><br><span class="line">isAutoFlush()			当缓冲区满时，是否自动刷新</span><br><span class="line">printIn()  /  print()		输出内容，前者输完换行，后者不换，注意：是输出在HTML上的，不一定在浏览器上显示</span><br><span class="line">close()				关闭输出流</span><br><span class="line">newLine()			换行</span><br></pre></td></tr></table></figure></div>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>主要：理解清空缓冲的工作原理。<br>示例代码如下：<br><img src="/2019/03/24/JSP内置对对象/out代码.png" alt="out对象示例代码"><br>浏览器上的显示如下：<br><img src="/2019/03/24/JSP内置对对象/out浏览器显示.png" alt="out浏览器显示"><br>可见，显示很混乱，out.printin()、out.newLine()等换行效果都没有出来。其实，out对象输出的内容是显示在HTML源码中的，而HTML中的回车换行和空格等效果，在浏览器中，都只是显示一个空格而已。<br><img src="/2019/03/24/JSP内置对对象/out_HTML代码.png" alt="out_HTML代码"><br>在out.flush()之后，剩余可用缓冲增多了，也就说明out.flush()清空了缓冲了。</p>
+<h3 id="网页内容的三种输出方法"><a href="#网页内容的三种输出方法" class="headerlink" title="网页内容的三种输出方法"></a>网页内容的三种输出方法</h3><ol>
+<li>HTML</li>
+<li>JSP表达式</li>
+<li>out对象</li>
+</ol>
 
       
     </div>
@@ -114,17 +119,13 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2019/03/01/李白打酒/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            李白打酒
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
+    
+      <a href="/2019/03/16/bfs的框架及示例/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">bfs的框架及示例</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
     
   </div>
 </nav>
