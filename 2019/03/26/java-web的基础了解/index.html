@@ -5,29 +5,25 @@
   
 
   
-  <title>回溯、递归、dfs的个人总结 | ľľ</title>
+  <title>java web的基础了解 | ľľ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta name="description" content="回溯、递归、dfs的个人总结在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂">
+  <meta name="description" content="架构###B/SBrowser-Server架构（浏览器——服务器架构）直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。 C/SClient-Se">
+<meta name="keywords" content="常识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回溯、递归、dfs的个人总结">
-<meta property="og:url" content="https://LHL27.github.io/2019/03/05/回溯、递归、dfs的个人总结/index.html">
+<meta property="og:title" content="java web的基础了解">
+<meta property="og:url" content="https://LHL27.github.io/2019/03/26/java-web的基础了解/index.html">
 <meta property="og:site_name" content="ľľ">
-<meta property="og:description" content="回溯、递归、dfs的个人总结在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂">
+<meta property="og:description" content="架构###B/SBrowser-Server架构（浏览器——服务器架构）直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。 C/SClient-Se">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯要素点.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯框架1.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯框架2.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/dfs框架.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/dfs例子1.jpg">
-<meta property="og:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/dfs例子2.jpg">
-<meta property="og:updated_time" content="2019-03-14T12:14:47.741Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/修改端口.png">
+<meta property="og:updated_time" content="2019-03-27T07:44:41.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回溯、递归、dfs的个人总结">
-<meta name="twitter:description" content="回溯、递归、dfs的个人总结在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂">
-<meta name="twitter:image" content="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结/回溯要素点.jpg">
+<meta name="twitter:title" content="java web的基础了解">
+<meta name="twitter:description" content="架构###B/SBrowser-Server架构（浏览器——服务器架构）直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。 C/SClient-Se">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/修改端口.png">
   
     <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
   
@@ -62,28 +58,30 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-回溯、递归、dfs的个人总结" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-java-web的基础了解" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      回溯、递归、dfs的个人总结
+      java web的基础了解
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/03/05/回溯、递归、dfs的个人总结/" class="article-date">
-  <time datetime="2019-03-04T16:00:00.000Z" itemprop="datePublished">2019-03-05</time>
+    <a href="/2019/03/26/java-web的基础了解/" class="article-date">
+  <time datetime="2019-03-25T16:00:00.000Z" itemprop="datePublished">2019-03-26</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
+    <a class="article-category-link" href="/categories/Java-Web/">Java Web</a>
   </div>
 
     
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常识/">常识</a></li></ul>
+
   </div>
   
     <span id="busuanzi_container_page_pv">
@@ -95,12 +93,20 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h2 id="回溯、递归、dfs的个人总结"><a href="#回溯、递归、dfs的个人总结" class="headerlink" title="回溯、递归、dfs的个人总结"></a>回溯、递归、dfs的个人总结</h2><p>在算法的学习中，其实最基本的算法也就只有那么几种，枚举、递推、递归、回溯、贪心、动态规划。其他更高级的算法都是在它们的基础上，拓展而来的。<br>因为计算机并没有人类那么聪明，它解决问题的最基本思想就是遍历。枚举就是最简单的暴力搜索，把所有的结果都走一遍，记录满足条件的结果。递归、回溯则是在枚举的基础上，通过剪枝，从而减掉部分不满足的结果，使得搜索更快、更简单，从而降低时间复杂度。<br>枚举、递归、回溯都可以表示循环的意义。<br>递归了定义不同的函数意义，分步实现，通过调用自身，返回或继续调用，即可实现循环，还可以使用条件语句，选择不同的循环。<br>回溯直接通过取值点的不同取值实现循环，记住回溯的要素点、使用的框架，直接套用，就可以解决问题了。<br>关于dfs，个人觉得，dfs就是回溯和递归的融合。它也可以实现循环的意义。</p>
-<h3 id="回溯的要素点（9个）"><a href="#回溯的要素点（9个）" class="headerlink" title="回溯的要素点（9个）"></a>回溯的要素点（9个）</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/回溯要素点.jpg" alt="回溯算法的要素点"></p>
-<h3 id="回溯的框架"><a href="#回溯的框架" class="headerlink" title="回溯的框架"></a>回溯的框架</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/回溯框架1.jpg" alt="回溯算法的框架1"><br><img src="/2019/03/05/回溯、递归、dfs的个人总结/回溯框架2.jpg" alt="回溯算法的框架2"><br>拓展：可以使用一个数组来表示每行的取值点、取值初值、回溯点等，如使用数组来表示回溯点</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b[5]=&#123;0,2,2,4,4&#125;,则</span><br><span class="line">a[i]==b[i] &amp;&amp; i&gt;1 时，回溯到上一层</span><br></pre></td></tr></table></figure></div>
-<h3 id="dfs的框架"><a href="#dfs的框架" class="headerlink" title="dfs的框架"></a>dfs的框架</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/dfs框架.jpg" alt="dfs的框架"></p>
-<h3 id="dfs的例子"><a href="#dfs的例子" class="headerlink" title="dfs的例子"></a>dfs的例子</h3><p><img src="/2019/03/05/回溯、递归、dfs的个人总结/dfs例子1.jpg" alt="dfs的例子1"><br><img src="/2019/03/05/回溯、递归、dfs的个人总结/dfs例子2.jpg" alt="dfs的例子2"></p>
+        <h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>###B/S<br>Browser-Server架构（浏览器——服务器架构）<br>直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。</p>
+<h3 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h3><p>Client-Server架构（客户端——服务器架构）<br>由客户端和服务器端构成。用户必须要先下载并安装好客户端APP，通过APP才能访问到服务器，这是B/S与C/S的主要的区别。部分程序可在客户端运行，减缓可服务器的工作压力。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>B/S和C/S各有各的优缺点，两者是互补的关系，没有谁优于谁，谁替代谁的说法。</p>
+<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><p>bin:含有bat文件，是可执行文件<br>conf:配置信息文件<br>lib:jar文件<br>temp:临时文件<br>logs:日志</p>
+<h2 id="JDK的配置"><a href="#JDK的配置" class="headerlink" title="JDK的配置"></a>JDK的配置</h2><p>下载并安装JDK<br>配置java_home  classPass  path</p>
+<h2 id="Tomcat的安装配置"><a href="#Tomcat的安装配置" class="headerlink" title="Tomcat的安装配置"></a>Tomcat的安装配置</h2><ol>
+<li>登录<a href="https://tomcat.apache.org" target="_blank" rel="noopener">apache官网</a>下载相应的版本的tomcat。</li>
+<li>直接点击下一步安装即可。</li>
+<li>完成后，在环境变量中的，系统变量中新增变量。变量名：CATALINE_HOME，值为：tomcat的安装路径，路径到bin即可。</li>
+<li>验证是否配置成功<br>windows系统的用户，打开bin文件中的startup.bat，Linux系统的用户，打开bin文件中的startup.sh，若文件正常执行，没有出现闪退，即成功了。关闭命令行，不要直接X掉窗口，双击shutdowm.bat / shutdowm.sh即可。</li>
+<li>端口冲突问题：tomcat的默认端口为8080，容易与其他端口冲突，最好改一下。<br><font color="red">修改端口号<br>打开conf文件夹中的server.xml文件，以文本的形式打开,大概在中间位置找到下图的信息，直接改掉port，保存</font>。<br><img src="/2019/03/26/java-web的基础了解/修改端口.png" alt="修改port"></li>
+<li>验证是否更改成功<br>在浏览器中输入localhost:8888,回车即可访问tomcat,即为成功了。</li>
+</ol>
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><p>404：资源找不到<br>403：权限不足<br>502：内部错误</p>
 
       
     </div>
@@ -115,20 +121,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2019/03/10/大数加减乘除的实现/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            大数的加减乘除法的实现（1）
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/03/03/数独/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">数独</div>
+      <a href="/2019/03/24/JSP内置对对象/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JSP内置对象</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
