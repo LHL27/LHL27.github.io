@@ -87,20 +87,26 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>###B/S<br>Browser-Server架构（浏览器——服务器架构）<br>直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。</p>
-<h3 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h3><p>Client-Server架构（客户端——服务器架构）<br>由客户端和服务器端构成。用户必须要先下载并安装好客户端APP，通过APP才能访问到服务器，这是B/S与C/S的主要的区别。部分程序可在客户端运行，减缓可服务器的工作压力。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>B/S和C/S各有各的优缺点，两者是互补的关系，没有谁优于谁，谁替代谁的说法。</p>
-<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><p>bin:含有bat文件，是可执行文件<br>conf:配置信息文件<br>lib:jar文件<br>temp:临时文件<br>logs:日志</p>
-<h2 id="JDK的配置"><a href="#JDK的配置" class="headerlink" title="JDK的配置"></a>JDK的配置</h2><p>下载并安装JDK<br>配置java_home  classPass  path</p>
+        <h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="B-S"><a href="#B-S" class="headerlink" title="B/S"></a>B/S</h3><p>Browser-Server架构（浏览器——服务器架构）<br>直接由浏览器和服务器构成。<br>程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。</p>
+<h3 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h3><p>Client-Server架构（客户端——服务器架构）<br>由客户端和服务器端构成。<br>用户必须要先下载并安装好客户端APP，通过APP才能访问到服务器，这是B/S与C/S的主要的区别。部分程序可在客户端运行，减缓可服务器的工作压力。</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>B/S和C/S各有优势，两者是互补的关系，没有谁优于谁，谁替代谁的说法。</p>
+<h2 id="JDK的配置"><a href="#JDK的配置" class="headerlink" title="JDK的配置"></a>JDK的配置</h2><p>下载并安装JDK<br>配置java_home  classPass  path等变量</p>
 <h2 id="Tomcat的安装配置"><a href="#Tomcat的安装配置" class="headerlink" title="Tomcat的安装配置"></a>Tomcat的安装配置</h2><ol>
-<li>登录<a href="https://tomcat.apache.org" target="_blank" rel="noopener">apache官网</a>下载相应的版本的tomcat。</li>
-<li>直接点击下一步安装即可。</li>
-<li>完成后，在环境变量中的，系统变量中新增变量。变量名：CATALINE_HOME，值为：tomcat的安装路径，路径到bin即可。</li>
-<li>验证是否配置成功<br>windows系统的用户，打开bin文件中的startup.bat，Linux系统的用户，打开bin文件中的startup.sh，若文件正常执行，没有出现闪退，即成功了。关闭命令行，不要直接X掉窗口，双击shutdowm.bat / shutdowm.sh即可。</li>
+<li>先下载并配置好jdk。</li>
+<li>登录<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">apache官网</a>下载tomcat,版本不要下最新，不然与其他软件不兼容。值接选择第一个zip下载就行，也可以根据系统的类型和位数选择相应的zip.<br><img src="/2019/03/26/java-web的基础了解/tomcat下载.png" alt="tomcat"></li>
+<li>直接解压就可以用了。</li>
+<li>完成后，在环境变量中的，用户变量和系统变量都要新增一个变量。变量名：CATALINE_HOME，值为：tomcat的安装路径，路径到bin的上一级即可。</li>
+<li>验证是否配置成功<br>windows系统的用户，打开bin文件中的startup.bat，Linux系统的用户，打开bin文件中的startup.sh，若文件正常执行，没有出现闪退或打不开的情况，即成功了。关闭命令行，不要直接叉掉窗口，双击shutdowm.bat / shutdowm.sh即可。</li>
 <li>端口冲突问题：tomcat的默认端口为8080，容易与其他端口冲突，最好改一下。<br><font color="red">修改端口号<br>打开conf文件夹中的server.xml文件，以文本的形式打开,大概在中间位置找到下图的信息，直接改掉port，保存</font>。<br><img src="/2019/03/26/java-web的基础了解/修改端口.png" alt="修改port"></li>
-<li>验证是否更改成功<br>在浏览器中输入localhost:8888,回车即可访问tomcat,即为成功了。</li>
+<li>验证是否更改成功<br>在浏览器中输入localhost:8888（8888为相应的端口号）,回车可访问tomcat,即为成功了。如果是IE浏览器，改为<a href="http://localhost:8888。" target="_blank" rel="noopener">http://localhost:8888。</a></li>
 </ol>
-<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><p>404：资源找不到<br>403：权限不足<br>502：内部错误</p>
+<h2 id="解压后的tomcat文件类型"><a href="#解压后的tomcat文件类型" class="headerlink" title="解压后的tomcat文件类型"></a>解压后的tomcat文件类型</h2><p>bin: 存放可执行文件，如bat文件<br>conf: 配置信息文件。<br>lib: 存放jar文件。<br>temp:临时文件。<br>logs:日志文件，记录程序的执行。<br>webapps: 可执行的项目文件。<br>work: 存放JSP翻译成的Java，以及编译后的class文件。</p>
+<h2 id="直接在webapps中建一个项目"><a href="#直接在webapps中建一个项目" class="headerlink" title="直接在webapps中建一个项目"></a>直接在webapps中建一个项目</h2><ol>
+<li>直接在webapps中新建一个文件夹，如”JSP Project”,   在该文件夹下，新建一个”Web-INF”文件夹，在该文件夹下，新建”classes” 和”lib”文件夹，和一个”web.xml”文件，”web.xml”文件是该项目的配置文件，内容可直接复制webapps\ROOT\WEB-INF中的”web.xml”。classes文件夹存放java文件编译后的字节码文件，lib文件夹存放各种Jar包文件。</li>
+<li>在”JSP Project”文件夹中，新建一个index.html文件，内容自定义，如下图：<br><img src="/2019/03/26/java-web的基础了解/" alt="html示例"></li>
+<li>在浏览器中输入<code>http://localhost:8899/JSP%20Project/</code>或在后面还加上index.html。显示如下：<br><img src="/2019/03/26/java-web的基础了解/" alt="输入网址"><br><code>http://localhost:8899</code>是连接到tomcat服务器；<code>/JSP%20Project</code>是连接到那个项目；<code>index.html</code>是首页；若在web.xml中将index.html设置为first-file了，输入网址时，可以不用加上index.html。</li>
+</ol>
+<h2 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h2><p>200：正常<br>300/301：重定向（跳转）<br>403：权限不足<br>404：资源找不到<br>502：服务器内部错误（代码错误）</p>
 
       
     </div>
