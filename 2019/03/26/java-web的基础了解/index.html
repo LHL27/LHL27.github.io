@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/添加域名映射.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/带端口输入.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/不带端口输入.png">
-<meta property="og:updated_time" content="2019-04-08T03:21:30.049Z">
+<meta property="og:updated_time" content="2019-04-08T03:34:34.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java web的基础了解">
 <meta name="twitter:description" content="架构B/SBrowser-Server架构（浏览器——服务器架构）直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。 C/SClient-Serve">
@@ -177,9 +177,9 @@
 <li>在浏览器中输入”baidu.com:8899” , 其中，8899 为tomcat的端口号，显示如下：<br><img src="/2019/03/26/java-web的基础了解/带端口输入.png" alt="带端口输入"><br>当省略端口输入时，浏览器会跳到百度的官方网站。如果Host名并非正常使用的域名时，会出错。因为http协议中，网页的默认端口为80.</li>
 <li>如何省略端口输入，也可以正常跳转<br>将conf文件夹中的server.xml中的端口改为80，重启服务器，再输入<code>baidu.com</code>，显示如下：<br><img src="/2019/03/26/java-web的基础了解/不带端口输入.png" alt="不带端口输入"></li>
 </ol>
-<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><ol>
-<li>更改server.xml文件时，必须重启服务器，才可以发挥作用。</li>
-<li>测试某个更改效果时，记得要先清空浏览器的缓存，再进行测试。</li>
+<h2 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>更改server.xml文件时，必须重启服务器<code>(win系统运行shutdowm.bat,再运行startup.bat)</code>，才可以发挥作用。</li>
+<li>测试某个更改效果时，记得要先清空浏览器的缓存，再进行测试。测试项目时，服务器保持再启动的状态。</li>
 </ol>
 
       
