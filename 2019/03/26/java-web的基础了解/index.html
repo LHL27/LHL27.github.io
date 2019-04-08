@@ -21,9 +21,25 @@
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/tomcat下载.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/环境变量的配置.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/修改端口.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/文件存放关系.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/index源码.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/输入网址.png">
-<meta property="og:updated_time" content="2019-03-28T05:23:48.848Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/localhost的ip映射.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/通过ip访问项目.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/外移JSP%20Project.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/外移JSP%20Project再刷新.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/根目录.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/虚拟路径的配置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/配置虚拟路径后访问.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/新建xml文件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/作为默认项目.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/访问默认项目.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/增加Host.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/更改默认引擎.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/添加域名映射.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/带端口输入.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/26/java-web的基础了解/不带端口输入.png">
+<meta property="og:updated_time" content="2019-04-08T03:21:30.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java web的基础了解">
 <meta name="twitter:description" content="架构B/SBrowser-Server架构（浏览器——服务器架构）直接由浏览器和服务器构成。程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。 C/SClient-Serve">
@@ -100,10 +116,10 @@
         <h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="B-S"><a href="#B-S" class="headerlink" title="B/S"></a>B/S</h3><p>Browser-Server架构（浏览器——服务器架构）<br>直接由浏览器和服务器构成。<br>程序都是在服务器上运行，当用户群体比较大时，服务器端工作压力很大。用户通过在浏览器上登录某个网址，提交请求的信息。浏览器即向服务器提交了请求，服务器接收到请求，并根据请求的信息，进行相应的操作，比如：访问数据库、运行脚本程序等等，然后给浏览器回复一个响应，以此达到交互的功能。</p>
 <h3 id="C-S"><a href="#C-S" class="headerlink" title="C/S"></a>C/S</h3><p>Client-Server架构（客户端——服务器架构）<br>由客户端和服务器端构成。<br>用户必须要先下载并安装好客户端APP，通过APP才能访问到服务器，这是B/S与C/S的主要的区别。部分程序可在客户端运行，减缓可服务器的工作压力。</p>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>B/S和C/S各有优势，两者是互补的关系，没有谁优于谁，谁替代谁的说法。</p>
-<h2 id="JDK的配置"><a href="#JDK的配置" class="headerlink" title="JDK的配置"></a>JDK的配置</h2><p>下载并安装JDK<br>配置java_home  classPass  path等变量</p>
+<h2 id="JDK的配置"><a href="#JDK的配置" class="headerlink" title="JDK的配置"></a>JDK的配置</h2><p>下载并安装JDK<br>配置java_home ,classPass , path等变量</p>
 <h2 id="Tomcat的安装配置"><a href="#Tomcat的安装配置" class="headerlink" title="Tomcat的安装配置"></a>Tomcat的安装配置</h2><ol>
 <li>先下载并配置好jdk。</li>
-<li>登录<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">apache官网</a>下载tomcat,版本不要下最新，不然与其他软件不兼容。值接选择第一个zip下载就行，也可以根据系统的类型和位数选择相应的zip.<br><img src="/2019/03/26/java-web的基础了解/tomcat下载.png" alt="tomcat"></li>
+<li>登录<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">apache官网</a>下载tomcat,版本不要下最新，不然与其他软件不兼容。直接选择第一个zip下载就行，也可以根据系统的类型和位数选择相应的zip.<br><img src="/2019/03/26/java-web的基础了解/tomcat下载.png" alt="tomcat"></li>
 <li>直接解压就可以用了。</li>
 <li>完成后，在环境变量中的，用户变量和系统变量都要新增一个变量。变量名：CATALINE_HOME，值为：tomcat的安装路径，路径到bin的上一级即可，如下图：<br><img src="/2019/03/26/java-web的基础了解/环境变量的配置.png" alt="环境变量的配置"></li>
 <li>验证是否配置成功<br>windows系统的用户，打开bin文件中的startup.bat，Linux系统的用户，打开bin文件中的startup.sh，若文件正常执行，没有出现闪退或打不开的情况，即成功了。关闭命令行，不要直接叉掉窗口，双击shutdowm.bat / shutdowm.sh即可。</li>
@@ -111,12 +127,60 @@
 <li>验证是否更改成功<br>在浏览器中输入localhost:8888（8888为相应的端口号）,回车可访问tomcat,即为成功了。如果是IE浏览器，改为<a href="http://localhost:8888。" target="_blank" rel="noopener">http://localhost:8888。</a></li>
 </ol>
 <h2 id="解压后的tomcat文件类型"><a href="#解压后的tomcat文件类型" class="headerlink" title="解压后的tomcat文件类型"></a>解压后的tomcat文件类型</h2><p>bin: 存放可执行文件，如bat文件<br>conf: 配置信息文件。<br>lib: 存放jar文件。<br>temp:临时文件。<br>logs:日志文件，记录程序的执行。<br>webapps: 可执行的项目文件。<br>work: 存放JSP翻译成的Java，以及编译后的class文件。</p>
+<h2 id="web-xml的作用"><a href="#web-xml的作用" class="headerlink" title="web.xml的作用"></a>web.xml的作用</h2><ol>
+<li><p>指定默认的首页，如</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;welcome-file-list&gt;		//如果第一个找不到，就会自动找下一个</span><br><span class="line">	&lt;welcome-file&gt;index.html&lt;/welcome-file&gt;</span><br><span class="line">	&lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;</span><br><span class="line">&lt;/welcome-file-list&gt;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>servlet的映射关系</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;description&gt;This is the description of my J2EE component&lt;/description&gt;</span><br><span class="line">    &lt;display-name&gt;This is the display name of my J2EE component&lt;/display-name&gt;</span><br><span class="line">    &lt;servlet-name&gt;accept&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;Server.accept&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;accept&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/servlet/accept&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure></div>
+<p>文件存放如下：<br><img src="/2019/03/26/java-web的基础了解/文件存放关系.png" alt="文件存放关系"></p>
+<h2 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h2><p>200：正常<br>300/301：重定向（跳转）<br>403：权限不足<br>404：资源找不到<br>502：服务器内部错误（代码错误）</p>
 <h2 id="直接在webapps中建一个项目"><a href="#直接在webapps中建一个项目" class="headerlink" title="直接在webapps中建一个项目"></a>直接在webapps中建一个项目</h2><ol>
 <li>直接在webapps中新建一个文件夹，如”JSP Project”,   在该文件夹下，新建一个”Web-INF”文件夹，在该文件夹下，新建”classes” 和”lib”文件夹，和一个”web.xml”文件，”web.xml”文件是该项目的配置文件，内容可直接复制webapps\ROOT\WEB-INF中的”web.xml”。classes文件夹存放java文件编译后的字节码文件，lib文件夹存放各种Jar包文件。</li>
 <li>在”JSP Project”文件夹中，新建一个index.html文件，内容自定义，如下图：<br><img src="/2019/03/26/java-web的基础了解/index源码.png" alt="html示例"></li>
 <li>在浏览器中输入<code>http://localhost:8899/JSP%20Project/</code>或在后面还加上index.html。显示如下：<br><img src="/2019/03/26/java-web的基础了解/输入网址.png" alt="输入网址"><br><code>http://localhost:8899</code>是连接到tomcat服务器；<code>/JSP%20Project</code>是连接到那个项目；<code>index.html</code>是首页；若在web.xml中将index.html设置为first-file了，输入网址时，可以不用加上index.html。</li>
 </ol>
-<h2 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h2><p>200：正常<br>300/301：重定向（跳转）<br>403：权限不足<br>404：资源找不到<br>502：服务器内部错误（代码错误）</p>
+<h2 id="通过ip地址来访问自己的项目"><a href="#通过ip地址来访问自己的项目" class="headerlink" title="通过ip地址来访问自己的项目"></a>通过ip地址来访问自己的项目</h2><ol>
+<li>打开C:\Windows\System32\drivers\etc的hosts文件，在<code># localhost name resolution is handled within DNS itself.</code>下面加上<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1	    localhost</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>如图：<br><img src="/2019/03/26/java-web的基础了解/localhost的ip映射.png" alt="localhost的ip映射"></p>
+<ol start="2">
+<li>在浏览器中输入<code>127.0.0.1</code><br>显示如下：<br><img src="/2019/03/26/java-web的基础了解/通过ip访问项目.png" alt="通过ip访问项目"></li>
+</ol>
+<h2 id="为什么项目要放在webapps中"><a href="#为什么项目要放在webapps中" class="headerlink" title="为什么项目要放在webapps中"></a>为什么项目要放在webapps中</h2><p>如果将”JSP Project”新建在webapps以外的文件夹中，再访问<code>http://localhost:8899/JSP%20Project/</code>，就会出现404的错误，这是为什么呢？<br><img src="/2019/03/26/java-web的基础了解/外移JSP Project.png" alt="外移JSP Project"><br>当我将JSP project项目移到webapps文件夹以外，刷新访问该网页。<br><img src="/2019/03/26/java-web的基础了解/外移JSP Project再刷新.png" alt="外移JSP Project再刷新."><br>因为本地服务器的默认的根文件夹就是webapps，打开conf文件夹中的server.xml，可以看到下图的内容：<br><img src="/2019/03/26/java-web的基础了解/根目录.png" alt="webapps作为根目录"><br>这就说明，localhost只可打开webapps中的项目。<br>如果想将项目建在webapps以外的文件夹中，需要配置一个虚拟路径。</p>
+<h2 id="虚拟路径的配置方法"><a href="#虚拟路径的配置方法" class="headerlink" title="虚拟路径的配置方法"></a>虚拟路径的配置方法</h2><p><font color="red" size="5">方法1：</font><br>在server.xml文件中，Host标签中，加上下面这行代码<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context docBase=&quot;&quot;  path=&quot;&quot;  /&gt;	//严格区分大小写</span><br></pre></td></tr></table></figure></div></p>
+<p>docBase:表示项目所在的实际路径。<br>path:表示在在webapps中的虚拟路径，即在网页中输入的地址。（可以是绝对路径，也可以是相对路径，相对于webapps的路径）<br>当在网页中输入path的路径时，服务器会自动到docBase的目录下，寻找项目。配置如下：<br><img src="/2019/03/26/java-web的基础了解/虚拟路径的配置.png" alt="虚拟路径的配置"><br>刚配置完虚拟路径，我就直接访问了。还是会报404的错误。我关闭服务器，再打开，再访问就成功了。<br><img src="/2019/03/26/java-web的基础了解/配置虚拟路径后访问.png" alt="配置虚拟路径后访问"></p>
+<p><font color="red" size="5">方法2：</font><br>方法1配置完成虚拟路径后，必须要重启服务器，才可以访问得到，方法2则不需重启。</p>
+<ol>
+<li>先将刚才在conf文件夹的server.xml文件中加上的代码删除。</li>
+<li>打开conf\Catalina\localhost目录, 在该文件夹上新建一个”项目名.xml”文件，文件内容为刚才删除的代码，如：<br><img src="/2019/03/26/java-web的基础了解/新建xml文件.png" alt="新建xml文件"><br>如果想将该项目作为默认项目，直接在前面的基础下，将”项目名.xml”文件重命名为<font color="red">ROOT.xml</font>, 这样，访问该项目时，可以省略项目名了。如图：<br><img src="/2019/03/26/java-web的基础了解/作为默认项目.png" alt="作为默认项目"><br>在浏览器中输入<code>http://localhost:8899/</code>访问如下图：<br><img src="/2019/03/26/java-web的基础了解/访问默认项目.png" alt="访问默认项目"></li>
+</ol>
+<h2 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h2><p>通常我们访问一个网站时，都是在浏览器上输入一个域名，主机就会去询问域名解析服务器，域名解析服务器返回一个ip地址。主机再去访问与该ip地址对应的主机或服务器。其实，主机去询问域名解析服务器前，会先在本地，也就是本主机的记录中查找域名与ip地址的映射关系，如果找到了，直接访问ip地址对应的主机或服务器了。<br>因此，我们在主机的记录中加上一个虚拟主机记录，就可以<code>通过更改主机名</code>让浏览器访问访问自己的项目了。<br>如：实现在浏览器中输入：<code>baidu.com</code>，访问自己的项目。</p>
+<ol>
+<li>打开tomcat中的conf/server.xml文件，在Host标签前面，再加上一个Host<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host name=&quot;baidu.com&quot;  appBase=&quot;E:\software\Tomcat\JSP Project&quot;&gt;</span><br><span class="line">      &lt;Context docBase=&quot;E:\software\Tomcat\JSP Project&quot; path=&quot;&quot; /&gt;</span><br><span class="line"> &lt;/Host&gt;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>如下图：<br><img src="/2019/03/26/java-web的基础了解/增加Host.png" alt="增加Host"><br>Context中的内容就是虚拟路径，Context与webBase的内容可以相应更改。path也可以更改为<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path=&quot;/&quot;</span><br></pre></td></tr></table></figure></div></p>
+<p>因为<code>/</code>会被识别出来，省略了首页。</p>
+<ol start="2">
+<li><p>在Host标签上面几行找到Engine（引擎）标签，更改默认主机。<br>将defaultHost的内容更改如下图：<br><img src="/2019/03/26/java-web的基础了解/更改默认引擎.png" alt="更改默认引擎"></p>
+</li>
+<li><p>配置Host与本地ip的关系<br>打开C:\Windows\System32\drivers\etc的hosts文件，在<code># localhost name resolution is handled within DNS itself.</code>下面加上</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1	    baidu.com</span><br></pre></td></tr></table></figure></div>
+<p>如图：<img src="/2019/03/26/java-web的基础了解/添加域名映射.png" alt="添加域名映射"></p>
+<ol start="4">
+<li>在浏览器中输入”baidu.com:8899” , 其中，8899 为tomcat的端口号，显示如下：<br><img src="/2019/03/26/java-web的基础了解/带端口输入.png" alt="带端口输入"><br>当省略端口输入时，浏览器会跳到百度的官方网站。如果Host名并非正常使用的域名时，会出错。因为http协议中，网页的默认端口为80.</li>
+<li>如何省略端口输入，也可以正常跳转<br>将conf文件夹中的server.xml中的端口改为80，重启服务器，再输入<code>baidu.com</code>，显示如下：<br><img src="/2019/03/26/java-web的基础了解/不带端口输入.png" alt="不带端口输入"></li>
+</ol>
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><ol>
+<li>更改server.xml文件时，必须重启服务器，才可以发挥作用。</li>
+<li>测试某个更改效果时，记得要先清空浏览器的缓存，再进行测试。</li>
+</ol>
 
       
     </div>
