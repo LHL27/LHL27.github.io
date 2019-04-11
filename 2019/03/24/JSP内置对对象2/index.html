@@ -28,7 +28,14 @@
 <meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/session示例正常访问内部网页.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/session示例2注销.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/session示例2的控制台.png">
-<meta property="og:updated_time" content="2019-04-10T14:14:16.978Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/删除Cookie再执行.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/application示例1路径.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/文件路径.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/第一次执行Count.jsp.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/第二次.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/同一个浏览器上都次访问.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/03/24/JSP内置对对象2/关闭服务器后重访问.png">
+<meta property="og:updated_time" content="2019-04-11T11:32:04.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie对象、及JSP内置对象2">
 <meta name="twitter:description" content="Cookiecookie不是内置对象。使用时，需要先new。 定义Cookie是由服务端生成，发送到客户端保存。当客户端第一次请求时，服务端会生成一个Cookie，里面包含客户端想要的信息，发送到客户端。客户端在本地将Cookie保存下来。在Cookie没有失效的情况下，客户端再次发出相同的请求时，直接在本地查找Cookie，获得信息，不需要经过服务器端，提高了效率。 功能类似于本地缓存的作用。可">
@@ -161,7 +168,7 @@
 <li>在停止操作浏览器15秒之内，访问inside.jsp ，显示如下：<img src="/2019/03/24/JSP内置对对象2/session示例正常访问内部网页.png" alt="正常访问内部网页"></li>
 <li>在停止操作浏览器15秒之后，访问inside,jsp ，被拦截，返回login.jsp登录界面，需要重新登录。</li>
 </ol>
-<h3 id="如何在注销session"><a href="#如何在注销session" class="headerlink" title="如何在注销session"></a>如何在注销session</h3><p>直接在页面中的body标签内，加入如下代码；<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.invalidate();			//使当前session失效，其他session无影响</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="如何注销session"><a href="#如何注销session" class="headerlink" title="如何注销session"></a>如何注销session</h3><p>直接在页面中的body标签内，加入如下代码；<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.invalidate();			//使当前session失效，其他session无影响</span><br></pre></td></tr></table></figure></div></p>
 <p>或<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.removeAttribute(&quot;name&quot;);	//使name失效，还保留其他信息</span><br></pre></td></tr></table></figure></div></p>
 <p>通常用第一种方式。注销功能通常做成超链接的形式。</p>
 <h3 id="如何使得session与Cookie对应起来"><a href="#如何使得session与Cookie对应起来" class="headerlink" title="如何使得session与Cookie对应起来"></a>如何使得session与Cookie对应起来</h3><p>在服务器将session的<code>sessionid</code> 和 <code>JSESSIONID</code>创建一个Cookie对象（name=JSESSIONID ，value=sessionid）。发送到服务器。在服务器获取该Cookie对象。这是，就可以一一对应了。</p>
@@ -179,7 +186,30 @@
 <li>按<code>示例1的测试步骤</code>操作一遍，当执行inside.jsp页面时，显示如下：<img src="/2019/03/24/JSP内置对对象2/session示例2注销.png" alt="注销"></li>
 <li>当点击注销时，返回login.jsp登录页面。</li>
 <li>当按步骤执行几次，查看控制台，发现sessionid 与JSESSIONID 的值总是相同的。如图：<img src="/2019/03/24/JSP内置对对象2/session示例2的控制台.png" alt="控制台.png"></li>
+<li><p>将check.jsp页面中的Cookie删除，即以下删除代码：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = new Cookie(&quot;JSESSIONID&quot;,&quot;session.getId()&quot;);		//将sessionid与JSESSION加到Cookie</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>再快速按步骤执行，控制台显示如下：<img src="/2019/03/24/JSP内置对对象2/删除Cookie再执行.png" alt="删除Cookie再执行"><br>可见，JSESSIONID还是存在，并且与sessionid相同，说明了服务器会自动创建与session对应的Cookie，并发送到客户端，也就是前面<code>Cookie示例1</code>讲到的，默认的Cookie。</p>
+</li>
 </ol>
+<h2 id="application对象"><a href="#application对象" class="headerlink" title="application对象"></a>application对象</h2><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>在服务器启动时，对每一个web程序都自动创建一个application对象，只要不关闭服务器，application就一直存在。</p>
+<h3 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h3><p>所有访问同一个web工程的用户可以共享application对象。</p>
+<h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String getContextPath();                  //获取该项目部署的虚拟路径</span><br><span class="line">String getRealPath(String path)；		  //获取虚拟路径path相对应的绝对路径</span><br><span class="line">Object getAttribute(String attriname);	  //获取指定属性的值</span><br><span class="line">void setAttribute(String attiname,Object attrivalue);		//设置一个新属性，并保存值</span><br><span class="line">void removeAttribute(String attriname);	  //删除指定属性</span><br><span class="line">Enumeration getAttributeName();			  //获取所有属性</span><br></pre></td></tr></table></figure></div>
+<h3 id="示例1：获取项目的虚拟和绝对路径"><a href="#示例1：获取项目的虚拟和绝对路径" class="headerlink" title="示例1：获取项目的虚拟和绝对路径"></a>示例1：获取项目的虚拟和绝对路径</h3><p>在根目录下创建一个Application_Demo 文件夹，在该文件夹下创建一个Demo.jsp文件。</p>
+<h4 id="Demo-jsp代码如下："><a href="#Demo-jsp代码如下：" class="headerlink" title="Demo.jsp代码如下："></a>Demo.jsp代码如下：</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">    	String Vpath = application.getContextPath();		//获取虚拟路径</span><br><span class="line">    	String Rpath = application.getRealPath(Vpath);		//获取该虚拟路径对应的真实路径</span><br><span class="line">    	out.println(&quot;虚拟路径 ：&quot; + Vpath);</span><br><span class="line">    	out.println(&quot;&lt;br&gt;绝对路径 ：&quot; + Rpath);</span><br><span class="line">     %&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="测试-4"><a href="#测试-4" class="headerlink" title="测试"></a>测试</h4><ol>
+<li>运行Demo.jsp页面，显示如下：<img src="/2019/03/24/JSP内置对对象2/application示例1路径.png" alt="虚实路径"></li>
+<li>根据绝对路径，打开本地的文件，就可以找到该项目，如：<img src="/2019/03/24/JSP内置对对象2/文件路径.png" alt="项目所在"></li>
+</ol>
+<h3 id="示例2：统计网站的访问人数"><a href="#示例2：统计网站的访问人数" class="headerlink" title="示例2：统计网站的访问人数"></a>示例2：统计网站的访问人数</h3><p>由于访问同一个服务器中所有用户可以共享一个application对象。借助application对象，可记录下访客人数。判断用户是不是来自同一个客户端，可以借助session是不是新的，也就是<code>isNew()函数</code>。<br>在Applicate_Demo文件夹下，新建一个Count.jsp文件。</p>
+<h4 id="Count-jsp代码如下："><a href="#Count-jsp代码如下：" class="headerlink" title="Count.jsp代码如下："></a>Count.jsp代码如下：</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;统计网站访问总人数&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;%!Integer yournumber = new Integer(0); %&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">    	if(session.isNew())&#123;		//如果是新session，才加人数，否则，已经访问过了，还没退出</span><br><span class="line">    		Integer number = (Integer)application.getAttribute(&quot;Count&quot;);		//从application中提取出已访问分数</span><br><span class="line">    		if(number==null)&#123;</span><br><span class="line">    			number = new Integer(1);</span><br><span class="line">    		&#125;else&#123;</span><br><span class="line">    			number = new Integer(number.intValue()+1);</span><br><span class="line">    		&#125;</span><br><span class="line">    		application.setAttribute(&quot;Count&quot;, number);		//将Count存到application中</span><br><span class="line">    		yournumber = (Integer)application.getAttribute(&quot;Count&quot;);</span><br><span class="line">    	&#125;</span><br><span class="line">     %&gt;</span><br><span class="line">     &lt;p&gt;您是第&lt;%=yournumber %&gt;位访问本网页面的访客！&lt;/p&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="测试-5"><a href="#测试-5" class="headerlink" title="测试"></a>测试</h4><ol>
+<li>启动服务器，执行Count.jsp页面，显示如下：<img src="/2019/03/24/JSP内置对对象2/第一次执行Count.jsp.png" alt="第一次执行Count.jsp"></li>
+<li>打开另一个浏览器，执行Count.jsp页面，显示如下：<img src="/2019/03/24/JSP内置对对象2/第二次.png" alt="另一个浏览器执行"></li>
+<li>在该浏览器上，无论是刷新，在是新开窗口，多次访问Count.jsp页面，访问次数都不增加。说明是同一个用户和同一个会话，不会增加人数。显示如下：<img src="/2019/03/24/JSP内置对对象2/同一个浏览器上都次访问.png" alt="同一个浏览器上都次访问"></li>
+<li>关闭该浏览器，重新打开或开另一个浏览器。再执行Count.jsp页面。访客数量加一。说明了，关闭浏览器后，session会话就销毁了，但是application还存在，只要服务器没关闭，application都在。显示如下：<img src="/2019/03/24/JSP内置对对象2/关闭服务器后重访问.png" alt="关闭服务器后重访问"></li>
+</ol>
+<h3 id="application对象、session对象、request对象的区别"><a href="#application对象、session对象、request对象的区别" class="headerlink" title="application对象、session对象、request对象的区别"></a>application对象、session对象、request对象的区别</h3><p>主要是生命周期上不同。<br><code>application对象</code>：所有访问同一个网站的用户，都有一个相同的application对象。只有关闭了服务器，application才会被收回。<br><code>session对象</code>：不同的用户拥有不同的session对象。只有主动销毁session、超出session的最大有效非活动时间、用户退出浏览器，session对象才会被收回。<br><code>request对象</code>：当用户提交请求时，才创建request对象。当返回相应处理后，request对象自动销毁。</p>
 
       
     </div>
@@ -194,11 +224,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2019/03/26/java-web的基础了解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <a href="/2019/03/24/JSP内置对对象1/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption"></strong>
         <div class="article-nav-title">
           
-            java web的基础了解
+            JSP内置对象1
           
         </div>
       </a>
@@ -206,8 +236,8 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/03/24/JSP内置对对象1/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">JSP内置对象1</div>
+      <a href="/2019/03/16/bfs的框架及示例/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">bfs的框架及示例</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
@@ -305,11 +335,11 @@ gitment.render('gitmentContainer')
           </li>
         
           <li>
-            <a href="/2019/03/24/JSP内置对对象2/">Cookie对象、及JSP内置对象2</a>
+            <a href="/2019/03/24/JSP内置对对象1/">JSP内置对象1</a>
           </li>
         
           <li>
-            <a href="/2019/03/24/JSP内置对对象1/">JSP内置对象1</a>
+            <a href="/2019/03/24/JSP内置对对象2/">Cookie对象、及JSP内置对象2</a>
           </li>
         
           <li>
