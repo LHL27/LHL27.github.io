@@ -40,7 +40,13 @@
 <meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/创建用户完成.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/重启.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/用户登录.png">
-<meta property="og:updated_time" content="2019-05-05T11:55:46.611Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/找不到ifconfig.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/安装命令包.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/安装完成yy.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/ifconfig.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/打开putty.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VWwaree的基本使用/putty登录.png">
+<meta property="og:updated_time" content="2019-05-05T12:28:40.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VWware安装及基本使用">
 <meta name="twitter:description" content="VWware下面讲解VWware的安装方法，如何在VWware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。 安装VWware安装方法很简单，基本都是“next”就行了。双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。 安装Linux 安装好后，VWware">
@@ -142,7 +148,25 @@
 <li>进入虚拟机。输入刚才创建的用户，可以是root用户，也可以是普通用户。<img src="/2019/05/04/VWwaree的基本使用/用户登录.png" alt="用户登录"></li>
 <li>root用户：前面显示的是<code>#</code>号，一般用户，显示的是<code>$</code>号。输入“exit”,回车既可以退出了。</li>
 </ol>
-<h2 id="登录VWware"><a href="#登录VWware" class="headerlink" title="登录VWware"></a>登录VWware</h2>
+<h2 id="采用putty远程登录虚拟机"><a href="#采用putty远程登录虚拟机" class="headerlink" title="采用putty远程登录虚拟机"></a>采用putty远程登录虚拟机</h2><ol>
+<li>查看机器的ip地址，用户登录虚拟机后，输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>回车。如果已经安装好了命令包，则会显示：ip等的信息，如：第5步的显示，跳过第2、3、4步。<br>如果没有安装，则显示 ，<img src="/2019/05/04/VWwaree的基本使用/找不到ifconfig.png" alt="找不到ifconfig命令"></p>
+<ol start="2">
+<li>安装命令包，连网的条件下，输入</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>回车后，如图：<img src="/2019/05/04/VWwaree的基本使用/安装命令包.png" alt="安装命令包"></li>
+<li>安装完成后，连续输入两次<code>y</code>，回车。如图：<img src="/2019/05/04/VWwaree的基本使用/安装完成yy.png" alt="安装完成yy"></li>
+<li>重新执行第1步，显示如图：<img src="/2019/05/04/VWwaree的基本使用/ifconfig.png" alt="ifconfig"></li>
+<li>记下虚拟机ip地址，也就是图中的，<code>192.168.80.128</code>。</li>
+<li>双击打开putty.exe，在host name 的输入框中输入ip地址，点击“open”，如图：<img src="/2019/05/04/VWwaree的基本使用/打开putty.png" alt="打开putty"></li>
+<li>输入用户名和密码，回车即可登录成功了。如：<img src="/2019/05/04/VWwaree的基本使用/putty登录.png" alt="putty登录"></li>
+</ol>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>VWware需要注册才能使用，不然只能试用10天，以下是我的注册码。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JZ6WK-4529P-HZAA1-9RAG6-33JNR 5F4EV-4Z0DP-XZHN9-0L95H-02V17</span><br></pre></td></tr></table></figure></div></p>
+
       
     </div>
     
