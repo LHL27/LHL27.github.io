@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>VWware安装及基本使用 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="VWware下面讲解VWware的安装方法，如何在VWware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。 安装VWware安装方法很简单，基本都是“next”就行了。双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。 安装Linux 安装好后，VWware">
+<meta name="keywords" content="基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VWware安装及基本使用">
+<meta property="og:url" content="https://LHL27.github.io/2019/05/04/VMwaree的基本使用/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="VWware下面讲解VWware的安装方法，如何在VWware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。 安装VWware安装方法很简单，基本都是“next”就行了。双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。 安装Linux 安装好后，VWware">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/VWware显示.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/选择类型.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/选择镜像文件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/操作系统.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/名称和位置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/磁盘.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/自定义硬件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/硬件的连接.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/安装.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/启动中1.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/启动中1.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/安装完成.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/语言选择.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/基本配置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/自动分区.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/网络配置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/配置用户.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/创建root用户.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/创建普通用户.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/创建用户完成.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/重启.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/用户登录.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/找不到ifconfig.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/安装命令包.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/安装完成yy.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/ifconfig.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/打开putty.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/putty登录.png">
+<meta property="og:updated_time" content="2019-05-05T12:28:40.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VWware安装及基本使用">
+<meta name="twitter:description" content="VWware下面讲解VWware的安装方法，如何在VWware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。 安装VWware安装方法很简单，基本都是“next”就行了。双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。 安装Linux 安装好后，VWware">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/05/04/VMwaree的基本使用/VWware显示.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-VMwaree的基本使用" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      VWware安装及基本使用
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/05/04/VMwaree的基本使用/" class="article-date">
+  <time datetime="2019-05-03T16:00:00.000Z" itemprop="datePublished">2019-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="VWware"><a href="#VWware" class="headerlink" title="VWware"></a>VWware</h1><p>下面讲解VWware的安装方法，如何在VWware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。</p>
+<h2 id="安装VWware"><a href="#安装VWware" class="headerlink" title="安装VWware"></a>安装VWware</h2><p>安装方法很简单，基本都是“next”就行了。<br>双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。</p>
+<h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><ol>
+<li>安装好后，VWware显示如下：<img src="/2019/05/04/VMwaree的基本使用/VWware显示.png" alt="VWware显示"></li>
+<li>点击创建一个虚拟机，就会出现安装向导，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择类型.png" alt="选择类型"></li>
+<li>配置类型。选择“典型”类型，点击“下一步”。</li>
+<li>选择镜像文件。镜像文件要提前下载好，选择“安装程序光盘映像文件”，在“浏览”中找到映像文件。点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择镜像文件.png" alt="选择镜像文件"></li>
+<li>安装系统类型。客户机操作系统选择“Linux”，版本选择“CentOS”，点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/操作系统.png" alt="操作系统"></li>
+<li>名称和安装位置，可以默认，也可以自己改，点击“下一步”，如：<img src="/2019/05/04/VMwaree的基本使用/名称和位置.png" alt="名称和位置"></li>
+<li>磁盘的选择。按自己的计算机的实际情况选择，一般按默认的就好了。文件可以选择单个文件。<img src="/2019/05/04/VMwaree的基本使用/磁盘.png" alt="磁盘"></li>
+<li>自定义硬件。点击“自定义硬件”，可以对一些硬件的连接进行选择。如：<img src="/2019/05/04/VMwaree的基本使用/自定义硬件.png" alt="自定义硬件"></li>
+<li>硬件的连接。由于连接的硬件越多，占用的资源越多，可以将一些暂时不用的硬件移除掉。如：打印机、声卡。操作完后，点击“关闭”。如：<img src="/2019/05/04/VMwaree的基本使用/硬件的连接.png" alt="硬件的连接"> </li>
+<li>点击“完成”。就会进入安装的状态，如：<img src="/2019/05/04/VMwaree的基本使用/安装.png" alt="安装"></li>
+<li>点击“开启此虚拟机”: 依次出现下面的视图，启动过程，需要等几分钟<img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"> <img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"></li>
+<li>等到安装完成后。显示如：<img src="/2019/05/04/VMwaree的基本使用/安装完成.png" alt="安装完成"></li>
+<li>首次启动CENTOS7 ，要做些基本的设置，如语言等，选择好自己熟悉的语言，继续。<img src="/2019/05/04/VMwaree的基本使用/语言选择.png" alt="语言选择"></li>
+<li>其他的配置根据自己的实际情况选择，或默认就好了。主要的配置是：安装位置、网络和主机名，<img src="/2019/05/04/VMwaree的基本使用/基本配置.png" alt="基本配置"></li>
+<li>点击进入“安装位置”，选择“自动分区”，完成。<img src="/2019/05/04/VMwaree的基本使用/自动分区.png" alt="自动分区"></li>
+<li>网络的配置。点击进入“网络和主机名”的视图中，把以太网<code>打开</code>，打开后，可以看到获取了网络ip、子网掩码、路由等信息了。主机名默认就好。如图右上角：<img src="/2019/05/04/VMwaree的基本使用/网络配置.png" alt="网络配置">，点击完成。</li>
+<li>基本的配置都完成了。点击“开始安装”。</li>
+<li>创建用户。在使用虚拟机时，需要用户登录，所以，我们要先配置用户，如图：<img src="/2019/05/04/VMwaree的基本使用/配置用户.png" alt="配置用户"></li>
+<li>左边的是root用户，是该虚拟机的最高管理者，是一定要创建的。点击“创建root用户”，进入创建视图，两次输入密码，一定要记得密码。点击“完成”。<img src="/2019/05/04/VMwaree的基本使用/创建root用户.png" alt="创建root用户"></li>
+<li>右边是创建普通用户，与root用户的主要区别是：两者的权限不同。进入创建视图,按提示填写信息，完成。<img src="/2019/05/04/VMwaree的基本使用/创建普通用户.png" alt="创建普通用户"></li>
+<li>创建完成后,黄色的叹号就消失了。显示如<img src="/2019/05/04/VMwaree的基本使用/创建用户完成.png" alt="创建用户完成"></li>
+<li>到这步，就算是安装完成了。等一会，就会出现下图，“重启”即可。<img src="/2019/05/04/VMwaree的基本使用/重启.png" alt="重启"></li>
+<li>进入虚拟机。输入刚才创建的用户，可以是root用户，也可以是普通用户。<img src="/2019/05/04/VMwaree的基本使用/用户登录.png" alt="用户登录"></li>
+<li>root用户：前面显示的是<code>#</code>号，一般用户，显示的是<code>$</code>号。输入“exit”,回车既可以退出了。</li>
+</ol>
+<h2 id="采用putty远程登录虚拟机"><a href="#采用putty远程登录虚拟机" class="headerlink" title="采用putty远程登录虚拟机"></a>采用putty远程登录虚拟机</h2><ol>
+<li>查看机器的ip地址，用户登录虚拟机后，输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>回车。如果已经安装好了命令包，则会显示：ip等的信息，如：第5步的显示，跳过第2、3、4步。<br>如果没有安装，则显示 ，<img src="/2019/05/04/VMwaree的基本使用/找不到ifconfig.png" alt="找不到ifconfig命令"></p>
+<ol start="2">
+<li>安装命令包，连网的条件下，输入</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>回车后，如图：<img src="/2019/05/04/VMwaree的基本使用/安装命令包.png" alt="安装命令包"></li>
+<li>安装完成后，连续输入两次<code>y</code>，回车。如图：<img src="/2019/05/04/VMwaree的基本使用/安装完成yy.png" alt="安装完成yy"></li>
+<li>重新执行第1步，显示如图：<img src="/2019/05/04/VMwaree的基本使用/ifconfig.png" alt="ifconfig"></li>
+<li>记下虚拟机ip地址，也就是图中的，<code>192.168.80.128</code>。</li>
+<li>双击打开putty.exe，在host name 的输入框中输入ip地址，点击“open”，如图：<img src="/2019/05/04/VMwaree的基本使用/打开putty.png" alt="打开putty"></li>
+<li>输入用户名和密码，回车即可登录成功了。如：<img src="/2019/05/04/VMwaree的基本使用/putty登录.png" alt="putty登录"></li>
+</ol>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>VWware需要注册才能使用，不然只能试用10天，以下是我的注册码。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JZ6WK-4529P-HZAA1-9RAG6-33JNR 5F4EV-4Z0DP-XZHN9-0L95H-02V17</span><br></pre></td></tr></table></figure></div></p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/05/09/Linux的基本配置命令/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Linux的基本配置命令
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/22/(Android)像素、颜色/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">像素、颜色</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-web/">Java web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/连接数据库/">连接数据库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 15px;">内置对象</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/连接数据库/" style="font-size: 10px;">连接数据库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/20/Linux上搭建Apache服务器/">Linux上搭建Apache服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/Linux的基本配置命令/">Linux的基本配置命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/04/VMwaree的基本使用/">VWware安装及基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/22/(Android)像素、颜色/">像素、颜色</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/Web中的JDBC数据库访问技术/">JDBC数据库访问技术</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

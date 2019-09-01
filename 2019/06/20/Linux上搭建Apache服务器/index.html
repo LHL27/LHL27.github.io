@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://lhl27.github.io/2019/06/20/Linux上搭建Apache服务器/查看80端口.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/06/20/Linux上搭建Apache服务器/防火墙状态.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/06/20/Linux上搭建Apache服务器/部署成功.png">
-<meta property="og:updated_time" content="2019-06-20T12:07:43.486Z">
+<meta property="og:updated_time" content="2019-06-20T12:13:41.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux上搭建Apache服务器">
 <meta name="twitter:description" content="Linux上搭建Apache服务器 查看是否已经安装Apache，输入命令  1rpm -qa | grep httpd 如上图显示，已经安装过了Apache了，直接执行第3步。未安装则什么都没输出来，执行第2步进行安装。  安装Apache  1yun install httpd 回车，按照提示输入“y”，直至安装完成，执行第1步，校验是否安装成功。  启动Apache  1service ht">
@@ -113,7 +113,7 @@
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service httpd start</span><br></pre></td></tr></table></figure></div>
 <ol start="4">
-<li>通过<code>ip addr show</code> 查看本机的ip地址。<br>如图：<img src="/2019/06/20/Linux上搭建Apache服务器/查看IP地址.png" alt="查看IP地址"><br>本机的ip地址为192.168.80.130/24，在同一个网络的其他主机上访问该ip地址，如果结果如第10步显示，则已经搭建好了Apache服务器了。如果无法连接，可能是服务器端防火墙或安全策略阻碍或80端口被占用了。在Linux上关闭安全策略和防火墙。</li>
+<li>通过<code>ip addr show</code> 查看本机的ip地址。<br>如图：<img src="/2019/06/20/Linux上搭建Apache服务器/查看IP地址.png" alt="查看IP地址"><br>本机的ip地址为192.168.80.130/24，在同一个网络的其他主机上访问该ip地址，如果结果如第8步显示，则已经搭建好了Apache服务器了。如果无法连接，可能是服务器端防火墙或安全策略阻碍或80端口被占用了。在Linux上关闭安全策略和防火墙。</li>
 <li>关闭安全策略</li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure></div>
@@ -133,12 +133,11 @@
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables status</span><br></pre></td></tr></table></figure></div>
 <p>如图：<img src="/2019/06/20/Linux上搭建Apache服务器/防火墙状态.png" alt="防火墙状态"><br>inactive说明了防火墙已经关闭了。</p>
 <ol start="8">
-<li>在同一个网络的ip主机的浏览器中，输入本机的ip地址，回车显示如下：<br><img src="/2019/06/20/Linux上搭建Apache服务器/部署成功.png" alt="部署成功"><br>可见，Apache服务器部署成功了。</li>
-<li>为了安全，还是要把防火墙开启，然后防火墙对访问80端口的tcp网络请求进行防火墙配置。</li>
+<li>在同一个网络的ip主机的浏览器中，输入本机的ip地址，回车显示如下：<br><img src="/2019/06/20/Linux上搭建Apache服务器/部署成功.png" alt="部署成功"><br>可见，Apache服务器部署成功了。<br>为了安全，还是要把防火墙开启，然后防火墙对访问80端口的tcp网络请求进行防火墙配置。</li>
 <li>开启防火墙</li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables start</span><br></pre></td></tr></table></figure></div>
-<ol start="11">
+<ol start="10">
 <li>配置防火墙策略</li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p TCP --dport 80 -j ACCEPT</span><br></pre></td></tr></table></figure></div>
@@ -260,7 +259,7 @@ gitment.render('gitmentContainer')
           </li>
         
           <li>
-            <a href="/2019/05/04/VWwaree的基本使用/">VWware安装及基本使用</a>
+            <a href="/2019/05/04/VMwaree的基本使用/">VWware安装及基本使用</a>
           </li>
         
           <li>
