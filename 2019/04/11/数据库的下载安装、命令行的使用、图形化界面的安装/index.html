@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>MySQL数据库的下载安装、命令行的使用、安装图形化界面 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="MySQL数据库安装为了安装MySQL ，连爬带滚地忙活了两天，感觉自己真的不是一般的菜啊。在孔大佬和百度网友的帮助指导下，终于装好了MySQl，还学会了连接上SQLyog图形化界面。不过真的不得不吐槽一下百度上的东西不可深信啊！有时也会误人子弟。哈哈，也有可能是自己没有理解，才会出现问题的。 下载安装下载 下载网址，依次点击DOWNLOADS、Community、MySQL Community">
+<meta name="keywords" content="软件安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据库的下载安装、命令行的使用、安装图形化界面">
+<meta property="og:url" content="https://LHL27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="MySQL数据库安装为了安装MySQL ，连爬带滚地忙活了两天，感觉自己真的不是一般的菜啊。在孔大佬和百度网友的帮助指导下，终于装好了MySQl，还学会了连接上SQLyog图形化界面。不过真的不得不吐槽一下百度上的东西不可深信啊！有时也会误人子弟。哈哈，也有可能是自己没有理解，才会出现问题的。 下载安装下载 下载网址，依次点击DOWNLOADS、Community、MySQL Community">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/mysql官网.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/选择系统和版本.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/下载smi.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/同意协议.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/选择安装的产品.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/检查需求.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/安装.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/进入配置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/分组回答.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/类型和连网.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/验证方法.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/root账户.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务名称.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务启动失败.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/finish.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/finish2.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/MYSQL_HOME.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/Path.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/cmd设置密码.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/成功进入数据库.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/显示数据库.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/解压.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/新创文件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/installer.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/设置密码.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/ALTER%20重设密码.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/没分号.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/新连接.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/2058错误.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/设置密码编码.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/SQLyog界面.png">
+<meta property="og:updated_time" content="2019-04-14T15:28:11.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL数据库的下载安装、命令行的使用、安装图形化界面">
+<meta name="twitter:description" content="MySQL数据库安装为了安装MySQL ，连爬带滚地忙活了两天，感觉自己真的不是一般的菜啊。在孔大佬和百度网友的帮助指导下，终于装好了MySQl，还学会了连接上SQLyog图形化界面。不过真的不得不吐槽一下百度上的东西不可深信啊！有时也会误人子弟。哈哈，也有可能是自己没有理解，才会出现问题的。 下载安装下载 下载网址，依次点击DOWNLOADS、Community、MySQL Community">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/mysql官网.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-数据库的下载安装、命令行的使用、图形化界面的安装" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL数据库的下载安装、命令行的使用、安装图形化界面
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/" class="article-date">
+  <time datetime="2019-04-11T11:36:32.000Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="MySQL数据库安装"><a href="#MySQL数据库安装" class="headerlink" title="MySQL数据库安装"></a>MySQL数据库安装</h1><p>为了安装MySQL ，连爬带滚地忙活了两天，感觉自己真的不是一般的菜啊。在孔大佬和百度网友的帮助指导下，终于装好了MySQl，还学会了连接上SQLyog图形化界面。不过真的不得不吐槽一下百度上的东西不可深信啊！有时也会误人子弟。哈哈，也有可能是自己没有理解，才会出现问题的。</p>
+<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ol>
+<li><a href="https://dev.mysql.com" target="_blank" rel="noopener">下载网址</a>，依次点击DOWNLOADS、Community、MySQL Community Server ，如图<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/mysql官网.png" alt="mysql官网"></li>
+<li>一直往下拉，如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/选择系统和版本.png" alt="选择系统和版本"><br>选择自己计算机操作系统的类型。我的操作系统是Windows的，就以Windows为例。下载zip、smi两个类型的版本都可以。具体两个类型的差别，我也不懂。只知道zip可以用com命令行安装，smi是使用图形化界面安装。然后我选的是smi类型的。</li>
+<li>点击MySQL installer for Windows这张图片，往下拉，如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/下载smi.png" alt="下载smi"></li>
+<li>点击Downloads下载，我下载的是：<code>(mysql-installer-community-8.0.15.0.msi)</code></li>
+<li>下载之前，要求先注册或登录，可以不注册，点击<code>No thanks, just start my download.</code>，即开始下载了。</li>
+</ol>
+<h3 id="smi类型的安装"><a href="#smi类型的安装" class="headerlink" title="smi类型的安装"></a>smi类型的安装</h3><ol>
+<li>安装过程：双击打开msi文件。</li>
+<li>勾选同意协议。点击<code>&quot;Next &quot;</code>。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/同意协议.png" alt="同意协议"></li>
+<li>选中安装的产品：我只要安装MySQL Server, 依次点击，选中MySQL Server 8.0.5 -x64，然后点击向右的箭头，右边的框则出现了MySQL Server。点击<code>“Next”</code> ；|如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/选择安装的产品.png" alt="选择安装的产品"></li>
+<li>检查需求：点击<code>&quot;Execute&quot;</code>，然后下载安装一个补丁，完成后如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/检查需求.png" alt="检查需求">，点击”Next”。</li>
+<li>安装：点击<code>&quot;Execute&quot;</code>，如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/安装.png" alt="安装">，安装完成后，点击<code>“Next”</code>。</li>
+<li>产品配置：点击“Next”。<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/进入配置.png" alt="进入配置"></li>
+<li>分组回答：哈哈，不知道这个是什么意思？默认跳过，点击<code>“Next”</code>。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/分组回答.png" alt="分组回答"></li>
+<li>类型和连网：端口号可改，也可以使用默认的。点击<code>“Next”</code>。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/类型和连网.png" alt="类型和连网"></li>
+<li>验证方法，我直接使用默认的，点击<code>“Next”</code>。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/验证方法.png" alt="验证方法"></li>
+<li>账户和规则：当出现root用户时，输入密码。第二次输入确认密码。密码一定要记住。这个账户作为数据库的最高权限用户。然后点击<code>”Next&quot;</code>。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/root账户.png" alt="root账户"></li>
+<li>输入服务名称: 可以使用默认的。点击”Next”。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务名称.png" alt="服务名称"></li>
+<li>申请配置：点击<code>&quot;Execute&quot;</code>。如果运行后全部打勾，安装成功了。<h4 id="异常问题"><a href="#异常问题" class="headerlink" title="异常问题"></a>异常问题</h4><h5 id="Initializing-Database失败"><a href="#Initializing-Database失败" class="headerlink" title="Initializing Database失败"></a>Initializing Database失败</h5>由于我之前已经安装过MySQL了，卸载不干净。导致失败。我重新删除了很多残留文件，如服务、注册表的信息，再从头安装一遍就成功了。<h4 id="Starting-Server失败"><a href="#Starting-Server失败" class="headerlink" title="Starting Server失败"></a>Starting Server失败</h4>我第一次的时候，Starting Server无法正常启动。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务启动失败.png" alt="服务启动失败"><br>然后我在计算机中打开服务。选中MySQL服务，右键，选中属性，点击登录，勾选本地系统账户，然后确认。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务.png" alt="服务">。<br>返回MySQL Installer安装界面。再次点击<code>&quot;Execute&quot;</code>。全部都打勾了。点击“finish”,   如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/finish.png" alt="finish"></li>
+<li>产品配置：点击“Next”。</li>
+<li>安装完成了。点击“finish”。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/finish2.png" alt="finish2"></li>
+</ol>
+<h3 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h3><ol>
+<li>找到mysql的安装路径，我的是在C:\Program Files\MySQL\MySQL Server 8.0，进入bin文件夹。可以看到，有一个mysql.exe文件。将安装路径（直到bin处）复制。</li>
+<li>进入环境变量配置的界面。在系统变量中，加上一个变量名：MYSQL_HOME ；变量值：复制的路径。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/MYSQL_HOME.png" alt="mysql变量">  </li>
+<li>在系统变量中，在Path变量上，追加一个变量值：复制的路径。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/Path.png" alt="Path变量">, 谨记是追加，不可以覆盖其他的值。不然会影响其他软件的执行。点击”确定“即可。</li>
+</ol>
+<h3 id="运行MySQL-8-0-Command-Line-Client"><a href="#运行MySQL-8-0-Command-Line-Client" class="headerlink" title="运行MySQL 8.0 Command Line Client"></a>运行MySQL 8.0 Command Line Client</h3><ol>
+<li>在开始中找到MySQL 8.0 Command Line Client，以管理员身份运行，输入安装时，root用户的密码。如果成功的话。进入MySQL了。</li>
+<li>但是我失败了。MySQL 8.0 Command Line Client出现了闪退。查找百度，有很多网友说，删除或修改my.ini文件等等，我都试了一遍，还是不行。在bing网上，终于找到了解决方法。</li>
+<li>以管理员的身份运行cmd命令行。进入到mysql.ext的安装目录，也就是刚才复制的路径。</li>
+<li>输入命令：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -uroot passwort root</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>最后面的root是root用户的密码。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/cmd设置密码.png" alt="cmd设置密码"></p>
+<ol start="5">
+<li>重新打开MySQL 8.0 Command Line Client命令行。输入密码：root。回车。显示如下：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/成功进入数据库.png" alt="成功进入数据库"></li>
+<li>这是数据库安装已经成功了。验证：输入命令：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure></div>
+<p>这条命令是显示数据库。注意：命令后面有一个分号。显示如下，即为成功。<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/显示数据库.png" alt="显示数据库"></p>
+<h3 id="zip类型的安装"><a href="#zip类型的安装" class="headerlink" title="zip类型的安装"></a>zip类型的安装</h3><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li>由于我的MyEclipse版本较低，为了可以匹配，我选择了MySQL的版本是5.7.24。</li>
+<li>从官网上下载zip文件，解压。解压后的文件如下：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/解压.png" alt="解压"></li>
+<li>有一些版本的文件解压后会有一个data的空文件和一个my.ini的文件。如果没有，需要自己创建。所以先新创建一个data的空文件和一个my.ini的文件。<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/新创文件.png" alt="新创文件"></li>
+<li>my.ini文件的内容如下：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">#设置3306端口</span><br><span class="line">port = 3306</span><br><span class="line"></span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=D:\Installs\mysql-5.7.24-winx64\mysql-5.7.24-winx64</span><br><span class="line"></span><br><span class="line"> # 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=D:\Installs\mysql-5.7.24-winx64\mysql-5.7.24-winx64\data</span><br><span class="line">    </span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"></span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"></span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line"></span><br><span class="line"># 不要密码登录</span><br><span class="line"># skip-grant-tables</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>其中：dasedir的要改为mysql的安装目录。我的安装目录是：<code>D:\Installs\mysql-5.7.24-winx64\mysql-5.7.24-winx64</code><br>datadir也要改为相应的data文件的路径。<br>谨记：my.ini文件保存的编码设为：<code>ANSI</code>。</p>
+<ol start="5">
+<li>环境变量的匹配，和上文中的一样。</li>
+<li>以管理员的身份执行cmd ，进入到mysql.exe所在的路径，也就是环境变量的路径， 输入安装代码<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -install</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>显示如下：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/installer.png" alt="install"><br>如果安装不成功，可能是之前已经安装过了，没有卸载干净。重新卸载，再重装。</p>
+<ol start="7">
+<li><p>安装完成后，输入初始化代码</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>启动mysql服务</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>结束mysql服务</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>在my.ini中，将skip-grant-tables前面的#号去掉。#号表示注释。skip-grant-tables表示免密码登录。</p>
+</li>
+<li>再次启动mysql服务</li>
+<li>输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>回车。<code>Enter password:</code>中，直接回车。就可以进入到数据库了。</p>
+<ol start="13">
+<li>然后设置密码。输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update mysql.user set authentication_string=password(&apos;new_password&apos;) where user=&apos;root&apos; and Host =&apos;localhost&apos;;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>new_password修改为自己想要的密码。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/设置密码.png" alt="设置密码"></p>
+<ol start="14">
+<li>然后，在my.ini中，skip-grant-tables前面的#号加上，重启mysql服务，重新操作第12步，在<code>Enter password:</code>中，输入刚才设置的密码。回车就可以进入数据库了。</li>
+</ol>
+<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><ol>
+<li><p>重设 <code>ALTER</code>密码,遇到如图的问题：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/ALTER 重设密码.png" alt="ALTER 重设密码"><br>重置<code>ALTER</code>密码的命令：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user root@localhost identified by &apos;new_password&apos;;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>如果服务无法正常启动，可能的原因：mysql的登录账户有问题，选中MySQL服务，右键，选中属性，点击登录，勾选本地系统账户，然后确认。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/服务.png" alt="服务">。</p>
+</li>
+</ol>
+<h2 id="MySQL命令行的使用"><a href="#MySQL命令行的使用" class="headerlink" title="MySQL命令行的使用"></a>MySQL命令行的使用</h2><ol>
+<li><p>启动mysql服务</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>关闭mysql服务</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>进入mysql数据库</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>然后输入密码，回车。成功进入后，会有一个<code>mysql&gt;</code>标识。</p>
+<ol start="4">
+<li>显示数据库<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>谨记后面有一个分号，没有分号是无法执行的。可以在换行后，继续输入分号，回车执行。也可以输入<code>\c</code>,回车退回。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/没分号.png" alt="没分号"></p>
+<ol start="5">
+<li><p>使用数据库</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>显示本数据库所有表</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure></div>
+<ol start="7">
+<li><p>显示某个数据库的全部的表</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables from 库名；</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>打开本数据库的表（显示的是表的<code>结构</code>）</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decs 表名；</span><br></pre></td></tr></table></figure></div>
+<ol start="9">
+<li>打开本数据库的表（显示的是表的<code>数据</code>）</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表名；</span><br></pre></td></tr></table></figure></div>
+<ol start="10">
+<li><p>创建数据库</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 库名；</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>删除数据库</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database 库名；</span><br></pre></td></tr></table></figure></div>
+<p>12.退出mysql</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit;</span><br></pre></td></tr></table></figure></div>
+<p>其他的命令和mysql数据库命令一样，就不一一列举了。</p>
+<h2 id="SQLyog的安装、连接"><a href="#SQLyog的安装、连接" class="headerlink" title="SQLyog的安装、连接"></a>SQLyog的安装、连接</h2><p>SQLyoy是一款数据库界面化的软件。简单点，就是可以通过界面来更直观、更简单地操作数据库。</p>
+<h3 id="安装连接"><a href="#安装连接" class="headerlink" title="安装连接"></a>安装连接</h3><ol>
+<li>直接在网上找，就可以找到SQLyou的安装包。我下载的是：<code>SQLyog-12.3.1-0.exe</code>。</li>
+<li>双击打开文件。依次点击”下一步”，更改一下安装目录就可以了。非常简单，这里就不细讲了。</li>
+<li>安装结束后，打开软件。首先再将它与数据库连接起来。在菜单栏中，点击<code>文件</code>、<code>新连接</code>,显示如下：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/新连接.png" alt="新连接"></li>
+<li>连接名可以随意更改、选择MySQL、MySQL Host Address中可以填<code>localhost</code>或<code>127.0.0.1</code>,因为我的计算机的hosts文件中，localhost与127.0.0.1已经映射起来了。用户名、密码、端口必须要与MySQL对应。</li>
+<li>点击连接，出现了错误，如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/2058错误.png" alt="2058错误"></li>
+<li>这个问题是因为密码的编码有问题，以管理员的身份执行cmd。输入：<code>mysql -uroot -p</code>,回车，输入密码，回车，进入mysql。</li>
+<li>再输入：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;password&apos;;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>password是自己设置的密码。如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/设置密码编码.png" alt="设置密码编码"></p>
+<ol start="8">
+<li>再点击连接，就成功了。SQLyog界面如图：<img src="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/SQLyog界面.png" alt="SQLyog界面"></li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>由于自己技术比较菜，说的废话有点多。明明是傻瓜式的安装，却要废话一通。仅以此来记录一下学习的过程，以防忘记。如有错误之处，望大佬指正。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/22/(Android)像素、颜色/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            像素、颜色
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/04/02/第十届蓝桥杯省赛CC++ B组/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">第十届蓝桥杯省赛C/C++ B组</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 15px;">内置对象</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/20/Linux上搭建Apache服务器/">Linux上搭建Apache服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/Linux的基本配置命令/">Linux的基本配置命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/04/VMwaree的基本使用/">VMware安装及基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/22/(Android)像素、颜色/">像素、颜色</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/数据库的下载安装、命令行的使用、图形化界面的安装/">MySQL数据库的下载安装、命令行的使用、安装图形化界面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
