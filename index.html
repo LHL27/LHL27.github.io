@@ -280,7 +280,7 @@
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/04/VMwaree的基本使用/">VWware安装及基本使用</a>
+      <a class="article-title" href="/2019/05/04/VMwaree的基本使用/">VMware安装及基本使用</a>
     </h1>
   
 
@@ -305,20 +305,21 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="VWware"><a href="#VWware" class="headerlink" title="VWware"></a>VWware</h1><p>下面讲解VWware的安装方法，如何在VWware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。</p>
-<h2 id="安装VWware"><a href="#安装VWware" class="headerlink" title="安装VWware"></a>安装VWware</h2><p>安装方法很简单，基本都是“next”就行了。<br>双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。</p>
+        <h1 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h1><p>下面讲解VMware的安装方法，安装VMuare软件及如何在VMware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>系统：win10 64位计算机<br>下载：VMware软件的安装包、CentOS的镜像文件（CentOS是Linux系统其中的一个版本）</p>
+<h2 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h2><p>安装方法很简单，基本都是“next”就行了。<br>双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。</p>
 <h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><ol>
-<li>安装好后，VWware显示如下：<img src="/2019/05/04/VMwaree的基本使用/VWware显示.png" alt="VWware显示"></li>
+<li>安装好后，VMware显示如下：<img src="/2019/05/04/VMwaree的基本使用/VMware显示.png" alt="VMware显示"></li>
 <li>点击创建一个虚拟机，就会出现安装向导，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择类型.png" alt="选择类型"></li>
 <li>配置类型。选择“典型”类型，点击“下一步”。</li>
-<li>选择镜像文件。镜像文件要提前下载好，选择“安装程序光盘映像文件”，在“浏览”中找到映像文件。点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择镜像文件.png" alt="选择镜像文件"></li>
+<li>选择镜像文件。镜像文件要提前下载好，选择“安装程序光盘映像文件”，在“浏览”中找到映像文件。点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择镜像文件.png" alt="选择镜像文件"><br>也可以选择<code>稍后安装操作系统</code>，在后面第9步点击新CD/DVD,选择ios镜像文件安装。</li>
 <li>安装系统类型。客户机操作系统选择“Linux”，版本选择“CentOS”，点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/操作系统.png" alt="操作系统"></li>
 <li>名称和安装位置，可以默认，也可以自己改，点击“下一步”，如：<img src="/2019/05/04/VMwaree的基本使用/名称和位置.png" alt="名称和位置"></li>
 <li>磁盘的选择。按自己的计算机的实际情况选择，一般按默认的就好了。文件可以选择单个文件。<img src="/2019/05/04/VMwaree的基本使用/磁盘.png" alt="磁盘"></li>
 <li>自定义硬件。点击“自定义硬件”，可以对一些硬件的连接进行选择。如：<img src="/2019/05/04/VMwaree的基本使用/自定义硬件.png" alt="自定义硬件"></li>
 <li>硬件的连接。由于连接的硬件越多，占用的资源越多，可以将一些暂时不用的硬件移除掉。如：打印机、声卡。操作完后，点击“关闭”。如：<img src="/2019/05/04/VMwaree的基本使用/硬件的连接.png" alt="硬件的连接"> </li>
 <li>点击“完成”。就会进入安装的状态，如：<img src="/2019/05/04/VMwaree的基本使用/安装.png" alt="安装"></li>
-<li>点击“开启此虚拟机”: 依次出现下面的视图，启动过程，需要等几分钟<img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"> <img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"></li>
+<li>点击“开启此虚拟机”: 依次出现下面的视图，启动过程，需要等几分钟<img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"> </li>
 <li>等到安装完成后。显示如：<img src="/2019/05/04/VMwaree的基本使用/安装完成.png" alt="安装完成"></li>
 <li>首次启动CENTOS7 ，要做些基本的设置，如语言等，选择好自己熟悉的语言，继续。<img src="/2019/05/04/VMwaree的基本使用/语言选择.png" alt="语言选择"></li>
 <li>其他的配置根据自己的实际情况选择，或默认就好了。主要的配置是：安装位置、网络和主机名，<img src="/2019/05/04/VMwaree的基本使用/基本配置.png" alt="基本配置"></li>
@@ -333,7 +334,8 @@
 <li>进入虚拟机。输入刚才创建的用户，可以是root用户，也可以是普通用户。<img src="/2019/05/04/VMwaree的基本使用/用户登录.png" alt="用户登录"></li>
 <li>root用户：前面显示的是<code>#</code>号，一般用户，显示的是<code>$</code>号。输入“exit”,回车既可以退出了。</li>
 </ol>
-<h2 id="采用putty远程登录虚拟机"><a href="#采用putty远程登录虚拟机" class="headerlink" title="采用putty远程登录虚拟机"></a>采用putty远程登录虚拟机</h2><ol>
+<h2 id="采用putty远程登录虚拟机"><a href="#采用putty远程登录虚拟机" class="headerlink" title="采用putty远程登录虚拟机"></a>采用putty远程登录虚拟机</h2><p>前提：下载好putty.exe。</p>
+<ol>
 <li>查看机器的ip地址，用户登录虚拟机后，输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></div>
 </li>
 </ol>
@@ -350,7 +352,7 @@
 <li>双击打开putty.exe，在host name 的输入框中输入ip地址，点击“open”，如图：<img src="/2019/05/04/VMwaree的基本使用/打开putty.png" alt="打开putty"></li>
 <li>输入用户名和密码，回车即可登录成功了。如：<img src="/2019/05/04/VMwaree的基本使用/putty登录.png" alt="putty登录"></li>
 </ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>VWware需要注册才能使用，不然只能试用10天，以下是我的注册码。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JZ6WK-4529P-HZAA1-9RAG6-33JNR 5F4EV-4Z0DP-XZHN9-0L95H-02V17</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>VMware需要注册才能使用，不然只能试用10天，以下是我的注册码。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JZ6WK-4529P-HZAA1-9RAG6-33JNR 5F4EV-4Z0DP-XZHN9-0L95H-02V17</span><br></pre></td></tr></table></figure></div></p>
 
       
     </div>
@@ -1190,7 +1192,7 @@
           </li>
         
           <li>
-            <a href="/2019/05/04/VMwaree的基本使用/">VWware安装及基本使用</a>
+            <a href="/2019/05/04/VMwaree的基本使用/">VMware安装及基本使用</a>
           </li>
         
           <li>
