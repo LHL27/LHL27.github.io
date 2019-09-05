@@ -32,7 +32,10 @@
 <meta property="og:image" content="https://lhl27.github.io/2019/09/04/IDEA的配置/更改后的文件模板.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/09/04/IDEA的配置/文件头部模板.png">
 <meta property="og:image" content="https://lhl27.github.io/2019/09/04/IDEA的配置/头部模板.png">
-<meta property="og:updated_time" content="2019-09-04T13:47:22.883Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/04/IDEA的配置/有参数标记.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/04/IDEA的配置/去掉参数标记.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/04/IDEA的配置/无参数标记.png">
+<meta property="og:updated_time" content="2019-09-05T11:36:36.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDEA的配置">
 <meta name="twitter:description" content="IDEA的配置更改字体及过滤文件 进入setting界面。点击菜单栏的file，在弹出的菜单栏中，点击settings，进入了设置界面。如： 更改Editor编辑器的字体。点击Editor，点击font,在右侧的font，side中，就可以更改字体类型，大小了。如： 在Editor中，还可以设置编辑器背景颜色、代码风格等。具体配置，由使用者自行选择。 文件过滤的设置。在创建不同的项目的时候，IDE">
@@ -89,7 +92,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA教程/">IDEA教程</a>
+    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
   </div>
 
     
@@ -117,6 +120,7 @@
 <h3 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h3><p>在MyEclipse中，当编辑syso时，就会出现<code>System.out.println();</code>的快捷方式，直接选中，即可完成System.out.println();的编写，然而，在IDEA中，是没有这种提示的。这时候，需要我们自定义代码模板，即使用简单的几个字母，加上一个生成键，即可完成我们想要的复杂的代码。<br>在settings界面中，点击Editor，点击live Templates，右侧By default expand with中选中一个生成键，点击<code>+</code>号，可以直接生成一个模板，也可以生成一个模板分组。当我们选中一个分组，输入名称，点击OK，生成。<br>如：<img src="/2019/09/04/IDEA的配置/生成代码模板分组.png" alt="生成代码模板分组"><br>此时，生成了一个模板分组了，点击该分组，点击<code>+</code>号，选中live Templates直接创建模板，在Abbreviation中，输入代表模板的字母；在Description中，输入模板功能，只要方便记忆；在Templat text中，输入模板的正确代码。<img src="/2019/09/04/IDEA的配置/生成模板.png" alt="生成模板"><br>点击下方No applicable contexts yet.的<code>define</code>，在弹窗中选中在那种语言中使用。<br>测试：在编辑器中，输入syso，点击Tab(因为我们选择了Tab键作为生成键)，即可生成<code>System.out.println();</code></p>
 <h3 id="文件模板"><a href="#文件模板" class="headerlink" title="文件模板"></a>文件模板</h3><p>当我们新建一个文件时，该文件的默认内容是按一个模板生成的，如：新建一个HTML5文件时，默认模板是：<br><img src="/2019/09/04/IDEA的配置/默认文件模板.png" alt="默认文件模板"><br>为了可以更快的编写代码，我们可以更改适合自己的文件模板。<br>在settings界面中，点击Editor，点击File and Code Templates，选择文件类型，在模板中，更改成自己想要的模板，点击OK。如：<img src="/2019/09/04/IDEA的配置/更改文件模板.png" alt="更改文件模板"><br>再新建一个HTML5文件，显示如：<img src="/2019/09/04/IDEA的配置/更改后的文件模板.png" alt="更改后的文件模板"></p>
 <p>除此之外，还可以生成文件头部模板，如：<img src="/2019/09/04/IDEA的配置/文件头部模板.png" alt="文件头部模板"><br>新建一个Java类时，生成内容如下：<img src="/2019/09/04/IDEA的配置/头部模板.png" alt="头部模板"></p>
+<h3 id="编辑器参数标记的设置"><a href="#编辑器参数标记的设置" class="headerlink" title="编辑器参数标记的设置"></a>编辑器参数标记的设置</h3><p>有时候，可以在编辑器中看到一个变量前面有一个<code>s:</code>的阴影字体，这是一个参数标记，s说明这是一个变量，如：<img src="/2019/09/04/IDEA的配置/有参数标记.png" alt="有参数标记"><br>这个参数标记可以在settings中，将其隐藏起来。<br>在settings界面中，点击Editor，点击General，点击Appearance，右侧中，将Show parameter name hints前面的框的勾去掉，如：<img src="/2019/09/04/IDEA的配置/去掉参数标记.png" alt="去掉参数标记"><br>Apply后，结果如：<img src="/2019/09/04/IDEA的配置/无参数标记.png" alt="无参数标记"></p>
 
       
     </div>
@@ -130,6 +134,15 @@
     
 <nav id="article-nav">
   <div class="article-nav-block">
+    
+      <a href="/2019/09/05/IDEA创建项目/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            IDEA创建项目
+          
+        </div>
+      </a>
     
   </div>
   <div class="article-nav-block">
@@ -184,7 +197,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA教程/">IDEA教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
     </div>
   </div>
 
@@ -204,7 +217,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 15px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 10px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 15px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 15px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -225,6 +238,10 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
+            <a href="/2019/09/05/IDEA创建项目/">IDEA创建项目</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/04/IDEA的配置/">IDEA的配置</a>
           </li>
         
@@ -238,10 +255,6 @@ gitment.render('gitmentContainer')
         
           <li>
             <a href="/2019/05/09/Linux的基本配置命令/">Linux的基本配置命令</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/04/VMwaree的基本使用/">VMware安装及基本使用</a>
           </li>
         
       </ul>
