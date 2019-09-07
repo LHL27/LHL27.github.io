@@ -62,7 +62,7 @@
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub</a>
+      <a class="article-title" href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub或下载下来</a>
     </h1>
   
 
@@ -87,8 +87,12 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="IDEA将项目上传到远程仓库GitHub"><a href="#IDEA将项目上传到远程仓库GitHub" class="headerlink" title="IDEA将项目上传到远程仓库GitHub"></a>IDEA将项目上传到远程仓库GitHub</h1><p>前提：有一个GitHub的账号，没有可以先注册一个账号。<br>相关学习：<a href="http://hongliankeji.top/2019/03/01/GitHub%E4%B8%8EGit%E7%9A%84%E8%BF%9E%E6%8E%A5/" target="_blank" rel="noopener">注册GitHub账号和创建仓库</a></p>
+        <h1 id="远程仓库GitHub项目上传或下载"><a href="#远程仓库GitHub项目上传或下载" class="headerlink" title="远程仓库GitHub项目上传或下载"></a>远程仓库GitHub项目上传或下载</h1><p>前提：</p>
 <ol>
+<li>有一个GitHub的账号，没有可以先注册一个账号。<br>相关学习：<br><a href="http://hongliankeji.top/2019/03/01/GitHub%E4%B8%8EGit%E7%9A%84%E8%BF%9E%E6%8E%A5/" target="_blank" rel="noopener">注册GitHub账号和创建仓库</a></li>
+<li>集成git。<br>相关学习：<a href="http://hongliankeji.top/2019/09/06/IDEA%E4%BD%BF%E7%94%A8Git%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/" target="_blank" rel="noopener">集成git</a></li>
+</ol>
+<h3 id="IDEA将项目上传到远程仓库GitHub"><a href="#IDEA将项目上传到远程仓库GitHub" class="headerlink" title="IDEA将项目上传到远程仓库GitHub"></a>IDEA将项目上传到远程仓库GitHub</h3><ol>
 <li>登录账号后，在GitHub上创建一个仓库。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/创建仓库.png" alt="创建仓库"><br>仓库创建成功后，是一个空仓库，如图：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/仓库创建成功.png" alt="仓库创建成功"></li>
 <li>在IDEA上连接仓库。<br>push:推，指上传代码；pull:拉，下载代码。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/连接仓库.png" alt="连接仓库"></li>
 <li>指定仓库。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/指定仓库.png" alt="指定仓库"></li>
@@ -97,6 +101,18 @@
 <ol start="4">
 <li>验证信息。<br>有可能是需要登录GitHub，也有可能是输入ssh的密钥。下面是输入ssh密钥：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/登录验证.png" alt="登录验证"><br>直接推送。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/推送.png" alt="推送"></li>
 <li>推送成功。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/push成功.png" alt="push成功"><br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/仓库增加文件.png" alt="仓库增加文件"></li>
+</ol>
+<h4 id="除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中"><a href="#除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中" class="headerlink" title="除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中"></a>除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中</h4><p>在settings界面中，引入GitHub账号，如图：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/引入GitHub账号.png" alt="引入GitHub账号"><br>引入账号成功，邮箱会收到邮件提醒，显示如下：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/引入账号成功.png" alt="引入账号成功"></p>
+<h3 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h3><ol>
+<li>更改项目结构或代码。<br>比如：去掉web目录，在addUser中添加红框中的代码。<img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/更新代码.png" alt="更新代码"></li>
+<li>同步到GitHub上。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/同步到GitHub.png" alt="同步到GitHub"><br>在这个过程中，可以书写些说明性的描述，push<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/同步push.png" alt="同步push"></li>
+<li>代码更新同步后。<br>在GitHub仓库中查看，少了web目录，且添加了红框中的代码。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/少了web目录.png" alt="少了web目录"><br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/代码添加.png" alt="代码添加"></li>
+</ol>
+<h3 id="IDEA将项目从远程仓库GitHub下载"><a href="#IDEA将项目从远程仓库GitHub下载" class="headerlink" title="IDEA将项目从远程仓库GitHub下载"></a>IDEA将项目从远程仓库GitHub下载</h3><ol>
+<li>在GitHub仓库中，选定一个要下载的项目，把仓库地址复制下来。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/复制地址.png" alt="复制地址"></li>
+<li>集成git和将github账号进入IDEA后，从版本控制系统中引入项目。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/从版本控制系统中引入项目.png" alt="从版本控制系统中引入项目"> </li>
+<li>填写刚才复制的仓库地址，项目存放的根目录，clone。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/填写仓库地址、根目录.png" alt="填写仓库地址、根目录"></li>
+<li>下载成功后，IDEA打开一个新窗口，下载的项目如下：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/下载的项目.png" alt="下载的项目"></li>
 </ol>
 
       
@@ -143,11 +159,12 @@
 <h3 id="使用Git管理项目"><a href="#使用Git管理项目" class="headerlink" title="使用Git管理项目"></a>使用Git管理项目</h3><p>Git管理项目是在本地管理的，即在开发项目本机进行管理。</p>
 <ol>
 <li>在本计算机上安装Git软件。<br>直接百度找到<a href="https://git-scm.com/" target="_blank" rel="noopener">Git官网</a>，下载相应的版本进行解压即可。解压过程中，记住文件路径。</li>
-<li>在IDEA中引入Git。<br>在settings界面中，设置Git的路径，OK.<br><img src="/2019/09/06/IDEA使用Git管理项目/设置Git路径.png" alt="设置Git路径"></li>
+<li>在IDEA中集成Git。<br>在settings界面中，设置Git的路径，OK.<br><img src="/2019/09/06/IDEA使用Git管理项目/设置Git路径.png" alt="设置Git路径"><br>右键项目，在窗口中如果有Git选项，集成成功了。<br><img src="/2019/09/06/IDEA使用Git管理项目/集成git成功.png" alt="集成git成功"></li>
 <li>在IDEA中创建仓库。<br><img src="/2019/09/06/IDEA使用Git管理项目/创建仓库.png" alt="创建仓库"><br>为仓库建立路径<br><img src="/2019/09/06/IDEA使用Git管理项目/选择仓库建立路径.png" alt="选择仓库建立路径"></li>
 <li>仓库建立成功。<br>在仓库目录中，如果多了.git文件，说明已建立连接，仓库建立成功。<br><img src="/2019/09/06/IDEA使用Git管理项目/建仓前的目录.png" alt="建仓前的目录"><br><img src="/2019/09/06/IDEA使用Git管理项目/建仓后的目录.png" alt="建仓后的目录"><br>成功建立仓库后，可以在IDEA上看到项目的文件变红了。<br><img src="/2019/09/06/IDEA使用Git管理项目/文件变红.png" alt="文件变红"></li>
 <li>将IDEA上的项目分享到仓库<br>将代码添加到了Git的缓存区中，可以发现，文件变成绿色了。<br><img src="/2019/09/06/IDEA使用Git管理项目/Add.png" alt="添加"><br><img src="/2019/09/06/IDEA使用Git管理项目/文件变绿.png" alt="文件变绿"><br>将文件上传。<br><img src="/2019/09/06/IDEA使用Git管理项目/commit描述.png" alt="commit描述"><br>书写一些描述上传信息，可以省略。<br><img src="/2019/09/06/IDEA使用Git管理项目/描述上传信息.png" alt="描述上传信息"><br><img src="/2019/09/06/IDEA使用Git管理项目/确定上传.png" alt="确定上传"><br>这是可以看到一些文件上传成功的提示，文件也由绿色变成黑色。<br><img src="/2019/09/06/IDEA使用Git管理项目/文件变黑.png" alt="文件变黑"></li>
 </ol>
+<h3 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h3><p>随便更改以下代码。<br>代码更新到Git仓库，操作类似了前面的上传一样，commit即可。如果有新增的文件，commit之前要先Add。<br><img src="/2019/09/06/IDEA使用Git管理项目/commit描述.png" alt="commit描述"></p>
 <h3 id="忽略某些文件上传"><a href="#忽略某些文件上传" class="headerlink" title="忽略某些文件上传"></a>忽略某些文件上传</h3><p>有时候，并不是整个项目中全部的文件都是要分享的，只是一些有用的文件才要。减少无用文件的上传分享，有利于提高工作效率。下面是，设置忽略某些文件共享。<br>进入settings界面，操作如图：<br><img src="/2019/09/06/IDEA使用Git管理项目/忽略文件上传.png" alt="忽略文件上传"></p>
 
       
@@ -957,7 +974,7 @@
       <ul>
         
           <li>
-            <a href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub</a>
+            <a href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub或下载下来</a>
           </li>
         
           <li>
