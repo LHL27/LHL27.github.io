@@ -5,21 +5,33 @@
   
 
   
-  <title>归档: 2019/9 | ľľ</title>
+  <title>编译CSS和Javascript文件 | ľľ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta name="description" content="��֪���ʣ��������ޣ�">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ľľ">
-<meta property="og:url" content="https://LHL27.github.io/archives/2019/09/index.html">
+  <meta name="description" content="Bootstrap重新编译CSS和Javascript文件在日常开发中，有时候，我们为了方便会去修改bootstrap中样式，当需要样式发挥作用时，我们需要去重新编译文件。 编译过程 安装node在node官网中，下载相应版本的node，直接安装即可。也可以通过命令行进行安装。检验是否安装成功:在命令行界面，输入  1node -v 如果显示node的版本，则安装成功了。  安装grunt在命令行">
+<meta name="keywords" content="Bootstrap笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译CSS和Javascript文件">
+<meta property="og:url" content="https://LHL27.github.io/2019/09/13/编译CSS和Javascript文件/index.html">
 <meta property="og:site_name" content="ľľ">
-<meta property="og:description" content="��֪���ʣ��������ޣ�">
+<meta property="og:description" content="Bootstrap重新编译CSS和Javascript文件在日常开发中，有时候，我们为了方便会去修改bootstrap中样式，当需要样式发挥作用时，我们需要去重新编译文件。 编译过程 安装node在node官网中，下载相应版本的node，直接安装即可。也可以通过命令行进行安装。检验是否安装成功:在命令行界面，输入  1node -v 如果显示node的版本，则安装成功了。  安装grunt在命令行">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/node版本.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/安装grunt.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/install.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/删除dist文件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/grunt.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/重新生成dist文件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/勾选组件.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/修改样式.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/定制下载.png">
+<meta property="og:updated_time" content="2019-09-13T08:52:02.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ľľ">
-<meta name="twitter:description" content="��֪���ʣ��������ޣ�">
+<meta name="twitter:title" content="编译CSS和Javascript文件">
+<meta name="twitter:description" content="Bootstrap重新编译CSS和Javascript文件在日常开发中，有时候，我们为了方便会去修改bootstrap中样式，当需要样式发挥作用时，我们需要去重新编译文件。 编译过程 安装node在node官网中，下载相应版本的node，直接安装即可。也可以通过命令行进行安装。检验是否安装成功:在命令行界面，输入  1node -v 如果显示node的版本，则安装成功了。  安装grunt在命令行">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/09/13/编译CSS和Javascript文件/node版本.png">
   
     <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
   
@@ -54,225 +66,101 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main">
+        <section id="main"><article id="post-编译CSS和Javascript文件" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="global-container archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <header class="article-header">
       
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
+    <h1 class="article-title" itemprop="name">
+      编译CSS和Javascript文件
     </h1>
   
-      
+
     </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/13/编译CSS和Javascript文件/" class="article-date">
+  
+  <div class="article-meta">
+    <a href="/2019/09/13/编译CSS和Javascript文件/" class="article-date">
   <time datetime="2019-09-13T08:15:36.000Z" itemprop="datePublished">2019-09-13</time>
 </a>
-      
+    
   <div class="article-category">
     <a class="article-category-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a>
   </div>
 
-      
+    
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li></ul>
 
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="Bootstrap重新编译CSS和Javascript文件"><a href="#Bootstrap重新编译CSS和Javascript文件" class="headerlink" title="Bootstrap重新编译CSS和Javascript文件"></a>Bootstrap重新编译CSS和Javascript文件</h1><p>在日常开发中，有时候，我们为了方便会去修改bootstrap中样式，当需要样式发挥作用时，我们需要去重新编译文件。</p>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><ol>
+<li>安装node<br>在<a href="http://nodejs.cn/" target="_blank" rel="noopener">node官网</a>中，下载相应版本的node，直接安装即可。也可以通过命令行进行安装。<h5 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功:"></a>检验是否安装成功:</h5>在命令行界面，输入</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></div>
+<p>如果显示node的版本，则安装成功了。<br><img src="/2019/09/13/编译CSS和Javascript文件/node版本.png" alt="node版本"></p>
+<ol start="2">
+<li>安装grunt<br>在命令行中，输入安装命令<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>如：<img src="/2019/09/13/编译CSS和Javascript文件/安装grunt.png" alt="安装grunt"><br>进入bootstrap的根目录下，输入<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></div></p>
+<p>该过程有点久。安装完成后可以看到bootstrap的根目录有<code>package-lock.json</code>文件。<br>如：<img src="/2019/09/13/编译CSS和Javascript文件/install.png" alt="install"></p>
+<ol start="3">
+<li>测试编译文件<br>先将bootstrap根目录下的dist目录删除，在命令行中重新编译生成dist文件，命令：<code>grunt dist</code>，完成后，可以看到bootstrap根目录重新生成了一个dist文件。<br><img src="/2019/09/13/编译CSS和Javascript文件/删除dist文件.png" alt="删除dist文件"><br><img src="/2019/09/13/编译CSS和Javascript文件/grunt.png" alt="grunt dist"><br><img src="/2019/09/13/编译CSS和Javascript文件/重新生成dist文件.png" alt="重新生成dist文件"></li>
+</ol>
+<h3 id="自定义bootstrap框架"><a href="#自定义bootstrap框架" class="headerlink" title="自定义bootstrap框架"></a>自定义bootstrap框架</h3><p>有时候，我们希望根据自己的要求来设计bootstrap的一些样式，或者只需要部分debootstrap的组件、插件等，这时候，我们可以在<a href="https://www.bootcss.com/" target="_blank" rel="noopener">bootstrap官网</a>上定制属于自己的bootstrap框架。<br>在<a href="https://v3.bootcss.com/customize/" target="_blank" rel="noopener">定制</a>中，勾选好自己需要的组件、插件，设计好自己的样式，点击下载即可。<br><img src="/2019/09/13/编译CSS和Javascript文件/勾选组件.png" alt="勾选组件"><br><img src="/2019/09/13/编译CSS和Javascript文件/修改样式.png" alt="修改样式"><br><img src="/2019/09/13/编译CSS和Javascript文件/定制下载.png" alt="定制下载"></p>
+
+      
     </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/09/07/IDEA远程登录Linux/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">IDEA远程登录Linux</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/07/IDEA远程登录Linux/">IDEA远程登录Linux</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/07/IDEA远程登录Linux/" class="article-date">
-  <time datetime="2019-09-07T05:00:19.000Z" itemprop="datePublished">2019-09-07</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub或下载下来</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/" class="article-date">
-  <time datetime="2019-09-06T11:58:36.000Z" itemprop="datePublished">2019-09-06</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/IDEA使用Git管理项目/">IDEA使用Git管理项目</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/06/IDEA使用Git管理项目/" class="article-date">
-  <time datetime="2019-09-06T09:11:39.000Z" itemprop="datePublished">2019-09-06</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/05/IDEA创建项目/">IDEA创建项目</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/05/IDEA创建项目/" class="article-date">
-  <time datetime="2019-09-05T11:37:46.000Z" itemprop="datePublished">2019-09-05</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/04/IDEA的配置/">IDEA的配置</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/04/IDEA的配置/" class="article-date">
-  <time datetime="2019-09-04T11:55:57.000Z" itemprop="datePublished">2019-09-04</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/04/个人博客与域名的绑定/">个人博客与域名的绑定</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2019/09/04/个人博客与域名的绑定/" class="article-date">
-  <time datetime="2019-09-04T08:13:56.000Z" itemprop="datePublished">2019-09-04</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li></ul>
-
-    </div>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
 </section>
         <aside id="sidebar">
   
