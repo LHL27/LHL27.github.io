@@ -56,6 +56,55 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-大数加减乘除的实现" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/10/大数加减乘除的实现/">大数的加减乘除法的实现（1）</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/10/大数加减乘除的实现/" class="article-date">
+  <time datetime="2019-03-09T16:00:00.000Z" itemprop="datePublished">2019-03-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典案列/">经典案列</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="大数的加减乘除法的实现（1）"><a href="#大数的加减乘除法的实现（1）" class="headerlink" title="大数的加减乘除法的实现（1）"></a>大数的加减乘除法的实现（1）</h1><p>在代码编程的过程中，经常会涉及到一些比较大的数的运算，当他们超出long long int 等基本类型所能表示的范围时，就会造成溢出，整型一般的加减乘除法已无法实现了，因为有可能输入的数都已经超出范围了，更别说得到正确的结果了。这时候，就需要自己写一个程序来实现了。</p>
+<h2 id="大数的输入"><a href="#大数的输入" class="headerlink" title="大数的输入"></a>大数的输入</h2><p>当一个数字超出基本类型所能表示的范围时，可以以字符串的形式输入。运算时，再按位运算即可。如：当数字与数位无关，只与个数位上的数字有关时，可以以字符串的形式输入，以整型数组的形式存储。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string a;</span><br><span class="line">int b[200];</span><br><span class="line">cin&gt;&gt;a;			//以字符串的形式输入</span><br><span class="line">for(int i=0;a[i]!=&apos;\0&apos;;i++)&#123;</span><br><span class="line">	b[i]=a[i]-&apos;0&apos;;           //以整型数组的形式存储，或b[i]=a[i]-48；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="大数的加法"><a href="#大数的加法" class="headerlink" title="大数的加法"></a>大数的加法</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//大数相加的实现</span><br><span class="line">//用字符串来表示整型</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string add(string a,string b)&#123;		//加法函数</span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos) 		//string::npos指如果没找到，返回一个标志；这里可以指；如果a全部为零，则进入		</span><br><span class="line">		a=&quot;0&quot;;</span><br><span class="line">	else a=a.substr(a.find_first_not_of(&apos;0&apos;));			//把字符串前面的零全部去掉，因为数字前面没有零 </span><br><span class="line">	if(b.find_first_not_of(&apos;0&apos;)==string::npos) </span><br><span class="line">		b=&quot;0&quot;;</span><br><span class="line">	else b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">//翻转，低位在左边，这样a,b的数位就对齐了	</span><br><span class="line">	reverse(a.begin(),a.end());</span><br><span class="line">	reverse(b.begin(),b.end());</span><br><span class="line">//len是和的长度，所以它必须比a,b中的最长的长度还要长，故加上10，保证不会溢出	</span><br><span class="line">	long long lenA = a.length();</span><br><span class="line">	long long lenB = b.length();</span><br><span class="line">	long long len =max(lenA,lenB)+10;</span><br><span class="line">//初始化长度为len,字符全部为‘0’的ans字符串存储和	</span><br><span class="line">	string ans(len,&apos;0&apos;);</span><br><span class="line">//把a搬到ans中 </span><br><span class="line">	for(int i=0;i&lt;lenA;i++)&#123;</span><br><span class="line">		ans[i]=a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	int tmp=0;		//tmp是上一位相加后的进位 </span><br><span class="line">	for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">		if(i&lt;lenB)&#123;				//当b还有数位时 </span><br><span class="line">			tmp+=(ans[i]-&apos;0&apos;)+(b[i]-&apos;0&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;			//当b没有数位时</span><br><span class="line">			tmp+=(ans[i]-&apos;0&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">		ans[i]=tmp%10+&apos;0&apos;;		//本位 </span><br><span class="line">		tmp/=10;				//下一位的进位</span><br><span class="line">	&#125;</span><br><span class="line">//翻转回来 </span><br><span class="line">	reverse(ans.begin(),ans.end());</span><br><span class="line">//字符串前面的零全部去掉，因为数字前面没有零  </span><br><span class="line">	return ans.substr(ans.find_first_not_of(&apos;0&apos;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	string a,b;</span><br><span class="line">	cin&gt;&gt;a;</span><br><span class="line">	cin&gt;&gt;b;</span><br><span class="line">	cout&lt;&lt;add(a,b)&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="大数的减法"><a href="#大数的减法" class="headerlink" title="大数的减法"></a>大数的减法</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">//大数相减的实现</span><br><span class="line">//用字符串表示整型</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string subtract(string a,string b)&#123;			//减法函数 </span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos)&#123;			//如果a等于0 </span><br><span class="line">		if(b.find_first_not_of(&apos;0&apos;)==string::npos)&#123;		//b也等于0 </span><br><span class="line">			return &quot;0&quot;;</span><br><span class="line">		&#125;else&#123;											//b不等于0 </span><br><span class="line">			b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">			string ans(b.length()+1,&apos;-&apos;);				//ans=-b</span><br><span class="line">			for(int i=1;i&lt;b.length()+1;i++)</span><br><span class="line">				ans[i]=b[i-1];</span><br><span class="line">			return ans;</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">	if(b.find_first_not_of(&apos;0&apos;)==string::npos)&#123;			//如果b等于0 </span><br><span class="line">		return a.substr(a.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	a=a.substr(a.find_first_not_of(&apos;0&apos;));			//去掉a,b字符串前面的零 </span><br><span class="line">	b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	</span><br><span class="line">	bool flag=false;	//标记a,b的比较，a&lt;b为true，结果为负 </span><br><span class="line">	if( a.length()&lt;b.length() || a.length()==b.length()&amp;&amp;a&lt;b)&#123;	//如果b&gt;a,交换 </span><br><span class="line">		flag=true;</span><br><span class="line">		string tmp = b;			//a,b交换 </span><br><span class="line">		b=a;</span><br><span class="line">		a=tmp;</span><br><span class="line">	&#125; </span><br><span class="line">//翻转，低位在左边，先运算 </span><br><span class="line">	reverse(a.begin(),a.end());</span><br><span class="line">	reverse(b.begin(),b.end());</span><br><span class="line">//按位做减法</span><br><span class="line">	for(int i=0;i&lt;b.length();++i)&#123;</span><br><span class="line">		if(a[i]&gt;=b[i])&#123;			//本位够减 </span><br><span class="line">			a[i]=a[i]-b[i]+&apos;0&apos;;</span><br><span class="line">		&#125;else&#123;					//不够减，需借位 </span><br><span class="line">			int k=1;</span><br><span class="line">			while(a[i+k]==&apos;0&apos;)&#123;		//如果下一位只有0，借出1，置9，再往后一位借1 </span><br><span class="line">				a[i+k]=&apos;9&apos;;			</span><br><span class="line">				k++;</span><br><span class="line">			&#125; </span><br><span class="line">			a[i+k]=a[i+k]-&apos;1&apos;+&apos;0&apos;;					//i+k位借出了1 </span><br><span class="line">			a[i]=(a[i]-&apos;0&apos;)+10-(b[i]-&apos;0&apos;)+&apos;0&apos;;		//i位借来了10，相减 </span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	reverse(a.begin(),a.end());		//翻转回来</span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos)	//string::npos指如果没找到，返回一个标志；这里指；如果a全部为零，则进入 </span><br><span class="line">		return &quot;0&quot;;</span><br><span class="line">	if(flag) &#123;							//负数的处理 </span><br><span class="line">		string ans(a.length()+1,&apos;0&apos;);	//声明一个长度为a.length()+1,字符全部为‘0’的字符串 </span><br><span class="line">		ans[0]=&apos;-&apos;;						//加上负号 </span><br><span class="line">		for(int i=a.length()+1;i&gt;0;i--)&#123;	//将a赋值给ans,a的第1位放到ans的第2位，以此类推 。。。 </span><br><span class="line">			ans[i]=a[i-1];</span><br><span class="line">		&#125;				//字符串前面全部去掉零 </span><br><span class="line">		return ans.substr(ans.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	&#125;</span><br><span class="line">	return a.substr(a.find_first_not_of(&apos;0&apos;)); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	string a,b;</span><br><span class="line">	cin&gt;&gt;a;</span><br><span class="line">	cin&gt;&gt;b;</span><br><span class="line">	cout&lt;&lt;subtract(a,b)&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<font color="red" size="5">这里加减法输入的大数只限于正整数，涉及负数的运算，以后更新。如果还少了其他情况，希望读者可以提出来！</font>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-回溯、递归、dfs的个人总结" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -362,54 +411,6 @@
 </article>
 
   
-    <article id="post-李白打酒" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/李白打酒/">李白打酒</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/01/李白打酒/" class="article-date">
-  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="标题：李白打酒"><a href="#标题：李白打酒" class="headerlink" title="标题：李白打酒"></a>标题：李白打酒</h2><p>话说大诗人李白，一生好饮。幸好他从不开车。<br>一天，他提着酒壶，从家里出来，酒壶中有酒2斗。他边走边唱：<br>     无事街上走，提壶去打酒。<br>    逢店加一倍，遇花喝一斗。<br>    这一路上，他一共遇到店5次，遇到花10次，已知最后一次遇到的是花，他正好把酒喝光了。<br>    请你计算李白遇到店和花的次序，可以把遇店记为a，遇花记为b。则：babaabbabbabbbb 就是合理的次序。像这样的答案一共有多少呢？请你计算出所有可能方案的个数（包含题目给出的）。<br>    注意：通过浏览器提交答案。答案是个整数。不要书写任何多余的内容。  </p>
-<font color="red" size="5px">思路：</font><br>1. 由于遇店与遇花的动作不同，分两种情况分析<br>2. 可将李白遇到花和店的次序的可能遍历出来，将满足题目条件的方案记录下来即可。由于遇到次数15次，次数比较多，用枚举遍历时间复杂度太大了，最好采用回溯、递归、dfs。<br><br><font color="red" size="5px">递归算法—代码如下：</font>
-
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int s=0;		//记录方法的个数</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void fun(char zifu[],int k,int d,int wine)&#123;		//k表示第k次遇到，d表示遇到店的次数，wine表示还剩下的酒</span><br><span class="line">	if(k==15)&#123;</span><br><span class="line">		if(zifu[k-1]==&apos;b&apos; &amp;&amp; wine==0 &amp;&amp; d==5)&#123;   //保证最后一次遇花，酒喝完，遇店5次</span><br><span class="line">			s++;</span><br><span class="line">			for(int i=0;i&lt;15;i++)&#123;</span><br><span class="line">				cout&lt;&lt;zifu[i];</span><br><span class="line">			&#125;</span><br><span class="line">			cout&lt;&lt;endl;</span><br><span class="line">			return ;</span><br><span class="line">		&#125;</span><br><span class="line">		else return ;</span><br><span class="line">	&#125;</span><br><span class="line">	zifu[k]=&apos;a&apos;;</span><br><span class="line">	fun(zifu,k+1,d+1,wine*2);			//遇店,遇到次数加一，遇店次数加一，酒加倍</span><br><span class="line">	zifu[k]=&apos;b&apos;;</span><br><span class="line">	fun(zifu,k+1,d,wine-1);			//遇花，遇到次数加一，遇店次数不变，酒喝一斗</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	char zifu[15];</span><br><span class="line">	fun(zifu,0,0,2);</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<p><font color="red" size="5px">答案：14</font><br>注意点：本题容易忽略<font color="blue">遇店5次，遇花10次</font>这个条件，并不等同于遇到次数15次，还要限定调用遇花、遇店函数的次数。</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
     <article id="post-包子凑数" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -472,6 +473,54 @@
 </article>
 
   
+    <article id="post-李白打酒" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/01/李白打酒/">李白打酒</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/01/李白打酒/" class="article-date">
+  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h2 id="标题：李白打酒"><a href="#标题：李白打酒" class="headerlink" title="标题：李白打酒"></a>标题：李白打酒</h2><p>话说大诗人李白，一生好饮。幸好他从不开车。<br>一天，他提着酒壶，从家里出来，酒壶中有酒2斗。他边走边唱：<br>     无事街上走，提壶去打酒。<br>    逢店加一倍，遇花喝一斗。<br>    这一路上，他一共遇到店5次，遇到花10次，已知最后一次遇到的是花，他正好把酒喝光了。<br>    请你计算李白遇到店和花的次序，可以把遇店记为a，遇花记为b。则：babaabbabbabbbb 就是合理的次序。像这样的答案一共有多少呢？请你计算出所有可能方案的个数（包含题目给出的）。<br>    注意：通过浏览器提交答案。答案是个整数。不要书写任何多余的内容。  </p>
+<font color="red" size="5px">思路：</font><br>1. 由于遇店与遇花的动作不同，分两种情况分析<br>2. 可将李白遇到花和店的次序的可能遍历出来，将满足题目条件的方案记录下来即可。由于遇到次数15次，次数比较多，用枚举遍历时间复杂度太大了，最好采用回溯、递归、dfs。<br><br><font color="red" size="5px">递归算法—代码如下：</font>
+
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int s=0;		//记录方法的个数</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void fun(char zifu[],int k,int d,int wine)&#123;		//k表示第k次遇到，d表示遇到店的次数，wine表示还剩下的酒</span><br><span class="line">	if(k==15)&#123;</span><br><span class="line">		if(zifu[k-1]==&apos;b&apos; &amp;&amp; wine==0 &amp;&amp; d==5)&#123;   //保证最后一次遇花，酒喝完，遇店5次</span><br><span class="line">			s++;</span><br><span class="line">			for(int i=0;i&lt;15;i++)&#123;</span><br><span class="line">				cout&lt;&lt;zifu[i];</span><br><span class="line">			&#125;</span><br><span class="line">			cout&lt;&lt;endl;</span><br><span class="line">			return ;</span><br><span class="line">		&#125;</span><br><span class="line">		else return ;</span><br><span class="line">	&#125;</span><br><span class="line">	zifu[k]=&apos;a&apos;;</span><br><span class="line">	fun(zifu,k+1,d+1,wine*2);			//遇店,遇到次数加一，遇店次数加一，酒加倍</span><br><span class="line">	zifu[k]=&apos;b&apos;;</span><br><span class="line">	fun(zifu,k+1,d,wine-1);			//遇花，遇到次数加一，遇店次数不变，酒喝一斗</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	char zifu[15];</span><br><span class="line">	fun(zifu,0,0,2);</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><font color="red" size="5px">答案：14</font><br>注意点：本题容易忽略<font color="blue">遇店5次，遇花10次</font>这个条件，并不等同于遇到次数15次，还要限定调用遇花、遇店函数的次数。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
 
 
   <nav id="page-nav">
@@ -503,7 +552,7 @@
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
     </div>
   </div>
 
@@ -544,6 +593,10 @@
       <ul>
         
           <li>
+            <a href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
           </li>
         
@@ -557,10 +610,6 @@
         
           <li>
             <a href="/2019/09/06/IDEA使用Git管理项目/">IDEA使用Git管理项目</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/05/IDEA创建项目/">IDEA创建项目</a>
           </li>
         
       </ul>

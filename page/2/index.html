@@ -56,6 +56,95 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-VMwaree的基本使用" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/04/VMwaree的基本使用/">VMware安装及基本使用</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/05/04/VMwaree的基本使用/" class="article-date">
+  <time datetime="2019-05-03T16:00:00.000Z" itemprop="datePublished">2019-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h1><p>下面讲解VMware的安装方法，安装VMuare软件及如何在VMware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>系统：win10 64位计算机<br>下载：VMware软件的安装包、CentOS的镜像文件（CentOS是Linux系统其中的一个版本）</p>
+<h2 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h2><p>安装方法很简单，基本都是“next”就行了。<br>双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。</p>
+<h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><ol>
+<li>安装好后，VMware显示如下：<img src="/2019/05/04/VMwaree的基本使用/VMware显示.png" alt="VMware显示"></li>
+<li>点击创建一个虚拟机，就会出现安装向导，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择类型.png" alt="选择类型"></li>
+<li>配置类型。选择“典型”类型，点击“下一步”。</li>
+<li>选择镜像文件。镜像文件要提前下载好，选择“安装程序光盘映像文件”，在“浏览”中找到映像文件。点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择镜像文件.png" alt="选择镜像文件"><br>也可以选择<code>稍后安装操作系统</code>，在后面第9步点击新CD/DVD,选择ios镜像文件安装。</li>
+<li>安装系统类型。客户机操作系统选择“Linux”，版本选择“CentOS”，点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/操作系统.png" alt="操作系统"></li>
+<li>名称和安装位置，可以默认，也可以自己改，点击“下一步”，如：<img src="/2019/05/04/VMwaree的基本使用/名称和位置.png" alt="名称和位置"></li>
+<li>磁盘的选择。按自己的计算机的实际情况选择，一般按默认的就好了。文件可以选择单个文件。<img src="/2019/05/04/VMwaree的基本使用/磁盘.png" alt="磁盘"></li>
+<li>自定义硬件。点击“自定义硬件”，可以对一些硬件的连接进行选择。如：<img src="/2019/05/04/VMwaree的基本使用/自定义硬件.png" alt="自定义硬件"></li>
+<li>硬件的连接。由于连接的硬件越多，占用的资源越多，可以将一些暂时不用的硬件移除掉。如：打印机、声卡。操作完后，点击“关闭”。如：<img src="/2019/05/04/VMwaree的基本使用/硬件的连接.png" alt="硬件的连接"> </li>
+<li>点击“完成”。就会进入安装的状态，如：<img src="/2019/05/04/VMwaree的基本使用/安装.png" alt="安装"></li>
+<li>点击“开启此虚拟机”: 依次出现下面的视图，启动过程，需要等几分钟<img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"> </li>
+<li>等到安装完成后。显示如：<img src="/2019/05/04/VMwaree的基本使用/安装完成.png" alt="安装完成"></li>
+<li>首次启动CENTOS7 ，要做些基本的设置，如语言等，选择好自己熟悉的语言，继续。<img src="/2019/05/04/VMwaree的基本使用/语言选择.png" alt="语言选择"></li>
+<li>其他的配置根据自己的实际情况选择，或默认就好了。主要的配置是：安装位置、网络和主机名，<img src="/2019/05/04/VMwaree的基本使用/基本配置.png" alt="基本配置"></li>
+<li>点击进入“安装位置”，选择“自动分区”，完成。<img src="/2019/05/04/VMwaree的基本使用/自动分区.png" alt="自动分区"></li>
+<li>网络的配置。点击进入“网络和主机名”的视图中，把以太网<code>打开</code>，打开后，可以看到获取了网络ip、子网掩码、路由等信息了。主机名默认就好。如图右上角：<img src="/2019/05/04/VMwaree的基本使用/网络配置.png" alt="网络配置">，点击完成。</li>
+<li>基本的配置都完成了。点击“开始安装”。</li>
+<li>创建用户。在使用虚拟机时，需要用户登录，所以，我们要先配置用户，如图：<img src="/2019/05/04/VMwaree的基本使用/配置用户.png" alt="配置用户"></li>
+<li>左边的是root用户，是该虚拟机的最高管理者，是一定要创建的。点击“创建root用户”，进入创建视图，两次输入密码，一定要记得密码。点击“完成”。<img src="/2019/05/04/VMwaree的基本使用/创建root用户.png" alt="创建root用户"></li>
+<li>右边是创建普通用户，与root用户的主要区别是：两者的权限不同。进入创建视图,按提示填写信息，完成。<img src="/2019/05/04/VMwaree的基本使用/创建普通用户.png" alt="创建普通用户"></li>
+<li>创建完成后,黄色的叹号就消失了。显示如<img src="/2019/05/04/VMwaree的基本使用/创建用户完成.png" alt="创建用户完成"></li>
+<li>到这步，就算是安装完成了。等一会，就会出现下图，“重启”即可。<img src="/2019/05/04/VMwaree的基本使用/重启.png" alt="重启"></li>
+<li>进入虚拟机。输入刚才创建的用户，可以是root用户，也可以是普通用户。<img src="/2019/05/04/VMwaree的基本使用/用户登录.png" alt="用户登录"></li>
+<li>root用户：前面显示的是<code>#</code>号，一般用户，显示的是<code>$</code>号。输入“exit”,回车既可以退出了。</li>
+</ol>
+<h2 id="采用putty远程登录虚拟机"><a href="#采用putty远程登录虚拟机" class="headerlink" title="采用putty远程登录虚拟机"></a>采用putty远程登录虚拟机</h2><p>前提：下载好putty.exe。</p>
+<ol>
+<li>查看机器的ip地址，用户登录虚拟机后，输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>回车。如果已经安装好了命令包，则会显示：ip等的信息，如：第5步的显示，跳过第2、3、4步。<br>如果没有安装，则显示 ，<img src="/2019/05/04/VMwaree的基本使用/找不到ifconfig.png" alt="找不到ifconfig命令"></p>
+<ol start="2">
+<li>安装命令包，连网的条件下，输入</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>回车后，如图：<img src="/2019/05/04/VMwaree的基本使用/安装命令包.png" alt="安装命令包"></li>
+<li>安装完成后，连续输入两次<code>y</code>，回车。如图：<img src="/2019/05/04/VMwaree的基本使用/安装完成yy.png" alt="安装完成yy"></li>
+<li>重新执行第1步，显示如图：<img src="/2019/05/04/VMwaree的基本使用/ifconfig.png" alt="ifconfig"></li>
+<li>记下虚拟机ip地址，也就是图中的，<code>192.168.80.128</code>。</li>
+<li>双击打开putty.exe，在host name 的输入框中输入ip地址，点击“open”，如图：<img src="/2019/05/04/VMwaree的基本使用/打开putty.png" alt="打开putty"></li>
+<li>输入用户名和密码，回车即可登录成功了。如：<img src="/2019/05/04/VMwaree的基本使用/putty登录.png" alt="putty登录"></li>
+</ol>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>VMware需要注册才能使用，不然只能试用10天，以下是我的注册码。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JZ6WK-4529P-HZAA1-9RAG6-33JNR 5F4EV-4Z0DP-XZHN9-0L95H-02V17</span><br></pre></td></tr></table></figure></div></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-(Android)像素、颜色" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -968,55 +1057,6 @@
 </article>
 
   
-    <article id="post-大数加减乘除的实现" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/10/大数加减乘除的实现/">大数的加减乘除法的实现（1）</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/10/大数加减乘除的实现/" class="article-date">
-  <time datetime="2019-03-09T16:00:00.000Z" itemprop="datePublished">2019-03-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典案列/">经典案列</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="大数的加减乘除法的实现（1）"><a href="#大数的加减乘除法的实现（1）" class="headerlink" title="大数的加减乘除法的实现（1）"></a>大数的加减乘除法的实现（1）</h1><p>在代码编程的过程中，经常会涉及到一些比较大的数的运算，当他们超出long long int 等基本类型所能表示的范围时，就会造成溢出，整型一般的加减乘除法已无法实现了，因为有可能输入的数都已经超出范围了，更别说得到正确的结果了。这时候，就需要自己写一个程序来实现了。</p>
-<h2 id="大数的输入"><a href="#大数的输入" class="headerlink" title="大数的输入"></a>大数的输入</h2><p>当一个数字超出基本类型所能表示的范围时，可以以字符串的形式输入。运算时，再按位运算即可。如：当数字与数位无关，只与个数位上的数字有关时，可以以字符串的形式输入，以整型数组的形式存储。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string a;</span><br><span class="line">int b[200];</span><br><span class="line">cin&gt;&gt;a;			//以字符串的形式输入</span><br><span class="line">for(int i=0;a[i]!=&apos;\0&apos;;i++)&#123;</span><br><span class="line">	b[i]=a[i]-&apos;0&apos;;           //以整型数组的形式存储，或b[i]=a[i]-48；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h2 id="大数的加法"><a href="#大数的加法" class="headerlink" title="大数的加法"></a>大数的加法</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//大数相加的实现</span><br><span class="line">//用字符串来表示整型</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string add(string a,string b)&#123;		//加法函数</span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos) 		//string::npos指如果没找到，返回一个标志；这里可以指；如果a全部为零，则进入		</span><br><span class="line">		a=&quot;0&quot;;</span><br><span class="line">	else a=a.substr(a.find_first_not_of(&apos;0&apos;));			//把字符串前面的零全部去掉，因为数字前面没有零 </span><br><span class="line">	if(b.find_first_not_of(&apos;0&apos;)==string::npos) </span><br><span class="line">		b=&quot;0&quot;;</span><br><span class="line">	else b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">//翻转，低位在左边，这样a,b的数位就对齐了	</span><br><span class="line">	reverse(a.begin(),a.end());</span><br><span class="line">	reverse(b.begin(),b.end());</span><br><span class="line">//len是和的长度，所以它必须比a,b中的最长的长度还要长，故加上10，保证不会溢出	</span><br><span class="line">	long long lenA = a.length();</span><br><span class="line">	long long lenB = b.length();</span><br><span class="line">	long long len =max(lenA,lenB)+10;</span><br><span class="line">//初始化长度为len,字符全部为‘0’的ans字符串存储和	</span><br><span class="line">	string ans(len,&apos;0&apos;);</span><br><span class="line">//把a搬到ans中 </span><br><span class="line">	for(int i=0;i&lt;lenA;i++)&#123;</span><br><span class="line">		ans[i]=a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	int tmp=0;		//tmp是上一位相加后的进位 </span><br><span class="line">	for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">		if(i&lt;lenB)&#123;				//当b还有数位时 </span><br><span class="line">			tmp+=(ans[i]-&apos;0&apos;)+(b[i]-&apos;0&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;			//当b没有数位时</span><br><span class="line">			tmp+=(ans[i]-&apos;0&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">		ans[i]=tmp%10+&apos;0&apos;;		//本位 </span><br><span class="line">		tmp/=10;				//下一位的进位</span><br><span class="line">	&#125;</span><br><span class="line">//翻转回来 </span><br><span class="line">	reverse(ans.begin(),ans.end());</span><br><span class="line">//字符串前面的零全部去掉，因为数字前面没有零  </span><br><span class="line">	return ans.substr(ans.find_first_not_of(&apos;0&apos;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	string a,b;</span><br><span class="line">	cin&gt;&gt;a;</span><br><span class="line">	cin&gt;&gt;b;</span><br><span class="line">	cout&lt;&lt;add(a,b)&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h2 id="大数的减法"><a href="#大数的减法" class="headerlink" title="大数的减法"></a>大数的减法</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">//大数相减的实现</span><br><span class="line">//用字符串表示整型</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">string subtract(string a,string b)&#123;			//减法函数 </span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos)&#123;			//如果a等于0 </span><br><span class="line">		if(b.find_first_not_of(&apos;0&apos;)==string::npos)&#123;		//b也等于0 </span><br><span class="line">			return &quot;0&quot;;</span><br><span class="line">		&#125;else&#123;											//b不等于0 </span><br><span class="line">			b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">			string ans(b.length()+1,&apos;-&apos;);				//ans=-b</span><br><span class="line">			for(int i=1;i&lt;b.length()+1;i++)</span><br><span class="line">				ans[i]=b[i-1];</span><br><span class="line">			return ans;</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">	if(b.find_first_not_of(&apos;0&apos;)==string::npos)&#123;			//如果b等于0 </span><br><span class="line">		return a.substr(a.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	a=a.substr(a.find_first_not_of(&apos;0&apos;));			//去掉a,b字符串前面的零 </span><br><span class="line">	b=b.substr(b.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	</span><br><span class="line">	bool flag=false;	//标记a,b的比较，a&lt;b为true，结果为负 </span><br><span class="line">	if( a.length()&lt;b.length() || a.length()==b.length()&amp;&amp;a&lt;b)&#123;	//如果b&gt;a,交换 </span><br><span class="line">		flag=true;</span><br><span class="line">		string tmp = b;			//a,b交换 </span><br><span class="line">		b=a;</span><br><span class="line">		a=tmp;</span><br><span class="line">	&#125; </span><br><span class="line">//翻转，低位在左边，先运算 </span><br><span class="line">	reverse(a.begin(),a.end());</span><br><span class="line">	reverse(b.begin(),b.end());</span><br><span class="line">//按位做减法</span><br><span class="line">	for(int i=0;i&lt;b.length();++i)&#123;</span><br><span class="line">		if(a[i]&gt;=b[i])&#123;			//本位够减 </span><br><span class="line">			a[i]=a[i]-b[i]+&apos;0&apos;;</span><br><span class="line">		&#125;else&#123;					//不够减，需借位 </span><br><span class="line">			int k=1;</span><br><span class="line">			while(a[i+k]==&apos;0&apos;)&#123;		//如果下一位只有0，借出1，置9，再往后一位借1 </span><br><span class="line">				a[i+k]=&apos;9&apos;;			</span><br><span class="line">				k++;</span><br><span class="line">			&#125; </span><br><span class="line">			a[i+k]=a[i+k]-&apos;1&apos;+&apos;0&apos;;					//i+k位借出了1 </span><br><span class="line">			a[i]=(a[i]-&apos;0&apos;)+10-(b[i]-&apos;0&apos;)+&apos;0&apos;;		//i位借来了10，相减 </span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	reverse(a.begin(),a.end());		//翻转回来</span><br><span class="line">	if(a.find_first_not_of(&apos;0&apos;)==string::npos)	//string::npos指如果没找到，返回一个标志；这里指；如果a全部为零，则进入 </span><br><span class="line">		return &quot;0&quot;;</span><br><span class="line">	if(flag) &#123;							//负数的处理 </span><br><span class="line">		string ans(a.length()+1,&apos;0&apos;);	//声明一个长度为a.length()+1,字符全部为‘0’的字符串 </span><br><span class="line">		ans[0]=&apos;-&apos;;						//加上负号 </span><br><span class="line">		for(int i=a.length()+1;i&gt;0;i--)&#123;	//将a赋值给ans,a的第1位放到ans的第2位，以此类推 。。。 </span><br><span class="line">			ans[i]=a[i-1];</span><br><span class="line">		&#125;				//字符串前面全部去掉零 </span><br><span class="line">		return ans.substr(ans.find_first_not_of(&apos;0&apos;));</span><br><span class="line">	&#125;</span><br><span class="line">	return a.substr(a.find_first_not_of(&apos;0&apos;)); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	string a,b;</span><br><span class="line">	cin&gt;&gt;a;</span><br><span class="line">	cin&gt;&gt;b;</span><br><span class="line">	cout&lt;&lt;subtract(a,b)&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<font color="red" size="5">这里加减法输入的大数只限于正整数，涉及负数的运算，以后更新。如果还少了其他情况，希望读者可以提出来！</font>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -1048,7 +1088,7 @@
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
     </div>
   </div>
 
@@ -1089,6 +1129,10 @@
       <ul>
         
           <li>
+            <a href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
           </li>
         
@@ -1102,10 +1146,6 @@
         
           <li>
             <a href="/2019/09/06/IDEA使用Git管理项目/">IDEA使用Git管理项目</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/05/IDEA创建项目/">IDEA创建项目</a>
           </li>
         
       </ul>

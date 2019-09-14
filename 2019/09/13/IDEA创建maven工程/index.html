@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>IDEA创建maven工程 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="IDEA创建maven工程什么是maven由apache公司推出的一个管理项目的工具，由ant演变而来，自动化的构建的工具。 pomproject object model 工程对象模型，pom.xml maven的安装与引入 下载maven在apache官网的maven下载，liunx系统下载第一个，windows用户下载第二个。下面以windows为例说明。下载完，解压。刚开始，我下载的是3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDEA创建maven工程">
+<meta property="og:url" content="https://LHL27.github.io/2019/09/13/IDEA创建maven工程/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="IDEA创建maven工程什么是maven由apache公司推出的一个管理项目的工具，由ant演变而来，自动化的构建的工具。 pomproject object model 工程对象模型，pom.xml maven的安装与引入 下载maven在apache官网的maven下载，liunx系统下载第一个，windows用户下载第二个。下面以windows为例说明。下载完，解压。刚开始，我下载的是3.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/下载maven.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/下载3.5.4版本.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/文件目录.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/添加本地仓库.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/添加阿里云镜像.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/引入maven.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/创建项目.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/创建maven项目.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/项目id.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/确认信息.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/项目名.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/maven创建成功.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/原配置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/更改版本原配置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/新增目录.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/新增java目录.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/将java目录设置为sources根目录.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/resources设置类型.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/web文件错误.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/3.0的web.xml.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/搜索servlet.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/选择API.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/选择版本.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/复制依赖.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/将依赖粘贴到pom文件中.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/依赖下载完成.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/创建一个Servlet.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/Servlet内容.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/添加本地Tomcat.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/选择Tomcat路径.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/部署项目1.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/部署项目2.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/部署项目3.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/部署设置.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/启动Tomcat.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/访问index.png">
+<meta property="og:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/访问Servlet.png">
+<meta property="og:updated_time" content="2019-09-14T03:16:20.830Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IDEA创建maven工程">
+<meta name="twitter:description" content="IDEA创建maven工程什么是maven由apache公司推出的一个管理项目的工具，由ant演变而来，自动化的构建的工具。 pomproject object model 工程对象模型，pom.xml maven的安装与引入 下载maven在apache官网的maven下载，liunx系统下载第一个，windows用户下载第二个。下面以windows为例说明。下载完，解压。刚开始，我下载的是3.">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/09/13/IDEA创建maven工程/下载maven.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-IDEA创建maven工程" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      IDEA创建maven工程
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/09/13/IDEA创建maven工程/" class="article-date">
+  <time datetime="2019-09-13T11:11:59.000Z" itemprop="datePublished">2019-09-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a>
+  </div>
+
+    
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="IDEA创建maven工程"><a href="#IDEA创建maven工程" class="headerlink" title="IDEA创建maven工程"></a>IDEA创建maven工程</h1><h3 id="什么是maven"><a href="#什么是maven" class="headerlink" title="什么是maven"></a>什么是maven</h3><p>由apache公司推出的一个管理项目的工具，由ant演变而来，自动化的构建的工具。</p>
+<h3 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h3><p>project object model 工程对象模型，pom.xml</p>
+<h2 id="maven的安装与引入"><a href="#maven的安装与引入" class="headerlink" title="maven的安装与引入"></a>maven的安装与引入</h2><ol>
+<li>下载maven<br>在<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">apache官网的maven下载</a>，liunx系统下载第一个，windows用户下载第二个。下面以windows为例说明。<br><img src="/2019/09/13/IDEA创建maven工程/下载maven.png" alt="下载maven"><br>下载完，解压。<br>刚开始，我下载的是3.6.2版本的，操作到最后，发现maven的仓库更新一直报错。百度了一下，有人说是3.6以上的版本均未完善。后来，我换成了3.5.4版本了。<br><img src="/2019/09/13/IDEA创建maven工程/下载3.5.4版本.png" alt="下载3.5.4版本"></li>
+<li>修改settings.xml文件<br>下载完解压，文件目录如下：<br><img src="/2019/09/13/IDEA创建maven工程/文件目录.png" alt="文件目录"><br>打开conf目录下settings.xml文件，需要在文件中，增加本地仓库的路径和阿里云镜像。增加本地仓库是为了存放maven下载的依赖。可以向我这样创建一个空文件目录即可。增加阿里云的镜像是因为国内环境不稳定，下载国外的资源，下载速度太慢了，增加镜像可以加速。<br><img src="/2019/09/13/IDEA创建maven工程/添加本地仓库.png" alt="添加本地仓库"><br><img src="/2019/09/13/IDEA创建maven工程/添加阿里云镜像.png" alt="添加阿里云镜像"></li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br></pre></td></tr></table></figure></div>
+<p>添加完成，保存settings.xml文件。</p>
+<ol start="3">
+<li>IDEA中引入maven<br>打开IDEA的settings界面，如图选择好maven解压的路径，点击OK.<br><img src="/2019/09/13/IDEA创建maven工程/引入maven.png" alt="引入maven"><br>引入完成。</li>
+</ol>
+<h2 id="使用maven的骨架创建web项目"><a href="#使用maven的骨架创建web项目" class="headerlink" title="使用maven的骨架创建web项目"></a>使用maven的骨架创建web项目</h2><h3 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h3><ol>
+<li>安装好JDK1.9</li>
+<li>安装好tomcat 8.5.39<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3></li>
+<li>创建maven项目<br><img src="/2019/09/13/IDEA创建maven工程/创建项目.png" alt="创建项目"><br><img src="/2019/09/13/IDEA创建maven工程/创建maven项目.png" alt="创建maven项目"><br><img src="/2019/09/13/IDEA创建maven工程/项目id.png" alt="项目id"><br><img src="/2019/09/13/IDEA创建maven工程/确认信息.png" alt="确认信息"><br><img src="/2019/09/13/IDEA创建maven工程/项目名.png" alt="项目名"><br>创建成功，显示如下：<br><img src="/2019/09/13/IDEA创建maven工程/maven创建成功.png" alt="maven创建成功"><br>更改原配置：<br><img src="/2019/09/13/IDEA创建maven工程/原配置.png" alt="原配置"><br><img src="/2019/09/13/IDEA创建maven工程/更改版本原配置.png" alt="更改版本原配置"><br>不再显示红色字体，依赖生成完成。</li>
+<li>完善web项目结构<br>在main目录下新增java、resources目录。java目录下存放java源码，resources目录下存放资源文件。<br><img src="/2019/09/13/IDEA创建maven工程/新增目录.png" alt="新增目录"><br><img src="/2019/09/13/IDEA创建maven工程/新增java目录.png" alt="新增java目录"><br>将java目录设置为Sources Root。同理resources目录设置成Resources Root。<br><img src="/2019/09/13/IDEA创建maven工程/将java目录设置为sources根目录.png" alt="将java目录设置为sources根目录"><br><img src="/2019/09/13/IDEA创建maven工程/resources设置类型.png" alt="resources设置类型"><br>骨架创建的web.xml文件是错误的，下面我将其改为3.0版本的web.xml文件。<br><img src="/2019/09/13/IDEA创建maven工程/web文件错误.png" alt="web文件错误"><br><img src="/2019/09/13/IDEA创建maven工程/3.0的web.xml.png" alt="3.0的web.xml"><br>3.0的web.xml文件内容，如下：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee</span><br><span class="line">		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span><br><span class="line">         version=&quot;3.0&quot;&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>创建一个servlet，并尝试访问该servlet<br>首先，引入servlet的依赖。<br>到<a href="https://mvnrepository.com/" target="_blank" rel="noopener">中央仓库</a>，搜索servlet。<br><img src="/2019/09/13/IDEA创建maven工程/搜索servlet.png" alt="搜索servlet"><br><img src="/2019/09/13/IDEA创建maven工程/选择API.png" alt="选择API"><br>选择需要的版本<br><img src="/2019/09/13/IDEA创建maven工程/选择版本.png" alt="选择版本"><br>复制依赖<br><img src="/2019/09/13/IDEA创建maven工程/复制依赖.png" alt="复制依赖"><br>将依赖粘贴到pom.xml文件中<br><img src="/2019/09/13/IDEA创建maven工程/将依赖粘贴到pom文件中.png" alt="将依赖粘贴到pom文件中"><br>当看到字体不变红色，点击maven，可以看到依赖下载完成<br><img src="/2019/09/13/IDEA创建maven工程/依赖下载完成.png" alt="依赖下载完成"><br>在java目录下创建一个Servlet<br><img src="/2019/09/13/IDEA创建maven工程/创建一个Servlet.png" alt="创建一个Servlet"><br>编写Servlet内容<br><img src="/2019/09/13/IDEA创建maven工程/Servlet内容.png" alt="Servlet内容"></li>
+<li>Tomcat的引入与部署<br>添加本地Tomcat<br><img src="/2019/09/13/IDEA创建maven工程/添加本地Tomcat.png" alt="添加本地Tomcat"><br>选择Tomcat路径<br><img src="/2019/09/13/IDEA创建maven工程/选择Tomcat路径.png" alt="选择Tomcat路径"><br>部署项目<br><img src="/2019/09/13/IDEA创建maven工程/部署项目1.png" alt="部署项目1"><br><img src="/2019/09/13/IDEA创建maven工程/部署项目2.png" alt="部署项目2"><br><img src="/2019/09/13/IDEA创建maven工程/部署项目3.png" alt="部署项目3"><br><img src="/2019/09/13/IDEA创建maven工程/部署设置.png" alt="部署设置"></li>
+<li>访问项目<br>启动Tomcat<br><img src="/2019/09/13/IDEA创建maven工程/启动Tomcat.png" alt="启动Tomcat"><br>浏览器启动，如下，项目默认访问了index.jsp文件了。<br><img src="/2019/09/13/IDEA创建maven工程/访问index.png" alt="访问index"><br>URL中输入servlet的访问路径，回车。<br><img src="/2019/09/13/IDEA创建maven工程/访问Servlet.png" alt="访问Servlet"></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这周学习是最痛苦的学习了，完完全全被maven搞死。还好最后坚持下来了，虽然还是有很多不懂，但当看到项目能跑了，还是很开兴的，加油！</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/09/13/编译CSS和Javascript文件/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">编译CSS和Javascript文件</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/07/IDEA远程登录Linux/">IDEA远程登录Linux</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub或下载下来</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/06/IDEA使用Git管理项目/">IDEA使用Git管理项目</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
