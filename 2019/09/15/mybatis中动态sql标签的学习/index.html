@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>mybatis 中动态 sql 标签的学习 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="mybatis 中动态 sql 标签的学习在mybatis中，进行数据库操作时，不仅仅根据单一的标准来进行的增删改查，有时候，可能需要根据一个复杂的条件来操作，比如：根据一个用户的部分信息，查找一个用户；根据一个用户的id集合，查找该集合中的所有用户。这时候，可以使用一些动态的 sql 标签来辅助操作数据库，可以更加灵活、方便。 if 标签假设一个用户类的属性有 username，id，sex，a">
+<meta name="keywords" content="学习mybatis笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis 中动态 sql 标签的学习">
+<meta property="og:url" content="https://LHL27.github.io/2019/09/15/mybatis中动态sql标签的学习/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="mybatis 中动态 sql 标签的学习在mybatis中，进行数据库操作时，不仅仅根据单一的标准来进行的增删改查，有时候，可能需要根据一个复杂的条件来操作，比如：根据一个用户的部分信息，查找一个用户；根据一个用户的id集合，查找该集合中的所有用户。这时候，可以使用一些动态的 sql 标签来辅助操作数据库，可以更加灵活、方便。 if 标签假设一个用户类的属性有 username，id，sex，a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-15T09:24:15.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mybatis 中动态 sql 标签的学习">
+<meta name="twitter:description" content="mybatis 中动态 sql 标签的学习在mybatis中，进行数据库操作时，不仅仅根据单一的标准来进行的增删改查，有时候，可能需要根据一个复杂的条件来操作，比如：根据一个用户的部分信息，查找一个用户；根据一个用户的id集合，查找该集合中的所有用户。这时候，可以使用一些动态的 sql 标签来辅助操作数据库，可以更加灵活、方便。 if 标签假设一个用户类的属性有 username，id，sex，a">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-mybatis中动态sql标签的学习" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      mybatis 中动态 sql 标签的学习
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/09/15/mybatis中动态sql标签的学习/" class="article-date">
+  <time datetime="2019-09-15T08:26:38.000Z" itemprop="datePublished">2019-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="mybatis-中动态-sql-标签的学习"><a href="#mybatis-中动态-sql-标签的学习" class="headerlink" title="mybatis 中动态 sql 标签的学习"></a>mybatis 中动态 sql 标签的学习</h1><p>在mybatis中，进行数据库操作时，不仅仅根据单一的标准来进行的增删改查，有时候，可能需要根据一个复杂的条件来操作，比如：根据一个用户的部分信息，查找一个用户；根据一个用户的id集合，查找该集合中的所有用户。这时候，可以使用一些动态的 sql 标签来辅助操作数据库，可以更加灵活、方便。</p>
+<h2 id="if-标签"><a href="#if-标签" class="headerlink" title="if 标签"></a>if 标签</h2><p>假设一个用户类的属性有 username，id，sex，address 四个属性，我们需要根据其中某些属性来查找该用户的信息，比如：根据单一的属性 username，id ，sex ，address，又或者根据组合属性 username 和 id，username 和 address等等，使得 sql 语句用起来特别不方便，还要书写多条语句。这时候，if 标签就可以排上用场了。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据用户部分属性查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;findUserByCondition&quot; parameterType=&quot;***.User&quot; resultType=&quot;***.User&quot;&gt;</span><br><span class="line">        select * from user where 1=1</span><br><span class="line">        &lt;if test=&quot;username!=null&quot;&gt;    添加查找的条件</span><br><span class="line">            and username=#&#123;username&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;id!=null&quot;&gt;</span><br><span class="line">            and id=#&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;sex!=null&quot;&gt;</span><br><span class="line">            and sex=#&#123;sex&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;address!=null&quot;&gt;</span><br><span class="line">            and address=#&#123;address&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div>
+<p>select标签中的属性：<br>id：调用 sql 语句的函数<br>parameterType：传进来的参数类型，上例是 user<br>resultType：结果集的返回类型<br>这里不作详细解释。主要讲解 sql 标签。</p>
+<p>if 标签中的 test 属性表示判断，首先判断传进来的用户存不存在 username 属性，存在则判断是否匹配，不存在则判断下一个属性，依次类推。</p>
+<h2 id="where-标签"><a href="#where-标签" class="headerlink" title="where 标签"></a>where 标签</h2><p>where 标签可以表示 sql 语句中的 where 的条件限制，将条件限制语句包裹在 where 标签中，使得代码更整洁、易懂。如，上例也可以写成：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据用户部分属性查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;findUserByCondition&quot; parameterType=&quot;***.User&quot; resultType=&quot;***.User&quot;&gt;</span><br><span class="line">        select * from user</span><br><span class="line">	    &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;username!=null&quot;&gt;</span><br><span class="line">                username=#&#123;username&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;if test=&quot;id!=null&quot;&gt;</span><br><span class="line">                and id=#&#123;id&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;if test=&quot;sex!=null&quot;&gt;</span><br><span class="line">                and sex=#&#123;sex&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;if test=&quot;address!=null&quot;&gt;</span><br><span class="line">                address=#&#123;address&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="foreach-标签"><a href="#foreach-标签" class="headerlink" title="foreach 标签"></a>foreach 标签</h2><p>当需要根据一个用户的 id 集合来查找用户时，foreach 标签可以遍历每一个 id，再根据相应的 sql 语句来查询。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据一个的ids集合查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;***&quot; parameterType=&quot;***&quot; resultType=&quot;***&quot;&gt;</span><br><span class="line">        select * from user</span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;ids!=null&quot;&gt;</span><br><span class="line">                &lt;foreach collection=&quot;ids&quot; open=&quot;and id in (&quot; close=&quot;)&quot; item=&quot;uid&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">                    #&#123;uid&#125;</span><br><span class="line">                &lt;/foreach&gt;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div>
+<p>foreach 标签中的 collection 属性表示传入的集合参数，open 和 close 表示的语句为 “and id in (ids)”，and 表示一个逻辑与的条件判断，id in (ids) 表示 ids 集合中的每一个 id。item 表示从 ids 集合中取出来的每一个元素的名称为 uid，separator 表示分隔符。</p>
+<h2 id="sql-标签"><a href="#sql-标签" class="headerlink" title="sql 标签"></a>sql 标签</h2><p>在 sql 的操作中，我们发现有一些 sql 语句经常重复着写，这时候，可以采用 sql 标签将该语句包裹成为一个模板，需要使用时，直接用 include 标签引入即可。<br>配置模板：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;sql id=&quot;defaultSelect&quot;&gt;</span><br><span class="line">    select * from user</span><br><span class="line">&lt;/sql&gt;</span><br></pre></td></tr></table></figure></div></p>
+<p>将 select * from user 包裹起来，也可以包裹多条 sql 语句。<br>使用模板：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;include refid=&quot;defaultSelect&quot;&gt;&lt;/include&gt;</span><br></pre></td></tr></table></figure></div></p>
+<p>注意模板的结尾有没有分号了。如果有分号，在与其他 sql 语句拼接时，会出现错误。在数据库的使用中，sql 语句没有分号结尾，并不会影响。<br>如，上例中采用模板也可以写成：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据一个的ids集合查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;***&quot; parameterType=&quot;***&quot; resultType=&quot;***&quot;&gt;</span><br><span class="line">        &lt;include refid=&quot;defaultSelect&quot;&gt;&lt;/include&gt;</span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;ids!=null&quot;&gt;</span><br><span class="line">                &lt;foreach collection=&quot;ids&quot; open=&quot;and id in (&quot; close=&quot;)&quot; item=&quot;uid&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">                    #&#123;uid&#125;</span><br><span class="line">                &lt;/foreach&gt;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div></p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/09/15/mybaitis的配置文件/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">mybaitis的配置文件</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/mybaitis的配置文件/">mybaitis的配置文件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/07/IDEA远程登录Linux/">IDEA远程登录Linux</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
