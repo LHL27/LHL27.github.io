@@ -56,6 +56,178 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JavaScript的运算符" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/03/JavaScript的运算符/" class="article-date">
+  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的运算符"><a href="#JavaScript的运算符" class="headerlink" title="JavaScript的运算符"></a>JavaScript的运算符</h1><h2 id="运算符的分类："><a href="#运算符的分类：" class="headerlink" title="运算符的分类："></a>运算符的分类：</h2><ol>
+<li>算术运算符</li>
+<li>逻辑运算符</li>
+</ol>
+<h2 id="算术运算符（二元）"><a href="#算术运算符（二元）" class="headerlink" title="算术运算符（二元）"></a>算术运算符（二元）</h2><h3 id="运算符"><a href="#运算符" class="headerlink" title="+ 运算符"></a>+ 运算符</h3><p>可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。<br>使用规则：</p>
+<ol>
+<li>任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。</li>
+<li>除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。</li>
+<li>NaN与任何数字相加，结果都为NaN。结果类型为数字。</li>
+<li>其他类型与空串作“+”运算，结果类型为字符串。利用这一特性，可作为隐性类型转换。如：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">123 + &quot;&quot;         //“123”，数字123转换为字符串“123”</span><br><span class="line">true + &quot;&quot;		 //&quot;true&quot;,布尔 true 转换为字符串 &quot;true&quot;</span><br></pre></td></tr></table></figure></div>
+<h3 id="、-、-、-运算符"><a href="#、-、-、-运算符" class="headerlink" title="-、*、/、% 运算符"></a>-、*、/、% 运算符</h3><p>-、*、/、%分别表示数学运算中的减、乘、除、模运算，主要用于数字的运算中。使用规则与 Java 中类似，主要区别：</p>
+<ol>
+<li><p>JavaScript 中，所有的数字都是浮点型的，除法的结果也是浮点型的，如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 / 2 = 2.5		//并不同于Java中，5 / 2 = 2</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>浮点数也可以取模，如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6.5 % 2.1 = 0.2</span><br><span class="line">-6.5 % 2.1 = -0.2		//结果的符号与第一个操作数的符号保持一致</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>其他类型数据作 -、*、/、% 运算，先转换为数字类型，再进行运算。利用这一特性，可作为隐性类型转换。如：</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;123&quot; - 0 = 123;     //字符串&quot;123&quot;转换成数字123；</span><br><span class="line">true * 1 = 1;        //布尔true,转换成数字1，再乘以1，结果为数字1；</span><br><span class="line">&quot;456&quot; / 1 = 456;</span><br></pre></td></tr></table></figure></div>
+<h2 id="一元算术运算符"><a href="#一元算术运算符" class="headerlink" title="一元算术运算符"></a>一元算术运算符</h2><h3 id="运算符-1"><a href="#运算符-1" class="headerlink" title="+ 运算符"></a>+ 运算符</h3><p>作用：把操作数转换成数字（或者NaN）。如果操作数本身为数字，返回这个数字。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">+x = 1;</span><br><span class="line">+y = 1;</span><br><span class="line">+z = -123;</span><br><span class="line">+p = 0 ;</span><br><span class="line">+q = NaN;</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="运算符-2"><a href="#运算符-2" class="headerlink" title="- 运算符"></a>- 运算符</h3><p>作用：相当于0-操作数的值。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">-x = -1;</span><br><span class="line">-y = -1;</span><br><span class="line">-z = +123;</span><br><span class="line">-p = 0 ;</span><br><span class="line">-q = NaN;</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="自增运算符"><a href="#自增运算符" class="headerlink" title="++ 自增运算符"></a>++ 自增运算符</h3><p>作用：原变量在自身的基础上立即增加1<br>分类：</p>
+<ol>
+<li>后++（a++）</li>
+<li>前++（++a）<br>无论前++，还是后++，变量的值会立即加1。<br>a++的值等于原来变量的值（这里把a++、++a当成了一个整体，更容易理解）<br>++a的值等于新变量的值</li>
+</ol>
+<h3 id="自减运算符"><a href="#自减运算符" class="headerlink" title="- - 自减运算符"></a>- - 自减运算符</h3><p>作用：原变量在自身的基础上立即增减1<br>分类：</p>
+<ol>
+<li>后- -（a- -）</li>
+<li>前- -（- -a）<br>无论前- -，还是后- -，变量的值会立即减1。<br>a– 的值等于原来变量的值（这里把 a- -、- -a 当成了一个整体，更容易理解）<br>–a 的值等于新变量的值<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">var a = 10;</span><br><span class="line">a1 = a++;		//a1等于原来的值为10,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a2 = ++a;		//a2等于新值为11,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a3 = a++ + ++a + a;		//过程：a++ = 10,a=11;++a=12,a=12;10+12+12=44</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/03/JavaScript的类型/">JavaScript的类型</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/03/JavaScript的类型/" class="article-date">
+  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的类型"><a href="#JavaScript的类型" class="headerlink" title="JavaScript的类型"></a>JavaScript的类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
+<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
+<li>Number 类型–数字类型：包括整数和浮点数</li>
+<li>String 类型–字符串类型</li>
+<li>Boolean 类型–布尔类型</li>
+<li>null –空值</li>
+<li>undefined –未定义</li>
+<li>Object 类型–对象类型：是一些属性的集合</li>
+</ol>
+<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
+<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0 </li>
+<li>-0</li>
+<li>NaN</li>
+<li>“”                 //空字符串</li>
+</ul>
+<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
+<li>字符串 转换为 数字</li>
+</ol>
+<ul>
+<li>如果字符串为纯数字字符，直接转换为数字</li>
+<li>如果字符串含有非数字字符，转换为NaN</li>
+<li>如果字符串是一个空串，或全是空格的字符串，转换为</li>
+</ul>
+<ol start="2">
+<li>布尔 转换为 数字 </li>
+</ol>
+<ul>
+<li>true 转换为 1</li>
+<li>false 转换为 0 </li>
+</ul>
+<ol start="3">
+<li>null 转换为 0</li>
+<li>undefined 转换为 NaN</li>
+</ol>
+<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
+<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
+<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
+<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
+<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0 </li>
+<li>-0</li>
+<li>NaN</li>
+<li>“”                 //空字符串</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-mybatis中动态sql标签的学习" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -534,115 +706,11 @@
 </article>
 
   
-    <article id="post-IDEA的配置" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/04/IDEA的配置/">IDEA的配置</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/04/IDEA的配置/" class="article-date">
-  <time datetime="2019-09-04T11:55:57.000Z" itemprop="datePublished">2019-09-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="IDEA的配置"><a href="#IDEA的配置" class="headerlink" title="IDEA的配置"></a>IDEA的配置</h1><h3 id="更改字体及过滤文件"><a href="#更改字体及过滤文件" class="headerlink" title="更改字体及过滤文件"></a>更改字体及过滤文件</h3><ol>
-<li>进入setting界面。<br>点击菜单栏的<code>file</code>，在弹出的菜单栏中，点击<code>settings</code>，进入了设置界面。<br>如：<img src="/2019/09/04/IDEA的配置/setting.png" alt="进入设置界面"></li>
-<li>更改Editor编辑器的字体。<br>点击Editor，点击font,在右侧的font，side中，就可以更改字体类型，大小了。<br>如：<img src="/2019/09/04/IDEA的配置/editor.png" alt="editor"></li>
-<li>在Editor中，还可以设置编辑器背景颜色、代码风格等。具体配置，由使用者自行选择。</li>
-<li>文件过滤的设置。<br>在创建不同的项目的时候，IDEA会在项目的主目录下生成一些文件。在项目开发中，可能不需要更改该文件。所以，可以将该文件过滤掉。如：<br>在创建一个java项目时，自动生成的项目目录如下：<img src="/2019/09/04/IDEA的配置/未过滤文件.png" alt="未过滤文件"><br>.deal文件和.iml是自动生成的，且在编写代码时，暂时不需要在意，我们可以将这两个文件过滤掉，使得主目录更加明了清除。<br>在settings界面中，点击Editor，点击File type，在Ignore files and folders中，添加想要忽略的文件类型，结尾加上分号即可，如：.idea;*.iml;如图：<img src="/2019/09/04/IDEA的配置/文件过滤.png" alt="文件过滤"><br>Apply后，主目录如下：<img src="/2019/09/04/IDEA的配置/已过滤文件.png" alt="已过滤文件"><br>可见，已经将.idea和.iml文件过滤了。</li>
-<li>更改菜单栏的主题和字体。<br>在settings界面中，点击Appearance &amp; Behavior，点击Appearance，在右侧的Theme，font中，可以更改菜单栏的主题和字体大小了，如：<img src="/2019/09/04/IDEA的配置/更改菜单栏.png" alt="更改菜单栏"></li>
-</ol>
-<h3 id="更改快捷键"><a href="#更改快捷键" class="headerlink" title="更改快捷键"></a>更改快捷键</h3><p>在settings界面中，点击keymap，在右侧可选择其他集成开发环境使用的快捷键，也可以自定义快捷键。如：<img src="/2019/09/04/IDEA的配置/更改快捷键.png" alt="更改快捷键"></p>
-<h3 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h3><p>在MyEclipse中，当编辑syso时，就会出现<code>System.out.println();</code>的快捷方式，直接选中，即可完成System.out.println();的编写，然而，在IDEA中，是没有这种提示的。这时候，需要我们自定义代码模板，即使用简单的几个字母，加上一个生成键，即可完成我们想要的复杂的代码。<br>在settings界面中，点击Editor，点击live Templates，右侧By default expand with中选中一个生成键，点击<code>+</code>号，可以直接生成一个模板，也可以生成一个模板分组。当我们选中一个分组，输入名称，点击OK，生成。<br>如：<img src="/2019/09/04/IDEA的配置/生成代码模板分组.png" alt="生成代码模板分组"><br>此时，生成了一个模板分组了，点击该分组，点击<code>+</code>号，选中live Templates直接创建模板，在Abbreviation中，输入代表模板的字母；在Description中，输入模板功能，只要方便记忆；在Templat text中，输入模板的正确代码。<img src="/2019/09/04/IDEA的配置/生成模板.png" alt="生成模板"><br>点击下方No applicable contexts yet.的<code>define</code>，在弹窗中选中在那种语言中使用。<br>测试：在编辑器中，输入syso，点击Tab(因为我们选择了Tab键作为生成键)，即可生成<code>System.out.println();</code></p>
-<h3 id="文件模板"><a href="#文件模板" class="headerlink" title="文件模板"></a>文件模板</h3><p>当我们新建一个文件时，该文件的默认内容是按一个模板生成的，如：新建一个HTML5文件时，默认模板是：<br><img src="/2019/09/04/IDEA的配置/默认文件模板.png" alt="默认文件模板"><br>为了可以更快的编写代码，我们可以更改适合自己的文件模板。<br>在settings界面中，点击Editor，点击File and Code Templates，选择文件类型，在模板中，更改成自己想要的模板，点击OK。如：<img src="/2019/09/04/IDEA的配置/更改文件模板.png" alt="更改文件模板"><br>再新建一个HTML5文件，显示如：<img src="/2019/09/04/IDEA的配置/更改后的文件模板.png" alt="更改后的文件模板"></p>
-<p>除此之外，还可以生成文件头部模板，如：<img src="/2019/09/04/IDEA的配置/文件头部模板.png" alt="文件头部模板"><br>新建一个Java类时，生成内容如下：<img src="/2019/09/04/IDEA的配置/头部模板.png" alt="头部模板"></p>
-<h3 id="编辑器参数标记的设置"><a href="#编辑器参数标记的设置" class="headerlink" title="编辑器参数标记的设置"></a>编辑器参数标记的设置</h3><p>有时候，可以在编辑器中看到一个变量前面有一个<code>s:</code>的阴影字体，这是一个参数标记，s说明这是一个变量，如：<img src="/2019/09/04/IDEA的配置/有参数标记.png" alt="有参数标记"><br>这个参数标记可以在settings中，将其隐藏起来。<br>在settings界面中，点击Editor，点击General，点击Appearance，右侧中，将Show parameter name hints前面的框的勾去掉，如：<img src="/2019/09/04/IDEA的配置/去掉参数标记.png" alt="去掉参数标记"><br>Apply后，结果如：<img src="/2019/09/04/IDEA的配置/无参数标记.png" alt="无参数标记"></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-个人博客与域名的绑定" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/04/个人博客与域名的绑定/">个人博客与域名的绑定</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/04/个人博客与域名的绑定/" class="article-date">
-  <time datetime="2019-09-04T08:13:56.000Z" itemprop="datePublished">2019-09-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="个人博客与域名的绑定"><a href="#个人博客与域名的绑定" class="headerlink" title="个人博客与域名的绑定"></a>个人博客与域名的绑定</h1><h4 id="相关学习"><a href="#相关学习" class="headerlink" title="相关学习"></a>相关学习</h4><p><a href="http://hongliankeji.top/2019/03/01/GitHub%E4%B8%8EGit%E7%9A%84%E8%BF%9E%E6%8E%A5/" target="_blank" rel="noopener">GitHub与Git的连接</a><br>在前面的学习中，我们通过<code>github仓库+hexo</code>已经成功地搭建起了个人博客了。只要在浏览器中，输入<code>GitHub的用户名+“.github.io&quot;,</code>即可访问博客了。下面，我们将学习使用域名绑定github博客。</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>使用github+hexo搭建好博客</li>
-<li>购买好域名<br>域名可以在阿里云、百度、腾讯、万网等网站上购买。我的域名是在阿里云购买的，以阿里云为例。<h3 id="开始绑定"><a href="#开始绑定" class="headerlink" title="开始绑定"></a>开始绑定</h3></li>
-<li>找到博客的ip地址，在计算机了，ping博客，如：<br><img src="/2019/09/04/个人博客与域名的绑定/ping博客.png" alt="ping博客"><br>ip地址是：185.199.108.153，下面将域名与ip地址绑定。</li>
-<li>在阿里云购买域名成功后，进入<code>控制台</code>，点击<code>域名</code>,在域名列表中，可以看到购买的域名了，如：<br><img src="/2019/09/04/个人博客与域名的绑定/域名列表.png" alt="域名列表"></li>
-<li>域名解析<br>点击解析，进入域名解析界面，点击新手引导，如：<img src="/2019/09/04/个人博客与域名的绑定/域名解析.png" alt="域名解析"><br>在记录值中，输入ip地址，如：<img src="/2019/09/04/个人博客与域名的绑定/添加记录.png" alt="添加记录"><br>点击确定。域名解析完成。</li>
-<li>添加CNAME文件<br>在博客的主目录下的source目录下，增加一个文件，文件名为“CNAME”，必须都是大写字母，如：<img src="/2019/09/04/个人博客与域名的绑定/添加CNAME文件.png" alt="添加CNAME文件"><br>用记事本方式打开该CNAME文件，输入要绑定的域名，如：我的是<code>hongliankeji.top</code>，也可以是<code>www.hongliankeji.top</code>，保存退出。</li>
-<li>测试<br>将博客的文件部署到GitHub上，在浏览器中输入域名，回车即可看到博客的内容了。如图：<img src="/2019/09/04/个人博客与域名的绑定/测试成功.png" alt="测试成功"><br>可见，通过域名，可以成功进入博客了。</li>
-</ol>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
   </nav>
 
 
@@ -669,7 +737,7 @@
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
     </div>
   </div>
 
@@ -679,7 +747,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
     </div>
   </div>
 
@@ -689,7 +757,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 13.33px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -698,7 +766,7 @@
   <div class="widget-box">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
     </div>
   </div>
 
@@ -710,6 +778,14 @@
       <ul>
         
           <li>
+            <a href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/03/JavaScript的类型/">JavaScript的类型</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
           </li>
         
@@ -719,14 +795,6 @@
         
           <li>
             <a href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/07/IDEA远程登录Linux/">IDEA远程登录Linux</a>
           </li>
         
       </ul>
