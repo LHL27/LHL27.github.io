@@ -10,18 +10,20 @@
   
   
   
-  <meta name="description" content="JavaScript的运算符运算符的分类： 算术运算符 逻辑运算符  算术运算符（二元）+ 运算符可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。使用规则：  任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。 除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。 NaN与任何数字相加，结果都为NaN。结果类型为">
+  <meta name="description" content="JavaScript的运算符运算符的分类： 算术运算符 逻辑运算符 赋值运算符 关系运算符 条件运算符  算术运算符二元算术运算符+ 运算符可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。使用规则：  任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。 除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。 NaN">
 <meta name="keywords" content="JavaScript的基础学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript的运算符">
 <meta property="og:url" content="https://LHL27.github.io/2019/10/03/JavaScript的运算符/index.html">
 <meta property="og:site_name" content="ľľ">
-<meta property="og:description" content="JavaScript的运算符运算符的分类： 算术运算符 逻辑运算符  算术运算符（二元）+ 运算符可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。使用规则：  任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。 除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。 NaN与任何数字相加，结果都为NaN。结果类型为">
+<meta property="og:description" content="JavaScript的运算符运算符的分类： 算术运算符 逻辑运算符 赋值运算符 关系运算符 条件运算符  算术运算符二元算术运算符+ 运算符可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。使用规则：  任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。 除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。 NaN">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-03T12:25:35.901Z">
+<meta property="og:image" content="https://lhl27.github.io/2019/10/03/JavaScript的运算符/优先级.jpg">
+<meta property="og:updated_time" content="2019-10-05T03:20:24.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的运算符">
-<meta name="twitter:description" content="JavaScript的运算符运算符的分类： 算术运算符 逻辑运算符  算术运算符（二元）+ 运算符可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。使用规则：  任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。 除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。 NaN与任何数字相加，结果都为NaN。结果类型为">
+<meta name="twitter:description" content="JavaScript的运算符运算符的分类： 算术运算符 逻辑运算符 赋值运算符 关系运算符 条件运算符  算术运算符二元算术运算符+ 运算符可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。使用规则：  任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。 除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。 NaN">
+<meta name="twitter:image" content="https://lhl27.github.io/2019/10/03/JavaScript的运算符/优先级.jpg">
   
     <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
   
@@ -94,8 +96,11 @@
         <h1 id="JavaScript的运算符"><a href="#JavaScript的运算符" class="headerlink" title="JavaScript的运算符"></a>JavaScript的运算符</h1><h2 id="运算符的分类："><a href="#运算符的分类：" class="headerlink" title="运算符的分类："></a>运算符的分类：</h2><ol>
 <li>算术运算符</li>
 <li>逻辑运算符</li>
+<li>赋值运算符</li>
+<li>关系运算符</li>
+<li>条件运算符</li>
 </ol>
-<h2 id="算术运算符（二元）"><a href="#算术运算符（二元）" class="headerlink" title="算术运算符（二元）"></a>算术运算符（二元）</h2><h3 id="运算符"><a href="#运算符" class="headerlink" title="+ 运算符"></a>+ 运算符</h3><p>可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。<br>使用规则：</p>
+<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><h3 id="二元算术运算符"><a href="#二元算术运算符" class="headerlink" title="二元算术运算符"></a>二元算术运算符</h3><h4 id="运算符"><a href="#运算符" class="headerlink" title="+ 运算符"></a>+ 运算符</h4><p>可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。<br>使用规则：</p>
 <ol>
 <li>任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。</li>
 <li>除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。</li>
@@ -103,7 +108,7 @@
 <li>其他类型与空串作“+”运算，结果类型为字符串。利用这一特性，可作为隐性类型转换。如：</li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">123 + &quot;&quot;         //“123”，数字123转换为字符串“123”</span><br><span class="line">true + &quot;&quot;		 //&quot;true&quot;,布尔 true 转换为字符串 &quot;true&quot;</span><br></pre></td></tr></table></figure></div>
-<h3 id="、-、-、-运算符"><a href="#、-、-、-运算符" class="headerlink" title="-、*、/、% 运算符"></a>-、*、/、% 运算符</h3><p>-、*、/、%分别表示数学运算中的减、乘、除、模运算，主要用于数字的运算中。使用规则与 Java 中类似，主要区别：</p>
+<h4 id="、-、-、-运算符"><a href="#、-、-、-运算符" class="headerlink" title="-、*、/、% 运算符"></a>-、*、/、% 运算符</h4><p>-、*、/、%分别表示数学运算中的减、乘、除、模运算，主要用于数字的运算中。使用规则与 Java 中类似，主要区别：</p>
 <ol>
 <li><p>JavaScript 中，所有的数字都是浮点型的，除法的结果也是浮点型的，如：</p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 / 2 = 2.5		//并不同于Java中，5 / 2 = 2</span><br></pre></td></tr></table></figure></div>
@@ -115,19 +120,94 @@
 </li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;123&quot; - 0 = 123;     //字符串&quot;123&quot;转换成数字123；</span><br><span class="line">true * 1 = 1;        //布尔true,转换成数字1，再乘以1，结果为数字1；</span><br><span class="line">&quot;456&quot; / 1 = 456;</span><br></pre></td></tr></table></figure></div>
-<h2 id="一元算术运算符"><a href="#一元算术运算符" class="headerlink" title="一元算术运算符"></a>一元算术运算符</h2><h3 id="运算符-1"><a href="#运算符-1" class="headerlink" title="+ 运算符"></a>+ 运算符</h3><p>作用：把操作数转换成数字（或者NaN）。如果操作数本身为数字，返回这个数字。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">+x = 1;</span><br><span class="line">+y = 1;</span><br><span class="line">+z = -123;</span><br><span class="line">+p = 0 ;</span><br><span class="line">+q = NaN;</span><br></pre></td></tr></table></figure></div></p>
-<h3 id="运算符-2"><a href="#运算符-2" class="headerlink" title="- 运算符"></a>- 运算符</h3><p>作用：相当于0-操作数的值。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">-x = -1;</span><br><span class="line">-y = -1;</span><br><span class="line">-z = +123;</span><br><span class="line">-p = 0 ;</span><br><span class="line">-q = NaN;</span><br></pre></td></tr></table></figure></div></p>
-<h3 id="自增运算符"><a href="#自增运算符" class="headerlink" title="++ 自增运算符"></a>++ 自增运算符</h3><p>作用：原变量在自身的基础上立即增加1<br>分类：</p>
+<h3 id="一元算术运算符"><a href="#一元算术运算符" class="headerlink" title="一元算术运算符"></a>一元算术运算符</h3><h4 id="运算符-1"><a href="#运算符-1" class="headerlink" title="+ 运算符"></a>+ 运算符</h4><p>作用：把操作数转换成数字（或者NaN）。如果操作数本身为数字，返回这个数字。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">+x = 1;</span><br><span class="line">+y = 1;</span><br><span class="line">+z = -123;</span><br><span class="line">+p = 0 ;</span><br><span class="line">+q = NaN;</span><br></pre></td></tr></table></figure></div></p>
+<h4 id="运算符-2"><a href="#运算符-2" class="headerlink" title="- 运算符"></a>- 运算符</h4><p>作用：相当于 0 - 操作数 的值。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">-x = -1;</span><br><span class="line">-y = -1;</span><br><span class="line">-z = +123;</span><br><span class="line">-p = 0 ;</span><br><span class="line">-q = NaN;</span><br></pre></td></tr></table></figure></div></p>
+<h4 id="与-运算符的区别"><a href="#与-运算符的区别" class="headerlink" title="- 与 ~ 运算符的区别"></a>- 与 ~ 运算符的区别</h4><p>~ 运算符叫按位非，相当于改变变量的符号并减一。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x = 4;</span><br><span class="line">console.log(-x);	//输出-4</span><br><span class="line">console.log(~x);	//输出-5</span><br></pre></td></tr></table></figure></div>
+<h4 id="自增运算符"><a href="#自增运算符" class="headerlink" title="++ 自增运算符"></a>++ 自增运算符</h4><p>作用：原变量在自身的基础上立即增加1<br>分类：</p>
 <ol>
 <li>后++（a++）</li>
 <li>前++（++a）<br>无论前++，还是后++，变量的值会立即加1。<br>a++的值等于原来变量的值（这里把a++、++a当成了一个整体，更容易理解）<br>++a的值等于新变量的值</li>
 </ol>
-<h3 id="自减运算符"><a href="#自减运算符" class="headerlink" title="- - 自减运算符"></a>- - 自减运算符</h3><p>作用：原变量在自身的基础上立即增减1<br>分类：</p>
+<h4 id="自减运算符"><a href="#自减运算符" class="headerlink" title="-- 自减运算符"></a><code>--</code> 自减运算符</h4><p>作用：原变量在自身的基础上立即增减1<br>分类：</p>
 <ol>
-<li>后- -（a- -）</li>
-<li>前- -（- -a）<br>无论前- -，还是后- -，变量的值会立即减1。<br>a– 的值等于原来变量的值（这里把 a- -、- -a 当成了一个整体，更容易理解）<br>–a 的值等于新变量的值<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">var a = 10;</span><br><span class="line">a1 = a++;		//a1等于原来的值为10,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a2 = ++a;		//a2等于新值为11,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a3 = a++ + ++a + a;		//过程：a++ = 10,a=11;++a=12,a=12;10+12+12=44</span><br></pre></td></tr></table></figure></div>
+<li>后<code>--</code>（a<code>--</code>）</li>
+<li>前<code>--</code>（<code>--</code>a）<br>无论前- -，还是后- -，变量的值会立即减1。<br>a<code>--</code> 的值等于原来变量的值（这里把 a<code>--</code>、<code>--</code>a 当成了一个整体，更容易理解）<br><code>--</code>a 的值等于新变量的值<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">var a = 10;</span><br><span class="line">a1 = a++;		//a1等于原来的值为10,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a2 = ++a;		//a2等于新值为11,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a3 = a++ + ++a + a;		//过程：a++ = 10,a=11;++a=12,a=12;10+12+12=44</span><br></pre></td></tr></table></figure></div>
 </li>
 </ol>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>包括：</p>
+<ol>
+<li>逻辑与（&amp;&amp;）</li>
+<li>逻辑或（||）</li>
+<li>逻辑非（!）</li>
+</ol>
+<h3 id="逻辑与-amp-amp"><a href="#逻辑与-amp-amp" class="headerlink" title="逻辑与 &amp;&amp;"></a>逻辑与 &amp;&amp;</h3><p>作用：只有当两端的操作数（包括表达式）均为 true，才返回 true，其余均返回 false。</p>
+<p>逻辑与的短路效应：只有当第一个操作数为 true 时，才去计算第二个操作数，否则直接返回 false。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 10 , y = 20 ;</span><br><span class="line">true &amp;&amp; x++;	//第一个操作数为 true，运行第二个表达式,x 加1</span><br><span class="line">false &amp;&amp; y++;	//第一个操作数为 false，直接返回第一个值，不运行第二个表达式,y 不变</span><br><span class="line">console.log(x);		//输出 11</span><br><span class="line">console.log(y);		//输出 20</span><br></pre></td></tr></table></figure></div>
+<p>如果操作数不是布尔类型，其他类型先自动转换成布尔类型，作逻辑与运算，并返回原类型的值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;</span><br><span class="line">console.log( true &amp;&amp; x );		//输出&quot;123&quot;</span><br></pre></td></tr></table></figure></div></p>
+<ol>
+<li>如果第一个操作数的值为 true , 返回第二个操作数的值。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 &amp;&amp; 1 );		//输出 1</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>如果第一个操作数的值为 false , 返回第一个操作数的值。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN &amp;&amp; &quot;123&quot; );	//输出 NaN</span><br></pre></td></tr></table></figure></div>
+<h3 id="逻辑或"><a href="#逻辑或" class="headerlink" title="逻辑或 ||"></a>逻辑或 ||</h3><p>作用：只用当两端的操作数均为 false，才返回 false，其余均返回 true。</p>
+<p>逻辑或的短路效应：只有当第一个操作数为 false时，才去计算第二个操作数，否则直接返回 true。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 10 , y = 20 ;</span><br><span class="line">true || x++;	//第一个操作数为 true，直接返回 true，不运行第二个表达式,x 不变</span><br><span class="line">false || y++;	//第一个操作数为 false，运行第二个表达式,y 加1</span><br><span class="line">console.log(x);		//输出 10</span><br><span class="line">console.log(y);		//输出 21</span><br></pre></td></tr></table></figure></div>
+<p>如果操作数不是布尔类型，其它类型先自动转换成布尔类型，作逻辑或运算，并返回原类型的值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;</span><br><span class="line">console.log( false || x );		//输出&quot;123&quot;</span><br></pre></td></tr></table></figure></div></p>
+<ol>
+<li>如果第一个操作数的值为 true , 返回第一个操作数的值。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 &amp;&amp; 1 );		//输出 2</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>如果第一个操作数的值为 false , 返回第二个操作数的值。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN &amp;&amp; &quot;123&quot; );	//输出 &quot;123&quot;</span><br></pre></td></tr></table></figure></div>
+<h3 id="逻辑非-！"><a href="#逻辑非-！" class="headerlink" title="逻辑非 ！"></a>逻辑非 ！</h3><p>作用：对一个布尔值进行取反操作。true 变 false，false 变 true。<br>如果操作数不是布尔类型的，先自动转换成布尔类型，再进行取反。可以利用这一特性，将其他类型的数据进行两次非运算，实现隐性类型转换成布尔类型，如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;;</span><br><span class="line">console.log(!!x); 	//输出true，字符串&quot;123&quot;转换成布尔true</span><br></pre></td></tr></table></figure></div>
+<h3 id="逻辑运算符的优先级"><a href="#逻辑运算符的优先级" class="headerlink" title="逻辑运算符的优先级"></a>逻辑运算符的优先级</h3><p>逻辑非 &gt; 逻辑与 &gt; 逻辑或</p>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><h3 id="赋值运算"><a href="#赋值运算" class="headerlink" title="= 赋值运算"></a>= 赋值运算</h3><p>作用：将右值赋以左变量。从右往左运算。<br>除此之外，还有以下常见的带操作的赋值运算：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+=	a+=5	等价于	a=a+5</span><br><span class="line">-=	a-=5	等价于	a=a-5</span><br><span class="line">*=	a*=5	等价于	a=a*5</span><br><span class="line">/=	a/=5	等价于	a=a/5</span><br><span class="line">%=	a%=5	等价于	a=a%5</span><br></pre></td></tr></table></figure></div>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>意义：比较两个操作数的大小。如果关系成立，返回 true ；如果关系不成立，返回 false。<br>关系运算符有：<code>==、===、!=、!==、&lt;、&lt;=、&lt;==、&gt;、&gt;=、&gt;==;</code><br>规则：</p>
+<ol>
+<li>如果两个操作数都是数字，会按照数学上的大小，进行比较，返回相应的关系。</li>
+<li>如果两个操作数都是字符串，会根据字符的 Unicode 编码的<code>字典序</code>进行比较。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log( &quot;123&quot; &lt; &quot;4&quot;);	//输出 true，字符&quot;1&quot;与字符&quot;4&quot;比较，&quot;1&quot;小，所以:&quot;123&quot;小于&quot;4&quot;</span><br><span class="line">console.log( &quot;abc&quot; &lt; &quot;ab&quot;);	//输出 false，一个字符一个字符比较，a==a,b==b,第二个字符串已经没有了，所以第二个字符串小</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>只要两个操作数不全是字符串，先自动转换成数字，再进行比较。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( false &gt; true);	//输出 false，false 自动转换为数字0，true 自动转换为数字1，0&lt;1</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>NaN 与任何值比较，都返回 false 。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log( 5 &lt;= undefined);</span><br><span class="line">console.log( 5 &gt;= undefined);</span><br><span class="line">//两个输出都是 false ，因为undefined 转换成数字类型的NaN</span><br></pre></td></tr></table></figure></div>
+<ol start="5">
+<li>尽量不要使用中文字符串进行关系运算，容易出现错误。</li>
+</ol>
+<h3 id="等于（-）与恒等（-）的区别"><a href="#等于（-）与恒等（-）的区别" class="headerlink" title="等于（==）与恒等（===）的区别"></a><code>等于（==）与恒等（===）的区别</code></h3><ol>
+<li>等于（<code>==</code>）与不等于（<code>!=</code>）运算符作关系运算时，如果两个值的类型不同，会自动转换成相同的数据类型（通常转换成数字）。只要数据相等，则相等。</li>
+<li>恒等（<code>===</code>）与不恒等（<code>!==</code>）运算符作关系运算时，不会作自动类型转换。只有类型相等，数据也相等，才会恒等。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;123&quot; == 123);	//true ，&quot;123&quot;自动转成123</span><br><span class="line">console.log(&quot;123&quot; === 123);	//false ， 数据类型不等</span><br><span class="line"></span><br><span class="line">//特殊情况</span><br><span class="line">//尽管 null 自动类型转换为0，但 null 与 0 不等于</span><br><span class="line">console.log( null == 0 );	//false </span><br><span class="line">//null 与 undefined 相等不恒等</span><br><span class="line">console.log( null == undefined );	//true</span><br><span class="line">console.log( null == undefined );	//false</span><br><span class="line">//NaN 与 任何值不相等，包括它本身，可以使用isNaN()函数来判断是否是NaN</span><br><span class="line">var x = NaN ;</span><br><span class="line">console.log( x==x );		//false</span><br><span class="line">//以下是判断 x 是否是 NaN 的两种常见的方式</span><br><span class="line">console.log( x != x );		//true</span><br><span class="line">console.log( isNaN(x) );	//true</span><br></pre></td></tr></table></figure></div>
+<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>唯一一个三元运算符 <code>？：</code><br>语法：<code>条件语句？语句1：语句2</code><br>执行流程：先判断条件语句，为 true，执行语句1，为 false，执行语句2。<br>如果条件语句不是布尔类型，先转换为布尔类型，再判断 true 或 false。</p>
+<h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><ol>
+<li>JavaScript 的运算符的优先级按照下表的顺序，越在上边，优先级越高。<br><img src="/2019/10/03/JavaScript的运算符/优先级.jpg" alt="优先级"></li>
+<li>如果优先级相同的，从左往右算。</li>
+<li>添加圆括号可以改变优先级。</li>
+</ol>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>++、==、&lt;=等由多个符号组成的运算符是一个整体，不可分开来写（中间添加空格等都是不可以的）。</p>
+<h2 id="拓展：如何使用-Unicode-编码"><a href="#拓展：如何使用-Unicode-编码" class="headerlink" title="拓展：如何使用 Unicode 编码"></a>拓展：如何使用 Unicode 编码</h2><ol>
+<li>JavaScript中使用，格式：<code>\u四位十六进制编码</code>，如：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;\u2634&quot;);		//输出 ☴</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>网页中使用，格式：<code>&amp;#十进制编码</code>，这里的十进制是，Unicode 编码表中的四位十六进制转换成的十进制。大小可通过<code>font-size</code>属性来控制，如： </li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt; &amp;# 4568&lt;/h1&gt;</span><br></pre></td></tr></table></figure></div>
+<p>显示结果，如下：</p><h1 style="font-size:50px">&amp;#4568</h1><p></p>
 
       
     </div>
@@ -145,8 +225,8 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/10/03/JavaScript的类型/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">JavaScript的类型</div>
+      <a href="/2019/10/03/JavaScript的数据类型/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JavaScript的数据类型</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
@@ -240,7 +320,7 @@ gitment.render('gitmentContainer')
           </li>
         
           <li>
-            <a href="/2019/10/03/JavaScript的类型/">JavaScript的类型</a>
+            <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
           </li>
         
           <li>
