@@ -56,6 +56,156 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JavaScript的数据类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/03/JavaScript的数据类型/" class="article-date">
+  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
+<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
+<li>Number 类型–数字类型：包括整数和浮点数</li>
+<li>String 类型–字符串类型</li>
+<li>Boolean 类型–布尔类型</li>
+<li>null –空值</li>
+<li>undefined –未定义</li>
+<li>Object 类型–对象类型：是一些属性的集合</li>
+</ol>
+<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
+<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0 </li>
+<li>-0</li>
+<li>NaN</li>
+<li>“”                 //空字符串</li>
+</ul>
+<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
+<li>字符串 转换为 数字</li>
+</ol>
+<ul>
+<li>如果字符串为纯数字字符，直接转换为数字</li>
+<li>如果字符串含有非数字字符，转换为NaN</li>
+<li>如果字符串是一个空串，或全是空格的字符串，转换为NaN</li>
+</ul>
+<ol start="2">
+<li>布尔 转换为 数字 </li>
+</ol>
+<ul>
+<li>true 转换为 1</li>
+<li>false 转换为 0 </li>
+</ul>
+<ol start="3">
+<li>null 转换为 0</li>
+<li>undefined 转换为 NaN</li>
+</ol>
+<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
+<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
+<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
+<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
+<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0 </li>
+<li>-0</li>
+<li>NaN</li>
+<li>“”                 //空字符串</li>
+</ul>
+<h5 id="以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"><a href="#以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。" class="headerlink" title="以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"></a>以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。</h5>
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的语句" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/03/JavaScript的语句/">JavaScript 语句</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/03/JavaScript的语句/" class="article-date">
+  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript-的语句"><a href="#JavaScript-的语句" class="headerlink" title="JavaScript 的语句"></a>JavaScript 的语句</h1><p>说明： JavaScript 中的语句和 Java 中的语句基本相同，这里就不详细说明了。以下仅说明 JavaScript 语句与 Java 语句不同之处。</p>
+<ol>
+<li>JavaScript 中使用<code>花括号</code>括起来的语句块<code>没有块级作用域</code>，在语句块中声明的变量，在语句块外同样可以使用。如：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	var x = 10;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">console.log(x);</span><br><span class="line">//结构会在控制台输出两个10，语句块外也可以使用 x 变量</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>switch…case 分支语句中，switch 表达式的值是要<code>恒等于（===）</code> case 的值才能匹配，并不能自动作类型转换。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">switch(x)&#123;</span><br><span class="line">	case &quot;1&quot;: </span><br><span class="line">		alert(&quot;字符串：&quot; + x);</span><br><span class="line">		break;</span><br><span class="line">	case 1:</span><br><span class="line">		alert(&quot;数字: &quot; + x );    //弹出输出 &quot;数字：1&quot;</span><br><span class="line">		break;</span><br><span class="line">	case 2:</span><br><span class="line">		alert(&quot;数字: &quot; + x);</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>众所周知，break 是跳出<code>最内层</code>的循环或<code>最内层</code>的 switch ，continue 是结束<code>最内层</code>的本次的循环执行下一次循环。在嵌套的循环中，如果我们想要<code>结束某一层的循环</code>（不一定是最内层）就不容易实现了。这时候，可以使用 label 语句，为某一些语句指定一个标签，跳出循环时，直接使用 break 加标签名即可。如下：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">outer:		//将外层循环标记为 outer</span><br><span class="line">for(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">	console.log(&quot;外层循环&quot;+i);</span><br><span class="line">	for(var j=0;j&lt;10;j++)&#123;</span><br><span class="line">		console.log(&quot;内层循环&quot;+j);</span><br><span class="line">		if(j==3)&#123;</span><br><span class="line">			break outer ;		//跳出外出循环 outer</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>同样的，continue 为可以结束某一层循环的本次循环，执行下一次循环。</p>
+<h2 id="拓展：计算某一块语句块的运行时间"><a href="#拓展：计算某一块语句块的运行时间" class="headerlink" title="拓展：计算某一块语句块的运行时间"></a>拓展：计算某一块语句块的运行时间</h2><p>console.time(String str);        //创建一个计时器，str 为计时器的名称 。放在需要检测的语句块的开头。<br>console.timeEnd(String str);    //结束计时器，str 为计时器的名称。放在需要检测的语句块的结尾。<br>浏览器会求出两个时间点的距离，并在控制台中，输出 str 计时器的运行时间。如下：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">console.time(&quot;test&quot;);	//创建 test 计时器</span><br><span class="line">var n=0;</span><br><span class="line">for(var i=0;i&lt;100;i++)&#123;</span><br><span class="line">	for(var j=0;j&lt;100;j++)&#123;</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(n);</span><br><span class="line">console.timeEnd(&quot;test&quot;);	//结束 test 计时器</span><br></pre></td></tr></table></figure></div></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-JavaScript的运算符" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -203,100 +353,6 @@
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt; &amp;# 4568&lt;/h1&gt;</span><br></pre></td></tr></table></figure></div>
 <p>显示结果，如下：</p><h1 style="font-size:50px">&amp;#4568</h1><p></p>
 
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-JavaScript的数据类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/03/JavaScript的数据类型/" class="article-date">
-  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
-<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
-<li>Number 类型–数字类型：包括整数和浮点数</li>
-<li>String 类型–字符串类型</li>
-<li>Boolean 类型–布尔类型</li>
-<li>null –空值</li>
-<li>undefined –未定义</li>
-<li>Object 类型–对象类型：是一些属性的集合</li>
-</ol>
-<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
-<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
-<li>字符串 转换为 数字</li>
-</ol>
-<ul>
-<li>如果字符串为纯数字字符，直接转换为数字</li>
-<li>如果字符串含有非数字字符，转换为NaN</li>
-<li>如果字符串是一个空串，或全是空格的字符串，转换为NaN</li>
-</ul>
-<ol start="2">
-<li>布尔 转换为 数字 </li>
-</ol>
-<ul>
-<li>true 转换为 1</li>
-<li>false 转换为 0 </li>
-</ul>
-<ol start="3">
-<li>null 转换为 0</li>
-<li>undefined 转换为 NaN</li>
-</ol>
-<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
-<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
-<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
-<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
-<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h5 id="以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"><a href="#以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。" class="headerlink" title="以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"></a>以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。</h5>
       
     </div>
     
@@ -719,71 +775,6 @@
 </article>
 
   
-    <article id="post-IDEA创建项目" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/05/IDEA创建项目/">IDEA创建项目</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/05/IDEA创建项目/" class="article-date">
-  <time datetime="2019-09-05T11:37:46.000Z" itemprop="datePublished">2019-09-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="IDEA创建项目"><a href="#IDEA创建项目" class="headerlink" title="IDEA创建项目"></a>IDEA创建项目</h1><h3 id="创建Java项目"><a href="#创建Java项目" class="headerlink" title="创建Java项目"></a>创建Java项目</h3><ol>
-<li><img src="/2019/09/05/IDEA创建项目/创建项目.png" alt="创建项目"></li>
-<li><img src="/2019/09/05/IDEA创建项目/Java项目.png" alt="Java项目">    next</li>
-<li><img src="/2019/09/05/IDEA创建项目/Java模板.png" alt="Java模板">    next</li>
-<li><img src="/2019/09/05/IDEA创建项目/Java项目名.png" alt="Java项目名">   next</li>
-<li><img src="/2019/09/05/IDEA创建项目/Java创建完成.png" alt="Java创建完成">   finish</li>
-</ol>
-<h3 id="创建Web项目"><a href="#创建Web项目" class="headerlink" title="创建Web项目"></a>创建Web项目</h3><ol>
-<li><img src="/2019/09/05/IDEA创建项目/创建项目.png" alt="创建项目"></li>
-<li><img src="/2019/09/05/IDEA创建项目/Web项目.png" alt="Web项目">  next</li>
-<li><img src="/2019/09/05/IDEA创建项目/web项目名.png" alt="web项目名">  finish</li>
-<li><img src="/2019/09/05/IDEA创建项目/Web创建完成.png" alt="Web创建完成"><br>Web项目创建完成后，目录结构如上图所示，项目源码存放在src目录下，下面以创建一个Servlet为例。<h4 id="在src中创建Servlet"><a href="#在src中创建Servlet" class="headerlink" title="在src中创建Servlet"></a>在src中创建Servlet</h4></li>
-<li><img src="/2019/09/05/IDEA创建项目/创建Servlet.png" alt="创建Servlet"></li>
-<li><img src="/2019/09/05/IDEA创建项目/Servlet命名.png" alt="Servlet命名"></li>
-<li><img src="/2019/09/05/IDEA创建项目/Servlet创建完成.png" alt="Servlet创建完成"></li>
-</ol>
-<h4 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h4><ol>
-<li><img src="/2019/09/05/IDEA创建项目/打开服务器设置.png" alt="打开服务器设置"></li>
-<li><img src="/2019/09/05/IDEA创建项目/服务器设置.png" alt="服务器设置"></li>
-<li><img src="/2019/09/05/IDEA创建项目/添加部署文件.png" alt="添加部署文件"></li>
-<li><img src="/2019/09/05/IDEA创建项目/设置文件部署路径.png" alt="设置文件部署路径">   OK</li>
-<li><img src="/2019/09/05/IDEA创建项目/启动服务器.png" alt="启动服务器"></li>
-<li>自动跳转到浏览器，显示如下：<img src="/2019/09/05/IDEA创建项目/部署完成.png" alt="部署完成"></li>
-</ol>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -835,7 +826,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 13.33px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 15px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 17.5px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -856,11 +847,15 @@
       <ul>
         
           <li>
-            <a href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
+            <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
           </li>
         
           <li>
-            <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
+            <a href="/2019/10/03/JavaScript的语句/">JavaScript 语句</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
           </li>
         
           <li>
@@ -869,10 +864,6 @@
         
           <li>
             <a href="/2019/09/15/mybaitis的配置文件/">mybaitis的配置文件</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
           </li>
         
       </ul>
