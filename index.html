@@ -56,21 +56,21 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
-    <article id="post-JavaScript的数据类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
+      <a class="article-title" href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/03/JavaScript的数据类型/" class="article-date">
-  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+    <a href="/2019/10/06/JavaScript的对象/" class="article-date">
+  <time datetime="2019-10-06T12:34:50.000Z" itemprop="datePublished">2019-10-06</time>
 </a>
     
   <div class="article-category">
@@ -87,60 +87,35 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
-<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
-<li>Number 类型–数字类型：包括整数和浮点数</li>
-<li>String 类型–字符串类型</li>
-<li>Boolean 类型–布尔类型</li>
-<li>null –空值</li>
-<li>undefined –未定义</li>
-<li>Object 类型–对象类型：是一些属性的集合</li>
+        <h1 id="JavaScript-的对象"><a href="#JavaScript-的对象" class="headerlink" title="JavaScript 的对象"></a>JavaScript 的对象</h1><h2 id="对象的定义"><a href="#对象的定义" class="headerlink" title="对象的定义"></a>对象的定义</h2><p>指一种<code>复合</code>的数据类型，对象可以保存<code>多种不同的数据类型的属性</code>。<br>除了5种<code>基本</code>数据类型（Number、String、Boolean、unll、undefined）外，其他的都属于对象。<br>对象属于<code>引用</code>数据类型。</p>
+<h2 id="对象的3个分类"><a href="#对象的3个分类" class="headerlink" title="对象的3个分类"></a>对象的3个分类</h2><ol>
+<li>内置对象：由ES标准定义的对象，可以在实现中直接使用。如：Math、String、Function、Object等对象。</li>
+<li>宿主对象：由 JS 运行环境提供的对象，主要是浏览器提供的对象。如：BOM（浏览器对象模型）、DOM（文档对象模型）。</li>
+<li>自定义对象：由开发者创建的对象。</li>
 </ol>
-<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
-<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
-<li>字符串 转换为 数字</li>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ol>
+<li><p>使用Object的构造方法创建 </p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>创建对象并初始化<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
 </ol>
+<h2 id="添加或修改对象的属性"><a href="#添加或修改对象的属性" class="headerlink" title="添加或修改对象的属性"></a>添加或修改对象的属性</h2><p>语法1：<code>对象名.属性名=属性值</code><br>语法2：<code>对象名[属性名]=属性值</code> （推荐使用这种方式）</p>
 <ul>
-<li>如果字符串为纯数字字符，直接转换为数字</li>
-<li>如果字符串含有非数字字符，转换为NaN</li>
-<li>如果字符串是一个空串，或全是空格的字符串，转换为NaN</li>
+<li>属性名默认是字符串类型，不要求遵守标识符的规范（推荐按照规范命名）。如果要使用不遵守标识符的规范的属性名时，第1种语法会报错，只可以使用第2种语法。</li>
+<li>属性值可以是任意的数据类型，包括对象类型。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.name=&quot;lin&quot;;</span><br><span class="line">obj[123]=18;</span><br></pre></td></tr></table></figure></div>
+</li>
 </ul>
-<ol start="2">
-<li>布尔 转换为 数字 </li>
-</ol>
-<ul>
-<li>true 转换为 1</li>
-<li>false 转换为 0 </li>
-</ul>
-<ol start="3">
-<li>null 转换为 0</li>
-<li>undefined 转换为 NaN</li>
-</ol>
-<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
-<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
-<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
-<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
-<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h5 id="以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"><a href="#以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。" class="headerlink" title="以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"></a>以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。</h5>
+<p>当对象中还没存在这个属性时，该语法是添加这个属性。如果已经存在这个属性了，是修改属性值，因为后面的值会把前面的值<code>覆盖</code>了。</p>
+<h2 id="获取对象属性"><a href="#获取对象属性" class="headerlink" title="获取对象属性"></a>获取对象属性</h2><p>语法1：<code>对象名.属性名</code><br>语法2：<code>对象名[属性名]</code><br>注意：语法2属性名一定加上引号，因为属性名是字符串类型。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(obj.name);</span><br></pre></td></tr></table></figure></div></p>
+<p>如果对象不存在这个属性，浏览器不会报错，会获取一个 undefined 的属性值。</p>
+<h2 id="删除对象"><a href="#删除对象" class="headerlink" title="删除对象"></a>删除对象</h2><p>语法1：<code>delete 对象名.属性名</code><br>语法2：<code>delete 对象名[属性名]</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete obj.name;</span><br><span class="line">delete obj[123];</span><br></pre></td></tr></table></figure></div>
+<p>当删除这个属性后，再获取属性值，只能获取一个 undefined 的属性值。</p>
+<h2 id="拓展：in-运算符"><a href="#拓展：in-运算符" class="headerlink" title="拓展：in 运算符"></a>拓展：in 运算符</h2><p>定义：该运算符可以检测一个对象中是否含有指定的属性。<br>语法：<code>“属性名” in 对象名</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;age&quot; in obj);  	// true</span><br></pre></td></tr></table></figure></div>
+
       
     </div>
     
@@ -156,15 +131,15 @@
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/JavaScript的语句/">JavaScript 语句</a>
+      <a class="article-title" href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/03/JavaScript的语句/" class="article-date">
-  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+    <a href="/2019/10/05/JavaScript的语句/" class="article-date">
+  <time datetime="2019-10-05T05:02:52.000Z" itemprop="datePublished">2019-10-05</time>
 </a>
     
   <div class="article-category">
@@ -212,15 +187,15 @@
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
+      <a class="article-title" href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/03/JavaScript的运算符/" class="article-date">
-  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+    <a href="/2019/10/04/JavaScript的运算符/" class="article-date">
+  <time datetime="2019-10-04T05:02:52.000Z" itemprop="datePublished">2019-10-04</time>
 </a>
     
   <div class="article-category">
@@ -338,7 +313,7 @@
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;123&quot; == 123);	//true ，&quot;123&quot;自动转成123</span><br><span class="line">console.log(&quot;123&quot; === 123);	//false ， 数据类型不等</span><br><span class="line"></span><br><span class="line">//特殊情况</span><br><span class="line">//尽管 null 自动类型转换为0，但 null 与 0 不等于</span><br><span class="line">console.log( null == 0 );	//false </span><br><span class="line">//null 与 undefined 相等不恒等</span><br><span class="line">console.log( null == undefined );	//true</span><br><span class="line">console.log( null == undefined );	//false</span><br><span class="line">//NaN 与 任何值不相等，包括它本身，可以使用isNaN()函数来判断是否是NaN</span><br><span class="line">var x = NaN ;</span><br><span class="line">console.log( x==x );		//false</span><br><span class="line">//以下是判断 x 是否是 NaN 的两种常见的方式</span><br><span class="line">console.log( x != x );		//true</span><br><span class="line">console.log( isNaN(x) );	//true</span><br></pre></td></tr></table></figure></div>
 <h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>唯一一个三元运算符 <code>？：</code><br>语法：<code>条件语句？语句1：语句2</code><br>执行流程：先判断条件语句，为 true，执行语句1，为 false，执行语句2。<br>如果条件语句不是布尔类型，先转换为布尔类型，再判断 true 或 false。</p>
 <h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><ol>
-<li>JavaScript 的运算符的优先级按照下表的顺序，越在上边，优先级越高。<br><img src="/2019/10/03/JavaScript的运算符/优先级.jpg" alt="优先级"></li>
+<li>JavaScript 的运算符的优先级按照下表的顺序，越在上边，优先级越高。<br><img src="/2019/10/04/JavaScript的运算符/优先级.jpg" alt="优先级"></li>
 <li>如果优先级相同的，从左往右算。</li>
 <li>添加圆括号可以改变优先级。</li>
 </ol>
@@ -353,6 +328,117 @@
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt; &amp;# 4568&lt;/h1&gt;</span><br></pre></td></tr></table></figure></div>
 <p>显示结果，如下：</p><h1 style="font-size:50px">&amp;#4568</h1><p></p>
 
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的数据类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/03/JavaScript的数据类型/" class="article-date">
+  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
+<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
+<li>Number 类型–数字类型：包括整数和浮点数</li>
+<li>String 类型–字符串类型</li>
+<li>Boolean 类型–布尔类型</li>
+<li>null –空值</li>
+<li>undefined –未定义</li>
+<li>Object 类型–对象类型：是一些属性的集合<br>其中，6个数据类型分成两类：</li>
+</ol>
+<ul>
+<li>一类是基本数据类型，包括Number、String、Boolean、null、undefined。</li>
+<li>一类是引用数据类型，只包括Object。</li>
+</ul>
+<h2 id="基本数据类型与引用数据类型的区别"><a href="#基本数据类型与引用数据类型的区别" class="headerlink" title="基本数据类型与引用数据类型的区别"></a>基本数据类型与引用数据类型的区别</h2><p>JavaScript 的内存分成两类，一类叫做栈内存，一类叫做堆内存。</p>
+<ol>
+<li>栈内存是保存的是一对对键值对。键是变量命，值是变量的属性值。</li>
+<li>堆内存是一块内存空间，在该空间中存储数据。该控间有一个起始的内存空间地址。</li>
+</ol>
+<ul>
+<li>当创建一个<code>基本的数据类型变量</code>时，直接在栈内存中写入键（变量名）与值（属性值）。当把这个变量赋值给另一个变量时，是再写入一个键值对，只是两个变量的值是一样的，除此之外，没有其他的联系了。两者是独立的个体。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 123;</span><br><span class="line">var b = a;</span><br><span class="line">b = 456;</span><br><span class="line">console.log(a);		//输出 “123”</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>当创建一个<code>引用数据类型变量时（即对象）</code>，首先在堆内存中划分出一块内存空间，用来储蓄这个对象的全部属性。然后在栈内存中写入一个键值对，键是对象名，值是堆内存空间的内存地址，这个对象指向这块内存空间。当使用到这个对象时，到这块内存空间中寻找属性。当把这个对象赋值给另一个对象时，不再在堆内存中划分空间了，只是在栈内存中，写入一个键值对，键是另一个对象名，值仍是这块堆内存空间的内存地址。两个对象指向了同一块内存空间。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj1 = new Object();</span><br><span class="line">var obj2 = obj1;</span><br><span class="line">obj1.name = &quot;lin&quot;;</span><br><span class="line">obj2.name = &quot;linhong&quot;</span><br><span class="line">console.log(obj1.name);		//输出 “linhong”</span><br></pre></td></tr></table></figure></div>
+<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
+<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0 </li>
+<li>-0</li>
+<li>NaN</li>
+<li>“”                 //空字符串</li>
+</ul>
+<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
+<li>字符串 转换为 数字</li>
+</ol>
+<ul>
+<li>如果字符串为纯数字字符，直接转换为数字</li>
+<li>如果字符串含有非数字字符，转换为NaN</li>
+<li>如果字符串是一个空串，或全是空格的字符串，转换为NaN</li>
+</ul>
+<ol start="2">
+<li>布尔 转换为 数字 </li>
+</ol>
+<ul>
+<li>true 转换为 1</li>
+<li>false 转换为 0 </li>
+</ul>
+<ol start="3">
+<li>null 转换为 0</li>
+<li>undefined 转换为 NaN</li>
+</ol>
+<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
+<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
+<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
+<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
+<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>0 </li>
+<li>-0</li>
+<li>NaN</li>
+<li>“”                 //空字符串</li>
+</ul>
+<h5 id="以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"><a href="#以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。" class="headerlink" title="以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"></a>以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。</h5>
       
     </div>
     
@@ -723,58 +809,6 @@
 </article>
 
   
-    <article id="post-IDEA使用Git管理项目" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/IDEA使用Git管理项目/">IDEA使用Git管理项目</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/06/IDEA使用Git管理项目/" class="article-date">
-  <time datetime="2019-09-06T09:11:39.000Z" itemprop="datePublished">2019-09-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="IDEA使用Git管理项目"><a href="#IDEA使用Git管理项目" class="headerlink" title="IDEA使用Git管理项目"></a>IDEA使用Git管理项目</h1><p>当和团队一起开发项目或完成了一个项目后，我们可能要使用一些工具对项目进行管理，有利于代码共享。</p>
-<h3 id="使用Git管理项目"><a href="#使用Git管理项目" class="headerlink" title="使用Git管理项目"></a>使用Git管理项目</h3><p>Git管理项目是在本地管理的，即在开发项目本机进行管理。</p>
-<ol>
-<li>在本计算机上安装Git软件。<br>直接百度找到<a href="https://git-scm.com/" target="_blank" rel="noopener">Git官网</a>，下载相应的版本进行解压即可。解压过程中，记住文件路径。</li>
-<li>在IDEA中集成Git。<br>在settings界面中，设置Git的路径，OK.<br><img src="/2019/09/06/IDEA使用Git管理项目/设置Git路径.png" alt="设置Git路径"><br>右键项目，在窗口中如果有Git选项，集成成功了。<br><img src="/2019/09/06/IDEA使用Git管理项目/集成git成功.png" alt="集成git成功"></li>
-<li>在IDEA中创建仓库。<br><img src="/2019/09/06/IDEA使用Git管理项目/创建仓库.png" alt="创建仓库"><br>为仓库建立路径<br><img src="/2019/09/06/IDEA使用Git管理项目/选择仓库建立路径.png" alt="选择仓库建立路径"></li>
-<li>仓库建立成功。<br>在仓库目录中，如果多了.git文件，说明已建立连接，仓库建立成功。<br><img src="/2019/09/06/IDEA使用Git管理项目/建仓前的目录.png" alt="建仓前的目录"><br><img src="/2019/09/06/IDEA使用Git管理项目/建仓后的目录.png" alt="建仓后的目录"><br>成功建立仓库后，可以在IDEA上看到项目的文件变红了。<br><img src="/2019/09/06/IDEA使用Git管理项目/文件变红.png" alt="文件变红"></li>
-<li>将IDEA上的项目分享到仓库<br>将代码添加到了Git的缓存区中，可以发现，文件变成绿色了。<br><img src="/2019/09/06/IDEA使用Git管理项目/Add.png" alt="添加"><br><img src="/2019/09/06/IDEA使用Git管理项目/文件变绿.png" alt="文件变绿"><br>将文件上传。<br><img src="/2019/09/06/IDEA使用Git管理项目/commit描述.png" alt="commit描述"><br>书写一些描述上传信息，可以省略。<br><img src="/2019/09/06/IDEA使用Git管理项目/描述上传信息.png" alt="描述上传信息"><br><img src="/2019/09/06/IDEA使用Git管理项目/确定上传.png" alt="确定上传"><br>这是可以看到一些文件上传成功的提示，文件也由绿色变成黑色。<br><img src="/2019/09/06/IDEA使用Git管理项目/文件变黑.png" alt="文件变黑"></li>
-</ol>
-<h3 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h3><p>随便更改以下代码。<br>代码更新到Git仓库，操作类似了前面的上传一样，commit即可。如果有新增的文件，commit之前要先Add。<br><img src="/2019/09/06/IDEA使用Git管理项目/commit描述.png" alt="commit描述"></p>
-<h3 id="忽略某些文件上传"><a href="#忽略某些文件上传" class="headerlink" title="忽略某些文件上传"></a>忽略某些文件上传</h3><p>有时候，并不是整个项目中全部的文件都是要分享的，只是一些有用的文件才要。减少无用文件的上传分享，有利于提高工作效率。下面是，设置忽略某些文件共享。<br>进入settings界面，操作如图：<br><img src="/2019/09/06/IDEA使用Git管理项目/忽略文件上传.png" alt="忽略文件上传"></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -826,7 +860,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 15px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 17.5px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 16.67px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -847,23 +881,23 @@
       <ul>
         
           <li>
+            <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
           </li>
         
           <li>
-            <a href="/2019/10/03/JavaScript的语句/">JavaScript 语句</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
-          </li>
-        
-          <li>
             <a href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/15/mybaitis的配置文件/">mybaitis的配置文件</a>
           </li>
         
       </ul>

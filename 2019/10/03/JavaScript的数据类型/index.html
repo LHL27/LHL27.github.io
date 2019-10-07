@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="ľľ">
 <meta property="og:description" content="JavaScript的数据类型说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。 JavaScript的6大数据类型 Number 类型–数字类型：包括整数和浮点数 Stri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-04T02:51:11.849Z">
+<meta property="og:updated_time" content="2019-10-07T10:29:59.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的数据类型">
 <meta name="twitter:description" content="JavaScript的数据类型说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。 JavaScript的6大数据类型 Number 类型–数字类型：包括整数和浮点数 Stri">
@@ -98,8 +98,25 @@
 <li>Boolean 类型–布尔类型</li>
 <li>null –空值</li>
 <li>undefined –未定义</li>
-<li>Object 类型–对象类型：是一些属性的集合</li>
+<li>Object 类型–对象类型：是一些属性的集合<br>其中，6个数据类型分成两类：</li>
 </ol>
+<ul>
+<li>一类是基本数据类型，包括Number、String、Boolean、null、undefined。</li>
+<li>一类是引用数据类型，只包括Object。</li>
+</ul>
+<h2 id="基本数据类型与引用数据类型的区别"><a href="#基本数据类型与引用数据类型的区别" class="headerlink" title="基本数据类型与引用数据类型的区别"></a>基本数据类型与引用数据类型的区别</h2><p>JavaScript 的内存分成两类，一类叫做栈内存，一类叫做堆内存。</p>
+<ol>
+<li>栈内存是保存的是一对对键值对。键是变量命，值是变量的属性值。</li>
+<li>堆内存是一块内存空间，在该空间中存储数据。该控间有一个起始的内存空间地址。</li>
+</ol>
+<ul>
+<li>当创建一个<code>基本的数据类型变量</code>时，直接在栈内存中写入键（变量名）与值（属性值）。当把这个变量赋值给另一个变量时，是再写入一个键值对，只是两个变量的值是一样的，除此之外，没有其他的联系了。两者是独立的个体。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 123;</span><br><span class="line">var b = a;</span><br><span class="line">b = 456;</span><br><span class="line">console.log(a);		//输出 “123”</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>当创建一个<code>引用数据类型变量时（即对象）</code>，首先在堆内存中划分出一块内存空间，用来储蓄这个对象的全部属性。然后在栈内存中写入一个键值对，键是对象名，值是堆内存空间的内存地址，这个对象指向这块内存空间。当使用到这个对象时，到这块内存空间中寻找属性。当把这个对象赋值给另一个对象时，不再在堆内存中划分空间了，只是在栈内存中，写入一个键值对，键是另一个对象名，值仍是这块堆内存空间的内存地址。两个对象指向了同一块内存空间。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj1 = new Object();</span><br><span class="line">var obj2 = obj1;</span><br><span class="line">obj1.name = &quot;lin&quot;;</span><br><span class="line">obj2.name = &quot;linhong&quot;</span><br><span class="line">console.log(obj1.name);		//输出 “linhong”</span><br></pre></td></tr></table></figure></div>
 <h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
 <h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
 <h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
@@ -158,11 +175,20 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
+      <a href="/2019/10/04/JavaScript的运算符/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JavaScript的运算符
+          
+        </div>
+      </a>
+    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/10/03/JavaScript的语句/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">JavaScript 语句</div>
+      <a href="/2019/09/15/mybatis中动态sql标签的学习/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">mybatis 中动态 sql 标签的学习</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
@@ -231,7 +257,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 15px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 17.5px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 16.67px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -252,23 +278,23 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
+            <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
           </li>
         
           <li>
-            <a href="/2019/10/03/JavaScript的语句/">JavaScript 语句</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/03/JavaScript的运算符/">JavaScript的运算符</a>
-          </li>
-        
-          <li>
             <a href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/15/mybaitis的配置文件/">mybaitis的配置文件</a>
           </li>
         
       </ul>
