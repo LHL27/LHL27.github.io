@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="ľľ">
 <meta property="og:description" content="JavaScript 的对象对象的定义指一种复合的数据类型，对象可以保存多种不同的数据类型的属性。除了5种基本数据类型（Number、String、Boolean、unll、undefined）外，其他的都属于对象。对象属于引用数据类型。 对象的3个分类 内置对象：由ES标准定义的对象，可以在实现中直接使用。如：Math、String、Function、Object等对象。 宿主对象：由 JS 运">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-07T10:33:06.249Z">
+<meta property="og:updated_time" content="2019-10-07T15:58:47.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的对象">
 <meta name="twitter:description" content="JavaScript 的对象对象的定义指一种复合的数据类型，对象可以保存多种不同的数据类型的属性。除了5种基本数据类型（Number、String、Boolean、unll、undefined）外，其他的都属于对象。对象属于引用数据类型。 对象的3个分类 内置对象：由ES标准定义的对象，可以在实现中直接使用。如：Math、String、Function、Object等对象。 宿主对象：由 JS 运">
@@ -97,14 +97,17 @@
 <li>宿主对象：由 JS 运行环境提供的对象，主要是浏览器提供的对象。如：BOM（浏览器对象模型）、DOM（文档对象模型）。</li>
 <li>自定义对象：由开发者创建的对象。</li>
 </ol>
-<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ol>
+<h2 id="创建对象（3个）"><a href="#创建对象（3个）" class="headerlink" title="创建对象（3个）"></a>创建对象（3个）</h2><ol>
 <li><p>使用Object的构造方法创建 </p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>创建对象并初始化<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
+<li><p>使用直接量创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
+<li><p>使用 Object.create() 函数创建对象</p>
+</li>
 </ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = Object.create(&#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
 <h2 id="添加或修改对象的属性"><a href="#添加或修改对象的属性" class="headerlink" title="添加或修改对象的属性"></a>添加或修改对象的属性</h2><p>语法1：<code>对象名.属性名=属性值</code><br>语法2：<code>对象名[属性名]=属性值</code> （推荐使用这种方式）</p>
 <ul>
 <li>属性名默认是字符串类型，不要求遵守标识符的规范（推荐按照规范命名）。如果要使用不遵守标识符的规范的属性名时，第1种语法会报错，只可以使用第2种语法。</li>
@@ -132,6 +135,15 @@
     
 <nav id="article-nav">
   <div class="article-nav-block">
+    
+      <a href="/2019/10/07/JavaScript的函数/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JavaScript的函数
+          
+        </div>
+      </a>
     
   </div>
   <div class="article-nav-block">
@@ -206,7 +218,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 16.67px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -227,23 +239,23 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
+            <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
           </li>
         
           <li>
             <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
           </li>
         
       </ul>

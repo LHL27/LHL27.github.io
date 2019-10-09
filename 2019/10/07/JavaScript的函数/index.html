@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript的函数 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="JavaScript 的函数定义：函数是指封装一些语句代码的一个对象。一次声明，可多次调用。函数是一个对象。 创建函数的3种方式 使用构造函数来创建，不推荐使用。1var fun = new Function();   这时候创建的是一个空的函数，既没有任何功能的函数。为了使函数拥有功能，可以将一些代码以字符串的形式作为参数，初始化函数。1var fun = new Function(&amp;quot;">
+<meta name="keywords" content="JavaScript的基础学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的函数">
+<meta property="og:url" content="https://LHL27.github.io/2019/10/07/JavaScript的函数/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="JavaScript 的函数定义：函数是指封装一些语句代码的一个对象。一次声明，可多次调用。函数是一个对象。 创建函数的3种方式 使用构造函数来创建，不推荐使用。1var fun = new Function();   这时候创建的是一个空的函数，既没有任何功能的函数。为了使函数拥有功能，可以将一些代码以字符串的形式作为参数，初始化函数。1var fun = new Function(&amp;quot;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-08T09:19:46.539Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript的函数">
+<meta name="twitter:description" content="JavaScript 的函数定义：函数是指封装一些语句代码的一个对象。一次声明，可多次调用。函数是一个对象。 创建函数的3种方式 使用构造函数来创建，不推荐使用。1var fun = new Function();   这时候创建的是一个空的函数，既没有任何功能的函数。为了使函数拥有功能，可以将一些代码以字符串的形式作为参数，初始化函数。1var fun = new Function(&amp;quot;">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JavaScript的函数" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript的函数
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/07/JavaScript的函数/" class="article-date">
+  <time datetime="2019-10-07T10:52:32.000Z" itemprop="datePublished">2019-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript-的函数"><a href="#JavaScript-的函数" class="headerlink" title="JavaScript 的函数"></a>JavaScript 的函数</h1><p>定义：函数是指封装一些语句代码的一个对象。一次声明，可多次调用。<br>函数是一个对象。</p>
+<h2 id="创建函数的3种方式"><a href="#创建函数的3种方式" class="headerlink" title="创建函数的3种方式"></a>创建函数的3种方式</h2><ol>
+<li>使用<code>构造函数</code>来创建，不推荐使用。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function();</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>这时候创建的是一个空的函数，既没有任何功能的函数。为了使函数拥有功能，可以将一些代码以字符串的形式作为参数，初始化函数。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function(&quot;alert(&apos;函数&apos;);&quot;);</span><br></pre></td></tr></table></figure></div></p>
+<p>这个函数的功能是弹出一个窗口。</p>
+<ol start="2">
+<li>使用<code>函数声明</code>来创建<br>语法：<code>function 函数名（[形参1，形参2，...，形参N]）{ 语句 }</code></li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	alert(&quot;函数声明&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>使用<code>函数表达式</code>来创建<br>语法： <code>var 函数名=function（[形参1，形参2，...，形参N]）{ 语句 }；</code></li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fun = function()&#123;</span><br><span class="line">	console.log(&quot;haha&quot;);</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure></div>
+<p>函数创建后，并不会立刻执行，需要调用函数才执行。</p>
+<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><p>语法：<code>函数名（[形参1，形参2，...，形参N]）；</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun();</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><ul>
+<li>形参：形式参数</li>
+<li>实参：实际参数</li>
+</ul>
+<ol>
+<li>调用函数时，通过实参给函数传值，实参将值赋给形参进行计算。</li>
+<li>调用函数时，浏览器解析器不会检查<code>实参类型</code>，最好在函数内加于判断实参类型，避免出现错误。</li>
+<li>调用函数时，浏览器解析器不会检查<code>实参个数</code>，当实参多于形参时，后面多余的实参不会参与赋值，直接忽略；形参多于实参时，多余的形参赋值为 undefined 类型。</li>
+<li>实参可以是<code>任意类型</code>的数据。</li>
+</ol>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p>语法：<code>return 返回值;</code><br>返回值是该函数执行后返回的结果。可以是<code>任意类型</code>的数据。<br>通常放在函数的最后。因为执行到 return 语句将结束该函数了，如果 return 语句后还有语句，这些语句将会变成死语句(永远不会执行)了。<br>一个函数可以有多个返回接口，但是尽量使用变量赋值的形式，只写一个返回接口，这便于理解函数功能。<br>如果 return 后没有返回值，或函数没有 return 语句，该函数的返回结果都是 undefined 。</p>
+<h2 id="函数是一个具有特定功能的对象。"><a href="#函数是一个具有特定功能的对象。" class="headerlink" title="函数是一个具有特定功能的对象。"></a>函数是一个具有特定功能的对象。</h2><p>前面说到了函数是一个对象，函数的参数可以是任意类型的数据。所以函数的参数也可以是一个对象或函数。</p>
+<p>参数是对象的例子：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	gender:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">showMsg(obj);</span><br></pre></td></tr></table></figure></div></p>
+<p>参数是函数的例子：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">function fun(x)&#123;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">fun(showMsg);</span><br></pre></td></tr></table></figure></div>
+<p>当将函数 A 当成一个实参传入函数 B 时，可以在函数 B 中，执行函数 A 。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;			//声明一个对象</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	gender:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">function fun(x)&#123;</span><br><span class="line">	x(obj);         //调用传入的函数 A</span><br><span class="line">&#125;</span><br><span class="line">fun(showMsg);		//调用函数 B</span><br><span class="line">//fun(showMsg(obj));	//相当于直接调用了 showMsg 函数，这时候形参x接收的是 showMsg 函数的返回值 undefined。</span><br></pre></td></tr></table></figure></div>
+<p>函数的返回值也可以是任意类型的数据。当函数的返回值是一个函数时，如何调用返回的函数。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function fun1()&#123;</span><br><span class="line">	alert(&quot;我是外部函数1&quot;);</span><br><span class="line">	function fun2()&#123;</span><br><span class="line">		alert(&quot;我是内部函数2&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	//fun2();	 //在fun1中调用fun2</span><br><span class="line">	return fun2;	//返回一个函数</span><br><span class="line">&#125;</span><br><span class="line">var a = fun1();		//将fun1返回的函数赋给a,a等价于fun2</span><br><span class="line">console.log(a);</span><br><span class="line">a();		//相当于调用fun2</span><br><span class="line">//fun1()(); //等价于调用了 fun1 和 a 函数</span><br></pre></td></tr></table></figure></div>
+<h2 id="注意：函数名-与-函数名（）-的区别"><a href="#注意：函数名-与-函数名（）-的区别" class="headerlink" title="注意：函数名 与 函数名（） 的区别"></a>注意：<code>函数名</code> 与 <code>函数名（）</code> 的区别</h2><p><code>函数名</code>只是指函数的本体代码。<br><code>函数名()</code>调用了这个函数，指的是执行这个函数的返回值。</p>
+<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p>语法：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function([形参1，形参2，...，形参N])&#123;</span><br><span class="line">	语句</span><br><span class="line">&#125;)([形参1，形参2，...，形参N]);</span><br></pre></td></tr></table></figure></div>
+<p>立即执行函数声明时即调用，通常是匿名函数，只调用一次。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function(x,y)&#123;</span><br><span class="line">	console.log( &quot;x = &quot; + x);</span><br><span class="line">	console.log( &quot;y = &quot; + y);</span><br><span class="line">&#125;)(123,456);</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/08/JavaScript的作用域/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JavaScript的作用域
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/06/JavaScript的对象/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JavaScript的对象</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

@@ -56,6 +56,247 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JavaScript对象的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/08/JavaScript对象的方法/" class="article-date">
+  <time datetime="2019-10-08T10:52:32.000Z" itemprop="datePublished">2019-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript对象的方法"><a href="#JavaScript对象的方法" class="headerlink" title="JavaScript对象的方法"></a>JavaScript对象的方法</h1><p>因为对象的属性值可以是任意类型的值，函数也是一个对象，所以对象的属性也可以是一个函数。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>当一个函数作为一个对象的属性时，这个函数就叫方法。</p>
+<h2 id="创建对象方法的方式"><a href="#创建对象方法的方式" class="headerlink" title="创建对象方法的方式"></a>创建对象方法的方式</h2><ol>
+<li><p>将<code>匿名函数赋值</code>给对象的一个属性。<br>语法：<code>对象名.属性名 = function（）{ 属性 }；</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line">obj.name = &quot;lin&quot;;</span><br><span class="line">obj.age = 18;</span><br><span class="line">obj.sayName = function()&#123;</span><br><span class="line">	console.log(obj.name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>采用<code>直接量</code>创建一个对象方法。<br>语法：<code>属性名:function(){ 语句 }</code></p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sayName:function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="调用对象方法"><a href="#调用对象方法" class="headerlink" title="调用对象方法"></a>调用对象方法</h2><p>语句：<code>对象名.方法名();</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.sayName();</span><br></pre></td></tr></table></figure></div>
+<h2 id="拓展：枚举对象中的所有属性"><a href="#拓展：枚举对象中的所有属性" class="headerlink" title="拓展：枚举对象中的所有属性"></a>拓展：枚举对象中的所有属性</h2><p>当我们获取到一个对象的时候，我们可能还不知道该对象中含有什么属性，这时候可以利用 for … in 语句枚举该对象的所有属性。<br>语法：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for （变量 in 对象名）&#123;</span><br><span class="line">	遍历语句；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p><code>变量的值</code>在遍历语句中即是该对象的属性名。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sex:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">for(n in obj)&#123;</span><br><span class="line">	console.log(&quot;属性名：&quot;+n+&quot;, 属性值：&quot;+obj[n]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>注意：属性值中，不可以使用<code>对象名.变量名</code>的形式，因为变量名并不是对象的属性名，变量的值才是对象的属性名。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的作用域" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/08/JavaScript的作用域/" class="article-date">
+  <time datetime="2019-10-08T10:52:32.000Z" itemprop="datePublished">2019-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的作用域"><a href="#JavaScript的作用域" class="headerlink" title="JavaScript的作用域"></a>JavaScript的作用域</h1><h2 id="声明提前"><a href="#声明提前" class="headerlink" title="声明提前"></a>声明提前</h2><p>定义：即在还没有定义该变量或函数之前，就可以使用该变量或函数了，不会出现报错情况。</p>
+<h3 id="变量声明提前"><a href="#变量声明提前" class="headerlink" title="变量声明提前"></a>变量声明提前</h3><p>使用 var 声明的变量，会在所有代码执行之前被声明，但是不会被赋值。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(x);	</span><br><span class="line">var x = 10;		// x 会被提前声明</span><br></pre></td></tr></table></figure></div>
+<p>等价于<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line">console.log(x);</span><br><span class="line">x = 10;</span><br></pre></td></tr></table></figure></div></p>
+<p>浏览器解析器会在 <code>console.log(x);</code>语句之前声明 x 变量，但是没有赋值，x 为 undefined，控制台输出 undefined  ，并不会出现错误。但是如果声明变量时，不使用 var 关键字，变量 x 不会提前声明，则出现错误。</p>
+<h3 id="函数声明提前"><a href="#函数声明提前" class="headerlink" title="函数声明提前"></a>函数声明提前</h3><ul>
+<li>如果使用<code>函数声明的方式</code>创建函数，<code>该函数（包括函数名和函数体）</code>会在所有代码执行之前被创建，所以可以在函数被创建之前调用该函数。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun();		//函数被声明之前调用该函数</span><br><span class="line">function fun()&#123;		//函数声明</span><br><span class="line">	alert(&quot;123&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>使用<code>函数表达式的方式</code>创建函数，不会被提前声明，所以不能在函数被创建之前调用该函数。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//fun();		//出现错误</span><br><span class="line">console.log(fun);	//输出 undefined</span><br><span class="line">var fun = function()&#123;</span><br><span class="line">	alert(&quot;123&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<p>等价于</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var fun;	//变量提前声明，并未赋值</span><br><span class="line">//fun();</span><br><span class="line">console.log(fun);		//输出 undefined</span><br><span class="line">fun = function()&#123;</span><br><span class="line">	alert(&quot;123&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="作用域的分类"><a href="#作用域的分类" class="headerlink" title="作用域的分类"></a>作用域的分类</h2><ol>
+<li>全局作用域</li>
+<li>函数作用域<br>前面说过了，JavaScript 中是没有块级作用域的，{} 只是将多个语句合成了一条语句而已，但是函数中的 {} 语句中定义的变量，{} 外是不可访问的。</li>
+</ol>
+<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><ul>
+<li>直接编写在 script 标签中的 JS代码，都在全局作用域中。</li>
+<li>生命周期：页面打开时创建，页面关闭时销毁。</li>
+<li>在全局作用域中有一个全局对象 window ，它代表浏览器的窗口，属于宿主对象。由浏览器自动创建，我们直接使用即可。当我们创建一个全局变量时，这个变量作为 window 的属性保存；当我们创建一个函数时，这个函数作为 window 的方法保存。只是在平时的使用中，我们可以省略 window 对象的书写。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a =123;</span><br><span class="line">//window.a = 456;		//等价上变量声明</span><br><span class="line">var fun = function()&#123;</span><br><span class="line">	alert(&quot;我是fun方法&quot;);</span><br><span class="line">&#125;</span><br><span class="line">//window.fun = function()&#123;	//等价上函数声明</span><br><span class="line">	//alert(&quot;我是window的方法&quot;);</span><br><span class="line">//&#125;</span><br><span class="line">console.log(a);</span><br><span class="line">//console.log(window.a);		//等价上面一行</span><br><span class="line">fun();</span><br><span class="line">//window.fun();			//等价上面一行</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在页面中的任意位置多可以访问得到全局变量或全局函数。</li>
+</ul>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><ul>
+<li>在函数内编写的代码，属于函数作用域。</li>
+<li>声明周期：在函数被调用时创建，在函数执行完成后销毁。</li>
+<li>每调用一次函数（同一个函数也是），就会创建一个新的函数作用域，他们之间是独立的。</li>
+<li>在函数作用域中可以使用全局作用域中声明的变量或函数，但是在全局作用域中不可以使用函数作用域中声明的变量或函数。<br>在函数作用域中可以使用全局作用域中声明的变量，如下：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(a);    //输出 123。 </span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<p>在全局作用域中不可以使用函数作用域中声明的变量，如下：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	var a=123;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure></div>
+<p>报错，a 没有声明。</p>
+<ul>
+<li>当在某个作用域中操纵一个变量或函数时，首先会在该作用域中查找变量或函数，如果存在，直接使用；如果不存在，则向上一级作用域查找，直到全局作用域，如果全局作用域也不存在，则报错。也就是说：如果出现同名的变量或函数，内层作用域的变量或函数会屏蔽外层作用域的变量或函数。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	var a = &quot;我是函数变量 a&quot;;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun();		//输出 我是函数变量 a</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>当函数作用域和全局作用域中出现了同名的变量或函数时，需要在函数的作用域中使用全局作用域的变量或函数时，需要指明使用 window 这个对象的变量或函数。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	var a = &quot;我是函数变量 a&quot;;</span><br><span class="line">	console.log(window.a);</span><br><span class="line">&#125;</span><br><span class="line">fun();		//输出 我是全局变量 a</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>在函数作用域内也会出现变量和函数声明提前的情况。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	var a = &quot;我是函数变量 a&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
+<p>输出 undefined，上面代码等价于下面的代码<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	var a;</span><br><span class="line">	console.log(a);</span><br><span class="line">	a = &quot;我是函数变量 a&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div></p>
+<ul>
+<li>当在函数作用域中，没有使用 var 关键字来声明变量或函数，这个变量或函数会声明成全局作用域中的变量或函数。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(a);    //输出全局变量 a 的值：123</span><br><span class="line"> 	a = 456;           //改变全局变量 a 的值为456</span><br><span class="line">	b = 789;           //声明一个全局变量 b 的值为789，如果使用了 var 关键字来声明 b , b 即为函数作用域的变量</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure></div>
+<p>这里的 a 、b 就是 <code>window.a、window.b</code>;</p>
+<ul>
+<li>当定义了形参，就相当于在函数中使用 var 声明了变量</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun( a )&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun(456);	//输出 456</span><br></pre></td></tr></table></figure></div>
+<p>相当于</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun( a )&#123;</span><br><span class="line">	var a = 456</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的函数" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/07/JavaScript的函数/" class="article-date">
+  <time datetime="2019-10-07T10:52:32.000Z" itemprop="datePublished">2019-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript-的函数"><a href="#JavaScript-的函数" class="headerlink" title="JavaScript 的函数"></a>JavaScript 的函数</h1><p>定义：函数是指封装一些语句代码的一个对象。一次声明，可多次调用。<br>函数是一个对象。</p>
+<h2 id="创建函数的3种方式"><a href="#创建函数的3种方式" class="headerlink" title="创建函数的3种方式"></a>创建函数的3种方式</h2><ol>
+<li>使用<code>构造函数</code>来创建，不推荐使用。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function();</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>这时候创建的是一个空的函数，既没有任何功能的函数。为了使函数拥有功能，可以将一些代码以字符串的形式作为参数，初始化函数。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function(&quot;alert(&apos;函数&apos;);&quot;);</span><br></pre></td></tr></table></figure></div></p>
+<p>这个函数的功能是弹出一个窗口。</p>
+<ol start="2">
+<li>使用<code>函数声明</code>来创建<br>语法：<code>function 函数名（[形参1，形参2，...，形参N]）{ 语句 }</code></li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	alert(&quot;函数声明&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>使用<code>函数表达式</code>来创建<br>语法： <code>var 函数名=function（[形参1，形参2，...，形参N]）{ 语句 }；</code></li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fun = function()&#123;</span><br><span class="line">	console.log(&quot;haha&quot;);</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure></div>
+<p>函数创建后，并不会立刻执行，需要调用函数才执行。</p>
+<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><p>语法：<code>函数名（[形参1，形参2，...，形参N]）；</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun();</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><ul>
+<li>形参：形式参数</li>
+<li>实参：实际参数</li>
+</ul>
+<ol>
+<li>调用函数时，通过实参给函数传值，实参将值赋给形参进行计算。</li>
+<li>调用函数时，浏览器解析器不会检查<code>实参类型</code>，最好在函数内加于判断实参类型，避免出现错误。</li>
+<li>调用函数时，浏览器解析器不会检查<code>实参个数</code>，当实参多于形参时，后面多余的实参不会参与赋值，直接忽略；形参多于实参时，多余的形参赋值为 undefined 类型。</li>
+<li>实参可以是<code>任意类型</code>的数据。</li>
+</ol>
+<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p>语法：<code>return 返回值;</code><br>返回值是该函数执行后返回的结果。可以是<code>任意类型</code>的数据。<br>通常放在函数的最后。因为执行到 return 语句将结束该函数了，如果 return 语句后还有语句，这些语句将会变成死语句(永远不会执行)了。<br>一个函数可以有多个返回接口，但是尽量使用变量赋值的形式，只写一个返回接口，这便于理解函数功能。<br>如果 return 后没有返回值，或函数没有 return 语句，该函数的返回结果都是 undefined 。</p>
+<h2 id="函数是一个具有特定功能的对象。"><a href="#函数是一个具有特定功能的对象。" class="headerlink" title="函数是一个具有特定功能的对象。"></a>函数是一个具有特定功能的对象。</h2><p>前面说到了函数是一个对象，函数的参数可以是任意类型的数据。所以函数的参数也可以是一个对象或函数。</p>
+<p>参数是对象的例子：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	gender:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">showMsg(obj);</span><br></pre></td></tr></table></figure></div></p>
+<p>参数是函数的例子：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">function fun(x)&#123;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">fun(showMsg);</span><br></pre></td></tr></table></figure></div>
+<p>当将函数 A 当成一个实参传入函数 B 时，可以在函数 B 中，执行函数 A 。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;			//声明一个对象</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	gender:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">function fun(x)&#123;</span><br><span class="line">	x(obj);         //调用传入的函数 A</span><br><span class="line">&#125;</span><br><span class="line">fun(showMsg);		//调用函数 B</span><br><span class="line">//fun(showMsg(obj));	//相当于直接调用了 showMsg 函数，这时候形参x接收的是 showMsg 函数的返回值 undefined。</span><br></pre></td></tr></table></figure></div>
+<p>函数的返回值也可以是任意类型的数据。当函数的返回值是一个函数时，如何调用返回的函数。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function fun1()&#123;</span><br><span class="line">	alert(&quot;我是外部函数1&quot;);</span><br><span class="line">	function fun2()&#123;</span><br><span class="line">		alert(&quot;我是内部函数2&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	//fun2();	 //在fun1中调用fun2</span><br><span class="line">	return fun2;	//返回一个函数</span><br><span class="line">&#125;</span><br><span class="line">var a = fun1();		//将fun1返回的函数赋给a,a等价于fun2</span><br><span class="line">console.log(a);</span><br><span class="line">a();		//相当于调用fun2</span><br><span class="line">//fun1()(); //等价于调用了 fun1 和 a 函数</span><br></pre></td></tr></table></figure></div>
+<h2 id="注意：函数名-与-函数名（）-的区别"><a href="#注意：函数名-与-函数名（）-的区别" class="headerlink" title="注意：函数名 与 函数名（） 的区别"></a>注意：<code>函数名</code> 与 <code>函数名（）</code> 的区别</h2><p><code>函数名</code>只是指函数的本体代码。<br><code>函数名()</code>调用了这个函数，指的是执行这个函数的返回值。</p>
+<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p>语法：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function([形参1，形参2，...，形参N])&#123;</span><br><span class="line">	语句</span><br><span class="line">&#125;)([形参1，形参2，...，形参N]);</span><br></pre></td></tr></table></figure></div>
+<p>立即执行函数声明时即调用，通常是匿名函数，只调用一次。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function(x,y)&#123;</span><br><span class="line">	console.log( &quot;x = &quot; + x);</span><br><span class="line">	console.log( &quot;y = &quot; + y);</span><br><span class="line">&#125;)(123,456);</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-JavaScript的对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -93,14 +334,17 @@
 <li>宿主对象：由 JS 运行环境提供的对象，主要是浏览器提供的对象。如：BOM（浏览器对象模型）、DOM（文档对象模型）。</li>
 <li>自定义对象：由开发者创建的对象。</li>
 </ol>
-<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ol>
+<h2 id="创建对象（3个）"><a href="#创建对象（3个）" class="headerlink" title="创建对象（3个）"></a>创建对象（3个）</h2><ol>
 <li><p>使用Object的构造方法创建 </p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>创建对象并初始化<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
+<li><p>使用直接量创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
+<li><p>使用 Object.create() 函数创建对象</p>
+</li>
 </ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = Object.create(&#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
 <h2 id="添加或修改对象的属性"><a href="#添加或修改对象的属性" class="headerlink" title="添加或修改对象的属性"></a>添加或修改对象的属性</h2><p>语法1：<code>对象名.属性名=属性值</code><br>语法2：<code>对象名[属性名]=属性值</code> （推荐使用这种方式）</p>
 <ul>
 <li>属性名默认是字符串类型，不要求遵守标识符的规范（推荐按照规范命名）。如果要使用不遵守标识符的规范的属性名时，第1种语法会报错，只可以使用第2种语法。</li>
@@ -631,184 +875,6 @@
 </article>
 
   
-    <article id="post-编译CSS和Javascript文件" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/编译CSS和Javascript文件/">编译CSS和Javascript文件</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/13/编译CSS和Javascript文件/" class="article-date">
-  <time datetime="2019-09-13T08:15:36.000Z" itemprop="datePublished">2019-09-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="Bootstrap重新编译CSS和Javascript文件"><a href="#Bootstrap重新编译CSS和Javascript文件" class="headerlink" title="Bootstrap重新编译CSS和Javascript文件"></a>Bootstrap重新编译CSS和Javascript文件</h1><p>在日常开发中，有时候，我们为了方便会去修改bootstrap中样式，当需要样式发挥作用时，我们需要去重新编译文件。</p>
-<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><ol>
-<li>安装node<br>在<a href="http://nodejs.cn/" target="_blank" rel="noopener">node官网</a>中，下载相应版本的node，直接安装即可。也可以通过命令行进行安装。<h5 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功:"></a>检验是否安装成功:</h5>在命令行界面，输入</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure></div>
-<p>如果显示node的版本，则安装成功了。<br><img src="/2019/09/13/编译CSS和Javascript文件/node版本.png" alt="node版本"></p>
-<ol start="2">
-<li>安装grunt<br>在命令行中，输入安装命令<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g grunt-cli</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<p>如：<img src="/2019/09/13/编译CSS和Javascript文件/安装grunt.png" alt="安装grunt"><br>进入bootstrap的根目录下，输入<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></div></p>
-<p>该过程有点久。安装完成后可以看到bootstrap的根目录有<code>package-lock.json</code>文件。<br>如：<img src="/2019/09/13/编译CSS和Javascript文件/install.png" alt="install"></p>
-<ol start="3">
-<li>测试编译文件<br>先将bootstrap根目录下的dist目录删除，在命令行中重新编译生成dist文件，命令：<code>grunt dist</code>，完成后，可以看到bootstrap根目录重新生成了一个dist文件。<br><img src="/2019/09/13/编译CSS和Javascript文件/删除dist文件.png" alt="删除dist文件"><br><img src="/2019/09/13/编译CSS和Javascript文件/grunt.png" alt="grunt dist"><br><img src="/2019/09/13/编译CSS和Javascript文件/重新生成dist文件.png" alt="重新生成dist文件"></li>
-</ol>
-<h3 id="自定义bootstrap框架"><a href="#自定义bootstrap框架" class="headerlink" title="自定义bootstrap框架"></a>自定义bootstrap框架</h3><p>有时候，我们希望根据自己的要求来设计bootstrap的一些样式，或者只需要部分debootstrap的组件、插件等，这时候，我们可以在<a href="https://www.bootcss.com/" target="_blank" rel="noopener">bootstrap官网</a>上定制属于自己的bootstrap框架。<br>在<a href="https://v3.bootcss.com/customize/" target="_blank" rel="noopener">定制</a>中，勾选好自己需要的组件、插件，设计好自己的样式，点击下载即可。<br><img src="/2019/09/13/编译CSS和Javascript文件/勾选组件.png" alt="勾选组件"><br><img src="/2019/09/13/编译CSS和Javascript文件/修改样式.png" alt="修改样式"><br><img src="/2019/09/13/编译CSS和Javascript文件/定制下载.png" alt="定制下载"></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-IDEA远程登录Linux" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/07/IDEA远程登录Linux/">IDEA远程登录Linux</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/07/IDEA远程登录Linux/" class="article-date">
-  <time datetime="2019-09-07T05:00:19.000Z" itemprop="datePublished">2019-09-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="IDEA远程登录Linux"><a href="#IDEA远程登录Linux" class="headerlink" title="IDEA远程登录Linux"></a>IDEA远程登录Linux</h1><p>前提：运行一个Linux系统，并获得其登录ip地址，拥有一个登录账号。<br>我是在云服务器上有一个虚拟主机，故以其为例说明。没有虚拟主机，也可以在VMware上创建一个Linux主机进行测试。</p>
-<ol>
-<li>建立SFTP。<br>在settings界面中，建立一个SFTP服务(安全文件传输)。<br><img src="/2019/09/07/IDEA远程登录Linux/建立SFTP.png" alt="建立SFTP"><br>输入服务名。<br><img src="/2019/09/07/IDEA远程登录Linux/STFP名.png" alt="STFP名"></li>
-<li>登录服务器信息。<br><img src="/2019/09/07/IDEA远程登录Linux/服务登录信息.png" alt="服务登录信息"></li>
-<li>登录SSH会话。<br><img src="/2019/09/07/IDEA远程登录Linux/登录SSH.png" alt="登录SSH"><br><img src="/2019/09/07/IDEA远程登录Linux/选择服务器.png" alt="选择服务器"></li>
-<li>登录成功。<br>SSH登录成功后，在IDEA下侧，可以看到一个ip地址，点击ip地址，可以远程控制Linux了。<br><img src="/2019/09/07/IDEA远程登录Linux/SSH登录成功.png" alt="SSH登录成功"><h4 id="除了先建立SFTP服务外，还可以直接执行第3步，建立SSH会话。"><a href="#除了先建立SFTP服务外，还可以直接执行第3步，建立SSH会话。" class="headerlink" title="除了先建立SFTP服务外，还可以直接执行第3步，建立SSH会话。"></a>除了先建立SFTP服务外，还可以直接执行第3步，建立SSH会话。</h4>在下图中，选择<code>Edit credentials..</code>，输入相关信息，也可以登录Linux。<br><img src="/2019/09/07/IDEA远程登录Linux/选择服务器.png" alt="选择服务器"><br><img src="/2019/09/07/IDEA远程登录Linux/直接创建SSH会话.png" alt="直接创建SSH会话"></li>
-</ol>
-<h2 id="IDEA采用图形化控制Linux"><a href="#IDEA采用图形化控制Linux" class="headerlink" title="IDEA采用图形化控制Linux"></a>IDEA采用图形化控制Linux</h2><ol>
-<li>在settings界面中，成功建立SFTP服务后，远程登录主机。<br><img src="/2019/09/07/IDEA远程登录Linux/远程登录主机.png" alt="远程登录主机"></li>
-<li>登录成功后，可以清楚看到Linux上的文件结构。<br><img src="/2019/09/07/IDEA远程登录Linux/文件图形化.png" alt="文件图形化"></li>
-<li>可以直接对文件结构进行操作（增删移），比如：从IDEA上复制一个web目录到Linux上，直接将左边的web拖到右边的目录中，即可实现复制上传了。<br><img src="/2019/09/07/IDEA远程登录Linux/复制web目录.png" alt="复制web目录"><br>在Linux上查看，可以发现，多了web目录。<br><img src="/2019/09/07/IDEA远程登录Linux/Linux查看web目录.png" alt="Linux查看web目录"></li>
-</ol>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-IDEA将项目上传到远程仓库GitHub" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/">IDEA将项目上传到远程仓库GitHub或下载下来</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/06/IDEA将项目上传到远程仓库GitHub/" class="article-date">
-  <time datetime="2019-09-06T11:58:36.000Z" itemprop="datePublished">2019-09-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA使用教程/">IDEA使用教程</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件使用/">软件使用</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="远程仓库GitHub项目上传或下载"><a href="#远程仓库GitHub项目上传或下载" class="headerlink" title="远程仓库GitHub项目上传或下载"></a>远程仓库GitHub项目上传或下载</h1><p>前提：</p>
-<ol>
-<li>有一个GitHub的账号，没有可以先注册一个账号。<br>相关学习：<br><a href="http://hongliankeji.top/2019/03/01/GitHub%E4%B8%8EGit%E7%9A%84%E8%BF%9E%E6%8E%A5/" target="_blank" rel="noopener">注册GitHub账号和创建仓库</a></li>
-<li>集成git。<br>相关学习：<a href="http://hongliankeji.top/2019/09/06/IDEA%E4%BD%BF%E7%94%A8Git%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE/" target="_blank" rel="noopener">集成git</a></li>
-</ol>
-<h3 id="IDEA将项目上传到远程仓库GitHub"><a href="#IDEA将项目上传到远程仓库GitHub" class="headerlink" title="IDEA将项目上传到远程仓库GitHub"></a>IDEA将项目上传到远程仓库GitHub</h3><ol>
-<li>登录账号后，在GitHub上创建一个仓库。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/创建仓库.png" alt="创建仓库"><br>仓库创建成功后，是一个空仓库，如图：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/仓库创建成功.png" alt="仓库创建成功"></li>
-<li>在IDEA上连接仓库。<br>push:推，指上传代码；pull:拉，下载代码。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/连接仓库.png" alt="连接仓库"></li>
-<li>指定仓库。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/指定仓库.png" alt="指定仓库"></li>
-</ol>
-<p><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/仓库名和地址.png" alt="仓库名和地址"></p>
-<ol start="4">
-<li>验证信息。<br>有可能是需要登录GitHub，也有可能是输入ssh的密钥。下面是输入ssh密钥：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/登录验证.png" alt="登录验证"><br>直接推送。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/推送.png" alt="推送"></li>
-<li>推送成功。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/push成功.png" alt="push成功"><br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/仓库增加文件.png" alt="仓库增加文件"></li>
-</ol>
-<h4 id="除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中"><a href="#除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中" class="headerlink" title="除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中"></a>除了在推送时，验证GitHub账号，还可以提前将GitHub引入IDEA中</h4><p>在settings界面中，引入GitHub账号，如图：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/引入GitHub账号.png" alt="引入GitHub账号"><br>引入账号成功，邮箱会收到邮件提醒，显示如下：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/引入账号成功.png" alt="引入账号成功"></p>
-<h3 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h3><ol>
-<li>更改项目结构或代码。<br>比如：去掉web目录，在addUser中添加红框中的代码。<img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/更新代码.png" alt="更新代码"></li>
-<li>同步到GitHub上。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/同步到GitHub.png" alt="同步到GitHub"><br>在这个过程中，可以书写些说明性的描述，push<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/同步push.png" alt="同步push"></li>
-<li>代码更新同步后。<br>在GitHub仓库中查看，少了web目录，且添加了红框中的代码。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/少了web目录.png" alt="少了web目录"><br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/代码添加.png" alt="代码添加"></li>
-</ol>
-<h3 id="IDEA将项目从远程仓库GitHub下载"><a href="#IDEA将项目从远程仓库GitHub下载" class="headerlink" title="IDEA将项目从远程仓库GitHub下载"></a>IDEA将项目从远程仓库GitHub下载</h3><ol>
-<li>在GitHub仓库中，选定一个要下载的项目，把仓库地址复制下来。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/复制地址.png" alt="复制地址"></li>
-<li>集成git和将github账号进入IDEA后，从版本控制系统中引入项目。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/从版本控制系统中引入项目.png" alt="从版本控制系统中引入项目"> </li>
-<li>填写刚才复制的仓库地址，项目存放的根目录，clone。<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/填写仓库地址、根目录.png" alt="填写仓库地址、根目录"></li>
-<li>下载成功后，IDEA打开一个新窗口，下载的项目如下：<br><img src="/2019/09/06/IDEA将项目上传到远程仓库GitHub/下载的项目.png" alt="下载的项目"></li>
-</ol>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -860,7 +926,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 16.67px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 13.33px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 13.33px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 13.33px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 20px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -881,23 +947,23 @@
       <ul>
         
           <li>
+            <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
           </li>
         
           <li>
             <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
           </li>
         
       </ul>
