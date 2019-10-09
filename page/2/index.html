@@ -56,6 +56,69 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-IDEA创建maven工程" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/09/13/IDEA创建maven工程/" class="article-date">
+  <time datetime="2019-09-13T11:11:59.000Z" itemprop="datePublished">2019-09-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a>
+  </div>
+
+    
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="IDEA创建maven工程"><a href="#IDEA创建maven工程" class="headerlink" title="IDEA创建maven工程"></a>IDEA创建maven工程</h1><h3 id="什么是maven"><a href="#什么是maven" class="headerlink" title="什么是maven"></a>什么是maven</h3><p>由apache公司推出的一个管理项目的工具，由ant演变而来，自动化的构建的工具。</p>
+<h3 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h3><p>project object model 工程对象模型，pom.xml</p>
+<h2 id="maven的安装与引入"><a href="#maven的安装与引入" class="headerlink" title="maven的安装与引入"></a>maven的安装与引入</h2><ol>
+<li>下载maven<br>在<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">apache官网的maven下载</a>，liunx系统下载第一个，windows用户下载第二个。下面以windows为例说明。<br><img src="/2019/09/13/IDEA创建maven工程/下载maven.png" alt="下载maven"><br>下载完，解压。<br>刚开始，我下载的是3.6.2版本的，操作到最后，发现maven的仓库更新一直报错。百度了一下，有人说是3.6以上的版本均未完善。后来，我换成了3.5.4版本了。<br><img src="/2019/09/13/IDEA创建maven工程/下载3.5.4版本.png" alt="下载3.5.4版本"></li>
+<li>修改settings.xml文件<br>下载完解压，文件目录如下：<br><img src="/2019/09/13/IDEA创建maven工程/文件目录.png" alt="文件目录"><br>打开conf目录下settings.xml文件，需要在文件中，增加本地仓库的路径和阿里云镜像。增加本地仓库是为了存放maven下载的依赖。可以向我这样创建一个空文件目录即可。增加阿里云的镜像是因为国内环境不稳定，下载国外的资源，下载速度太慢了，增加镜像可以加速。<br><img src="/2019/09/13/IDEA创建maven工程/添加本地仓库.png" alt="添加本地仓库"><br><img src="/2019/09/13/IDEA创建maven工程/添加阿里云镜像.png" alt="添加阿里云镜像"></li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br></pre></td></tr></table></figure></div>
+<p>添加完成，保存settings.xml文件。</p>
+<ol start="3">
+<li>IDEA中引入maven<br>打开IDEA的settings界面，如图选择好maven解压的路径，点击OK.<br><img src="/2019/09/13/IDEA创建maven工程/引入maven.png" alt="引入maven"><br>引入完成。</li>
+</ol>
+<h2 id="使用maven的骨架创建web项目"><a href="#使用maven的骨架创建web项目" class="headerlink" title="使用maven的骨架创建web项目"></a>使用maven的骨架创建web项目</h2><h3 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h3><ol>
+<li>安装好JDK1.9</li>
+<li>安装好tomcat 8.5.39<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3></li>
+<li>创建maven项目<br><img src="/2019/09/13/IDEA创建maven工程/创建项目.png" alt="创建项目"><br><img src="/2019/09/13/IDEA创建maven工程/创建maven项目.png" alt="创建maven项目"><br><img src="/2019/09/13/IDEA创建maven工程/项目id.png" alt="项目id"><br><img src="/2019/09/13/IDEA创建maven工程/确认信息.png" alt="确认信息"><br><img src="/2019/09/13/IDEA创建maven工程/项目名.png" alt="项目名"><br>创建成功，显示如下：<br><img src="/2019/09/13/IDEA创建maven工程/maven创建成功.png" alt="maven创建成功"><br>更改原配置：<br><img src="/2019/09/13/IDEA创建maven工程/原配置.png" alt="原配置"><br><img src="/2019/09/13/IDEA创建maven工程/更改版本原配置.png" alt="更改版本原配置"><br>不再显示红色字体，依赖生成完成。</li>
+<li>完善web项目结构<br>在main目录下新增java、resources目录。java目录下存放java源码，resources目录下存放资源文件。<br><img src="/2019/09/13/IDEA创建maven工程/新增目录.png" alt="新增目录"><br><img src="/2019/09/13/IDEA创建maven工程/新增java目录.png" alt="新增java目录"><br>将java目录设置为Sources Root。同理resources目录设置成Resources Root。<br><img src="/2019/09/13/IDEA创建maven工程/将java目录设置为sources根目录.png" alt="将java目录设置为sources根目录"><br><img src="/2019/09/13/IDEA创建maven工程/resources设置类型.png" alt="resources设置类型"><br>骨架创建的web.xml文件是错误的，下面我将其改为3.0版本的web.xml文件。<br><img src="/2019/09/13/IDEA创建maven工程/web文件错误.png" alt="web文件错误"><br><img src="/2019/09/13/IDEA创建maven工程/3.0的web.xml.png" alt="3.0的web.xml"><br>3.0的web.xml文件内容，如下：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee</span><br><span class="line">		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span><br><span class="line">         version=&quot;3.0&quot;&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li>创建一个servlet，并尝试访问该servlet<br>首先，引入servlet的依赖。<br>到<a href="https://mvnrepository.com/" target="_blank" rel="noopener">中央仓库</a>，搜索servlet。<br><img src="/2019/09/13/IDEA创建maven工程/搜索servlet.png" alt="搜索servlet"><br><img src="/2019/09/13/IDEA创建maven工程/选择API.png" alt="选择API"><br>选择需要的版本<br><img src="/2019/09/13/IDEA创建maven工程/选择版本.png" alt="选择版本"><br>复制依赖<br><img src="/2019/09/13/IDEA创建maven工程/复制依赖.png" alt="复制依赖"><br>将依赖粘贴到pom.xml文件中<br><img src="/2019/09/13/IDEA创建maven工程/将依赖粘贴到pom文件中.png" alt="将依赖粘贴到pom文件中"><br>当看到字体不变红色，点击maven，可以看到依赖下载完成<br><img src="/2019/09/13/IDEA创建maven工程/依赖下载完成.png" alt="依赖下载完成"><br>在java目录下创建一个Servlet<br><img src="/2019/09/13/IDEA创建maven工程/创建一个Servlet.png" alt="创建一个Servlet"><br>编写Servlet内容<br><img src="/2019/09/13/IDEA创建maven工程/Servlet内容.png" alt="Servlet内容"></li>
+<li>Tomcat的引入与部署<br>添加本地Tomcat<br><img src="/2019/09/13/IDEA创建maven工程/添加本地Tomcat.png" alt="添加本地Tomcat"><br>选择Tomcat路径<br><img src="/2019/09/13/IDEA创建maven工程/选择Tomcat路径.png" alt="选择Tomcat路径"><br>部署项目<br><img src="/2019/09/13/IDEA创建maven工程/部署项目1.png" alt="部署项目1"><br><img src="/2019/09/13/IDEA创建maven工程/部署项目2.png" alt="部署项目2"><br><img src="/2019/09/13/IDEA创建maven工程/部署项目3.png" alt="部署项目3"><br><img src="/2019/09/13/IDEA创建maven工程/部署设置.png" alt="部署设置"></li>
+<li>访问项目<br>启动Tomcat<br><img src="/2019/09/13/IDEA创建maven工程/启动Tomcat.png" alt="启动Tomcat"><br>浏览器启动，如下，项目默认访问了index.jsp文件了。<br><img src="/2019/09/13/IDEA创建maven工程/访问index.png" alt="访问index"><br>URL中输入servlet的访问路径，回车。<br><img src="/2019/09/13/IDEA创建maven工程/访问Servlet.png" alt="访问Servlet"></li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这周学习是最痛苦的学习了，完完全全被maven搞死。还好最后坚持下来了，虽然还是有很多不懂，但当看到项目能跑了，还是很开兴的，加油！</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-编译CSS和Javascript文件" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -673,95 +736,6 @@
 </article>
 
   
-    <article id="post-VMwaree的基本使用" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/04/VMwaree的基本使用/">VMware安装及基本使用</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/05/04/VMwaree的基本使用/" class="article-date">
-  <time datetime="2019-05-03T16:00:00.000Z" itemprop="datePublished">2019-05-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/虚拟机/">虚拟机</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h1><p>下面讲解VMware的安装方法，安装VMuare软件及如何在VMware上新建一个Linux系统的虚拟机。主要是针对新手的安装，所以会选择尽量简单的操作。</p>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>系统：win10 64位计算机<br>下载：VMware软件的安装包、CentOS的镜像文件（CentOS是Linux系统其中的一个版本）</p>
-<h2 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h2><p>安装方法很简单，基本都是“next”就行了。<br>双击exe文件，点击“下一步”，同意一下协议，“下一步”，初学者选择“经典”模式就好，下一步，可以更改安装路径，默认也可以，其他的直接“下一步”就可以了。</p>
-<h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><ol>
-<li>安装好后，VMware显示如下：<img src="/2019/05/04/VMwaree的基本使用/VMware显示.png" alt="VMware显示"></li>
-<li>点击创建一个虚拟机，就会出现安装向导，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择类型.png" alt="选择类型"></li>
-<li>配置类型。选择“典型”类型，点击“下一步”。</li>
-<li>选择镜像文件。镜像文件要提前下载好，选择“安装程序光盘映像文件”，在“浏览”中找到映像文件。点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/选择镜像文件.png" alt="选择镜像文件"><br>也可以选择<code>稍后安装操作系统</code>，在后面第9步点击新CD/DVD,选择ios镜像文件安装。</li>
-<li>安装系统类型。客户机操作系统选择“Linux”，版本选择“CentOS”，点击“下一步”，显示如下：<img src="/2019/05/04/VMwaree的基本使用/操作系统.png" alt="操作系统"></li>
-<li>名称和安装位置，可以默认，也可以自己改，点击“下一步”，如：<img src="/2019/05/04/VMwaree的基本使用/名称和位置.png" alt="名称和位置"></li>
-<li>磁盘的选择。按自己的计算机的实际情况选择，一般按默认的就好了。文件可以选择单个文件。<img src="/2019/05/04/VMwaree的基本使用/磁盘.png" alt="磁盘"></li>
-<li>自定义硬件。点击“自定义硬件”，可以对一些硬件的连接进行选择。如：<img src="/2019/05/04/VMwaree的基本使用/自定义硬件.png" alt="自定义硬件"></li>
-<li>硬件的连接。由于连接的硬件越多，占用的资源越多，可以将一些暂时不用的硬件移除掉。如：打印机、声卡。操作完后，点击“关闭”。如：<img src="/2019/05/04/VMwaree的基本使用/硬件的连接.png" alt="硬件的连接"> </li>
-<li>点击“完成”。就会进入安装的状态，如：<img src="/2019/05/04/VMwaree的基本使用/安装.png" alt="安装"></li>
-<li>点击“开启此虚拟机”: 依次出现下面的视图，启动过程，需要等几分钟<img src="/2019/05/04/VMwaree的基本使用/启动中1.png" alt="启动中"> </li>
-<li>等到安装完成后。显示如：<img src="/2019/05/04/VMwaree的基本使用/安装完成.png" alt="安装完成"></li>
-<li>首次启动CENTOS7 ，要做些基本的设置，如语言等，选择好自己熟悉的语言，继续。<img src="/2019/05/04/VMwaree的基本使用/语言选择.png" alt="语言选择"></li>
-<li>其他的配置根据自己的实际情况选择，或默认就好了。主要的配置是：安装位置、网络和主机名，<img src="/2019/05/04/VMwaree的基本使用/基本配置.png" alt="基本配置"></li>
-<li>点击进入“安装位置”，选择“自动分区”，完成。<img src="/2019/05/04/VMwaree的基本使用/自动分区.png" alt="自动分区"></li>
-<li>网络的配置。点击进入“网络和主机名”的视图中，把以太网<code>打开</code>，打开后，可以看到获取了网络ip、子网掩码、路由等信息了。主机名默认就好。如图右上角：<img src="/2019/05/04/VMwaree的基本使用/网络配置.png" alt="网络配置">，点击完成。</li>
-<li>基本的配置都完成了。点击“开始安装”。</li>
-<li>创建用户。在使用虚拟机时，需要用户登录，所以，我们要先配置用户，如图：<img src="/2019/05/04/VMwaree的基本使用/配置用户.png" alt="配置用户"></li>
-<li>左边的是root用户，是该虚拟机的最高管理者，是一定要创建的。点击“创建root用户”，进入创建视图，两次输入密码，一定要记得密码。点击“完成”。<img src="/2019/05/04/VMwaree的基本使用/创建root用户.png" alt="创建root用户"></li>
-<li>右边是创建普通用户，与root用户的主要区别是：两者的权限不同。进入创建视图,按提示填写信息，完成。<img src="/2019/05/04/VMwaree的基本使用/创建普通用户.png" alt="创建普通用户"></li>
-<li>创建完成后,黄色的叹号就消失了。显示如<img src="/2019/05/04/VMwaree的基本使用/创建用户完成.png" alt="创建用户完成"></li>
-<li>到这步，就算是安装完成了。等一会，就会出现下图，“重启”即可。<img src="/2019/05/04/VMwaree的基本使用/重启.png" alt="重启"></li>
-<li>进入虚拟机。输入刚才创建的用户，可以是root用户，也可以是普通用户。<img src="/2019/05/04/VMwaree的基本使用/用户登录.png" alt="用户登录"></li>
-<li>root用户：前面显示的是<code>#</code>号，一般用户，显示的是<code>$</code>号。输入“exit”,回车既可以退出了。</li>
-</ol>
-<h2 id="采用putty远程登录虚拟机"><a href="#采用putty远程登录虚拟机" class="headerlink" title="采用putty远程登录虚拟机"></a>采用putty远程登录虚拟机</h2><p>前提：下载好putty.exe。</p>
-<ol>
-<li>查看机器的ip地址，用户登录虚拟机后，输入<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<p>回车。如果已经安装好了命令包，则会显示：ip等的信息，如：第5步的显示，跳过第2、3、4步。<br>如果没有安装，则显示 ，<img src="/2019/05/04/VMwaree的基本使用/找不到ifconfig.png" alt="找不到ifconfig命令"></p>
-<ol start="2">
-<li>安装命令包，连网的条件下，输入</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li>回车后，如图：<img src="/2019/05/04/VMwaree的基本使用/安装命令包.png" alt="安装命令包"></li>
-<li>安装完成后，连续输入两次<code>y</code>，回车。如图：<img src="/2019/05/04/VMwaree的基本使用/安装完成yy.png" alt="安装完成yy"></li>
-<li>重新执行第1步，显示如图：<img src="/2019/05/04/VMwaree的基本使用/ifconfig.png" alt="ifconfig"></li>
-<li>记下虚拟机ip地址，也就是图中的，<code>192.168.80.128</code>。</li>
-<li>双击打开putty.exe，在host name 的输入框中输入ip地址，点击“open”，如图：<img src="/2019/05/04/VMwaree的基本使用/打开putty.png" alt="打开putty"></li>
-<li>输入用户名和密码，回车即可登录成功了。如：<img src="/2019/05/04/VMwaree的基本使用/putty登录.png" alt="putty登录"></li>
-</ol>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>VMware需要注册才能使用，不然只能试用10天，以下是我的注册码。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JZ6WK-4529P-HZAA1-9RAG6-33JNR 5F4EV-4Z0DP-XZHN9-0L95H-02V17</span><br></pre></td></tr></table></figure></div></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -834,6 +808,10 @@
       <ul>
         
           <li>
+            <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
           </li>
         
@@ -847,10 +825,6 @@
         
           <li>
             <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
           </li>
         
       </ul>

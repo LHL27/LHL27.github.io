@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="ľľ">
 <meta property="og:description" content="JavaScript 的对象对象的定义指一种复合的数据类型，对象可以保存多种不同的数据类型的属性。除了5种基本数据类型（Number、String、Boolean、unll、undefined）外，其他的都属于对象。对象属于引用数据类型。 对象的3个分类 内置对象：由ES标准定义的对象，可以在实现中直接使用。如：Math、String、Function、Object等对象。 宿主对象：由 JS 运">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-07T15:58:47.288Z">
+<meta property="og:updated_time" content="2019-10-09T10:39:41.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的对象">
 <meta name="twitter:description" content="JavaScript 的对象对象的定义指一种复合的数据类型，对象可以保存多种不同的数据类型的属性。除了5种基本数据类型（Number、String、Boolean、unll、undefined）外，其他的都属于对象。对象属于引用数据类型。 对象的3个分类 内置对象：由ES标准定义的对象，可以在实现中直接使用。如：Math、String、Function、Object等对象。 宿主对象：由 JS 运">
@@ -97,17 +97,25 @@
 <li>宿主对象：由 JS 运行环境提供的对象，主要是浏览器提供的对象。如：BOM（浏览器对象模型）、DOM（文档对象模型）。</li>
 <li>自定义对象：由开发者创建的对象。</li>
 </ol>
-<h2 id="创建对象（3个）"><a href="#创建对象（3个）" class="headerlink" title="创建对象（3个）"></a>创建对象（3个）</h2><ol>
-<li><p>使用Object的构造方法创建 </p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br></pre></td></tr></table></figure></div>
+<h2 id="创建对象的4个方式"><a href="#创建对象的4个方式" class="headerlink" title="创建对象的4个方式"></a>创建对象的4个方式</h2><ol>
+<li>使用Object的<code>构造函数</code>创建<br>构造函数必须使用 <code>new 函数名（）</code>的语法格式。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();		//当没有参数时，括号可以省略</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>使用直接量创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
+</ol>
+<p>这是使用了 Object 默认的构造函数，创建完成对象后，还要为对象添加属性，比较麻烦，而且创建出来的对象都是 Object 类型。<br>可以通过自定义构造函数的方法，创建不同的类。<code>对象是类的实例，类是对象的抽象。</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">	this.sayName = function()&#123;</span><br><span class="line">		console.log(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var per = new Person(&quot;zhangSan&quot;,18);</span><br><span class="line">per.sayName();</span><br><span class="line">console.log(per);</span><br></pre></td></tr></table></figure></div>
+<p>直接通过构造函数，即可批量创建对象了。</p>
+<ol start="2">
+<li><p>使用<code>直接量</code>创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>使用 Object.create() 函数创建对象</p>
+<li><p>使用 <code>Object.create()</code> 函数创建对象</p>
 </li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = Object.create(&#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>自定义<code>工厂模式</code>创建对象<br>工厂模式可以批量创建对象，但是创建的所有的对象都是同一个类型，不好区分对象。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createObject(name,age)&#123;	//自定义一个函数</span><br><span class="line">	var obj = new Object();         //声明一个对象</span><br><span class="line">	obj.name = name;                //利用形参初始化</span><br><span class="line">	obj.age = age;</span><br><span class="line">	obj.sayName = function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;                      //返回这个对象</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = createObject(&quot;lin&quot;,18);	//接收对象</span><br><span class="line">var obj2 = createObject(&quot;zhangSan&quot;,23);</span><br><span class="line">obj1.sayName();				//执行对象的方法</span><br><span class="line">obj2.sayName();</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
 <h2 id="添加或修改对象的属性"><a href="#添加或修改对象的属性" class="headerlink" title="添加或修改对象的属性"></a>添加或修改对象的属性</h2><p>语法1：<code>对象名.属性名=属性值</code><br>语法2：<code>对象名[属性名]=属性值</code> （推荐使用这种方式）</p>
 <ul>
 <li>属性名默认是字符串类型，不要求遵守标识符的规范（推荐按照规范命名）。如果要使用不遵守标识符的规范的属性名时，第1种语法会报错，只可以使用第2种语法。</li>
@@ -119,9 +127,18 @@
 <p>如果对象不存在这个属性，浏览器不会报错，会获取一个 undefined 的属性值。</p>
 <h2 id="删除对象"><a href="#删除对象" class="headerlink" title="删除对象"></a>删除对象</h2><p>语法1：<code>delete 对象名.属性名</code><br>语法2：<code>delete 对象名[属性名]</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete obj.name;</span><br><span class="line">delete obj[123];</span><br></pre></td></tr></table></figure></div>
-<p>当删除这个属性后，再获取属性值，只能获取一个 undefined 的属性值。</p>
+<p>当删除这个属性后，再获取属性值，只能获取一个 undefined 的属性值。<br>delete 只可以删除对象的属性，不可以删除对象。</p>
+<h2 id="拓展：构造函数的执行流程"><a href="#拓展：构造函数的执行流程" class="headerlink" title="拓展：构造函数的执行流程"></a>拓展：构造函数的执行流程</h2><ol>
+<li>创建一个新的对象</li>
+<li>将新建的对象设置为函数中的 this，可以使用 this 来引用函数。</li>
+<li>执行函数中的代码</li>
+<li>将新对象作为返回值返回</li>
+</ol>
+<h2 id="拓展：类-与-对象"><a href="#拓展：类-与-对象" class="headerlink" title="拓展：类 与 对象"></a>拓展：类 与 对象</h2><p>使用同一个构造函数创建的对象，称为一类对象，也将一个构造函数称为一个类。<br>通过构造函数创建的对象，成为该类的实例。<br>对象是类的实例，类是对象的抽象。</p>
 <h2 id="拓展：in-运算符"><a href="#拓展：in-运算符" class="headerlink" title="拓展：in 运算符"></a>拓展：in 运算符</h2><p>定义：该运算符可以检测一个对象中是否含有指定的属性。<br>语法：<code>“属性名” in 对象名</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;age&quot; in obj);  	// true</span><br></pre></td></tr></table></figure></div>
+<h2 id="拓展：instanceof-运算符"><a href="#拓展：instanceof-运算符" class="headerlink" title="拓展：instanceof 运算符"></a>拓展：instanceof 运算符</h2><p>定义：判断一个对象是否是某个类的实例。<br>语法：<code>对象 instanceof 构造函数</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var per = new Person(&quot;zhangSan&quot;,18);</span><br><span class="line">console.log(per instanceof Person);</span><br></pre></td></tr></table></figure></div></p>
+<p>所有对象 都是 Object 的实例。</p>
 
       
     </div>
@@ -239,6 +256,10 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
+            <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
           </li>
         
@@ -252,10 +273,6 @@ gitment.render('gitmentContainer')
         
           <li>
             <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
           </li>
         
       </ul>

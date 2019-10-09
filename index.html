@@ -56,6 +56,75 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JavaScript的闭包" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/09/JavaScript的闭包/" class="article-date">
+  <time datetime="2019-10-09T01:13:26.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的闭包"><a href="#JavaScript的闭包" class="headerlink" title="JavaScript的闭包"></a>JavaScript的闭包</h1><p>在前面的知识中，已经说过了，在函数作用域中是可以访问全局作用域中声明的变量或函数，但是在全局作用域中不可以访问函数作用域中声明的变量或函数。其实，在全局作用域中也是访问使用函数作用域中声明的变量或函数，只是要通过<code>闭包的方式才可以使用</code>。</p>
+<h2 id="闭包的定义"><a href="#闭包的定义" class="headerlink" title="闭包的定义"></a>闭包的定义</h2><p>闭包就是能够读取其他函数内部变量的函数。<br>由于 JavaScript 中，只有函数内部的子函数才能读取局部变量，因此，闭包可以理解为“定义在一个函数内部的函数”。在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+<h2 id="闭包的2个作用"><a href="#闭包的2个作用" class="headerlink" title="闭包的2个作用"></a>闭包的2个作用</h2><ol>
+<li>可以在函数外部读取函数内部的变量；</li>
+<li>让函数内部的变量的值一直保持在内存中；</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	var x=10;</span><br><span class="line">	function fun2() &#123;</span><br><span class="line">		x++;</span><br><span class="line">		console.log(x);</span><br><span class="line">	&#125;</span><br><span class="line">	return fun2;</span><br><span class="line">&#125;</span><br><span class="line">var a = fun();</span><br><span class="line">a();		//输出 11</span><br><span class="line">a();		//输出 12，并不是重新开辟内存并初始化，而是使用了第1次声明的 x</span><br></pre></td></tr></table></figure></div>
+<h2 id="闭包的注意点"><a href="#闭包的注意点" class="headerlink" title="闭包的注意点"></a>闭包的注意点</h2><ol>
+<li>由于闭包可以使函数中的变量一直保存在内存中，所以内存消耗过大，不可以滥用闭包。</li>
+<li>通过闭包也可以改变函数内部变量的值。比如：返回一个带方法的对象时，如下：</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	var name = &quot;lin&quot;;</span><br><span class="line">	return &#123;</span><br><span class="line">		getName:function()&#123;</span><br><span class="line">			console.log(name);</span><br><span class="line">		&#125;,</span><br><span class="line">		setName:function()&#123;</span><br><span class="line">			name = &quot;ha&quot;;  //改变私有属性</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var a = fun();</span><br><span class="line">a.getName();		//输出 lin</span><br><span class="line">a.setName();		//改变函数内部变量的值</span><br><span class="line">a.getName();		//输出 ha</span><br></pre></td></tr></table></figure></div>
+<p>但在封装的思想中，函数是一个对象，函数中声明的变量应该属于一个私有的属性，不应随便在函数外部改变，所以，不要随便改变函数内部变量的值。</p>
+<h2 id="拓展：理解-this-关键字"><a href="#拓展：理解-this-关键字" class="headerlink" title="拓展：理解 this 关键字"></a>拓展：理解 this 关键字</h2><ul>
+<li>浏览器解析器在每次调用函数时，都会向函数内部传递一个隐含的参数 this。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">fun();		// 输出 Window</span><br></pre></td></tr></table></figure></div>
+<p>可见，我们并没有将 this 传到函数中，但是函数中会输出 this 为 Window。</p>
+<ul>
+<li>this 并不是变量，而是一个对象。这个对象称为函数的<code>上下文对象</code>。</li>
+<li>根据调用函数的对象不同，this 就是调用这个函数的对象。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;Window&quot;;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name: &quot;Object&quot;,</span><br><span class="line">	getName:function()&#123;</span><br><span class="line">		alert(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getName();</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<p>Window 对象和 Object 对象中都含有 name 属性，在 getName() 方法中的 <code>this 指代的是 Object 对象</code>，所以输出的 name 是 “Object ”；</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;Window&quot;;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name : &quot;Object&quot;,</span><br><span class="line">	getName:function()&#123;</span><br><span class="line">		return function()&#123;</span><br><span class="line">			alert(this.name);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var a = obj.getName();</span><br><span class="line">a();</span><br></pre></td></tr></table></figure></div>
+<p>在 getName() 方法执行完成后，返回的是一个函数，如下</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function()&#123;</span><br><span class="line">	alert(this.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>并赋值给 a，a 是 Window 对象的属性方法，所以 this 指代的是 Window  对象，输入的 name 是“Window”。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-JavaScript对象的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -334,17 +403,25 @@
 <li>宿主对象：由 JS 运行环境提供的对象，主要是浏览器提供的对象。如：BOM（浏览器对象模型）、DOM（文档对象模型）。</li>
 <li>自定义对象：由开发者创建的对象。</li>
 </ol>
-<h2 id="创建对象（3个）"><a href="#创建对象（3个）" class="headerlink" title="创建对象（3个）"></a>创建对象（3个）</h2><ol>
-<li><p>使用Object的构造方法创建 </p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br></pre></td></tr></table></figure></div>
+<h2 id="创建对象的4个方式"><a href="#创建对象的4个方式" class="headerlink" title="创建对象的4个方式"></a>创建对象的4个方式</h2><ol>
+<li>使用Object的<code>构造函数</code>创建<br>构造函数必须使用 <code>new 函数名（）</code>的语法格式。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();		//当没有参数时，括号可以省略</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>使用直接量创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
+</ol>
+<p>这是使用了 Object 默认的构造函数，创建完成对象后，还要为对象添加属性，比较麻烦，而且创建出来的对象都是 Object 类型。<br>可以通过自定义构造函数的方法，创建不同的类。<code>对象是类的实例，类是对象的抽象。</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">	this.sayName = function()&#123;</span><br><span class="line">		console.log(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var per = new Person(&quot;zhangSan&quot;,18);</span><br><span class="line">per.sayName();</span><br><span class="line">console.log(per);</span><br></pre></td></tr></table></figure></div>
+<p>直接通过构造函数，即可批量创建对象了。</p>
+<ol start="2">
+<li><p>使用<code>直接量</code>创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>使用 Object.create() 函数创建对象</p>
+<li><p>使用 <code>Object.create()</code> 函数创建对象</p>
 </li>
 </ol>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = Object.create(&#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<ol start="4">
+<li>自定义<code>工厂模式</code>创建对象<br>工厂模式可以批量创建对象，但是创建的所有的对象都是同一个类型，不好区分对象。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createObject(name,age)&#123;	//自定义一个函数</span><br><span class="line">	var obj = new Object();         //声明一个对象</span><br><span class="line">	obj.name = name;                //利用形参初始化</span><br><span class="line">	obj.age = age;</span><br><span class="line">	obj.sayName = function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;                      //返回这个对象</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = createObject(&quot;lin&quot;,18);	//接收对象</span><br><span class="line">var obj2 = createObject(&quot;zhangSan&quot;,23);</span><br><span class="line">obj1.sayName();				//执行对象的方法</span><br><span class="line">obj2.sayName();</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
 <h2 id="添加或修改对象的属性"><a href="#添加或修改对象的属性" class="headerlink" title="添加或修改对象的属性"></a>添加或修改对象的属性</h2><p>语法1：<code>对象名.属性名=属性值</code><br>语法2：<code>对象名[属性名]=属性值</code> （推荐使用这种方式）</p>
 <ul>
 <li>属性名默认是字符串类型，不要求遵守标识符的规范（推荐按照规范命名）。如果要使用不遵守标识符的规范的属性名时，第1种语法会报错，只可以使用第2种语法。</li>
@@ -356,9 +433,18 @@
 <p>如果对象不存在这个属性，浏览器不会报错，会获取一个 undefined 的属性值。</p>
 <h2 id="删除对象"><a href="#删除对象" class="headerlink" title="删除对象"></a>删除对象</h2><p>语法1：<code>delete 对象名.属性名</code><br>语法2：<code>delete 对象名[属性名]</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete obj.name;</span><br><span class="line">delete obj[123];</span><br></pre></td></tr></table></figure></div>
-<p>当删除这个属性后，再获取属性值，只能获取一个 undefined 的属性值。</p>
+<p>当删除这个属性后，再获取属性值，只能获取一个 undefined 的属性值。<br>delete 只可以删除对象的属性，不可以删除对象。</p>
+<h2 id="拓展：构造函数的执行流程"><a href="#拓展：构造函数的执行流程" class="headerlink" title="拓展：构造函数的执行流程"></a>拓展：构造函数的执行流程</h2><ol>
+<li>创建一个新的对象</li>
+<li>将新建的对象设置为函数中的 this，可以使用 this 来引用函数。</li>
+<li>执行函数中的代码</li>
+<li>将新对象作为返回值返回</li>
+</ol>
+<h2 id="拓展：类-与-对象"><a href="#拓展：类-与-对象" class="headerlink" title="拓展：类 与 对象"></a>拓展：类 与 对象</h2><p>使用同一个构造函数创建的对象，称为一类对象，也将一个构造函数称为一个类。<br>通过构造函数创建的对象，成为该类的实例。<br>对象是类的实例，类是对象的抽象。</p>
 <h2 id="拓展：in-运算符"><a href="#拓展：in-运算符" class="headerlink" title="拓展：in 运算符"></a>拓展：in 运算符</h2><p>定义：该运算符可以检测一个对象中是否含有指定的属性。<br>语法：<code>“属性名” in 对象名</code></p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;age&quot; in obj);  	// true</span><br></pre></td></tr></table></figure></div>
+<h2 id="拓展：instanceof-运算符"><a href="#拓展：instanceof-运算符" class="headerlink" title="拓展：instanceof 运算符"></a>拓展：instanceof 运算符</h2><p>定义：判断一个对象是否是某个类的实例。<br>语法：<code>对象 instanceof 构造函数</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var per = new Person(&quot;zhangSan&quot;,18);</span><br><span class="line">console.log(per instanceof Person);</span><br></pre></td></tr></table></figure></div></p>
+<p>所有对象 都是 Object 的实例。</p>
 
       
     </div>
@@ -812,69 +898,6 @@
 </article>
 
   
-    <article id="post-IDEA创建maven工程" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/IDEA创建maven工程/">IDEA创建maven工程</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/09/13/IDEA创建maven工程/" class="article-date">
-  <time datetime="2019-09-13T11:11:59.000Z" itemprop="datePublished">2019-09-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a>
-  </div>
-
-    
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="IDEA创建maven工程"><a href="#IDEA创建maven工程" class="headerlink" title="IDEA创建maven工程"></a>IDEA创建maven工程</h1><h3 id="什么是maven"><a href="#什么是maven" class="headerlink" title="什么是maven"></a>什么是maven</h3><p>由apache公司推出的一个管理项目的工具，由ant演变而来，自动化的构建的工具。</p>
-<h3 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h3><p>project object model 工程对象模型，pom.xml</p>
-<h2 id="maven的安装与引入"><a href="#maven的安装与引入" class="headerlink" title="maven的安装与引入"></a>maven的安装与引入</h2><ol>
-<li>下载maven<br>在<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">apache官网的maven下载</a>，liunx系统下载第一个，windows用户下载第二个。下面以windows为例说明。<br><img src="/2019/09/13/IDEA创建maven工程/下载maven.png" alt="下载maven"><br>下载完，解压。<br>刚开始，我下载的是3.6.2版本的，操作到最后，发现maven的仓库更新一直报错。百度了一下，有人说是3.6以上的版本均未完善。后来，我换成了3.5.4版本了。<br><img src="/2019/09/13/IDEA创建maven工程/下载3.5.4版本.png" alt="下载3.5.4版本"></li>
-<li>修改settings.xml文件<br>下载完解压，文件目录如下：<br><img src="/2019/09/13/IDEA创建maven工程/文件目录.png" alt="文件目录"><br>打开conf目录下settings.xml文件，需要在文件中，增加本地仓库的路径和阿里云镜像。增加本地仓库是为了存放maven下载的依赖。可以向我这样创建一个空文件目录即可。增加阿里云的镜像是因为国内环境不稳定，下载国外的资源，下载速度太慢了，增加镜像可以加速。<br><img src="/2019/09/13/IDEA创建maven工程/添加本地仓库.png" alt="添加本地仓库"><br><img src="/2019/09/13/IDEA创建maven工程/添加阿里云镜像.png" alt="添加阿里云镜像"></li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">      &lt;id&gt;nexus-aliyun&lt;/id&gt;</span><br><span class="line">      &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;name&gt;Nexus aliyun&lt;/name&gt;</span><br><span class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br></pre></td></tr></table></figure></div>
-<p>添加完成，保存settings.xml文件。</p>
-<ol start="3">
-<li>IDEA中引入maven<br>打开IDEA的settings界面，如图选择好maven解压的路径，点击OK.<br><img src="/2019/09/13/IDEA创建maven工程/引入maven.png" alt="引入maven"><br>引入完成。</li>
-</ol>
-<h2 id="使用maven的骨架创建web项目"><a href="#使用maven的骨架创建web项目" class="headerlink" title="使用maven的骨架创建web项目"></a>使用maven的骨架创建web项目</h2><h3 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h3><ol>
-<li>安装好JDK1.9</li>
-<li>安装好tomcat 8.5.39<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3></li>
-<li>创建maven项目<br><img src="/2019/09/13/IDEA创建maven工程/创建项目.png" alt="创建项目"><br><img src="/2019/09/13/IDEA创建maven工程/创建maven项目.png" alt="创建maven项目"><br><img src="/2019/09/13/IDEA创建maven工程/项目id.png" alt="项目id"><br><img src="/2019/09/13/IDEA创建maven工程/确认信息.png" alt="确认信息"><br><img src="/2019/09/13/IDEA创建maven工程/项目名.png" alt="项目名"><br>创建成功，显示如下：<br><img src="/2019/09/13/IDEA创建maven工程/maven创建成功.png" alt="maven创建成功"><br>更改原配置：<br><img src="/2019/09/13/IDEA创建maven工程/原配置.png" alt="原配置"><br><img src="/2019/09/13/IDEA创建maven工程/更改版本原配置.png" alt="更改版本原配置"><br>不再显示红色字体，依赖生成完成。</li>
-<li>完善web项目结构<br>在main目录下新增java、resources目录。java目录下存放java源码，resources目录下存放资源文件。<br><img src="/2019/09/13/IDEA创建maven工程/新增目录.png" alt="新增目录"><br><img src="/2019/09/13/IDEA创建maven工程/新增java目录.png" alt="新增java目录"><br>将java目录设置为Sources Root。同理resources目录设置成Resources Root。<br><img src="/2019/09/13/IDEA创建maven工程/将java目录设置为sources根目录.png" alt="将java目录设置为sources根目录"><br><img src="/2019/09/13/IDEA创建maven工程/resources设置类型.png" alt="resources设置类型"><br>骨架创建的web.xml文件是错误的，下面我将其改为3.0版本的web.xml文件。<br><img src="/2019/09/13/IDEA创建maven工程/web文件错误.png" alt="web文件错误"><br><img src="/2019/09/13/IDEA创建maven工程/3.0的web.xml.png" alt="3.0的web.xml"><br>3.0的web.xml文件内容，如下：</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee</span><br><span class="line">		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span><br><span class="line">         version=&quot;3.0&quot;&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li>创建一个servlet，并尝试访问该servlet<br>首先，引入servlet的依赖。<br>到<a href="https://mvnrepository.com/" target="_blank" rel="noopener">中央仓库</a>，搜索servlet。<br><img src="/2019/09/13/IDEA创建maven工程/搜索servlet.png" alt="搜索servlet"><br><img src="/2019/09/13/IDEA创建maven工程/选择API.png" alt="选择API"><br>选择需要的版本<br><img src="/2019/09/13/IDEA创建maven工程/选择版本.png" alt="选择版本"><br>复制依赖<br><img src="/2019/09/13/IDEA创建maven工程/复制依赖.png" alt="复制依赖"><br>将依赖粘贴到pom.xml文件中<br><img src="/2019/09/13/IDEA创建maven工程/将依赖粘贴到pom文件中.png" alt="将依赖粘贴到pom文件中"><br>当看到字体不变红色，点击maven，可以看到依赖下载完成<br><img src="/2019/09/13/IDEA创建maven工程/依赖下载完成.png" alt="依赖下载完成"><br>在java目录下创建一个Servlet<br><img src="/2019/09/13/IDEA创建maven工程/创建一个Servlet.png" alt="创建一个Servlet"><br>编写Servlet内容<br><img src="/2019/09/13/IDEA创建maven工程/Servlet内容.png" alt="Servlet内容"></li>
-<li>Tomcat的引入与部署<br>添加本地Tomcat<br><img src="/2019/09/13/IDEA创建maven工程/添加本地Tomcat.png" alt="添加本地Tomcat"><br>选择Tomcat路径<br><img src="/2019/09/13/IDEA创建maven工程/选择Tomcat路径.png" alt="选择Tomcat路径"><br>部署项目<br><img src="/2019/09/13/IDEA创建maven工程/部署项目1.png" alt="部署项目1"><br><img src="/2019/09/13/IDEA创建maven工程/部署项目2.png" alt="部署项目2"><br><img src="/2019/09/13/IDEA创建maven工程/部署项目3.png" alt="部署项目3"><br><img src="/2019/09/13/IDEA创建maven工程/部署设置.png" alt="部署设置"></li>
-<li>访问项目<br>启动Tomcat<br><img src="/2019/09/13/IDEA创建maven工程/启动Tomcat.png" alt="启动Tomcat"><br>浏览器启动，如下，项目默认访问了index.jsp文件了。<br><img src="/2019/09/13/IDEA创建maven工程/访问index.png" alt="访问index"><br>URL中输入servlet的访问路径，回车。<br><img src="/2019/09/13/IDEA创建maven工程/访问Servlet.png" alt="访问Servlet"></li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这周学习是最痛苦的学习了，完完全全被maven搞死。还好最后坚持下来了，虽然还是有很多不懂，但当看到项目能跑了，还是很开兴的，加油！</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -947,6 +970,10 @@
       <ul>
         
           <li>
+            <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
           </li>
         
@@ -960,10 +987,6 @@
         
           <li>
             <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
           </li>
         
       </ul>
