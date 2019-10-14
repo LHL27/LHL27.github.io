@@ -56,6 +56,108 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JSP基础、指令、动作" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/11/JSP基础、指令、动作/">JSP的基础、指令、动作</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/11/JSP基础、指令、动作/" class="article-date">
+  <time datetime="2019-03-10T16:00:00.000Z" itemprop="datePublished">2019-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-Web/">Java Web</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp语法/">jsp语法</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JSP的基础、指令、动作"><a href="#JSP的基础、指令、动作" class="headerlink" title="JSP的基础、指令、动作"></a>JSP的基础、指令、动作</h1><h2 id="jsp的简介"><a href="#jsp的简介" class="headerlink" title="jsp的简介"></a>jsp的简介</h2><p>静态网页：指没有后台数据库、不含程序、不可交互的网页。适用于不经常更改的网页。<br>动态网页：指显示的内容不是固定的，是根据服务器执行代码的结果来确定具体的显示内容。<br>主要区别：是否会随着时间，地点，用户的选择而改变。<br>JSP:<font color="red">(  java server pages  )</font> java 服务器页面，是一种服务器脚本语言，在服务器执行，返回客户端一个HTML文件。</p>
+<h2 id="jsp的执行过程"><a href="#jsp的执行过程" class="headerlink" title="jsp的执行过程"></a>jsp的执行过程</h2><ol>
+<li>当客户端<font color="red">第一次</font>请求一个jsp网页时，服务器就会将该jsp文件变成java文件（通常是一个servlet），再将java文件编译成class字节码文件。java(servlet , class)的内容就是打印出一个HTML文件，服务器将该HTML文件响应回给客户端。客户端再将HTML文件显示出来。</li>
+<li>当客户端<font color="red">非第一次</font>请求jsp网页时，服务器直接执行class文件，响应一个HTML文件给客户端。<br>所以，第一次请求时，花的时间比再次请求长。</li>
+<li><font color="red">当jsp文件更改了，必须要重新编译jsp文件，也就是按第一次执行。</font>
+
+</li>
+</ol>
+<h2 id="jsp的组成"><a href="#jsp的组成" class="headerlink" title="jsp的组成"></a>jsp的组成</h2><font color="green">JSP组成部分包括HTML、Java、JSP代码</font><br>HTML: 负责内容<br>Java: 负责行为<br>JSP: 负责行为<br><br>## jsp的注释<br><br> jsp的注释：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- 多行注释内容 --%&gt;</span><br></pre></td></tr></table></figure></div><br><br> java的注释：<br><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%/* 多行的注释内容 */%&gt;</span><br><span class="line">&lt;%// 单行的注释内容 %&gt;</span><br></pre></td></tr></table></figure></div><br><br> html的注释：<br><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 多行注释内容 --&gt;</span><br></pre></td></tr></table></figure></div><br><br><font color="red" size="4">jsp、java的注释在网页中和浏览器的源代码中都不会出现，因为它们没有传输到客户端，仅仅是给程序员读的；html的注释在网页中不会出现，但在浏览器的源代码窗口可以看得到。</font>
+
+<h2 id="jsp的常用脚本元素"><a href="#jsp的常用脚本元素" class="headerlink" title="jsp的常用脚本元素"></a>jsp的常用脚本元素</h2><h3 id="变量和方法的声明"><a href="#变量和方法的声明" class="headerlink" title="变量和方法的声明"></a>变量和方法的声明</h3><p>声明后可以在本JSP页面中的任何位置使用。（即全局变量）</p>
+<h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式:"></a>语法格式:</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%! 声明变量和方法 %&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>声明必须以“<font size="6" color="red"> ; </font>”结尾。</li>
+<li>变量和方法的命名规则与Java中的规则相同；</li>
+<li>一个声明仅在一个JSP页面中有效；如果多个页面想要用到该变量和方法，最好将他们写成一个独立的文件，然后用<code>&lt;%@include%&gt;</code>或<code>&lt;jsp:include&gt;</code>元素包含进来。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">      &lt;%!</span><br><span class="line">       String str = &quot;JSP技术带你走进动态网页开发时代！&quot;;  //声明变量</span><br><span class="line">      %&gt;</span><br><span class="line">      &lt;%!</span><br><span class="line">        String print()&#123;         //声明方法</span><br><span class="line">          return str;</span><br><span class="line">        &#125;</span><br><span class="line">      %&gt;</span><br><span class="line">        &lt;h1&gt;&lt;%=print()%&gt;&lt;/h1&gt;   //表达式</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><p>将结果直接输出在网页中。</p>
+<h4 id="语法格式-1"><a href="#语法格式-1" class="headerlink" title="语法格式:"></a>语法格式:</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= 表达式 %&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>表达式的结尾没有分号。<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4></li>
+<li>向网页输出内容。</li>
+<li>生成动态的链接地址。</li>
+<li>动态生成From表单处理页面</li>
+</ul>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">      &lt;%!</span><br><span class="line">        String name=&quot;百度&quot;;</span><br><span class="line">        String urlAddress=&quot;https://www.baidu.com&quot;;</span><br><span class="line">      %&gt;</span><br><span class="line">    &lt;p&gt;&lt;a href=&quot;&lt;%=urlAddress%&gt;&quot;&gt;&lt;%=name%&gt;&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">      &lt;form action=&quot;&lt;%=urlAddress%&gt;&quot;&gt;</span><br><span class="line">      &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="脚本-java代码"><a href="#脚本-java代码" class="headerlink" title="脚本(java代码)"></a>脚本(java代码)</h3><h4 id="语法格式："><a href="#语法格式：" class="headerlink" title="语法格式："></a>语法格式：</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% 脚本语句 %&gt;</span><br></pre></td></tr></table></figure></div>
+<p>在脚本中也可以声明变量和方法，但只可以在该<code>&lt;%</code>与<code>%&gt;</code>中可用。</p>
+<h2 id="jsp的常用指令元素"><a href="#jsp的常用指令元素" class="headerlink" title="jsp的常用指令元素"></a>jsp的常用指令元素</h2><p>JSP指令元素的作用：用来提供整个JSP网页的相关信息，并用来设定JSP网页的相关属性。<br>JSP指令在客户端是不可见的，被服务器解释并执行。<br>JSP指令包括<code>include指令</code>、<code>page指令</code>、<code>taglib指令</code>。</p>
+<ul>
+<li>page指令：定义整个页面的全局属性。</li>
+<li>include指令：包含一个代码或文本文件，即在当前网页中插入include指令指定的文件。</li>
+<li>taglib指令：引入自定义的标签或第三方的标签库。</li>
+</ul>
+<h3 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h3><h4 id="page指令的主要属性及语法"><a href="#page指令的主要属性及语法" class="headerlink" title="page指令的主要属性及语法"></a>page指令的主要属性及语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page   	langueage=&quot;java&quot;		//脚本语言</span><br><span class="line">		pageEncoding=&quot;UTF-8&quot;            //页面所用编码</span><br><span class="line">		extends=&quot;继承父类名称&quot;          </span><br><span class="line">		import=&quot;导入的Java包或类的名称&quot;</span><br><span class="line">		session=“true/false&quot;            //是否参与HTTP会话</span><br><span class="line">		buffer=&quot;缓冲区大小&quot;               //设置out对象的缓冲区大小</span><br><span class="line">		autoflush=&quot;true/false&quot;          //是否自动刷新</span><br><span class="line">		isThreadSafe=&quot;true/false&quot;       //是否线程安全</span><br><span class="line">		info=&quot;页面信息&quot;</span><br><span class="line">		errorPage=&quot;发生错误时所转向的页面的相对地址&quot;  //当页面错误时，跳转的页面</span><br><span class="line">		isErrorPage=&quot;true/false&quot;        //是否是错误处理页面</span><br><span class="line">		contentType=&quot;&quot;                  //MIME类型和字符编码</span><br><span class="line">		isELIgnord=&quot;true/false&quot;         //是否忽略正则表达式</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></div>
+<p><code>pageEncoding</code>:  jsp文件自身的编码，也就是   jsp  –&gt;  java<br><code>contemtType</code>: 浏览器解析jsp的编码，通常与<code>pageEncoding</code>保持一致。</p>
+<h4 id="注意点-2"><a href="#注意点-2" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>每个页面中可以使用多个<code>&lt;%@page%&gt;指令</code>，且区分大小写。</li>
+<li>除了<code>import指令</code>外，其他的指令只可以使用一次。</li>
+<li>一个JSP页面中，如果需要同时导入多个Java包，可以分开写，也可以合起来写。如：</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.util.Date&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.io.*&quot;%&gt;</span><br></pre></td></tr></table></figure></div>
+<p>也可以写成</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.util.Date，java.io.*&quot;%&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="include指令"><a href="#include指令" class="headerlink" title="include指令"></a>include指令</h3><p>可以将其他文件<font color="red">静态</font>插入本JSP网页中。</p>
+<h4 id="page指令的语法"><a href="#page指令的语法" class="headerlink" title="page指令的语法"></a>page指令的语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@include file=&quot;filename&quot;%&gt;</span><br></pre></td></tr></table></figure></div>
+<h2 id="jsp的动作元素"><a href="#jsp的动作元素" class="headerlink" title="jsp的动作元素"></a>jsp的动作元素</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用来控制JSP引擎的行为。</p>
+<h3 id="主要有以下几个："><a href="#主要有以下几个：" class="headerlink" title="主要有以下几个："></a>主要有以下几个：</h3><p><code>&lt;jsp:include&gt;</code><font color="red">动态</font>插入一个文件<br><code>&lt;jsp:forward&gt; 跳转</code>到一个新的页面<br><code>&lt;jsp:param&gt;</code>  <code>子标签</code>，传递参数，通常嵌套在include、forward动作元素中使用<br><code>&lt;jsp:plugin&gt;</code> 连接客户端的Applet或Bean插件<br><code>&lt;jsp:useBean&gt;</code> 使用JavaBean组件<br><code>&lt;jsp:setProperty&gt;</code> 设置JavaBean的属性值<br><code>&lt;jsp:getProperty&gt;</code> 获取JavaBean的<code>属性</code>值并输出</p>
+<h3 id="lt-jsp-include-gt-动作"><a href="#lt-jsp-include-gt-动作" class="headerlink" title="&lt;jsp:include&gt;动作"></a><code>&lt;jsp:include&gt;</code>动作</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page=&quot;文件名称&quot;/&gt;或</span><br><span class="line">&lt;jsp:include page=&quot;文件名称&quot;&gt;其他内容&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure></div>
+<p>注意：第1种语法，收尖括号前有一个反斜杠。</p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>当前网页中<code>动态</code>包含一个文件，当执行到该动作元素处，才加载被包含文件的字节码。</p>
+<h4 id="include指令与include动作的区别"><a href="#include指令与include动作的区别" class="headerlink" title="include指令与include动作的区别"></a><code>include指令</code>与<code>include动作</code>的区别</h4><p>include指令：是静态插入文件，先将文件加载到当前的JSP页面中，再一起编译成字节码文件，且不可以传递参数，仅仅是将两个页面放在一起。指令后接<code>file</code>。<br>include动作：是动态插入文件，先将两个文件分开编译成字节码文件，再将被加载文件的字节码文件加载到当前的JSP页面中，可以通过参数传递属性值。动作后接<code>page</code>。</p>
+<h3 id="lt-jsp-forward-gt-动作"><a href="#lt-jsp-forward-gt-动作" class="headerlink" title="&lt;jsp:forward&gt;动作"></a><code>&lt;jsp:forward&gt;</code>动作</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=&quot;文件名称&quot;/&gt;或</span><br><span class="line">&lt;jsp:forward page=&quot;文件名称&quot;&gt;其他内容&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h4><p>从该动作的执行处<code>停止</code>当前网页的执行，<code>转向执行page指定的文件</code>，但浏览器中的地址栏的地址不会改变。</p>
+<h3 id="lt-jsp-param-gt-子标签"><a href="#lt-jsp-param-gt-子标签" class="headerlink" title="&lt;jsp:param&gt;子标签"></a><code>&lt;jsp:param&gt;</code>子标签</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--包含动作--&gt;</span><br><span class="line">&lt;jsp:include page=&quot;文件名称&quot;&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字1&quot; value=&quot;变量值1&quot;/&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字2&quot; value=&quot;变量值2&quot;/&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/jsp:include&gt;</span><br><span class="line">&lt;%--跳转动作--&gt;</span><br><span class="line">&lt;jsp:forward page=&quot;文件名称&quot;&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字1&quot; value=&quot;变量值1&quot;/&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字2&quot; value=&quot;变量值2&quot;/&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="功能-2"><a href="#功能-2" class="headerlink" title="功能"></a>功能</h4><p>将标签中的<code>变量值传递</code>给动态加载的文件。<br>不可以独立使用，只可作为include、forward的子标签使用。</p>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><p>传递参数的页面————chuandi.jsp<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;传递参数页面&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h3&gt;该页面传递一个参数QQ，直线下是接受参数页面的内容&lt;/h3&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;jsp:include page=&quot;jieshou.jsp&quot;&gt;</span><br><span class="line">        &lt;jsp:param name=&quot;userName&quot; value=&quot;QQ&quot;/&gt;</span><br><span class="line">    &lt;/jsp:include&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div></p>
+<p>接受参数的页面————jieshou.jsp</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;接受参数页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">        &lt;p&gt;接受参数，并显示结果页面&lt;/p&gt;</span><br><span class="line">    &lt;%  String str=request.getParameter(&quot;userName&quot;);%&gt;</span><br><span class="line">        &lt;font color=&quot;blue&quot; size=&quot;12&quot;&gt;&lt;%=str%&gt;&lt;/font&gt;你好,欢迎你访问！</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div>
+<p>运行结果如下:<br><img src="/2019/03/11/JSP基础、指令、动作/include动作.png" alt="include动作"><br>可见，传递参数页面中包含了接受参数页面；如果将传递参数页面中的<code>&lt;jsp:include page=&quot;&quot;&gt;</code>改成<code>&lt;jsp:forward page=&quot;&quot;/&gt;</code>,结果如下：<br><img src="/2019/03/11/JSP基础、指令、动作/forward动作.png" alt="forward动作"><br>浏览器中的地址显示的是传递参数的页面，但内容显示的是接受参数的页面<br>。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-大数加减乘除的实现" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -411,54 +513,6 @@
 </article>
 
   
-    <article id="post-李白打酒" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/李白打酒/">李白打酒</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/01/李白打酒/" class="article-date">
-  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="标题：李白打酒"><a href="#标题：李白打酒" class="headerlink" title="标题：李白打酒"></a>标题：李白打酒</h2><p>话说大诗人李白，一生好饮。幸好他从不开车。<br>一天，他提着酒壶，从家里出来，酒壶中有酒2斗。他边走边唱：<br>     无事街上走，提壶去打酒。<br>    逢店加一倍，遇花喝一斗。<br>    这一路上，他一共遇到店5次，遇到花10次，已知最后一次遇到的是花，他正好把酒喝光了。<br>    请你计算李白遇到店和花的次序，可以把遇店记为a，遇花记为b。则：babaabbabbabbbb 就是合理的次序。像这样的答案一共有多少呢？请你计算出所有可能方案的个数（包含题目给出的）。<br>    注意：通过浏览器提交答案。答案是个整数。不要书写任何多余的内容。  </p>
-<font color="red" size="5px">思路：</font><br>1. 由于遇店与遇花的动作不同，分两种情况分析<br>2. 可将李白遇到花和店的次序的可能遍历出来，将满足题目条件的方案记录下来即可。由于遇到次数15次，次数比较多，用枚举遍历时间复杂度太大了，最好采用回溯、递归、dfs。<br><br><font color="red" size="5px">递归算法—代码如下：</font>
-
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int s=0;		//记录方法的个数</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void fun(char zifu[],int k,int d,int wine)&#123;		//k表示第k次遇到，d表示遇到店的次数，wine表示还剩下的酒</span><br><span class="line">	if(k==15)&#123;</span><br><span class="line">		if(zifu[k-1]==&apos;b&apos; &amp;&amp; wine==0 &amp;&amp; d==5)&#123;   //保证最后一次遇花，酒喝完，遇店5次</span><br><span class="line">			s++;</span><br><span class="line">			for(int i=0;i&lt;15;i++)&#123;</span><br><span class="line">				cout&lt;&lt;zifu[i];</span><br><span class="line">			&#125;</span><br><span class="line">			cout&lt;&lt;endl;</span><br><span class="line">			return ;</span><br><span class="line">		&#125;</span><br><span class="line">		else return ;</span><br><span class="line">	&#125;</span><br><span class="line">	zifu[k]=&apos;a&apos;;</span><br><span class="line">	fun(zifu,k+1,d+1,wine*2);			//遇店,遇到次数加一，遇店次数加一，酒加倍</span><br><span class="line">	zifu[k]=&apos;b&apos;;</span><br><span class="line">	fun(zifu,k+1,d,wine-1);			//遇花，遇到次数加一，遇店次数不变，酒喝一斗</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	char zifu[15];</span><br><span class="line">	fun(zifu,0,0,2);</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<p><font color="red" size="5px">答案：14</font><br>注意点：本题容易忽略<font color="blue">遇店5次，遇花10次</font>这个条件，并不等同于遇到次数15次，还要限定调用遇花、遇店函数的次数。</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
     <article id="post-包子凑数" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -511,6 +565,54 @@
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//0代表最大公约数大于2，无数中不可凑，1代表最大公约数等于1，可数种</span><br><span class="line">int fun(int a[],int n)&#123;		</span><br><span class="line">	int i,temp;</span><br><span class="line">	temp=commom(a[0],a[1]);</span><br><span class="line">		if(temp==1)				//可数种</span><br><span class="line">			return 1;</span><br><span class="line">	for(i=2;i&lt;n;i++)&#123;</span><br><span class="line">		temp=commom(temp,a[i]);</span><br><span class="line">		if(temp==1)				//可数种</span><br><span class="line">			return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	int n,a[M],i,j,s=0,g,x;</span><br><span class="line">	cin&gt;&gt;n;						//输入数据</span><br><span class="line">	for(i=0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for(i=0;i&lt;n-1;i++)&#123;			//从小到大排序</span><br><span class="line">		for(j=i+1;j&lt;n;j++)&#123;</span><br><span class="line">			if(a[i]&gt;a[j])&#123;</span><br><span class="line">				int temp=a[i];</span><br><span class="line">				a[i]=a[j];</span><br><span class="line">				a[j]=temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if(a[0]==1)&#123;				//有可装1个包子的蒸笼</span><br><span class="line">		cout&lt;&lt;0&lt;&lt;endl;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if(n==1)&#123;		//无数种，因为只有一种不装1个包子的蒸笼</span><br><span class="line">		cout&lt;&lt;&quot;INF&quot;&lt;&lt;endl;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if(fun(a,n)==0)&#123;			//无数</span><br><span class="line">		cout&lt;&lt;&quot;INF&quot;&lt;&lt;endl;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;else&#123;						//可数</span><br><span class="line">		int c[1000000]=&#123;0&#125;;	</span><br><span class="line">		//c[i]表示i个数目的包子是否可凑，1：可凑，0：不可凑</span><br><span class="line">		s=a[0]-1;			//1到a[0]-1都不可凑</span><br><span class="line">		c[0]=1;				//0个包子的数目也是可凑的</span><br><span class="line">		c[a[0]]=1;</span><br><span class="line">		x=0;				//x表示连续的可凑个数</span><br><span class="line">		for(i=a[0]+1;;i++)&#123;</span><br><span class="line">			g=0;			//g为逻辑变量，0为不可凑，1为可凑</span><br><span class="line">			for(j=0;j&lt;n;j++)&#123;</span><br><span class="line">				if(i-a[j]&gt;=0 &amp;&amp; c[i-a[j]]==1)&#123;	//可凑的i</span><br><span class="line">					x++;</span><br><span class="line">					if(x&gt;=a[0])&#123;</span><br><span class="line">						cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">						return 0;</span><br><span class="line">					&#125;</span><br><span class="line">					c[i]=1;		</span><br><span class="line">					g=1;</span><br><span class="line">					break;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			if(g==0)&#123;			//不可凑的i</span><br><span class="line">				s++;</span><br><span class="line">				x=0;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <p><a href="http://www.dotcpp.com/oj/problem1886.html" target="_blank" rel="noopener">[蓝桥杯]2017年第八届真题</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-李白打酒" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/01/李白打酒/">李白打酒</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/01/李白打酒/" class="article-date">
+  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h2 id="标题：李白打酒"><a href="#标题：李白打酒" class="headerlink" title="标题：李白打酒"></a>标题：李白打酒</h2><p>话说大诗人李白，一生好饮。幸好他从不开车。<br>一天，他提着酒壶，从家里出来，酒壶中有酒2斗。他边走边唱：<br>     无事街上走，提壶去打酒。<br>    逢店加一倍，遇花喝一斗。<br>    这一路上，他一共遇到店5次，遇到花10次，已知最后一次遇到的是花，他正好把酒喝光了。<br>    请你计算李白遇到店和花的次序，可以把遇店记为a，遇花记为b。则：babaabbabbabbbb 就是合理的次序。像这样的答案一共有多少呢？请你计算出所有可能方案的个数（包含题目给出的）。<br>    注意：通过浏览器提交答案。答案是个整数。不要书写任何多余的内容。  </p>
+<font color="red" size="5px">思路：</font><br>1. 由于遇店与遇花的动作不同，分两种情况分析<br>2. 可将李白遇到花和店的次序的可能遍历出来，将满足题目条件的方案记录下来即可。由于遇到次数15次，次数比较多，用枚举遍历时间复杂度太大了，最好采用回溯、递归、dfs。<br><br><font color="red" size="5px">递归算法—代码如下：</font>
+
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int s=0;		//记录方法的个数</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void fun(char zifu[],int k,int d,int wine)&#123;		//k表示第k次遇到，d表示遇到店的次数，wine表示还剩下的酒</span><br><span class="line">	if(k==15)&#123;</span><br><span class="line">		if(zifu[k-1]==&apos;b&apos; &amp;&amp; wine==0 &amp;&amp; d==5)&#123;   //保证最后一次遇花，酒喝完，遇店5次</span><br><span class="line">			s++;</span><br><span class="line">			for(int i=0;i&lt;15;i++)&#123;</span><br><span class="line">				cout&lt;&lt;zifu[i];</span><br><span class="line">			&#125;</span><br><span class="line">			cout&lt;&lt;endl;</span><br><span class="line">			return ;</span><br><span class="line">		&#125;</span><br><span class="line">		else return ;</span><br><span class="line">	&#125;</span><br><span class="line">	zifu[k]=&apos;a&apos;;</span><br><span class="line">	fun(zifu,k+1,d+1,wine*2);			//遇店,遇到次数加一，遇店次数加一，酒加倍</span><br><span class="line">	zifu[k]=&apos;b&apos;;</span><br><span class="line">	fun(zifu,k+1,d,wine-1);			//遇花，遇到次数加一，遇店次数不变，酒喝一斗</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	char zifu[15];</span><br><span class="line">	fun(zifu,0,0,2);</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><font color="red" size="5px">答案：14</font><br>注意点：本题容易忽略<font color="blue">遇店5次，遇花10次</font>这个条件，并不等同于遇到次数15次，还要限定调用遇花、遇店函数的次数。</p>
 
       
     </div>
@@ -593,11 +695,11 @@
       <ul>
         
           <li>
-            <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+            <a href="/2019/10/14/JavaScript数组的常用方法/">JavaScript数组的常用方法</a>
           </li>
         
           <li>
-            <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+            <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
           </li>
         
           <li>
@@ -605,11 +707,11 @@
           </li>
         
           <li>
-            <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+            <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
           </li>
         
           <li>
-            <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
+            <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
           </li>
         
       </ul>
