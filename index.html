@@ -56,41 +56,6 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
-    <article id="post-JavaScript数组的常用方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/14/JavaScript数组的常用方法/">JavaScript数组的常用方法</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/14/JavaScript数组的常用方法/" class="article-date">
-  <time datetime="2019-10-14T13:39:18.000Z" itemprop="datePublished">2019-10-14</time>
-</a>
-    
-    
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
     <article id="post-JavaScript的闭包" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -150,6 +115,62 @@
 <p>在 getName() 方法执行完成后，返回的是一个函数，如下</p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function()&#123;</span><br><span class="line">	alert(this.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <p>并赋值给 a，a 是 Window 对象的属性方法，所以 this 指代的是 Window  对象，输入的 name 是“Window”。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript对象的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/08/JavaScript对象的方法/" class="article-date">
+  <time datetime="2019-10-08T10:52:32.000Z" itemprop="datePublished">2019-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript对象的方法"><a href="#JavaScript对象的方法" class="headerlink" title="JavaScript对象的方法"></a>JavaScript对象的方法</h1><p>因为对象的属性值可以是任意类型的值，函数也是一个对象，所以对象的属性也可以是一个函数。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>当一个函数作为一个对象的属性时，这个函数就叫方法。</p>
+<h2 id="创建对象方法的方式"><a href="#创建对象方法的方式" class="headerlink" title="创建对象方法的方式"></a>创建对象方法的方式</h2><ol>
+<li><p>将<code>匿名函数赋值</code>给对象的一个属性。<br>语法：<code>对象名.属性名 = function（）{ 属性 }；</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line">obj.name = &quot;lin&quot;;</span><br><span class="line">obj.age = 18;</span><br><span class="line">obj.sayName = function()&#123;</span><br><span class="line">	console.log(obj.name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>采用<code>直接量</code>创建一个对象方法。<br>语法：<code>属性名:function(){ 语句 }</code></p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sayName:function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="调用对象方法"><a href="#调用对象方法" class="headerlink" title="调用对象方法"></a>调用对象方法</h2><p>语句：<code>对象名.方法名();</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.sayName();</span><br></pre></td></tr></table></figure></div>
+<h2 id="拓展：枚举对象中的所有属性"><a href="#拓展：枚举对象中的所有属性" class="headerlink" title="拓展：枚举对象中的所有属性"></a>拓展：枚举对象中的所有属性</h2><p>当我们获取到一个对象的时候，我们可能还不知道该对象中含有什么属性，这时候可以利用 for … in 语句枚举该对象的所有属性。<br>语法：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for （变量 in 对象名）&#123;</span><br><span class="line">	遍历语句；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p><code>变量的值</code>在遍历语句中即是该对象的属性名。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sex:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">for(n in obj)&#123;</span><br><span class="line">	console.log(&quot;属性名：&quot;+n+&quot;, 属性值：&quot;+obj[n]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>注意：属性值中，不可以使用<code>对象名.变量名</code>的形式，因为变量名并不是对象的属性名，变量的值才是对象的属性名。</p>
 
       
     </div>
@@ -253,62 +274,6 @@
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun( a )&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun(456);	//输出 456</span><br></pre></td></tr></table></figure></div>
 <p>相当于</p>
 <div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun( a )&#123;</span><br><span class="line">	var a = 456</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-JavaScript对象的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/08/JavaScript对象的方法/" class="article-date">
-  <time datetime="2019-10-08T10:52:32.000Z" itemprop="datePublished">2019-10-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JavaScript对象的方法"><a href="#JavaScript对象的方法" class="headerlink" title="JavaScript对象的方法"></a>JavaScript对象的方法</h1><p>因为对象的属性值可以是任意类型的值，函数也是一个对象，所以对象的属性也可以是一个函数。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>当一个函数作为一个对象的属性时，这个函数就叫方法。</p>
-<h2 id="创建对象方法的方式"><a href="#创建对象方法的方式" class="headerlink" title="创建对象方法的方式"></a>创建对象方法的方式</h2><ol>
-<li><p>将<code>匿名函数赋值</code>给对象的一个属性。<br>语法：<code>对象名.属性名 = function（）{ 属性 }；</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line">obj.name = &quot;lin&quot;;</span><br><span class="line">obj.age = 18;</span><br><span class="line">obj.sayName = function()&#123;</span><br><span class="line">	console.log(obj.name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>采用<code>直接量</code>创建一个对象方法。<br>语法：<code>属性名:function(){ 语句 }</code></p>
-</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sayName:function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h2 id="调用对象方法"><a href="#调用对象方法" class="headerlink" title="调用对象方法"></a>调用对象方法</h2><p>语句：<code>对象名.方法名();</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.sayName();</span><br></pre></td></tr></table></figure></div>
-<h2 id="拓展：枚举对象中的所有属性"><a href="#拓展：枚举对象中的所有属性" class="headerlink" title="拓展：枚举对象中的所有属性"></a>拓展：枚举对象中的所有属性</h2><p>当我们获取到一个对象的时候，我们可能还不知道该对象中含有什么属性，这时候可以利用 for … in 语句枚举该对象的所有属性。<br>语法：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for （变量 in 对象名）&#123;</span><br><span class="line">	遍历语句；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
-<p><code>变量的值</code>在遍历语句中即是该对象的属性名。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sex:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">for(n in obj)&#123;</span><br><span class="line">	console.log(&quot;属性名：&quot;+n+&quot;, 属性值：&quot;+obj[n]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
-<p>注意：属性值中，不可以使用<code>对象名.变量名</code>的形式，因为变量名并不是对象的属性名，变量的值才是对象的属性名。</p>
 
       
     </div>
@@ -866,6 +831,73 @@
 </article>
 
   
+    <article id="post-mybaitis的配置文件" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/mybaitis的配置文件/">mybaitis的配置文件</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/09/15/mybaitis的配置文件/" class="article-date">
+  <time datetime="2019-09-15T02:03:47.000Z" itemprop="datePublished">2019-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="mybaitis的配置文件"><a href="#mybaitis的配置文件" class="headerlink" title="mybaitis的配置文件"></a>mybaitis的配置文件</h1><p>在mybatis的学习中，了解到mybatis的配置文件config.xml（文件名可以随便起）有多种书写方法。下面说明一些配置文件的一些标签的使用，或者是不同的书写方法。</p>
+<h2 id="配置文件config-xml的组成"><a href="#配置文件config-xml的组成" class="headerlink" title="配置文件config.xml的组成"></a>配置文件config.xml的组成</h2><p>XML 配置文件中包含了对 MyBatis 系统的核心设置，包含获取数据库连接实例的数据源（DataSource）和决定事务作用域和控制方式的事务管理器（TransactionManager）。 这里先给出一个简单的示例：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE configuration</span><br><span class="line">  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span><br><span class="line">  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;!--配置环境--&gt;</span><br><span class="line">  &lt;environments default=&quot;development&quot;&gt;</span><br><span class="line">    &lt;environment id=&quot;development&quot;&gt;</span><br><span class="line">    &lt;!--配置连接池--&gt;</span><br><span class="line">      &lt;transactionManager type=&quot;JDBC&quot;/&gt;</span><br><span class="line">      &lt;dataSource type=&quot;POOLED&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</span><br><span class="line">      &lt;/dataSource&gt;</span><br><span class="line">    &lt;/environment&gt;</span><br><span class="line">  &lt;/environments&gt;</span><br><span class="line">  &lt;mappers&gt;</span><br><span class="line">    &lt;mapper resource=&quot;org/mybatis/example/BlogMapper.xml&quot;/&gt;</span><br><span class="line">  &lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></div>
+<p>主要组成部分是XML 头部的声明和一组configuration标签。configuration标签中有environments元素和mappers元素。<br>XML 头部的声明，它用来验证 XML 文档正确性。<br>environment 元素体中包含了事务管理和连接池的配置。<br>mappers 元素则是包含一组映射器（mapper），这些映射器的 XML 映射文件包含了 SQL 代码和映射定义信息。<br>使用时，主要的更改是：</p>
+<ol>
+<li>将连接池中的变量<code>${driver}、${url}、${username}、${password}</code>改成需要连接的数据库的参数。</li>
+<li>mapper元素中的resource的值指向自己设计好的dao的配置文件。<br>如：最基本最简单的配置如下：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE configuration</span><br><span class="line">  PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span><br><span class="line">  &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;!--配置环境--&gt;</span><br><span class="line">  &lt;environments default=&quot;development&quot;&gt;</span><br><span class="line">    &lt;environment id=&quot;development&quot;&gt;</span><br><span class="line">    &lt;!--配置连接池--&gt;</span><br><span class="line">      &lt;transactionManager type=&quot;JDBC&quot;/&gt;</span><br><span class="line">      &lt;dataSource type=&quot;POOLED&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/eesy_mybatis&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot; value=&quot;&quot;/&gt;</span><br><span class="line">      &lt;/dataSource&gt;</span><br><span class="line">    &lt;/environment&gt;</span><br><span class="line">  &lt;/environments&gt;</span><br><span class="line">  &lt;mappers&gt;</span><br><span class="line">    &lt;mapper resource=&quot;top/hongliankeji/dao/IUserDao.xml&quot;/&gt;</span><br><span class="line">  &lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<h2 id="properties标签"><a href="#properties标签" class="headerlink" title="properties标签"></a>properties标签</h2><p>配置数据库的信息可以采用<code>内部配置</code>或者<code>外部连接配置文件</code>的方法。</p>
+<h3 id="第一种内部配置方法：不使用变量"><a href="#第一种内部配置方法：不使用变量" class="headerlink" title="第一种内部配置方法：不使用变量"></a>第一种内部配置方法：不使用变量</h3><p>如上面所说的更改连接池中的变量<code>${driver}、${url}、${username}、${password}</code>，改为真实的可联通的数据库的信息即可。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;transactionManager type=&quot;JDBC&quot;/&gt;</span><br><span class="line">      &lt;dataSource type=&quot;POOLED&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/eesy_mybatis&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot; value=&quot;&quot;/&gt;</span><br><span class="line">      &lt;/dataSource&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="第二种内部配置方法：properties配置好变量"><a href="#第二种内部配置方法：properties配置好变量" class="headerlink" title="第二种内部配置方法：properties配置好变量"></a>第二种内部配置方法：properties配置好变量</h3><p>配置properties标签，将四个变量的值配置好，连接地址池时，直接使用变量。如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;!--配置properties--&gt;</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/eesy_mybatis&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;password&quot; value=&quot;&quot;/&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置环境--&gt;</span><br><span class="line">    &lt;environments default=&quot;mysql&quot;&gt;</span><br><span class="line">        &lt;environment id=&quot;mysql&quot;&gt;</span><br><span class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</span><br><span class="line">            &lt;!--配置连接池--&gt;</span><br><span class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</span><br><span class="line">                &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;</span><br><span class="line">                &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;</span><br><span class="line">                &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;</span><br><span class="line">                &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</span><br><span class="line">            &lt;/dataSource&gt;</span><br><span class="line">        &lt;/environment&gt;</span><br><span class="line">    &lt;/environments&gt;</span><br><span class="line">    &lt;mappers&gt;</span><br><span class="line">        &lt;mapper resource=&quot;top/hongliankeji/dao/IUserDao.xml&quot;/&gt;</span><br><span class="line">    &lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="外部连接配置文件"><a href="#外部连接配置文件" class="headerlink" title="外部连接配置文件"></a>外部连接配置文件</h3><p>连接配置文件：首先，创建一个外部文件，内容是连接池的信息，如：创建一个jdbcConfig.properties文件，内容如下：<br><img src="/2019/09/15/mybaitis的配置文件/外部文件.png" alt="外部文件"><br>properties标签有两个属性resource和url。均是用来指定外部文件位置的。</p>
+<h4 id="resource属性"><a href="#resource属性" class="headerlink" title="resource属性"></a>resource属性</h4><p>resource是按照类路径的写法来写的，外部文件必须存在类路径下。如：将外部文件jdbcConfig.properties文件放在resources目录下。<br><img src="/2019/09/15/mybaitis的配置文件/外部文件的类路径.png" alt="外部文件的类路径"><br>配置文件config.xml中使用resource属性引入外部文件</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;!--配置properties--&gt;</span><br><span class="line">    &lt;properties resource=&quot;jdbcConfig.properties&quot;&gt;&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置环境--&gt;</span><br><span class="line">    &lt;environments default=&quot;mysql&quot;&gt;</span><br><span class="line">        &lt;environment id=&quot;mysql&quot;&gt;</span><br><span class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</span><br><span class="line">            &lt;!--配置连接池--&gt;</span><br><span class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</span><br><span class="line">                &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;</span><br><span class="line">                &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;</span><br><span class="line">                &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;</span><br><span class="line">                &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</span><br><span class="line">            &lt;/dataSource&gt;</span><br><span class="line">        &lt;/environment&gt;</span><br><span class="line">    &lt;/environments&gt;</span><br><span class="line">    &lt;mappers&gt;</span><br><span class="line">        &lt;mapper resource=&quot;top/hongliankeji/dao/IUserDao.xml&quot;/&gt;</span><br><span class="line">    &lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="url属性"><a href="#url属性" class="headerlink" title="url属性"></a>url属性</h4><p>url是按照URL写法来指定地址的，可以存放在任何地方，只要url可以访问得到即可。格式：<code>file:/// + 外部文件的地址</code><br>如：<img src="/2019/09/15/mybaitis的配置文件/外部文件url格式.png" alt="外部文件url格式"></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties url=&quot;file:///C:\Users\林宏连\Desktop\jdbc\jdbcConfig.properties&quot;&gt;&lt;/properties&gt;</span><br></pre></td></tr></table></figure></div>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ol>
+<li>路径中，尽量不要有中文</li>
+</ol>
+<h2 id="typeAlias标签"><a href="#typeAlias标签" class="headerlink" title="typeAlias标签"></a>typeAlias标签</h2><p>在项目设计时，我们通常会让<code>数据库中的列名</code>与<code>后端实体类的属性名</code>是保持一致的，包括大小写也一致。如果不一致，可以会造成无法正常进行数据交互。这时，我们需要<code>使用typeAlias标签来设置实体类的别名</code>，让两者一一对应。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;typeAliases&gt;</span><br><span class="line">   &lt;typeAlias type=&quot;top.hongliankeji.domain.User&quot; alias=&quot;user&quot;&gt;&lt;/typeAlias&gt;</span><br><span class="line">&lt;/typeAliases&gt;</span><br></pre></td></tr></table></figure></div></p>
+<p>将domain中的User设置别名为user。type属性的值必须为全限定名（包+类名）。<br>typeAlias标签只可以一个一个实体类地设置别名，如果实体类较多，工作量非常大。这是，可以使用package标签进行设置别名。<br>package标签设置实体类的包的别名，使得改包下的实体类都会注册别名，类名就是别名，不区分大小写。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;typeAliases&gt;</span><br><span class="line">    &lt;!--&lt;typeAlias type=&quot;top.hongliankeji.domain.User&quot; alias=&quot;user&quot;&gt;&lt;/typeAlias&gt;--&gt;</span><br><span class="line">    &lt;package name=&quot;top.hongliankeji.domain&quot;&gt;&lt;/package&gt;</span><br><span class="line">&lt;/typeAliases&gt;</span><br></pre></td></tr></table></figure></div>
+<h5 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h5><p>mappers标签中也有package标签，与typeAliases标签中的package标签还是有点不同的。<br>mappers标签中的package标签用于指定dao接口所在的包，当指定后不需要写mapper 、resource、class了。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;mappers&gt;</span><br><span class="line">    &lt;!--&lt;mapper resource=&quot;top/hongliankeji/dao/IUserDao.xml&quot;/&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;mapper class=&quot;top.hongliankeji.dao.IUserDao&quot;&gt;&lt;/mapper&gt;--&gt;</span><br><span class="line">    &lt;package name=&quot;top.hongliankeji.dao&quot;&gt;&lt;/package&gt;</span><br><span class="line">&lt;/mappers&gt;</span><br></pre></td></tr></table></figure></div></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
 
 
   <nav id="page-nav">
@@ -938,15 +970,7 @@
       <ul>
         
           <li>
-            <a href="/2019/10/14/JavaScript数组的常用方法/">JavaScript数组的常用方法</a>
-          </li>
-        
-          <li>
             <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
           </li>
         
           <li>
@@ -954,7 +978,15 @@
           </li>
         
           <li>
+            <a href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
           </li>
         
       </ul>
