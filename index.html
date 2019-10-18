@@ -91,21 +91,21 @@
 </article>
 
   
-    <article id="post-JavaScript的闭包" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的String的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+      <a class="article-title" href="/2019/10/18/JavaScript的String的方法/">JavaScript的String的方法</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/09/JavaScript的闭包/" class="article-date">
-  <time datetime="2019-10-09T01:13:26.000Z" itemprop="datePublished">2019-10-09</time>
+    <a href="/2019/10/18/JavaScript的String的方法/" class="article-date">
+  <time datetime="2019-10-18T01:17:08.000Z" itemprop="datePublished">2019-10-18</time>
 </a>
     
   <div class="article-category">
@@ -122,34 +122,48 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript的闭包"><a href="#JavaScript的闭包" class="headerlink" title="JavaScript的闭包"></a>JavaScript的闭包</h1><p>在前面的知识中，已经说过了，在函数作用域中是可以访问全局作用域中声明的变量或函数，但是在全局作用域中不可以访问函数作用域中声明的变量或函数。其实，在全局作用域中也是访问使用函数作用域中声明的变量或函数，只是要通过<code>闭包的方式才可以使用</code>。</p>
-<h2 id="闭包的定义"><a href="#闭包的定义" class="headerlink" title="闭包的定义"></a>闭包的定义</h2><p>闭包就是能够读取其他函数内部变量的函数。<br>由于 JavaScript 中，只有函数内部的子函数才能读取局部变量，因此，闭包可以理解为“定义在一个函数内部的函数”。在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
-<h2 id="闭包的2个作用"><a href="#闭包的2个作用" class="headerlink" title="闭包的2个作用"></a>闭包的2个作用</h2><ol>
-<li>可以在函数外部读取函数内部的变量；</li>
-<li>让函数内部的变量的值一直保持在内存中；</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	var x=10;</span><br><span class="line">	function fun2() &#123;</span><br><span class="line">		x++;</span><br><span class="line">		console.log(x);</span><br><span class="line">	&#125;</span><br><span class="line">	return fun2;</span><br><span class="line">&#125;</span><br><span class="line">var a = fun();</span><br><span class="line">a();		//输出 11</span><br><span class="line">a();		//输出 12，并不是重新开辟内存并初始化，而是使用了第1次声明的 x</span><br></pre></td></tr></table></figure></div>
-<h2 id="闭包的注意点"><a href="#闭包的注意点" class="headerlink" title="闭包的注意点"></a>闭包的注意点</h2><ol>
-<li>由于闭包可以使函数中的变量一直保存在内存中，所以内存消耗过大，不可以滥用闭包。</li>
-<li>通过闭包也可以改变函数内部变量的值。比如：返回一个带方法的对象时，如下：</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	var name = &quot;lin&quot;;</span><br><span class="line">	return &#123;</span><br><span class="line">		getName:function()&#123;</span><br><span class="line">			console.log(name);</span><br><span class="line">		&#125;,</span><br><span class="line">		setName:function()&#123;</span><br><span class="line">			name = &quot;ha&quot;;  //改变私有属性</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var a = fun();</span><br><span class="line">a.getName();		//输出 lin</span><br><span class="line">a.setName();		//改变函数内部变量的值</span><br><span class="line">a.getName();		//输出 ha</span><br></pre></td></tr></table></figure></div>
-<p>但在封装的思想中，函数是一个对象，函数中声明的变量应该属于一个私有的属性，不应随便在函数外部改变，所以，不要随便改变函数内部变量的值。</p>
-<h2 id="拓展：理解-this-关键字"><a href="#拓展：理解-this-关键字" class="headerlink" title="拓展：理解 this 关键字"></a>拓展：理解 this 关键字</h2><ul>
-<li>浏览器解析器在每次调用函数时，都会向函数内部传递一个隐含的参数 this。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	console.log(this);</span><br><span class="line">&#125;</span><br><span class="line">fun();		// 输出 Window</span><br></pre></td></tr></table></figure></div>
-<p>可见，我们并没有将 this 传到函数中，但是函数中会输出 this 为 Window。</p>
-<ul>
-<li>this 并不是变量，而是一个对象。这个对象称为函数的<code>上下文对象</code>。</li>
-<li>根据调用函数的对象不同，this 就是调用这个函数的对象。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;Window&quot;;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name: &quot;Object&quot;,</span><br><span class="line">	getName:function()&#123;</span><br><span class="line">		alert(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.getName();</span><br></pre></td></tr></table></figure></div>
+        <h1 id="JavaScript-的-String-的方法"><a href="#JavaScript-的-String-的方法" class="headerlink" title="JavaScript 的 String 的方法"></a>JavaScript 的 String 的方法</h1><p>在前面说过了，当使用基本类型的属性和方法时，浏览器会自动地将基本类型封装成相应的对象，再使用对象的方法。在包装类中，主要使用属性和方法的对象只有 String。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>String 在底层是以字符串数组的形式保存的。可以像数组一样，通过索引获取指定位置的字符，也可以通过 length 属性获取字符串的长度。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello String!&quot;;</span><br><span class="line">console.log(str[1]);		// e ，索引从0开始</span><br><span class="line">console.log(str.length);	// 13，字符包括空格</span><br><span class="line">console.log(str.constructor);	//输出 String 的构造函数</span><br></pre></td></tr></table></figure></div>
+<p>constructor 属性指向的是 String 的构造函数，由浏览器封装，我们是不可读写的。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><code>charAt()</code>返回字符串指定位置的<code>字符</code>。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(str.charAt(1));	// e,与方括号的功能一样</span><br></pre></td></tr></table></figure></div>
+<p><code>charCodeAt()</code>返回字符串指定位置的 <code>UniCode 编码</code>。0：48；A：65；a：97。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(str.charCodeAt(1));		// 101</span><br></pre></td></tr></table></figure></div></p>
+<p><code>String.fromCharCode()</code>返回字符编码的<code>字符</code>。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(String.fromCharCode(65));	// A</span><br></pre></td></tr></table></figure></div></p>
+<p><code>concat()</code> 可以连接两个或多个字符串，返回连接结果。功能与<code>+</code>一样。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(str.concat(&quot;您好&quot;,&quot;JavaScript&quot;));	// hello String!您好JavaScript</span><br></pre></td></tr></table></figure></div></p>
+<p><code>indexOf()</code> <code>从前往后</code>检索一个字符串中是否含有指定内容（<code>字符</code>或<code>字符串</code>）。如果没有，返回-1；如果有，返回第一次出现该内容的索引值。<br>参数：</p>
+<ol>
+<li>第一个参数：表示指定查找的内容。</li>
+<li>第二个参数：表示从这个位置开始查找。可以省略，默认从 0 开始查找。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello,hello!&quot;;</span><br><span class="line">console.log(str.indexOf(&quot;h&quot;));	//0，从索引为0的位置开始查找 str，字符“h”是否存在,存在返回第一次出现的索引值</span><br><span class="line">console.log(str.indexOf(&quot;he&quot;,5));	//6，从索引为5的位置开始查找 str，字符串“he”是否存在,存在返回第一次出现的索引值</span><br></pre></td></tr></table></figure></div>
 </li>
+</ol>
+<p><code>lastIndexOf()</code> 功能完全与<code>indexOf()</code>一样，不同的是：</p>
+<ul>
+<li><code>indexOf()</code>是<code>从前往后</code>检索字符串；</li>
+<li><code>lastIndexOf()</code>是<code>从后往前</code>检索字符串，第二个参数也可以省略，默认为字符串的长度 -1 的索引位置开始。</li>
 </ul>
-<p>Window 对象和 Object 对象中都含有 name 属性，在 getName() 方法中的 <code>this 指代的是 Object 对象</code>，所以输出的 name 是 “Object ”；</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;Window&quot;;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name : &quot;Object&quot;,</span><br><span class="line">	getName:function()&#123;</span><br><span class="line">		return function()&#123;</span><br><span class="line">			alert(this.name);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var a = obj.getName();</span><br><span class="line">a();</span><br></pre></td></tr></table></figure></div>
-<p>在 getName() 方法执行完成后，返回的是一个函数，如下</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function()&#123;</span><br><span class="line">	alert(this.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<p>并赋值给 a，a 是 Window 对象的属性方法，所以 this 指代的是 Window  对象，输入的 name 是“Window”。</p>
+<p><code>slice()</code>从字符串中截取指定的内容（空串、字符、字符串）。<br>参数：</p>
+<ol>
+<li>第一个参数：表示开始截取的索引值（包括该元素）。</li>
+<li>第二个参数：表示结束截取的索引值（不包括该元素）。可以省略，默认到最后一个元素的索引加1。</li>
+</ol>
+<p>参数也可以使用负数表示，表示倒数第几个元素。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello,hello!&quot;;</span><br><span class="line">console.log(str.slice(2,5));	// llo</span><br><span class="line">console.log(str.slice(2));	// llo,hello!</span><br><span class="line">console.log(str.slice(-6,-1));	// hello</span><br></pre></td></tr></table></figure></div></p>
+<p><code>substring()</code>从字符串中截取指定的内容（空串、字符、字符串）。<br>功能与<code>slice()</code>一样，也有两个参数，也可以省略第二个参数，不同的是：</p>
+<ol>
+<li>substring()的两个参数中，第一个参数必须要小于或等于第二个参数，如果大于，浏览器会自动调换两个参数的顺序。</li>
+<li>如果参数小于 0 ，浏览器会自动将参数赋值为 0 ，再截取。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello,hello!&quot;;</span><br><span class="line">console.log(str.substring(5,2));	// llo</span><br><span class="line">console.log(str.substring(-6,2));	// he</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p><code>substr()</code>从字符串中截取指定的内容（空串、字符、字符串）。<br>参数：</p>
+<ol>
+<li>第一个参数：表示开始截取的<code>索引值</code>（包括该元素）。</li>
+<li>第二个参数：截取<code>字符的个数</code>。可以省略，默认截取从开始索引后的全部字符。当第二个参数为小于或等于 0 时，浏览器都会将它当成 0 来处理，截取到空字符串。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello,hello!&quot;;</span><br><span class="line">console.log(str.substr(5));		// ,hello!</span><br><span class="line">console.log(str.substr(6,-2));		// &quot;&quot;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<h4 id="注意：slice-、substring-、substr-功能都是截取字符串的子串，仅是参数的使用意义不同。"><a href="#注意：slice-、substring-、substr-功能都是截取字符串的子串，仅是参数的使用意义不同。" class="headerlink" title="注意：slice()、substring()、substr()功能都是截取字符串的子串，仅是参数的使用意义不同。"></a>注意：slice()、substring()、substr()功能都是截取字符串的子串，仅是参数的使用意义不同。</h4><p><code>split()</code>将一个字符串按照<code>某个符号</code>拆分成<code>数组</code>，并返回该数组。与数组对象的join()方法功能相反。<br>参数：按照哪种符号拆分。<br>按照<code>逗号</code>将一个字符串拆分成数组：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;123,456,789&quot;;</span><br><span class="line">var arr = str.split(&quot;,&quot;);	//按照逗号拆分</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">	console.log(arr[i]);    //123 456 789</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>按照<code>空串</code>将一个字符串拆分成单个字符数组：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello&quot;;</span><br><span class="line">var arr = str.split(&quot;&quot;);	// 拆分成单一字符</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">	console.log(arr[i]);    // h e l l o</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><code>toUpperCase()</code>将一个字符串转换成大写并返回。<br><code>toLocaleLowerCase()</code>将一个字符串转换成小写并返回。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;HelLo&quot;;</span><br><span class="line">console.log(str.toUpperCase());			//HELLO</span><br><span class="line">console.log(str.toLocaleLowerCase());		//hello</span><br></pre></td></tr></table></figure></div></p>
 
       
     </div>
@@ -160,21 +174,21 @@
 </article>
 
   
-    <article id="post-JavaScript对象的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的包装类" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+      <a class="article-title" href="/2019/10/17/JavaScript的包装类/">JavaScript的包装类</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/08/JavaScript对象的方法/" class="article-date">
-  <time datetime="2019-10-08T10:52:32.000Z" itemprop="datePublished">2019-10-08</time>
+    <a href="/2019/10/17/JavaScript的包装类/" class="article-date">
+  <time datetime="2019-10-17T15:42:44.000Z" itemprop="datePublished">2019-10-17</time>
 </a>
     
   <div class="article-category">
@@ -191,21 +205,25 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript对象的方法"><a href="#JavaScript对象的方法" class="headerlink" title="JavaScript对象的方法"></a>JavaScript对象的方法</h1><p>因为对象的属性值可以是任意类型的值，函数也是一个对象，所以对象的属性也可以是一个函数。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>当一个函数作为一个对象的属性时，这个函数就叫方法。</p>
-<h2 id="创建对象方法的方式"><a href="#创建对象方法的方式" class="headerlink" title="创建对象方法的方式"></a>创建对象方法的方式</h2><ol>
-<li><p>将<code>匿名函数赋值</code>给对象的一个属性。<br>语法：<code>对象名.属性名 = function（）{ 属性 }；</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line">obj.name = &quot;lin&quot;;</span><br><span class="line">obj.age = 18;</span><br><span class="line">obj.sayName = function()&#123;</span><br><span class="line">	console.log(obj.name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>采用<code>直接量</code>创建一个对象方法。<br>语法：<code>属性名:function(){ 语句 }</code></p>
-</li>
+        <h1 id="JavaScript-的包装类"><a href="#JavaScript-的包装类" class="headerlink" title="JavaScript 的包装类"></a>JavaScript 的包装类</h1><h2 id="JavaScript的三个包装类"><a href="#JavaScript的三个包装类" class="headerlink" title="JavaScript的三个包装类"></a>JavaScript的三个包装类</h2><ol>
+<li>Number()</li>
+<li>String()</li>
+<li>Boolean()</li>
 </ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sayName:function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h2 id="调用对象方法"><a href="#调用对象方法" class="headerlink" title="调用对象方法"></a>调用对象方法</h2><p>语句：<code>对象名.方法名();</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj.sayName();</span><br></pre></td></tr></table></figure></div>
-<h2 id="拓展：枚举对象中的所有属性"><a href="#拓展：枚举对象中的所有属性" class="headerlink" title="拓展：枚举对象中的所有属性"></a>拓展：枚举对象中的所有属性</h2><p>当我们获取到一个对象的时候，我们可能还不知道该对象中含有什么属性，这时候可以利用 for … in 语句枚举该对象的所有属性。<br>语法：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for （变量 in 对象名）&#123;</span><br><span class="line">	遍历语句；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
-<p><code>变量的值</code>在遍历语句中即是该对象的属性名。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	sex:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">for(n in obj)&#123;</span><br><span class="line">	console.log(&quot;属性名：&quot;+n+&quot;, 属性值：&quot;+obj[n]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
-<p>注意：属性值中，不可以使用<code>对象名.变量名</code>的形式，因为变量名并不是对象的属性名，变量的值才是对象的属性名。</p>
+<p>包装类可以将基本数据类型的数据转换成对象。<br>为什么要转换成对象？</p>
+<ul>
+<li>优点：因为对象有属性和方法，可以直接给对象设置属性，方便使用，对象的功能更强大。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var num = new Number(123);	//创建一个 Number 对象</span><br><span class="line">num.name = &quot;zhangSan&quot;;		//给对象添加一个属性 name</span><br><span class="line">console.log(num.name);		//获取对象的属性</span><br></pre></td></tr></table></figure></div>
+<p>不推荐这么使用，因为没有意义。</p>
+<ul>
+<li>缺点：就算对象的值是相等的，如果是两个不同的对象，也是不相等的，这违反了常识，是错误的。<br>示例1：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var num1 = new Number(123);</span><br><span class="line">var num2 = new Number(123);</span><br><span class="line">console.log(num1 == num2);</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<p>可见，num1 的值为123，num2 的值也为123，但是比较两者却不相等，有违常识。<br>示例2：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var bool = new Boolean(false); </span><br><span class="line">if(bool)&#123;</span><br><span class="line">	console.log(&quot;bool为true&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>bool 的值为 false，但是因为 bool 是一个对象，对象转为基本类型是为 true，所以输出了 bool 为 true，有违常识。</p>
+<h5 id="注意：在开发中，开发者基本都不会使用包装类，浏览器自动类型转换时才使用包装类的。"><a href="#注意：在开发中，开发者基本都不会使用包装类，浏览器自动类型转换时才使用包装类的。" class="headerlink" title="注意：在开发中，开发者基本都不会使用包装类，浏览器自动类型转换时才使用包装类的。"></a>注意：在开发中，开发者基本都不会使用包装类，浏览器自动类型转换时才使用包装类的。</h5><p>如：当我们对一些基本数据类型的变量使用属性或方法时，浏览器会自动将基本数据转换成包装类，再调用包装类的方法。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = 123;</span><br><span class="line">s = s.toString();	// s 是基本数据类型，但是可以调用toString()方法。原因是：浏览器临时将 s 包装成了一个 Number 对象，调用 Number 对象的 toString() 方法，得到一个 String 对象，调用完成后再拆封装成基本数据类型 String</span><br><span class="line">console.log(typeof s);	// String</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -216,21 +234,21 @@
 </article>
 
   
-    <article id="post-JavaScript的作用域" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的Date对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+      <a class="article-title" href="/2019/10/17/JavaScript的Date对象/">JavaScript的Date对象</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/08/JavaScript的作用域/" class="article-date">
-  <time datetime="2019-10-08T10:52:32.000Z" itemprop="datePublished">2019-10-08</time>
+    <a href="/2019/10/17/JavaScript的Date对象/" class="article-date">
+  <time datetime="2019-10-17T03:00:57.000Z" itemprop="datePublished">2019-10-17</time>
 </a>
     
   <div class="article-category">
@@ -247,150 +265,20 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript的作用域"><a href="#JavaScript的作用域" class="headerlink" title="JavaScript的作用域"></a>JavaScript的作用域</h1><h2 id="声明提前"><a href="#声明提前" class="headerlink" title="声明提前"></a>声明提前</h2><p>定义：即在还没有定义该变量或函数之前，就可以使用该变量或函数了，不会出现报错情况。</p>
-<h3 id="变量声明提前"><a href="#变量声明提前" class="headerlink" title="变量声明提前"></a>变量声明提前</h3><p>使用 var 声明的变量，会在所有代码执行之前被声明，但是不会被赋值。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(x);	</span><br><span class="line">var x = 10;		// x 会被提前声明</span><br></pre></td></tr></table></figure></div>
-<p>等价于<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x;</span><br><span class="line">console.log(x);</span><br><span class="line">x = 10;</span><br></pre></td></tr></table></figure></div></p>
-<p>浏览器解析器会在 <code>console.log(x);</code>语句之前声明 x 变量，但是没有赋值，x 为 undefined，控制台输出 undefined  ，并不会出现错误。但是如果声明变量时，不使用 var 关键字，变量 x 不会提前声明，则出现错误。</p>
-<h3 id="函数声明提前"><a href="#函数声明提前" class="headerlink" title="函数声明提前"></a>函数声明提前</h3><ul>
-<li>如果使用<code>函数声明的方式</code>创建函数，<code>该函数（包括函数名和函数体）</code>会在所有代码执行之前被创建，所以可以在函数被创建之前调用该函数。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun();		//函数被声明之前调用该函数</span><br><span class="line">function fun()&#123;		//函数声明</span><br><span class="line">	alert(&quot;123&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>使用<code>函数表达式的方式</code>创建函数，不会被提前声明，所以不能在函数被创建之前调用该函数。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//fun();		//出现错误</span><br><span class="line">console.log(fun);	//输出 undefined</span><br><span class="line">var fun = function()&#123;</span><br><span class="line">	alert(&quot;123&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-</li>
-</ul>
-<p>等价于</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var fun;	//变量提前声明，并未赋值</span><br><span class="line">//fun();</span><br><span class="line">console.log(fun);		//输出 undefined</span><br><span class="line">fun = function()&#123;</span><br><span class="line">	alert(&quot;123&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h2 id="作用域的分类"><a href="#作用域的分类" class="headerlink" title="作用域的分类"></a>作用域的分类</h2><ol>
-<li>全局作用域</li>
-<li>函数作用域<br>前面说过了，JavaScript 中是没有块级作用域的，{} 只是将多个语句合成了一条语句而已，但是函数中的 {} 语句中定义的变量，{} 外是不可访问的。</li>
+        <h1 id="JavaScript-的-Date-对象"><a href="#JavaScript-的-Date-对象" class="headerlink" title="JavaScript 的 Date 对象"></a>JavaScript 的 Date 对象</h1><h2 id="创建-Date-对象"><a href="#创建-Date-对象" class="headerlink" title="创建 Date 对象"></a>创建 Date 对象</h2><ol>
+<li>使用无参数构造函数创建<code>当前时间</code>对象</li>
 </ol>
-<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><ul>
-<li>直接编写在 script 标签中的 JS代码，都在全局作用域中。</li>
-<li>生命周期：页面打开时创建，页面关闭时销毁。</li>
-<li>在全局作用域中有一个全局对象 window ，它代表浏览器的窗口，属于宿主对象。由浏览器自动创建，我们直接使用即可。当我们创建一个全局变量时，这个变量作为 window 的属性保存；当我们创建一个函数时，这个函数作为 window 的方法保存。只是在平时的使用中，我们可以省略 window 对象的书写。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a =123;</span><br><span class="line">//window.a = 456;		//等价上变量声明</span><br><span class="line">var fun = function()&#123;</span><br><span class="line">	alert(&quot;我是fun方法&quot;);</span><br><span class="line">&#125;</span><br><span class="line">//window.fun = function()&#123;	//等价上函数声明</span><br><span class="line">	//alert(&quot;我是window的方法&quot;);</span><br><span class="line">//&#125;</span><br><span class="line">console.log(a);</span><br><span class="line">//console.log(window.a);		//等价上面一行</span><br><span class="line">fun();</span><br><span class="line">//window.fun();			//等价上面一行</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>在页面中的任意位置多可以访问得到全局变量或全局函数。</li>
-</ul>
-<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><ul>
-<li>在函数内编写的代码，属于函数作用域。</li>
-<li>声明周期：在函数被调用时创建，在函数执行完成后销毁。</li>
-<li>每调用一次函数（同一个函数也是），就会创建一个新的函数作用域，他们之间是独立的。</li>
-<li>在函数作用域中可以使用全局作用域中声明的变量或函数，但是在全局作用域中不可以使用函数作用域中声明的变量或函数。<br>在函数作用域中可以使用全局作用域中声明的变量，如下：<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(a);    //输出 123。 </span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
-</li>
-</ul>
-<p>在全局作用域中不可以使用函数作用域中声明的变量，如下：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	var a=123;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br><span class="line">console.log(a);</span><br></pre></td></tr></table></figure></div>
-<p>报错，a 没有声明。</p>
-<ul>
-<li>当在某个作用域中操纵一个变量或函数时，首先会在该作用域中查找变量或函数，如果存在，直接使用；如果不存在，则向上一级作用域查找，直到全局作用域，如果全局作用域也不存在，则报错。也就是说：如果出现同名的变量或函数，内层作用域的变量或函数会屏蔽外层作用域的变量或函数。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	var a = &quot;我是函数变量 a&quot;;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun();		//输出 我是函数变量 a</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>当函数作用域和全局作用域中出现了同名的变量或函数时，需要在函数的作用域中使用全局作用域的变量或函数时，需要指明使用 window 这个对象的变量或函数。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	var a = &quot;我是函数变量 a&quot;;</span><br><span class="line">	console.log(window.a);</span><br><span class="line">&#125;</span><br><span class="line">fun();		//输出 我是全局变量 a</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>在函数作用域内也会出现变量和函数声明提前的情况。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">	var a = &quot;我是函数变量 a&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
-<p>输出 undefined，上面代码等价于下面的代码<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a=&quot;我是全局变量 a&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	var a;</span><br><span class="line">	console.log(a);</span><br><span class="line">	a = &quot;我是函数变量 a&quot;;</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div></p>
-<ul>
-<li>当在函数作用域中，没有使用 var 关键字来声明变量或函数，这个变量或函数会声明成全局作用域中的变量或函数。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(a);    //输出全局变量 a 的值：123</span><br><span class="line"> 	a = 456;           //改变全局变量 a 的值为456</span><br><span class="line">	b = 789;           //声明一个全局变量 b 的值为789，如果使用了 var 关键字来声明 b , b 即为函数作用域的变量</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br><span class="line">console.log(a);</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure></div>
-<p>这里的 a 、b 就是 <code>window.a、window.b</code>;</p>
-<ul>
-<li>当定义了形参，就相当于在函数中使用 var 声明了变量</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun( a )&#123;</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun(456);	//输出 456</span><br></pre></td></tr></table></figure></div>
-<p>相当于</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=123;</span><br><span class="line">function fun( a )&#123;</span><br><span class="line">	var a = 456</span><br><span class="line">	console.log(a);</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br></pre></td></tr></table></figure></div>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-JavaScript的函数" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/07/JavaScript的函数/" class="article-date">
-  <time datetime="2019-10-07T10:52:32.000Z" itemprop="datePublished">2019-10-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JavaScript-的函数"><a href="#JavaScript-的函数" class="headerlink" title="JavaScript 的函数"></a>JavaScript 的函数</h1><p>定义：函数是指封装一些语句代码的一个对象。一次声明，可多次调用。<br>函数是一个对象。</p>
-<h2 id="创建函数的3种方式"><a href="#创建函数的3种方式" class="headerlink" title="创建函数的3种方式"></a>创建函数的3种方式</h2><ol>
-<li>使用<code>构造函数</code>来创建，不推荐使用。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function();</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<p>这时候创建的是一个空的函数，既没有任何功能的函数。为了使函数拥有功能，可以将一些代码以字符串的形式作为参数，初始化函数。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fun = new Function(&quot;alert(&apos;函数&apos;);&quot;);</span><br></pre></td></tr></table></figure></div></p>
-<p>这个函数的功能是弹出一个窗口。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var d = new Date();</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure></div>
+<p>当构造函数没有参数时，创建的 Date 对象默认的时间为当前时间。</p>
 <ol start="2">
-<li>使用<code>函数声明</code>来创建<br>语法：<code>function 函数名（[形参1，形参2，...，形参N]）{ 语句 }</code></li>
+<li>使用有参数构造函数创建<code>指定时间</code>对象<br>参数格式：<code>月/日/年 时:分:秒</code>的字符串，年份尽量写4位，不然可能会出现歧义。</li>
 </ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	alert(&quot;函数声明&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li>使用<code>函数表达式</code>来创建<br>语法： <code>var 函数名=function（[形参1，形参2，...，形参N]）{ 语句 }；</code></li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fun = function()&#123;</span><br><span class="line">	console.log(&quot;haha&quot;);</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure></div>
-<p>函数创建后，并不会立刻执行，需要调用函数才执行。</p>
-<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><p>语法：<code>函数名（[形参1，形参2，...，形参N]）；</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun();</span><br></pre></td></tr></table></figure></div></p>
-<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><ul>
-<li>形参：形式参数</li>
-<li>实参：实际参数</li>
-</ul>
-<ol>
-<li>调用函数时，通过实参给函数传值，实参将值赋给形参进行计算。</li>
-<li>调用函数时，浏览器解析器不会检查<code>实参类型</code>，最好在函数内加于判断实参类型，避免出现错误。</li>
-<li>调用函数时，浏览器解析器不会检查<code>实参个数</code>，当实参多于形参时，后面多余的实参不会参与赋值，直接忽略；形参多于实参时，多余的形参赋值为 undefined 类型。</li>
-<li>实参可以是<code>任意类型</code>的数据。</li>
-</ol>
-<h2 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h2><p>语法：<code>return 返回值;</code><br>返回值是该函数执行后返回的结果。可以是<code>任意类型</code>的数据。<br>通常放在函数的最后。因为执行到 return 语句将结束该函数了，如果 return 语句后还有语句，这些语句将会变成死语句(永远不会执行)了。<br>一个函数可以有多个返回接口，但是尽量使用变量赋值的形式，只写一个返回接口，这便于理解函数功能。<br>如果 return 后没有返回值，或函数没有 return 语句，该函数的返回结果都是 undefined 。</p>
-<h2 id="函数是一个具有特定功能的对象。"><a href="#函数是一个具有特定功能的对象。" class="headerlink" title="函数是一个具有特定功能的对象。"></a>函数是一个具有特定功能的对象。</h2><p>前面说到了函数是一个对象，函数的参数可以是任意类型的数据。所以函数的参数也可以是一个对象或函数。</p>
-<p>参数是对象的例子：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	gender:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">showMsg(obj);</span><br></pre></td></tr></table></figure></div></p>
-<p>参数是函数的例子：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">function fun(x)&#123;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">fun(showMsg);</span><br></pre></td></tr></table></figure></div>
-<p>当将函数 A 当成一个实参传入函数 B 时，可以在函数 B 中，执行函数 A 。如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function showMsg(x)&#123;		//展示一个对象的信息</span><br><span class="line">	console.log(x.name);</span><br><span class="line">	console.log(x.age);</span><br><span class="line">	console.log(x.gender);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;			//声明一个对象</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18,</span><br><span class="line">	gender:&quot;男&quot;</span><br><span class="line">&#125;</span><br><span class="line">function fun(x)&#123;</span><br><span class="line">	x(obj);         //调用传入的函数 A</span><br><span class="line">&#125;</span><br><span class="line">fun(showMsg);		//调用函数 B</span><br><span class="line">//fun(showMsg(obj));	//相当于直接调用了 showMsg 函数，这时候形参x接收的是 showMsg 函数的返回值 undefined。</span><br></pre></td></tr></table></figure></div>
-<p>函数的返回值也可以是任意类型的数据。当函数的返回值是一个函数时，如何调用返回的函数。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function fun1()&#123;</span><br><span class="line">	alert(&quot;我是外部函数1&quot;);</span><br><span class="line">	function fun2()&#123;</span><br><span class="line">		alert(&quot;我是内部函数2&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	//fun2();	 //在fun1中调用fun2</span><br><span class="line">	return fun2;	//返回一个函数</span><br><span class="line">&#125;</span><br><span class="line">var a = fun1();		//将fun1返回的函数赋给a,a等价于fun2</span><br><span class="line">console.log(a);</span><br><span class="line">a();		//相当于调用fun2</span><br><span class="line">//fun1()(); //等价于调用了 fun1 和 a 函数</span><br></pre></td></tr></table></figure></div>
-<h2 id="注意：函数名-与-函数名（）-的区别"><a href="#注意：函数名-与-函数名（）-的区别" class="headerlink" title="注意：函数名 与 函数名（） 的区别"></a>注意：<code>函数名</code> 与 <code>函数名（）</code> 的区别</h2><p><code>函数名</code>只是指函数的本体代码。<br><code>函数名()</code>调用了这个函数，指的是执行这个函数的返回值。</p>
-<h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p>语法：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function([形参1，形参2，...，形参N])&#123;</span><br><span class="line">	语句</span><br><span class="line">&#125;)([形参1，形参2，...，形参N]);</span><br></pre></td></tr></table></figure></div>
-<p>立即执行函数声明时即调用，通常是匿名函数，只调用一次。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function(x,y)&#123;</span><br><span class="line">	console.log( &quot;x = &quot; + x);</span><br><span class="line">	console.log( &quot;y = &quot; + y);</span><br><span class="line">&#125;)(123,456);</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var d = new Date(&quot;12/05/2009 11:25:30&quot;);</span><br><span class="line">console.log(d);</span><br></pre></td></tr></table></figure></div>
+<h2 id="Date-对象的常用方法"><a href="#Date-对象的常用方法" class="headerlink" title="Date 对象的常用方法"></a>Date 对象的常用方法</h2><p>getDate()：获取该月中的第几天，从1开始算。<br>getDay()：获取该周中的周几；返回 0~6 ，0代表周日、1代表周一，以此类推。<br>getMonth()：获取该年中的第几月；返回 0~11 ，0代表一月、1代表二月，以此类推。<br>getFullYear()：获取完整的年份（4位）。<br>除这些方法外，还有获取时、分、秒、毫秒等方法，不一一例举了。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var d = new Date(&quot;10/23/2016 11:25:30&quot;);</span><br><span class="line">var date = d.getDate();</span><br><span class="line">var day = d.getDay();</span><br><span class="line">var month = d.getMonth();</span><br><span class="line">var year = d.getFullYear();</span><br><span class="line">console.log(d);</span><br><span class="line">console.log(date);</span><br><span class="line">console.log(day);</span><br><span class="line">console.log(month);</span><br><span class="line">console.log(year);</span><br></pre></td></tr></table></figure></div>
+<p>getTime()：获取 Date 对象的时间戳。<br>时间戳定义：指从格林威治时间（1970年1月1日 0时0分0秒）到当前日期所花费的毫秒数。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var time = d.getTime();	//获取 d 的时间戳</span><br><span class="line">console.log(time);	//花费的毫秒数</span><br><span class="line">console.log(time/100/60/60);	//花费的小时数</span><br></pre></td></tr></table></figure></div>
+<p>Date.now()：获取当前时间的时间戳。等价于<code>Date().getTime()</code>。<br>可以利用该方法，求出运行一段代码所花费的时间。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var start = Date.now();</span><br><span class="line">for(var i = 0 ;i&lt;100;i++)&#123;</span><br><span class="line">	console.log(&quot;运行中。。。&quot;)</span><br><span class="line">&#125;</span><br><span class="line">var end = Date.now();	</span><br><span class="line">console.log(&quot;运行需要：&quot; + end - start + &quot;毫秒&quot;);</span><br></pre></td></tr></table></figure></div></p>
 
       
     </div>
@@ -401,21 +289,21 @@
 </article>
 
   
-    <article id="post-JavaScript的对象" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的Math工具类" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
+      <a class="article-title" href="/2019/10/17/JavaScript的Math工具类/">JavaScript的Math对象</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/06/JavaScript的对象/" class="article-date">
-  <time datetime="2019-10-06T12:34:50.000Z" itemprop="datePublished">2019-10-06</time>
+    <a href="/2019/10/17/JavaScript的Math工具类/" class="article-date">
+  <time datetime="2019-10-17T03:00:57.000Z" itemprop="datePublished">2019-10-17</time>
 </a>
     
   <div class="article-category">
@@ -432,54 +320,22 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript-的对象"><a href="#JavaScript-的对象" class="headerlink" title="JavaScript 的对象"></a>JavaScript 的对象</h1><h2 id="对象的定义"><a href="#对象的定义" class="headerlink" title="对象的定义"></a>对象的定义</h2><p>指一种<code>复合</code>的数据类型，对象可以保存<code>多种不同的数据类型的属性</code>。<br>除了5种<code>基本</code>数据类型（Number、String、Boolean、unll、undefined）外，其他的都属于对象。<br>对象属于<code>引用</code>数据类型。</p>
-<h2 id="对象的3个分类"><a href="#对象的3个分类" class="headerlink" title="对象的3个分类"></a>对象的3个分类</h2><ol>
-<li>内置对象：由ES标准定义的对象，可以在实现中直接使用。如：Math、String、Function、Object等对象。</li>
-<li>宿主对象：由 JS 运行环境提供的对象，主要是浏览器提供的对象。如：BOM（浏览器对象模型）、DOM（文档对象模型）。</li>
-<li>自定义对象：由开发者创建的对象。</li>
-</ol>
-<h2 id="创建对象的4个方式"><a href="#创建对象的4个方式" class="headerlink" title="创建对象的4个方式"></a>创建对象的4个方式</h2><ol>
-<li>使用Object的<code>构造函数</code>创建<br>构造函数必须使用 <code>new 函数名（）</code>的语法格式。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();		//当没有参数时，括号可以省略</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<p>这是使用了 Object 默认的构造函数，创建完成对象后，还要为对象添加属性，比较麻烦，而且创建出来的对象都是 Object 类型。<br>可以通过自定义构造函数的方法，创建不同的类。<code>对象是类的实例，类是对象的抽象。</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">	this.sayName = function()&#123;</span><br><span class="line">		console.log(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var per = new Person(&quot;zhangSan&quot;,18);</span><br><span class="line">per.sayName();</span><br><span class="line">console.log(per);</span><br></pre></td></tr></table></figure></div>
-<p>直接通过构造函数，即可批量创建对象了。</p>
-<ol start="2">
-<li><p>使用<code>直接量</code>创建对象<br>语法：<code>var 对象名 = {属性名：属性值，属性名：属性值，...}</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>使用 <code>Object.create()</code> 函数创建对象</p>
-</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = Object.create(&#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
-<ol start="4">
-<li>自定义<code>工厂模式</code>创建对象<br>工厂模式可以批量创建对象，但是创建的所有的对象都是同一个类型，不好区分对象。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function createObject(name,age)&#123;	//自定义一个函数</span><br><span class="line">	var obj = new Object();         //声明一个对象</span><br><span class="line">	obj.name = name;                //利用形参初始化</span><br><span class="line">	obj.age = age;</span><br><span class="line">	obj.sayName = function()&#123;</span><br><span class="line">		console.log(obj.name);</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;                      //返回这个对象</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = createObject(&quot;lin&quot;,18);	//接收对象</span><br><span class="line">var obj2 = createObject(&quot;zhangSan&quot;,23);</span><br><span class="line">obj1.sayName();				//执行对象的方法</span><br><span class="line">obj2.sayName();</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<h2 id="添加或修改对象的属性"><a href="#添加或修改对象的属性" class="headerlink" title="添加或修改对象的属性"></a>添加或修改对象的属性</h2><p>语法1：<code>对象名.属性名=属性值</code><br>语法2：<code>对象名[属性名]=属性值</code> （推荐使用这种方式）</p>
-<ul>
-<li>属性名默认是字符串类型，不要求遵守标识符的规范（推荐按照规范命名）。如果要使用不遵守标识符的规范的属性名时，第1种语法会报错，只可以使用第2种语法。</li>
-<li>属性值可以是任意的数据类型，包括对象类型。<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.name=&quot;lin&quot;;</span><br><span class="line">obj[123]=18;</span><br></pre></td></tr></table></figure></div>
-</li>
-</ul>
-<p>当对象中还没存在这个属性时，该语法是添加这个属性。如果已经存在这个属性了，是修改属性值，因为后面的值会把前面的值<code>覆盖</code>了。</p>
-<h2 id="获取对象属性"><a href="#获取对象属性" class="headerlink" title="获取对象属性"></a>获取对象属性</h2><p>语法1：<code>对象名.属性名</code><br>语法2：<code>对象名[属性名]</code><br>注意：语法2属性名一定加上引号，因为属性名是字符串类型。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(obj.name);</span><br></pre></td></tr></table></figure></div></p>
-<p>如果对象不存在这个属性，浏览器不会报错，会获取一个 undefined 的属性值。</p>
-<h2 id="删除对象"><a href="#删除对象" class="headerlink" title="删除对象"></a>删除对象</h2><p>语法1：<code>delete 对象名.属性名</code><br>语法2：<code>delete 对象名[属性名]</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete obj.name;</span><br><span class="line">delete obj[123];</span><br></pre></td></tr></table></figure></div>
-<p>当删除这个属性后，再获取属性值，只能获取一个 undefined 的属性值。<br>delete 只可以删除对象的属性，不可以删除对象。</p>
-<h2 id="拓展：构造函数的执行流程"><a href="#拓展：构造函数的执行流程" class="headerlink" title="拓展：构造函数的执行流程"></a>拓展：构造函数的执行流程</h2><ol>
-<li>创建一个新的对象</li>
-<li>将新建的对象设置为函数中的 this，可以使用 this 来引用函数。</li>
-<li>执行函数中的代码</li>
-<li>将新对象作为返回值返回</li>
-</ol>
-<h2 id="拓展：类-与-对象"><a href="#拓展：类-与-对象" class="headerlink" title="拓展：类 与 对象"></a>拓展：类 与 对象</h2><p>使用同一个构造函数创建的对象，称为一类对象，也将一个构造函数称为一个类。<br>通过构造函数创建的对象，成为该类的实例。<br>对象是类的实例，类是对象的抽象。</p>
-<h2 id="拓展：in-运算符"><a href="#拓展：in-运算符" class="headerlink" title="拓展：in 运算符"></a>拓展：in 运算符</h2><p>定义：该运算符可以检测一个对象中是否含有指定的属性。<br>语法：<code>“属性名” in 对象名</code></p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;lin&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;</span><br><span class="line">console.log(&quot;age&quot; in obj);  	// true</span><br></pre></td></tr></table></figure></div>
-<h2 id="拓展：instanceof-运算符"><a href="#拓展：instanceof-运算符" class="headerlink" title="拓展：instanceof 运算符"></a>拓展：instanceof 运算符</h2><p>定义：判断一个对象是否是某个类的实例。<br>语法：<code>对象 instanceof 构造函数</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var per = new Person(&quot;zhangSan&quot;,18);</span><br><span class="line">console.log(per instanceof Person);</span><br></pre></td></tr></table></figure></div></p>
-<p>所有对象 都是 Object 的实例。</p>
+        <h1 id="JavaScript-的-Math-对象"><a href="#JavaScript-的-Math-对象" class="headerlink" title="JavaScript 的 Math 对象"></a>JavaScript 的 Math 对象</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Math 不是一个构造函数，而是一个工具类，不用创建对象，直接使用即可。</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>PI（圆周率）、E（自然对数的底数）等数学常量。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p><code>abs();</code>返回一个数的绝对值。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.abs(-12.3));	// 12.3</span><br></pre></td></tr></table></figure></div>
+<p><code>ceil();</code>返回大于或等于一个数的最小整数。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.ceil(12.3));		// 13</span><br><span class="line">console.log(Math.ceil(-12.3));		// -12</span><br></pre></td></tr></table></figure></div>
+<p><code>floor();</code>返回小于或等于一个数的最大整数。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.floor(12.3));		// 12</span><br><span class="line">console.log(Math.floor(-12.3));		// -13</span><br></pre></td></tr></table></figure></div></p>
+<p><code>round();</code>返回一个数<code>四舍五入</code>取整。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.round(12.5555));	// 13</span><br><span class="line">console.log(Math.round(12.4555));	// 12</span><br></pre></td></tr></table></figure></div></p>
+<p><code>random();</code>返回一个 0~1 之间（不包括0和1）的随机数。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;100;i++)&#123;</span><br><span class="line">	console.log(Math.random());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></p>
+<p>例如：返回一个 2 到 10 的随机数。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;100;i++)&#123;</span><br><span class="line">	console.log(Math.round(Math.random()*8+2));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>记忆：返回一个 x 到 y 的随机数（包括 x 和 y ）的随机数的公式：<code>Math.round(Math.random()*（ y - x ）+ x)</code></p>
+<p><code>max();</code>可以获取多个数中的最大值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.max(123,789,456));	// 789</span><br></pre></td></tr></table></figure></div></p>
+<p><code>min();</code>可以获取多个数中的最小值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.min(123,789,456));	// 123</span><br></pre></td></tr></table></figure></div></p>
+<p><code>pow(x,y);</code>返回 x 的 y 次幂。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.pow(2,3));</span><br></pre></td></tr></table></figure></div></p>
+<p><code>sqrt();</code>返回一个数的开平方数。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.sqrt(6));</span><br></pre></td></tr></table></figure></div></p>
 
       
     </div>
@@ -490,21 +346,21 @@
 </article>
 
   
-    <article id="post-JavaScript的语句" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript函数的方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/05/JavaScript的语句/">JavaScript 语句</a>
+      <a class="article-title" href="/2019/10/16/JavaScript函数的方法/">JavaScript函数的方法</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/05/JavaScript的语句/" class="article-date">
-  <time datetime="2019-10-05T05:02:52.000Z" itemprop="datePublished">2019-10-05</time>
+    <a href="/2019/10/16/JavaScript函数的方法/" class="article-date">
+  <time datetime="2019-10-16T10:39:52.000Z" itemprop="datePublished">2019-10-16</time>
 </a>
     
   <div class="article-category">
@@ -521,21 +377,33 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript-的语句"><a href="#JavaScript-的语句" class="headerlink" title="JavaScript 的语句"></a>JavaScript 的语句</h1><p>说明： JavaScript 中的语句和 Java 中的语句基本相同，这里就不详细说明了。以下仅说明 JavaScript 语句与 Java 语句不同之处。</p>
-<ol>
-<li>JavaScript 中使用<code>花括号</code>括起来的语句块<code>没有块级作用域</code>，在语句块中声明的变量，在语句块外同样可以使用。如：</li>
+        <h1 id="JavaScript-函数的方法"><a href="#JavaScript-函数的方法" class="headerlink" title="JavaScript 函数的方法"></a>JavaScript 函数的方法</h1><p>函数也是一个对象，所以函数也有自己的方法，主要的方法是 call() 和 apply() 。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>函数名.call();</code> 或 <code>函数名.apply();</code><br>在省略参数的情况下，函数两个方法的调用与直接调用函数的效果是一样的。如下：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">	console.log(&quot;调用了fun函数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">fun();</span><br><span class="line">fun.call();</span><br><span class="line">fun.apply();</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ol>
+<li>call() 和 apply() 方法可以将<code>一个对象</code>指定为第一个参数，此时，这个对象就是函数执行时的 this。</li>
 </ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	var x = 10;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">console.log(x);</span><br><span class="line">//结构会在控制台输出两个10，语句块外也可以使用 x 变量</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">name = &quot;window&quot;;</span><br><span class="line">function fun()&#123;</span><br><span class="line">	console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name : &quot;lin&quot;</span><br><span class="line">&#125;</span><br><span class="line">fun();			//&quot;window&quot;</span><br><span class="line">fun.call(obj);		//&quot;lin&quot;</span><br><span class="line">fun.apply(obj);		//&quot;lin&quot;</span><br></pre></td></tr></table></figure></div>
+<p>好处：可以通过传入不同的对象，使用对象相应的属性。</p>
 <ol start="2">
-<li>switch…case 分支语句中，switch 表达式的值是要<code>恒等于（===）</code> case 的值才能匹配，并不能自动作类型转换。</li>
+<li>call() 方法可以将实参在对象之后一次传递。</li>
+<li>apply() 方法可以将实参封装到一个<code>数组</code>中统一传递。</li>
 </ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var x = 1;</span><br><span class="line">switch(x)&#123;</span><br><span class="line">	case &quot;1&quot;: </span><br><span class="line">		alert(&quot;字符串：&quot; + x);</span><br><span class="line">		break;</span><br><span class="line">	case 1:</span><br><span class="line">		alert(&quot;数字: &quot; + x );    //弹出输出 &quot;数字：1&quot;</span><br><span class="line">		break;</span><br><span class="line">	case 2:</span><br><span class="line">		alert(&quot;数字: &quot; + x);</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li>众所周知，break 是跳出<code>最内层</code>的循环或<code>最内层</code>的 switch ，continue 是结束<code>最内层</code>的本次的循环执行下一次循环。在嵌套的循环中，如果我们想要<code>结束某一层的循环</code>（不一定是最内层）就不容易实现了。这时候，可以使用 label 语句，为某一些语句指定一个标签，跳出循环时，直接使用 break 加标签名即可。如下：</li>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">name = &quot;window&quot;;</span><br><span class="line">function fun(a,b)&#123;</span><br><span class="line">	console.log(this.name);</span><br><span class="line">	console.log(&quot;a = &quot; + a);</span><br><span class="line">	console.log(&quot;b = &quot; + b);</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">	name : &quot;lin&quot;</span><br><span class="line">&#125;</span><br><span class="line">fun(1,2);</span><br><span class="line">fun.call(obj,1,2);</span><br><span class="line">fun.apply(obj,[1,2]);</span><br></pre></td></tr></table></figure></div>
+<h2 id="this-的情况"><a href="#this-的情况" class="headerlink" title="this 的情况"></a>this 的情况</h2><ol>
+<li>以<code>函数</code>调用时，this 永远都是 <code>window</code> ；</li>
+<li>以<code>方法</code>的形式调用时，this 是调用<code>该方法的对象</code>；</li>
+<li>以<code>构造函数</code>的形式调用时，this 是<code>新创建的对象</code>；</li>
+<li>以 <code>call() 和 apply() 方法</code>调用时，this 是第一个参数<code>指定的对象</code>。</li>
 </ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">outer:		//将外层循环标记为 outer</span><br><span class="line">for(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">	console.log(&quot;外层循环&quot;+i);</span><br><span class="line">	for(var j=0;j&lt;10;j++)&#123;</span><br><span class="line">		console.log(&quot;内层循环&quot;+j);</span><br><span class="line">		if(j==3)&#123;</span><br><span class="line">			break outer ;		//跳出外出循环 outer</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<p>同样的，continue 为可以结束某一层循环的本次循环，执行下一次循环。</p>
-<h2 id="拓展：计算某一块语句块的运行时间"><a href="#拓展：计算某一块语句块的运行时间" class="headerlink" title="拓展：计算某一块语句块的运行时间"></a>拓展：计算某一块语句块的运行时间</h2><p>console.time(String str);        //创建一个计时器，str 为计时器的名称 。放在需要检测的语句块的开头。<br>console.timeEnd(String str);    //结束计时器，str 为计时器的名称。放在需要检测的语句块的结尾。<br>浏览器会求出两个时间点的距离，并在控制台中，输出 str 计时器的运行时间。如下：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">console.time(&quot;test&quot;);	//创建 test 计时器</span><br><span class="line">var n=0;</span><br><span class="line">for(var i=0;i&lt;100;i++)&#123;</span><br><span class="line">	for(var j=0;j&lt;100;j++)&#123;</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(n);</span><br><span class="line">console.timeEnd(&quot;test&quot;);	//结束 test 计时器</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="函数的-arguments"><a href="#函数的-arguments" class="headerlink" title="函数的 arguments"></a>函数的 arguments</h2><p>浏览器在调用函数时，每次都会传递两个隐含的参数：</p>
+<ol>
+<li>函数的上下文对象：this 。前面已经说过了。</li>
+<li>封装实参的对象 arguments 。无论函数有没有定义形参，arguments 都能使用实参。</li>
+</ol>
+<h3 id="arguments-的使用规则"><a href="#arguments-的使用规则" class="headerlink" title="arguments 的使用规则"></a>arguments 的使用规则</h3><p>arguments 是一个类数组对象，它可以通过索引来使用实参，也可以通过 length 属性来获取实参的个数。<br>类数组对象：数据类型并不是真正的数组，但是可以通过索引来操作元素的对象。<br>调用函数时，全部的实参都封装到 arguments 传递到函数内部使用。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fun(a)&#123;</span><br><span class="line">	console.log(arguments);</span><br><span class="line">	console.log(arguments.length);   //实参的个数</span><br><span class="line">	console.log(arguments[0]);       //获取第一个实参</span><br><span class="line">	console.log(a);                  //通过形参获取第一个实参</span><br><span class="line">	console.log(arguments[1]);       //获取第二个实参</span><br><span class="line">&#125;</span><br><span class="line">fun(123,&quot;lin&quot;);</span><br></pre></td></tr></table></figure></div></p>
+<p> arguments 对象中有一个 callee 属性，该属性对应一个函数对象，就是当前正在调用的函数对象。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> function fun(a)&#123;</span><br><span class="line">	console.log(arguments.callee);</span><br><span class="line">	console.log(arguments.callee == fun);</span><br><span class="line">	&#125;</span><br><span class="line">fun(123,&quot;lin&quot;);</span><br></pre></td></tr></table></figure></div>
+<p>可以通过 <code>arguments.callee();</code>在函数内部调用该函数，慎用，会造成死循环。</p>
 
       
     </div>
@@ -546,21 +414,21 @@
 </article>
 
   
-    <article id="post-JavaScript的运算符" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript数组的常用方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
+      <a class="article-title" href="/2019/10/15/JavaScript数组的常用方法/">JavaScript数组的常用方法</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/04/JavaScript的运算符/" class="article-date">
-  <time datetime="2019-10-04T05:02:52.000Z" itemprop="datePublished">2019-10-04</time>
+    <a href="/2019/10/15/JavaScript数组的常用方法/" class="article-date">
+  <time datetime="2019-10-15T12:24:54.000Z" itemprop="datePublished">2019-10-15</time>
 </a>
     
   <div class="article-category">
@@ -577,121 +445,58 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript的运算符"><a href="#JavaScript的运算符" class="headerlink" title="JavaScript的运算符"></a>JavaScript的运算符</h1><h2 id="运算符的分类："><a href="#运算符的分类：" class="headerlink" title="运算符的分类："></a>运算符的分类：</h2><ol>
-<li>算术运算符</li>
-<li>逻辑运算符</li>
-<li>赋值运算符</li>
-<li>关系运算符</li>
-<li>条件运算符</li>
-</ol>
-<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><h3 id="二元算术运算符"><a href="#二元算术运算符" class="headerlink" title="二元算术运算符"></a>二元算术运算符</h3><h4 id="运算符"><a href="#运算符" class="headerlink" title="+ 运算符"></a>+ 运算符</h4><p>可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。<br>使用规则：</p>
-<ol>
-<li>任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。</li>
-<li>除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。</li>
-<li>NaN与任何数字相加，结果都为NaN。结果类型为数字。</li>
-<li>其他类型与空串作“+”运算，结果类型为字符串。利用这一特性，可作为隐性类型转换。如：</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">123 + &quot;&quot;         //“123”，数字123转换为字符串“123”</span><br><span class="line">true + &quot;&quot;		 //&quot;true&quot;,布尔 true 转换为字符串 &quot;true&quot;</span><br></pre></td></tr></table></figure></div>
-<h4 id="、-、-、-运算符"><a href="#、-、-、-运算符" class="headerlink" title="-、*、/、% 运算符"></a>-、*、/、% 运算符</h4><p>-、*、/、%分别表示数学运算中的减、乘、除、模运算，主要用于数字的运算中。使用规则与 Java 中类似，主要区别：</p>
-<ol>
-<li><p>JavaScript 中，所有的数字都是浮点型的，除法的结果也是浮点型的，如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 / 2 = 2.5		//并不同于Java中，5 / 2 = 2</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>浮点数也可以取模，如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6.5 % 2.1 = 0.2</span><br><span class="line">-6.5 % 2.1 = -0.2		//结果的符号与第一个操作数的符号保持一致</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>其他类型数据作 -、*、/、% 运算，先转换为数字类型，再进行运算。利用这一特性，可作为隐性类型转换。如：</p>
-</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;123&quot; - 0 = 123;     //字符串&quot;123&quot;转换成数字123；</span><br><span class="line">true * 1 = 1;        //布尔true,转换成数字1，再乘以1，结果为数字1；</span><br><span class="line">&quot;456&quot; / 1 = 456;</span><br></pre></td></tr></table></figure></div>
-<h3 id="一元算术运算符"><a href="#一元算术运算符" class="headerlink" title="一元算术运算符"></a>一元算术运算符</h3><h4 id="运算符-1"><a href="#运算符-1" class="headerlink" title="+ 运算符"></a>+ 运算符</h4><p>作用：把操作数转换成数字（或者NaN）。如果操作数本身为数字，返回这个数字。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">+x = 1;</span><br><span class="line">+y = 1;</span><br><span class="line">+z = -123;</span><br><span class="line">+p = 0 ;</span><br><span class="line">+q = NaN;</span><br></pre></td></tr></table></figure></div></p>
-<h4 id="运算符-2"><a href="#运算符-2" class="headerlink" title="- 运算符"></a>- 运算符</h4><p>作用：相当于 0 - 操作数 的值。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">-x = -1;</span><br><span class="line">-y = -1;</span><br><span class="line">-z = +123;</span><br><span class="line">-p = 0 ;</span><br><span class="line">-q = NaN;</span><br></pre></td></tr></table></figure></div></p>
-<h4 id="与-运算符的区别"><a href="#与-运算符的区别" class="headerlink" title="- 与 ~ 运算符的区别"></a>- 与 ~ 运算符的区别</h4><p>~ 运算符叫按位非，相当于改变变量的符号并减一。如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x = 4;</span><br><span class="line">console.log(-x);	//输出-4</span><br><span class="line">console.log(~x);	//输出-5</span><br></pre></td></tr></table></figure></div>
-<h4 id="自增运算符"><a href="#自增运算符" class="headerlink" title="++ 自增运算符"></a>++ 自增运算符</h4><p>作用：原变量在自身的基础上立即增加1<br>分类：</p>
-<ol>
-<li>后++（a++）</li>
-<li>前++（++a）<br>无论前++，还是后++，变量的值会立即加1。<br>a++的值等于原来变量的值（这里把a++、++a当成了一个整体，更容易理解）<br>++a的值等于新变量的值</li>
-</ol>
-<h4 id="自减运算符"><a href="#自减运算符" class="headerlink" title="-- 自减运算符"></a><code>--</code> 自减运算符</h4><p>作用：原变量在自身的基础上立即增减1<br>分类：</p>
-<ol>
-<li>后<code>--</code>（a<code>--</code>）</li>
-<li>前<code>--</code>（<code>--</code>a）<br>无论前- -，还是后- -，变量的值会立即减1。<br>a<code>--</code> 的值等于原来变量的值（这里把 a<code>--</code>、<code>--</code>a 当成了一个整体，更容易理解）<br><code>--</code>a 的值等于新变量的值<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">var a = 10;</span><br><span class="line">a1 = a++;		//a1等于原来的值为10,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a2 = ++a;		//a2等于新值为11,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a3 = a++ + ++a + a;		//过程：a++ = 10,a=11;++a=12,a=12;10+12+12=44</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>包括：</p>
-<ol>
-<li>逻辑与（&amp;&amp;）</li>
-<li>逻辑或（||）</li>
-<li>逻辑非（!）</li>
-</ol>
-<h3 id="逻辑与-amp-amp"><a href="#逻辑与-amp-amp" class="headerlink" title="逻辑与 &amp;&amp;"></a>逻辑与 &amp;&amp;</h3><p>作用：只有当两端的操作数（包括表达式）均为 true，才返回 true，其余均返回 false。</p>
-<p>逻辑与的短路效应：只有当第一个操作数为 true 时，才去计算第二个操作数，否则直接返回 false。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 10 , y = 20 ;</span><br><span class="line">true &amp;&amp; x++;	//第一个操作数为 true，运行第二个表达式,x 加1</span><br><span class="line">false &amp;&amp; y++;	//第一个操作数为 false，直接返回第一个值，不运行第二个表达式,y 不变</span><br><span class="line">console.log(x);		//输出 11</span><br><span class="line">console.log(y);		//输出 20</span><br></pre></td></tr></table></figure></div>
-<p>如果操作数不是布尔类型，其他类型先自动转换成布尔类型，作逻辑与运算，并返回原类型的值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;</span><br><span class="line">console.log( true &amp;&amp; x );		//输出&quot;123&quot;</span><br></pre></td></tr></table></figure></div></p>
-<ol>
-<li>如果第一个操作数的值为 true , 返回第二个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 &amp;&amp; 1 );		//输出 1</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li>如果第一个操作数的值为 false , 返回第一个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN &amp;&amp; &quot;123&quot; );	//输出 NaN</span><br></pre></td></tr></table></figure></div>
-<h3 id="逻辑或"><a href="#逻辑或" class="headerlink" title="逻辑或 ||"></a>逻辑或 ||</h3><p>作用：只用当两端的操作数均为 false，才返回 false，其余均返回 true。</p>
-<p>逻辑或的短路效应：只有当第一个操作数为 false时，才去计算第二个操作数，否则直接返回 true。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 10 , y = 20 ;</span><br><span class="line">true || x++;	//第一个操作数为 true，直接返回 true，不运行第二个表达式,x 不变</span><br><span class="line">false || y++;	//第一个操作数为 false，运行第二个表达式,y 加1</span><br><span class="line">console.log(x);		//输出 10</span><br><span class="line">console.log(y);		//输出 21</span><br></pre></td></tr></table></figure></div>
-<p>如果操作数不是布尔类型，其它类型先自动转换成布尔类型，作逻辑或运算，并返回原类型的值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;</span><br><span class="line">console.log( false || x );		//输出&quot;123&quot;</span><br></pre></td></tr></table></figure></div></p>
-<ol>
-<li>如果第一个操作数的值为 true , 返回第一个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 &amp;&amp; 1 );		//输出 2</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li>如果第一个操作数的值为 false , 返回第二个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN &amp;&amp; &quot;123&quot; );	//输出 &quot;123&quot;</span><br></pre></td></tr></table></figure></div>
-<h3 id="逻辑非-！"><a href="#逻辑非-！" class="headerlink" title="逻辑非 ！"></a>逻辑非 ！</h3><p>作用：对一个布尔值进行取反操作。true 变 false，false 变 true。<br>如果操作数不是布尔类型的，先自动转换成布尔类型，再进行取反。可以利用这一特性，将其他类型的数据进行两次非运算，实现隐性类型转换成布尔类型，如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;;</span><br><span class="line">console.log(!!x); 	//输出true，字符串&quot;123&quot;转换成布尔true</span><br></pre></td></tr></table></figure></div>
-<h3 id="逻辑运算符的优先级"><a href="#逻辑运算符的优先级" class="headerlink" title="逻辑运算符的优先级"></a>逻辑运算符的优先级</h3><p>逻辑非 &gt; 逻辑与 &gt; 逻辑或</p>
-<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><h3 id="赋值运算"><a href="#赋值运算" class="headerlink" title="= 赋值运算"></a>= 赋值运算</h3><p>作用：将右值赋以左变量。从右往左运算。<br>除此之外，还有以下常见的带操作的赋值运算：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+=	a+=5	等价于	a=a+5</span><br><span class="line">-=	a-=5	等价于	a=a-5</span><br><span class="line">*=	a*=5	等价于	a=a*5</span><br><span class="line">/=	a/=5	等价于	a=a/5</span><br><span class="line">%=	a%=5	等价于	a=a%5</span><br></pre></td></tr></table></figure></div>
-<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>意义：比较两个操作数的大小。如果关系成立，返回 true ；如果关系不成立，返回 false。<br>关系运算符有：<code>==、===、!=、!==、&lt;、&lt;=、&lt;==、&gt;、&gt;=、&gt;==;</code><br>规则：</p>
-<ol>
-<li>如果两个操作数都是数字，会按照数学上的大小，进行比较，返回相应的关系。</li>
-<li>如果两个操作数都是字符串，会根据字符的 Unicode 编码的<code>字典序</code>进行比较。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log( &quot;123&quot; &lt; &quot;4&quot;);	//输出 true，字符&quot;1&quot;与字符&quot;4&quot;比较，&quot;1&quot;小，所以:&quot;123&quot;小于&quot;4&quot;</span><br><span class="line">console.log( &quot;abc&quot; &lt; &quot;ab&quot;);	//输出 false，一个字符一个字符比较，a==a,b==b,第二个字符串已经没有了，所以第二个字符串小</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li>只要两个操作数不全是字符串，先自动转换成数字，再进行比较。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( false &gt; true);	//输出 false，false 自动转换为数字0，true 自动转换为数字1，0&lt;1</span><br></pre></td></tr></table></figure></div>
-<ol start="4">
-<li>NaN 与任何值比较，都返回 false 。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log( 5 &lt;= undefined);</span><br><span class="line">console.log( 5 &gt;= undefined);</span><br><span class="line">//两个输出都是 false ，因为undefined 转换成数字类型的NaN</span><br></pre></td></tr></table></figure></div>
-<ol start="5">
-<li>尽量不要使用中文字符串进行关系运算，容易出现错误。</li>
-</ol>
-<h3 id="等于（-）与恒等（-）的区别"><a href="#等于（-）与恒等（-）的区别" class="headerlink" title="等于（==）与恒等（===）的区别"></a><code>等于（==）与恒等（===）的区别</code></h3><ol>
-<li>等于（<code>==</code>）与不等于（<code>!=</code>）运算符作关系运算时，如果两个值的类型不同，会自动转换成相同的数据类型（通常转换成数字）。只要数据相等，则相等。</li>
-<li>恒等（<code>===</code>）与不恒等（<code>!==</code>）运算符作关系运算时，不会作自动类型转换。只有类型相等，数据也相等，才会恒等。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;123&quot; == 123);	//true ，&quot;123&quot;自动转成123</span><br><span class="line">console.log(&quot;123&quot; === 123);	//false ， 数据类型不等</span><br><span class="line"></span><br><span class="line">//特殊情况</span><br><span class="line">//尽管 null 自动类型转换为0，但 null 与 0 不等于</span><br><span class="line">console.log( null == 0 );	//false </span><br><span class="line">//null 与 undefined 相等不恒等</span><br><span class="line">console.log( null == undefined );	//true</span><br><span class="line">console.log( null == undefined );	//false</span><br><span class="line">//NaN 与 任何值不相等，包括它本身，可以使用isNaN()函数来判断是否是NaN</span><br><span class="line">var x = NaN ;</span><br><span class="line">console.log( x==x );		//false</span><br><span class="line">//以下是判断 x 是否是 NaN 的两种常见的方式</span><br><span class="line">console.log( x != x );		//true</span><br><span class="line">console.log( isNaN(x) );	//true</span><br></pre></td></tr></table></figure></div>
-<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>唯一一个三元运算符 <code>？：</code><br>语法：<code>条件语句？语句1：语句2</code><br>执行流程：先判断条件语句，为 true，执行语句1，为 false，执行语句2。<br>如果条件语句不是布尔类型，先转换为布尔类型，再判断 true 或 false。</p>
-<h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><ol>
-<li>JavaScript 的运算符的优先级按照下表的顺序，越在上边，优先级越高。<br><img src="/2019/10/04/JavaScript的运算符/优先级.jpg" alt="优先级"></li>
-<li>如果优先级相同的，从左往右算。</li>
-<li>添加圆括号可以改变优先级。</li>
-</ol>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>++、==、&lt;=等由多个符号组成的运算符是一个整体，不可分开来写（中间添加空格等都是不可以的）。</p>
-<h2 id="拓展：如何使用-Unicode-编码"><a href="#拓展：如何使用-Unicode-编码" class="headerlink" title="拓展：如何使用 Unicode 编码"></a>拓展：如何使用 Unicode 编码</h2><ol>
-<li>JavaScript中使用，格式：<code>\u四位十六进制编码</code>，如：</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;\u2634&quot;);		//输出 ☴</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li>网页中使用，格式：<code>&amp;#十进制编码</code>，这里的十进制是，Unicode 编码表中的四位十六进制转换成的十进制。大小可通过<code>font-size</code>属性来控制，如： </li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt; &amp;#4568&lt;/h1&gt;</span><br></pre></td></tr></table></figure></div>
-<p>显示结果，如下：<img src="/2019/10/04/JavaScript的运算符/编码的使用.png" alt="编码的使用"></p>
+        <h1 id="JavaScript-数组的常用方法"><a href="#JavaScript-数组的常用方法" class="headerlink" title="JavaScript 数组的常用方法"></a>JavaScript 数组的常用方法</h1><h2 id="添加或删除数组元素的方法"><a href="#添加或删除数组元素的方法" class="headerlink" title="添加或删除数组元素的方法"></a>添加或删除数组元素的方法</h2><h3 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h3><p> 可以向数组的<code>末尾</code>添加一个或多个元素,多个元素<code>一次性</code>添加（并不是一个一个添加）；<br>把要添加的元素作为方法的参数；<br>并返回数组的新长度；</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);</span><br><span class="line">var l = arr.push(&quot;lin&quot;,[23,45]);	//添加两个元素，并返回长度l</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(&quot;数组的新长度：&quot;+l);</span><br></pre></td></tr></table></figure></div>
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h3><p> 可以在数组的<code>末尾</code>删除最后一个元素，不需要参数，并返回该元素</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);		//1，2，3</span><br><span class="line">var pop1 = arr.pop();</span><br><span class="line">console.log(arr);		//1，2</span><br><span class="line">console.log(&quot;从尾部删除的元素是：&quot;+pop1);	//3</span><br></pre></td></tr></table></figure></div>
+<p>push()、pop() 方法类似于把数组当成了一个<code>栈</code>来处理了。</p>
+<h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h3><p> 可以向数组的<code>头部</code>添加一个或多个元素,多个元素<code>一次性</code>添加（并不是一个一个添加）<br> 注意：一次性添加和一个一个添加是不一样的。</p>
+<ul>
+<li>如果是一次性添加，要添加的多个元素按照原来的<code>顺序</code>添加到数组中；</li>
+<li>如果是一个一个添加，要添加的多个元素按照原顺序的<code>倒序</code>添加到数组中；</li>
+</ul>
+<p>把要添加的元素作为方法的参数。<br>并返回数组的新长度。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);</span><br><span class="line">var l = arr.unshift(&quot;lin&quot;,[23,45]);</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(&quot;数组的新长度：&quot;+l);</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h3><p> 可以在数组的<code>头部</code>删除一个元素，不需要参数，并返回该元素<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);</span><br><span class="line">var shift1 = arr.shift();</span><br><span class="line">console.log(arr);		//2，3</span><br><span class="line">console.log(&quot;从头部删除的元素是: &quot;+shift1);	//1</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="遍历数组的方法"><a href="#遍历数组的方法" class="headerlink" title="遍历数组的方法"></a>遍历数组的方法</h2><h3 id="for循环遍历"><a href="#for循环遍历" class="headerlink" title="for循环遍历"></a>for循环遍历</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">	console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="forEach-方法遍历"><a href="#forEach-方法遍历" class="headerlink" title="forEach() 方法遍历"></a>forEach() 方法遍历</h3><p>注意：IE 浏览器中只有 IE 8 以上的版本才支持 forEach() 方法。<br>forEach() 方法中，要传入一个函数作为参数，通常是一个匿名函数，该函数叫回调函数。<br>回调函数：由开发者声明，由浏览器调用的函数。<br>该回调函数中可以有三个参数（也可以部分或全部省略）：</p>
+<ul>
+<li>第一个参数：表示每一个元素的值；</li>
+<li>第二个参数：表示每一个元素的索引；</li>
+<li>第三个参数：表示该数组对象本身。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">arr.forEach(function(value,index,obj)&#123;</span><br><span class="line">	console.log(obj+&quot;数组的第&quot;+index+&quot;个元素是：&quot;+value);</span><br><span class="line">&#125;)；</span><br></pre></td></tr></table></figure></div>
+<p>可见，数组有几个元素，回调函数调用几次。</p>
+<h2 id="slice-方法"><a href="#slice-方法" class="headerlink" title="slice() 方法"></a>slice() 方法</h2><p>功能：返回一个数组的指定元素（一个或多个）。<br>slice() 方法有两个参数（可以省略一个）：</p>
+<ul>
+<li>第一个参数：表示<code>开始</code>截取的索引值，截取的元素包含该索引；</li>
+<li>第二个参数：表示<code>结束</code>截取的索引值，截取的元素不包含该索引；当省略该参数时，表示从开始的索引截取到改数组的最后一个元素。</li>
+</ul>
+<p>参数值可以是负数，表示倒数第几个元素。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,78,9];</span><br><span class="line">newArr1 = arr.slice(0,2);	//获取索引0到2的元素，不包括索引为2的元素</span><br><span class="line">console.log(newArr1);</span><br><span class="line">newArr2 = arr.slice(1);		//获取索引大于等于1的元素</span><br><span class="line">console.log(newArr2);</span><br><span class="line">newArr3 = arr.slice(-3,-1);	//获取倒数第3到倒数第1的索引的元素，不包括倒数第1的元素</span><br><span class="line">console.log(newArr3);</span><br><span class="line">console.log(arr);		//原数组不变</span><br></pre></td></tr></table></figure></div>
+<h2 id="splice-方法"><a href="#splice-方法" class="headerlink" title="splice() 方法"></a>splice() 方法</h2><p>功能：从数组中删除元素，并返回删除的元素，同时可以添加元素。<br>splice() 方法参数：</p>
+<ul>
+<li>第一个参数：表示开始删除元素或添加元素的<code>索引</code>位置。</li>
+<li>第二个参数：表示要删除的元素的<code>数量</code>。</li>
+<li>第三个参数及以上：表示要<code>添加的元素</code>，<code>一次性</code>添加到第一个参数的位置，后面的元素往后移。</li>
+</ul>
+<p>表示只删除元素不添加（省略第三个参数），如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">var result = arr.splice(1,2);		//从索引1开始，删除2个元素</span><br><span class="line">console.log(arr);			//删除元素后的数组</span><br><span class="line">console.log(result);			//删除的元素</span><br></pre></td></tr></table></figure></div>
+<p>表示只添加不删除（删除的元素数量为0），如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">var result = arr.splice(2,0,&quot;lin&quot;,&quot;hong&quot;);	//从索引为2的位置开始，删除0个元素（不删除），并在索引2的位置开始添加&quot;lin&quot;、&quot;hong&quot;2个元素</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(result);	//不删除，返回空字符串</span><br></pre></td></tr></table></figure></div>
+<h2 id="concat-方法"><a href="#concat-方法" class="headerlink" title="concat() 方法"></a>concat() 方法</h2><p>功能：将数组与一个或多个数组或元素连接起来，返回一个新的数组。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [123,456,789];</span><br><span class="line">var arr2 = [&quot;lin&quot;,&quot;hong&quot;];</span><br><span class="line">var arr3 = [true,145,[147,[258,369]]];</span><br><span class="line">var result = arr1.concat(arr2,arr3,&quot;lian&quot;);</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="join-方法"><a href="#join-方法" class="headerlink" title="join() 方法"></a>join() 方法</h2><p>功能：将数组转换成<code>字符串</code>并返回。<br>参数：数据类型：字符串；将该字符串作为分隔符，分隔开元素。<br>当省略参数时，默认分隔符为逗号；当不需要分隔符时，可以以<code>空串</code>作为分隔符。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">var result = arr.join(&quot;-&quot;);	//以-为分隔符</span><br><span class="line">console.log(result);</span><br><span class="line">result = arr.join(&quot;&quot;);		//不需要分隔符</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="reverse-方法"><a href="#reverse-方法" class="headerlink" title="reverse() 方法"></a>reverse() 方法</h2><p>功能：将数组倒序。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">arr.reverse();		//倒序</span><br><span class="line">console.log(arr);	//789，456，123</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort() 方法"></a>sort() 方法</h2><p>功能：将数组排序。<br>参数：传入一个回调函数，回调函数中传入两个元素，根据返回值指定排序规则。<br>浏览器会使用数组中的元素去调用回调函数：</p>
+<ul>
+<li>如果返回大于 0 的值，则两个元素交换位置；</li>
+<li>如果返回小于或等于 0 的值，则两个元素不交换位置。</li>
+</ul>
+<p>如果没有参数，默认按照 Unicode 编码进行排序。纯数字元素也是按照编码排序，并不是按照数值大小排序。<br>默认情况下：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [456,147,78,123];</span><br><span class="line">arr.sort();</span><br><span class="line">console.log(arr);	//123，147，456，78</span><br></pre></td></tr></table></figure></div></p>
+<p>传入回调函数，指定升序排序：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [456,147,78,123];</span><br><span class="line">arr.sort(function(a,b)&#123;</span><br><span class="line">	if(a&gt;b)&#123;</span><br><span class="line">		return 1;     </span><br><span class="line">	&#125;else if(a&lt;b)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(arr);	//78，123，147，456</span><br></pre></td></tr></table></figure></div>
+<p>以上代码可以简化为：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [456,147,78,123];</span><br><span class="line">arr.sort(function(a,b)&#123;</span><br><span class="line">	return a-b;   //当a&gt;b时，返回值&gt;0；当a&lt;b时，返回值&lt;0；当a==b时，返回值等于0</span><br><span class="line">&#125;);</span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure></div>
+<p>记忆：<code>a-b ：升序；b-a：降序</code>。</p>
 
       
     </div>
@@ -702,21 +507,21 @@
 </article>
 
   
-    <article id="post-JavaScript的数据类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的数组" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
+      <a class="article-title" href="/2019/10/14/JavaScript的数组/">JavaScript的数组</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/03/JavaScript的数据类型/" class="article-date">
-  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
+    <a href="/2019/10/14/JavaScript的数组/" class="article-date">
+  <time datetime="2019-10-14T12:24:54.000Z" itemprop="datePublished">2019-10-14</time>
 </a>
     
   <div class="article-category">
@@ -733,77 +538,35 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
-<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
-<li>Number 类型–数字类型：包括整数和浮点数</li>
-<li>String 类型–字符串类型</li>
-<li>Boolean 类型–布尔类型</li>
-<li>null –空值</li>
-<li>undefined –未定义</li>
-<li>Object 类型–对象类型：是一些属性的集合<br>其中，6个数据类型分成两类：</li>
-</ol>
-<ul>
-<li>一类是基本数据类型，包括Number、String、Boolean、null、undefined。</li>
-<li>一类是引用数据类型，只包括Object。</li>
-</ul>
-<h2 id="基本数据类型与引用数据类型的区别"><a href="#基本数据类型与引用数据类型的区别" class="headerlink" title="基本数据类型与引用数据类型的区别"></a>基本数据类型与引用数据类型的区别</h2><p>JavaScript 的内存分成两类，一类叫做栈内存，一类叫做堆内存。</p>
+        <h1 id="JavaScript-的数组"><a href="#JavaScript-的数组" class="headerlink" title="JavaScript 的数组"></a>JavaScript 的数组</h1><h2 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h2><p>数组也是一个对象，不同与其他对象的是：对象是使用字符串作为属性名来操作数据的，数组是使用数字作为索引来操作元素的。<br>索引值是从 0 开始的整数。<br>优势：数组比普通对象的性能要好、效率高，推荐使用数组来存储一些数据。</p>
+<h2 id="创建数组的方法"><a href="#创建数组的方法" class="headerlink" title="创建数组的方法"></a>创建数组的方法</h2><h3 id="使用构造函数创建"><a href="#使用构造函数创建" class="headerlink" title="使用构造函数创建"></a>使用构造函数创建</h3><p>语法：<code>var 数组名 = new Array(元素值1,元素值2,...,元素值n);</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var nullArr = new Array();	//创建一个空数组</span><br><span class="line">var arr = new Array(10,23,34);	//创建数组并添加元素</span><br></pre></td></tr></table></figure></div></p>
+<p>当只传入一个参数时，并不是指创建一个只有一个元素（值为参数）的数组，而是指创建一个长度为参数值的数组。不推荐使用该方式指定数组长度，因为没有实用的意义，JavaScript 中的数组长度是可以自由伸缩的。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array(10);	//创建一个长度为10的数组</span><br><span class="line">console.log(arr.length);</span><br></pre></td></tr></table></figure></div>
+<p>数组的元素可以是任意类型的数据，可以是数字、布尔、字符串、unll 、undefined、对象（包括数组、函数）。当数组的元素全是数组时，这是一个多维数组。</p>
+<h3 id="使用直接量创建"><a href="#使用直接量创建" class="headerlink" title="使用直接量创建"></a>使用直接量创建</h3><p>语法：<code>var 数组名 = [元素值1,元素值2,...,元素值n];</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nullArr = [];		//创建空数组</span><br><span class="line">var arr = [1,2,3,4,5,6];	//创建数组并添加元素</span><br><span class="line">var arrM = [[1,2,3],[4,5,6],[7,8,9]];		//创建一个多维数组</span><br><span class="line">console.log(arrM[1]);</span><br><span class="line">console.log(arrM[0][1]);</span><br></pre></td></tr></table></figure></div>
+<h2 id="向数组中添加元素"><a href="#向数组中添加元素" class="headerlink" title="向数组中添加元素"></a>向数组中添加元素</h2><h3 id="使用索引添加"><a href="#使用索引添加" class="headerlink" title="使用索引添加"></a>使用索引添加</h3><p>语法：<code>数组名[索引] = 元素值</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[0] = 12;</span><br><span class="line">arr[1] = 23;</span><br></pre></td></tr></table></figure></div>
+<p>注意：数组也是一个对象，所以除了可以使用索引来添加元素，也可以像对象一样使用字符串作为属性名来添加元素，不推荐这种方式，降低了数组的效率。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.name = &quot;lin&quot;;</span><br><span class="line">console.log(arr.name);</span><br></pre></td></tr></table></figure></div></p>
+<h4 id="每次都向数组的最后一个位置添加元素"><a href="#每次都向数组的最后一个位置添加元素" class="headerlink" title="每次都向数组的最后一个位置添加元素"></a>每次都向数组的最后一个位置添加元素</h4><p>语法：<code>数组名[数组名.length] = 元素值</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[arr.length] = 23;</span><br></pre></td></tr></table></figure></div>
+<h2 id="获取数组中的元素值"><a href="#获取数组中的元素值" class="headerlink" title="获取数组中的元素值"></a>获取数组中的元素值</h2><p>语法：<code>数组名[索引]</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(arr[1]);</span><br></pre></td></tr></table></figure></div>
+<p>规则：</p>
 <ol>
-<li>栈内存是保存的是一对对键值对。键是变量命，值是变量的属性值。</li>
-<li>堆内存是一块内存空间，在该空间中存储数据。该空间有一个起始的内存空间地址。</li>
+<li>如果读取不存在元素值，不会出错，返回值为 undefined。</li>
 </ol>
-<ul>
-<li>当创建一个<code>基本的数据类型变量</code>时，直接在栈内存中写入键（变量名）与值（属性值）。当把这个变量赋值给另一个变量时，是再写入一个键值对，只是两个变量的值是一样的，除此之外，没有其他的联系了。两者是独立的个体。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 123;</span><br><span class="line">var b = a;</span><br><span class="line">b = 456;</span><br><span class="line">console.log(a);		//输出 “123”，b的改变不会影响a的值</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>当创建一个<code>引用数据类型变量时（即对象）</code>，首先在堆内存中划分出一块内存空间，用来储蓄这个对象的全部属性。然后在栈内存中写入一个键值对，键是对象名，值是堆内存空间的内存地址，这个对象指向这块内存空间。当使用到这个对象时，到这块内存空间中寻找属性。当把这个对象赋值给另一个对象时，不再在堆内存中划分空间了，只是在栈内存中，写入一个键值对，键是另一个对象名，值仍是这块堆内存空间的内存地址。两个对象指向了同一块内存空间。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj1 = new Object();</span><br><span class="line">var obj2 = obj1;</span><br><span class="line">obj1.name = &quot;lin&quot;;</span><br><span class="line">obj2.name = &quot;linhong&quot;</span><br><span class="line">console.log(obj1.name);		//输出 “linhong”，obj1 和 obj2 指向同一块内存</span><br></pre></td></tr></table></figure></div>
-<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
-<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
-<li>字符串 转换为 数字</li>
+<h2 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h2><h2 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(arr.length);</span><br></pre></td></tr></table></figure></div>
+<p>规则：</p>
+<ol>
+<li>对于索引连续的数组（稠密数组），使用 length 返回的值就是该数组的元素的个数；对于索引不连续的数组（稀疏数组），使用 length 返回的值为该数组最大的索引值加1。</li>
 </ol>
-<ul>
-<li>如果字符串为纯数字字符，直接转换为数字</li>
-<li>如果字符串含有非数字字符，转换为NaN</li>
-<li>如果字符串是一个空串，或全是空格的字符串，转换为NaN</li>
-</ul>
-<ol start="2">
-<li>布尔 转换为 数字 </li>
+<h2 id="设置数组的长度"><a href="#设置数组的长度" class="headerlink" title="设置数组的长度"></a>设置数组的长度</h2><p>语法：<code>数组名.length = 某个整数</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.length = 5;</span><br></pre></td></tr></table></figure></div></p>
+<p>规则：</p>
+<ol>
+<li>如果修改的 length 值<code>大于</code>原数组的长度，则索引值大于 length-1 的元素均为空；如果修改的 length 值<code>小于</code>原数组的长度，则索引值大于 length-1 的元素均被删除。</li>
 </ol>
-<ul>
-<li>true 转换为 1</li>
-<li>false 转换为 0 </li>
-</ul>
-<ol start="3">
-<li>null 转换为 0</li>
-<li>undefined 转换为 NaN</li>
-</ol>
-<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
-<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
-<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
-<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
-<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h5 id="以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"><a href="#以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。" class="headerlink" title="以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"></a>以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。</h5>
+
       
     </div>
     
@@ -813,29 +576,29 @@
 </article>
 
   
-    <article id="post-mybatis中动态sql标签的学习" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的原型" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/15/mybatis中动态sql标签的学习/">mybatis 中动态 sql 标签的学习</a>
+      <a class="article-title" href="/2019/10/09/JavaScript的原型/">JavaScript的原型对象</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/09/15/mybatis中动态sql标签的学习/" class="article-date">
-  <time datetime="2019-09-15T08:26:38.000Z" itemprop="datePublished">2019-09-15</time>
+    <a href="/2019/10/09/JavaScript的原型/" class="article-date">
+  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a>
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
   </div>
 
     
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
 
   </div>
   
@@ -844,19 +607,103 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="mybatis-中动态-sql-标签的学习"><a href="#mybatis-中动态-sql-标签的学习" class="headerlink" title="mybatis 中动态 sql 标签的学习"></a>mybatis 中动态 sql 标签的学习</h1><p>在mybatis中，进行数据库操作时，不仅仅根据单一的标准来进行的增删改查，有时候，可能需要根据一个复杂的条件来操作，比如：根据一个用户的部分信息，查找一个用户；根据一个用户的id集合，查找该集合中的所有用户。这时候，可以使用一些动态的 sql 标签来辅助操作数据库，可以更加灵活、方便。</p>
-<h2 id="if-标签"><a href="#if-标签" class="headerlink" title="if 标签"></a>if 标签</h2><p>假设一个用户类的属性有 username，id，sex，address 四个属性，我们需要根据其中某些属性来查找该用户的信息，比如：根据单一的属性 username，id ，sex ，address，又或者根据组合属性 username 和 id，username 和 address等等，使得 sql 语句用起来特别不方便，还要书写多条语句。这时候，if 标签就可以排上用场了。如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据用户部分属性查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;findUserByCondition&quot; parameterType=&quot;***.User&quot; resultType=&quot;***.User&quot;&gt;</span><br><span class="line">        select * from user where 1=1</span><br><span class="line">        &lt;if test=&quot;username!=null&quot;&gt;    添加查找的条件</span><br><span class="line">            and username=#&#123;username&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;id!=null&quot;&gt;</span><br><span class="line">            and id=#&#123;id&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;sex!=null&quot;&gt;</span><br><span class="line">            and sex=#&#123;sex&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;address!=null&quot;&gt;</span><br><span class="line">            and address=#&#123;address&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div>
-<p>select标签中的属性：<br>id：调用 sql 语句的函数<br>parameterType：传进来的参数类型，上例是 user<br>resultType：结果集的返回类型<br>这里不作详细解释。主要讲解 sql 标签。</p>
-<p>if 标签中的 test 属性表示判断，首先判断传进来的用户存不存在 username 属性，存在则判断是否匹配，不存在则判断下一个属性，依次类推。</p>
-<h2 id="where-标签"><a href="#where-标签" class="headerlink" title="where 标签"></a>where 标签</h2><p>where 标签可以表示 sql 语句中的 where 的条件限制，将条件限制语句包裹在 where 标签中，使得代码更整洁、易懂。如，上例也可以写成：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据用户部分属性查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;findUserByCondition&quot; parameterType=&quot;***.User&quot; resultType=&quot;***.User&quot;&gt;</span><br><span class="line">        select * from user</span><br><span class="line">	    &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;username!=null&quot;&gt;</span><br><span class="line">                username=#&#123;username&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;if test=&quot;id!=null&quot;&gt;</span><br><span class="line">                and id=#&#123;id&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;if test=&quot;sex!=null&quot;&gt;</span><br><span class="line">                and sex=#&#123;sex&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">            &lt;if test=&quot;address!=null&quot;&gt;</span><br><span class="line">                address=#&#123;address&#125;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div></p>
-<h2 id="foreach-标签"><a href="#foreach-标签" class="headerlink" title="foreach 标签"></a>foreach 标签</h2><p>当需要根据一个用户的 id 集合来查找用户时，foreach 标签可以遍历每一个 id，再根据相应的 sql 语句来查询。如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据一个的ids集合查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;***&quot; parameterType=&quot;***&quot; resultType=&quot;***&quot;&gt;</span><br><span class="line">        select * from user</span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;ids!=null&quot;&gt;</span><br><span class="line">                &lt;foreach collection=&quot;ids&quot; open=&quot;and id in (&quot; close=&quot;)&quot; item=&quot;uid&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">                    #&#123;uid&#125;</span><br><span class="line">                &lt;/foreach&gt;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div>
-<p>foreach 标签中的 collection 属性表示传入的集合参数，open 和 close 表示的语句为 “and id in (ids)”，and 表示一个逻辑与的条件判断，id in (ids) 表示 ids 集合中的每一个 id。item 表示从 ids 集合中取出来的每一个元素的名称为 uid，separator 表示分隔符。</p>
-<h2 id="sql-标签"><a href="#sql-标签" class="headerlink" title="sql 标签"></a>sql 标签</h2><p>在 sql 的操作中，我们发现有一些 sql 语句经常重复着写，这时候，可以采用 sql 标签将该语句包裹成为一个模板，需要使用时，直接用 include 标签引入即可。<br>配置模板：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;sql id=&quot;defaultSelect&quot;&gt;</span><br><span class="line">    select * from user</span><br><span class="line">&lt;/sql&gt;</span><br></pre></td></tr></table></figure></div></p>
-<p>将 select * from user 包裹起来，也可以包裹多条 sql 语句。<br>使用模板：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;include refid=&quot;defaultSelect&quot;&gt;&lt;/include&gt;</span><br></pre></td></tr></table></figure></div></p>
-<p>注意模板的结尾有没有分号了。如果有分号，在与其他 sql 语句拼接时，会出现错误。在数据库的使用中，sql 语句没有分号结尾，并不会影响。<br>如，上例中采用模板也可以写成：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--根据一个的ids集合查询用户--&gt;</span><br><span class="line">    &lt;select id=&quot;***&quot; parameterType=&quot;***&quot; resultType=&quot;***&quot;&gt;</span><br><span class="line">        &lt;include refid=&quot;defaultSelect&quot;&gt;&lt;/include&gt;</span><br><span class="line">        &lt;where&gt;</span><br><span class="line">            &lt;if test=&quot;ids!=null&quot;&gt;</span><br><span class="line">                &lt;foreach collection=&quot;ids&quot; open=&quot;and id in (&quot; close=&quot;)&quot; item=&quot;uid&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">                    #&#123;uid&#125;</span><br><span class="line">                &lt;/foreach&gt;</span><br><span class="line">            &lt;/if&gt;</span><br><span class="line">        &lt;/where&gt;</span><br><span class="line">    &lt;/select&gt;</span><br></pre></td></tr></table></figure></div></p>
+        <h1 id="JavaScript的原型对象"><a href="#JavaScript的原型对象" class="headerlink" title="JavaScript的原型对象"></a>JavaScript的原型对象</h1><p>当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能就需要一个只能被同一个类创建的实例对象才能够访问到的公共空间了。</p>
+<h2 id="原型对象的定义"><a href="#原型对象的定义" class="headerlink" title="原型对象的定义"></a>原型对象的定义</h2><p>每当我们创建一个函数时，浏览器解析器都会向函数中添加一个属性 prototype，这个属性指向一个对象，这个对象就是原型对象。</p>
+<ul>
+<li>当这个函数是一个普通函数时，属性 prototype 没有任何作用；</li>
+<li>当这个函数是一个构造函数时，这个构造函数所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象，可以通过<code>__proto__</code>来访问该属性。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function MyClass()&#123;</span><br><span class="line">&#125;</span><br><span class="line">console.log(MyClass.prototype);		//函数的 prototype 属性</span><br><span class="line">var mc = new MyClass();</span><br><span class="line">console.log(mc.__proto__);		//对象的 __proto__ 属性</span><br></pre></td></tr></table></figure></div>
+<p>上面代码会输出两个 Object 对象，都指这个构造函数的原型对象。</p>
+<ul>
+<li>利用构造函数创建的所有对象的<code>__proto__</code>属性指向的原型对象和这个构造函数的 prototype 属性指向的原型对象是同一个对象，所以他们是相等的。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function MyClass()&#123;</span><br><span class="line">&#125;</span><br><span class="line">var mc1 = new MyClass();</span><br><span class="line">var mc2 = new MyClass();</span><br><span class="line">console.log(MyClass.prototype == mc1.__proto__);	// true</span><br><span class="line">console.log(mc1.__proto__ == mc2.__proto__);		// true</span><br></pre></td></tr></table></figure></div>
+<h2 id="原型对象的作用"><a href="#原型对象的作用" class="headerlink" title="原型对象的作用"></a>原型对象的作用</h2><p>原型对象相当于一个公共区域，所有同一个类的实例都可以访问到该类的原型对象。可以将实例中的共有的内容，统一设置在原型对象中，以供所有实例访问。<br>语法1：<code>构造函数名.prototype.属性名 = 属性值；</code><br>语法2：<code>构造函数创建的实例.__proto__.属性名 = 属性值；</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//往 MyClass 的原型对象中添加属性 name</span><br><span class="line">MyClass.prototype.name = &quot;lin&quot;;</span><br><span class="line">//访问实例的原型对象的属性 name</span><br><span class="line">console.log(mc1.name);		//输出 lin</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="原型对象的使用规则"><a href="#原型对象的使用规则" class="headerlink" title="原型对象的使用规则"></a>原型对象的使用规则</h2><ol>
+<li>当访问对象的一个属性或方法时，首先会在该对象自身中寻找，如果存在，直接使用；如果不存在，则去原型对象中寻找。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MyClass.prototype.name = &quot;lin&quot;;</span><br><span class="line">mc1.name = &quot;haha&quot;;</span><br><span class="line">//访问实例的原型对象的属性</span><br><span class="line">console.log(mc1.name);</span><br></pre></td></tr></table></figure></div>
+<p>mc1 中的存在 name 属性，直接访问自身的属性 name。不再去原型对象中寻找。</p>
+<ol start="2">
+<li>使用 <code>in 运算符</code>检查对象中是否含有某属性时，如果对象自身中没有，但是原型对象中有，也会返回 true。</li>
+<li>使用<code>对象的 hasOwnProperty() 方法</code>来检查对象是否含有某属性，如果对象自身中没有，就算原型对象中有，也会返回 false。</li>
+<li>对象的原型对象也是一个对象，它也有原型对象。所以，上面第1条规则应该改为：当访问对象的一个属性或方法时，首先会在<code>（1）</code>该对象自身中寻找，如果存在，直接使用，不再寻找；如果不存在，则去<code>(2)</code>原型对象中寻找，如果原型对象存在，直接使用，不再寻找；如果原型对象不存在，则去<code>（3）</code>原型对象的原型对象中寻找，以此类推，直到找到<code>（4）</code> Object 对象的原型。Object 对象的原型没有原型对象了，所以如果在 Object 对象的原型中仍然没有找到，则返回 undefined 。</li>
+</ol>
+<p>JavaScript的原型对象</p>
+<p>当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能就需要一个只能被同一个类创建的实例对象才能够访问到的公共空间了。<br>原型对象的定义</p>
+<p>每当我们创建一个函数时，浏览器解析器都会向函数中添加一个属性 prototype，这个属性指向一个对象，这个对象就是原型对象。</p>
+<pre><code>当这个函数是一个普通函数时，属性 prototype 没有任何作用；
 
+当这个函数是一个构造函数时，这个构造函数所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象，可以通过__proto__来访问该属性。
+</code></pre><p>function MyClass(){<br>}<br>console.log(MyClass.prototype);     //函数的 prototype 属性<br>var mc = new MyClass();<br>console.log(mc.<strong>proto</strong>);      //对象的 <strong>proto</strong> 属性</p>
+<p>上面代码会输出两个 Object 对象，都指这个构造函数的原型对象。</p>
+<pre><code>利用构造函数创建的所有对象的__proto__属性指向的原型对象和这个构造函数的 prototype 属性指向的原型对象是同一个对象，所以他们是相等的。
+</code></pre><p>function MyClass(){<br>}<br>var mc1 = new MyClass();<br>var mc2 = new MyClass();<br>console.log(MyClass.prototype == mc1.<strong>proto</strong>);    // true<br>console.log(mc1.<strong>proto</strong> == mc2.<strong>proto</strong>);        // true</p>
+<p>原型对象的作用</p>
+<p>原型对象相当于一个公共区域，所有同一个类的实例都可以访问到该类的原型对象。可以将实例中的共有的内容，统一设置在原型对象中，以供所有实例访问。<br>语法1：构造函数名.prototype.属性名 = 属性值；<br>语法2：构造函数创建的实例.<strong>proto</strong>.属性名 = 属性值；</p>
+<p>//往 MyClass 的原型对象中添加属性 name<br>MyClass.prototype.name = “lin”;<br>//访问实例的原型对象的属性 name<br>console.log(mc1.name);      //输出 lin</p>
+<p>原型对象的使用规则</p>
+<pre><code>当访问对象的一个属性或方法时，首先会在该对象自身中寻找，如果存在，直接使用；如果不存在，则去原型对象中寻找。
+</code></pre><p>MyClass.prototype.name = “lin”;<br>mc1.name = “haha”;<br>//访问实例的原型对象的属性<br>console.log(mc1.name);</p>
+<p>mc1 中的存在 name 属性，直接访问自身的属性 name。不再去原型对象中寻找。</p>
+<pre><code>使用 in 运算符检查对象中是否含有某属性时，如果对象自身中没有，但是原型对象中有，也会返回 true。
+
+使用对象的 hasOwnProperty() 方法来检查对象是否含有某属性，如果对象自身中没有，就算原型对象中有，也会返回 false。
+
+对象的原型对象也是一个对象，它也有原型对象。所以，上面第1条规则应该改为：当访问对象的一个属性或方法时，首先会在（1）该对象自身中寻找，如果存在，直接使用，不再寻找；如果不存在，则去(2)原型对象中寻找，如果原型对象存在，直接使用，不再寻找；如果原型对象不存在，则去（3）原型对象的原型对象中寻找，以此类推，直到找到（4） Object 对象的原型。Object 对象的原型没有原型对象了，所以如果在 Object 对象的原型中仍然没有找到，则返回 undefined 。
+</code></pre><p>Link with Evernote<br>CURRENT DOCUMENT<br>Restore to last sync<br>Delete document<br>Export as…<br>Preview document<br>Share link<br>SYSTEM</p>
+<pre><code>Settings
+Get Desktop client
+Get Chrome app
+Welcome document
+Quick help
+About
+</code></pre><p>JavaScript的原型对象<br>JavaScript的作用域<br>JavaScript对象的方法<br>JavaScript 的对象<br>JavaScript 的函数</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的垃圾回收" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/09/JavaScript的垃圾回收/">JavaScript的垃圾回收（GC）</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/09/JavaScript的垃圾回收/" class="article-date">
+  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的垃圾回收（GC）"><a href="#JavaScript的垃圾回收（GC）" class="headerlink" title="JavaScript的垃圾回收（GC）"></a>JavaScript的垃圾回收（GC）</h1><h2 id="垃圾的定义"><a href="#垃圾的定义" class="headerlink" title="垃圾的定义"></a>垃圾的定义</h2><p>当一个对象没有任何的变量或属性对它进行引用（即没有变量或属性指向这个对象）了，程序就无法在操纵这个对象了，这个对象就成了垃圾。</p>
+<h2 id="垃圾的危害"><a href="#垃圾的危害" class="headerlink" title="垃圾的危害"></a>垃圾的危害</h2><p>垃圾会占用大量的内存空间，导致程序运行缓慢，所以必须回收这些垃圾。</p>
+<h5 id="JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。"><a href="#JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。" class="headerlink" title="JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。"></a>JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。</h5>
       
     </div>
     
@@ -870,7 +717,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
   </nav>
 
 
@@ -942,19 +789,19 @@
           </li>
         
           <li>
-            <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
+            <a href="/2019/10/18/JavaScript的String的方法/">JavaScript的String的方法</a>
           </li>
         
           <li>
-            <a href="/2019/10/08/JavaScript对象的方法/">JavaScript对象的方法</a>
+            <a href="/2019/10/17/JavaScript的包装类/">JavaScript的包装类</a>
           </li>
         
           <li>
-            <a href="/2019/10/08/JavaScript的作用域/">JavaScript的作用域</a>
+            <a href="/2019/10/17/JavaScript的Date对象/">JavaScript的Date对象</a>
           </li>
         
           <li>
-            <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
+            <a href="/2019/10/17/JavaScript的Math工具类/">JavaScript的Math对象</a>
           </li>
         
       </ul>

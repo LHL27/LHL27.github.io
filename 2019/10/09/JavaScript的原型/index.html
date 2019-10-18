@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript的原型对象 | ľľ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="JavaScript的原型对象当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能">
+<meta name="keywords" content="JavaScript的基础学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的原型对象">
+<meta property="og:url" content="https://LHL27.github.io/2019/10/09/JavaScript的原型/index.html">
+<meta property="og:site_name" content="ľľ">
+<meta property="og:description" content="JavaScript的原型对象当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-18T14:03:38.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript的原型对象">
+<meta name="twitter:description" content="JavaScript的原型对象当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能">
+  
+    <link rel="alternate" href="/atom.xml" title="ľľ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpeg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="饮马江湖">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>归档</a>
+      
+        <a class="nav-item" href="/" title>本帅</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-JavaScript的原型" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript的原型对象
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/09/JavaScript的原型/" class="article-date">
+  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的原型对象"><a href="#JavaScript的原型对象" class="headerlink" title="JavaScript的原型对象"></a>JavaScript的原型对象</h1><p>当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能就需要一个只能被同一个类创建的实例对象才能够访问到的公共空间了。</p>
+<h2 id="原型对象的定义"><a href="#原型对象的定义" class="headerlink" title="原型对象的定义"></a>原型对象的定义</h2><p>每当我们创建一个函数时，浏览器解析器都会向函数中添加一个属性 prototype，这个属性指向一个对象，这个对象就是原型对象。</p>
+<ul>
+<li>当这个函数是一个普通函数时，属性 prototype 没有任何作用；</li>
+<li>当这个函数是一个构造函数时，这个构造函数所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象，可以通过<code>__proto__</code>来访问该属性。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function MyClass()&#123;</span><br><span class="line">&#125;</span><br><span class="line">console.log(MyClass.prototype);		//函数的 prototype 属性</span><br><span class="line">var mc = new MyClass();</span><br><span class="line">console.log(mc.__proto__);		//对象的 __proto__ 属性</span><br></pre></td></tr></table></figure></div>
+<p>上面代码会输出两个 Object 对象，都指这个构造函数的原型对象。</p>
+<ul>
+<li>利用构造函数创建的所有对象的<code>__proto__</code>属性指向的原型对象和这个构造函数的 prototype 属性指向的原型对象是同一个对象，所以他们是相等的。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function MyClass()&#123;</span><br><span class="line">&#125;</span><br><span class="line">var mc1 = new MyClass();</span><br><span class="line">var mc2 = new MyClass();</span><br><span class="line">console.log(MyClass.prototype == mc1.__proto__);	// true</span><br><span class="line">console.log(mc1.__proto__ == mc2.__proto__);		// true</span><br></pre></td></tr></table></figure></div>
+<h2 id="原型对象的作用"><a href="#原型对象的作用" class="headerlink" title="原型对象的作用"></a>原型对象的作用</h2><p>原型对象相当于一个公共区域，所有同一个类的实例都可以访问到该类的原型对象。可以将实例中的共有的内容，统一设置在原型对象中，以供所有实例访问。<br>语法1：<code>构造函数名.prototype.属性名 = 属性值；</code><br>语法2：<code>构造函数创建的实例.__proto__.属性名 = 属性值；</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//往 MyClass 的原型对象中添加属性 name</span><br><span class="line">MyClass.prototype.name = &quot;lin&quot;;</span><br><span class="line">//访问实例的原型对象的属性 name</span><br><span class="line">console.log(mc1.name);		//输出 lin</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="原型对象的使用规则"><a href="#原型对象的使用规则" class="headerlink" title="原型对象的使用规则"></a>原型对象的使用规则</h2><ol>
+<li>当访问对象的一个属性或方法时，首先会在该对象自身中寻找，如果存在，直接使用；如果不存在，则去原型对象中寻找。</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MyClass.prototype.name = &quot;lin&quot;;</span><br><span class="line">mc1.name = &quot;haha&quot;;</span><br><span class="line">//访问实例的原型对象的属性</span><br><span class="line">console.log(mc1.name);</span><br></pre></td></tr></table></figure></div>
+<p>mc1 中的存在 name 属性，直接访问自身的属性 name。不再去原型对象中寻找。</p>
+<ol start="2">
+<li>使用 <code>in 运算符</code>检查对象中是否含有某属性时，如果对象自身中没有，但是原型对象中有，也会返回 true。</li>
+<li>使用<code>对象的 hasOwnProperty() 方法</code>来检查对象是否含有某属性，如果对象自身中没有，就算原型对象中有，也会返回 false。</li>
+<li>对象的原型对象也是一个对象，它也有原型对象。所以，上面第1条规则应该改为：当访问对象的一个属性或方法时，首先会在<code>（1）</code>该对象自身中寻找，如果存在，直接使用，不再寻找；如果不存在，则去<code>(2)</code>原型对象中寻找，如果原型对象存在，直接使用，不再寻找；如果原型对象不存在，则去<code>（3）</code>原型对象的原型对象中寻找，以此类推，直到找到<code>（4）</code> Object 对象的原型。Object 对象的原型没有原型对象了，所以如果在 Object 对象的原型中仍然没有找到，则返回 undefined 。</li>
+</ol>
+<p>JavaScript的原型对象</p>
+<p>当我们使用构造函数创建实例对象时，每创建一个对象，对象中的属性和方法都会创建一份。当对象很多时，就会消耗大量的内存，影响网页的性能。其实，实例对象中有的属性和方法是相同的，我们能不能只创建一份就行了呢？当然，我们可能就会想到在全局作用域中声明变量和函数来保存对象的属性和方法了。但是，全局作用域不安全（对象中的属性和方法容易被访问或修改）和容易受到污染。这时候，我们可能就需要一个只能被同一个类创建的实例对象才能够访问到的公共空间了。<br>原型对象的定义</p>
+<p>每当我们创建一个函数时，浏览器解析器都会向函数中添加一个属性 prototype，这个属性指向一个对象，这个对象就是原型对象。</p>
+<pre><code>当这个函数是一个普通函数时，属性 prototype 没有任何作用；
+
+当这个函数是一个构造函数时，这个构造函数所创建的对象中都会有一个隐含的属性，指向该构造函数的原型对象，可以通过__proto__来访问该属性。
+</code></pre><p>function MyClass(){<br>}<br>console.log(MyClass.prototype);     //函数的 prototype 属性<br>var mc = new MyClass();<br>console.log(mc.<strong>proto</strong>);      //对象的 <strong>proto</strong> 属性</p>
+<p>上面代码会输出两个 Object 对象，都指这个构造函数的原型对象。</p>
+<pre><code>利用构造函数创建的所有对象的__proto__属性指向的原型对象和这个构造函数的 prototype 属性指向的原型对象是同一个对象，所以他们是相等的。
+</code></pre><p>function MyClass(){<br>}<br>var mc1 = new MyClass();<br>var mc2 = new MyClass();<br>console.log(MyClass.prototype == mc1.<strong>proto</strong>);    // true<br>console.log(mc1.<strong>proto</strong> == mc2.<strong>proto</strong>);        // true</p>
+<p>原型对象的作用</p>
+<p>原型对象相当于一个公共区域，所有同一个类的实例都可以访问到该类的原型对象。可以将实例中的共有的内容，统一设置在原型对象中，以供所有实例访问。<br>语法1：构造函数名.prototype.属性名 = 属性值；<br>语法2：构造函数创建的实例.<strong>proto</strong>.属性名 = 属性值；</p>
+<p>//往 MyClass 的原型对象中添加属性 name<br>MyClass.prototype.name = “lin”;<br>//访问实例的原型对象的属性 name<br>console.log(mc1.name);      //输出 lin</p>
+<p>原型对象的使用规则</p>
+<pre><code>当访问对象的一个属性或方法时，首先会在该对象自身中寻找，如果存在，直接使用；如果不存在，则去原型对象中寻找。
+</code></pre><p>MyClass.prototype.name = “lin”;<br>mc1.name = “haha”;<br>//访问实例的原型对象的属性<br>console.log(mc1.name);</p>
+<p>mc1 中的存在 name 属性，直接访问自身的属性 name。不再去原型对象中寻找。</p>
+<pre><code>使用 in 运算符检查对象中是否含有某属性时，如果对象自身中没有，但是原型对象中有，也会返回 true。
+
+使用对象的 hasOwnProperty() 方法来检查对象是否含有某属性，如果对象自身中没有，就算原型对象中有，也会返回 false。
+
+对象的原型对象也是一个对象，它也有原型对象。所以，上面第1条规则应该改为：当访问对象的一个属性或方法时，首先会在（1）该对象自身中寻找，如果存在，直接使用，不再寻找；如果不存在，则去(2)原型对象中寻找，如果原型对象存在，直接使用，不再寻找；如果原型对象不存在，则去（3）原型对象的原型对象中寻找，以此类推，直到找到（4） Object 对象的原型。Object 对象的原型没有原型对象了，所以如果在 Object 对象的原型中仍然没有找到，则返回 undefined 。
+</code></pre><p>Link with Evernote<br>CURRENT DOCUMENT<br>Restore to last sync<br>Delete document<br>Export as…<br>Preview document<br>Share link<br>SYSTEM</p>
+<pre><code>Settings
+Get Desktop client
+Get Chrome app
+Welcome document
+Quick help
+About
+</code></pre><p>JavaScript的原型对象<br>JavaScript的作用域<br>JavaScript对象的方法<br>JavaScript 的对象<br>JavaScript 的函数</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/14/JavaScript的数组/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            JavaScript的数组
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/10/09/JavaScript的垃圾回收/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">JavaScript的垃圾回收（GC）</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="木木">
+    <h3 class="avatar-name">
+      
+        木木
+      
+    </h3>
+    <p class="avatar-slogan">
+      求知若渴，大智若愚！就算滚着学、爬着学，都是可以进步的学习。我真的是一个好的程序猿！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/18/JavaScript的正则表达式/">JavaScript的正则表达式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/18/JavaScript的String的方法/">JavaScript的String的方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/17/JavaScript的包装类/">JavaScript的包装类</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/17/JavaScript的Date对象/">JavaScript的Date对象</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/17/JavaScript的Math工具类/">JavaScript的Math对象</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/" class="mobile-nav-link">本帅</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
