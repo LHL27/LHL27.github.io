@@ -56,6 +56,138 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-Linux的基本配置命令" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/09/Linux的基本配置命令/">Linux的基本配置命令</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/05/09/Linux的基本配置命令/" class="article-date">
+  <time datetime="2019-05-09T12:05:24.000Z" itemprop="datePublished">2019-05-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+    
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>以下是Linux系统中，一些常见的查看系统配置的命令。不要求记下来，只要求明白其用途，并能快速找到即可。</p>
+<ol>
+<li><p>查看cpu</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lscpu</span><br><span class="line">Architecture:          i686</span><br><span class="line">CPU op-mode(s):        32-bit, 64-bit</span><br><span class="line">Byte Order:            Little Endian</span><br><span class="line">CPU(s):                1</span><br><span class="line">On-line CPU(s) list:   0</span><br><span class="line">Thread(s) per core:    1</span><br><span class="line">Core(s) per socket:    1</span><br><span class="line">座：                 1</span><br><span class="line">厂商 ID：           GenuineIntel</span><br><span class="line">CPU 系列：          6</span><br><span class="line">型号：              142</span><br><span class="line">型号名称：        Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz</span><br><span class="line">步进：              9</span><br><span class="line">CPU MHz：             2711.996</span><br><span class="line">CPU max MHz:           0.0000</span><br><span class="line">CPU min MHz:           0.0000</span><br><span class="line">BogoMIPS：            5423.99</span><br><span class="line">超管理器厂商：  VMware</span><br><span class="line">虚拟化类型：     完全</span><br><span class="line">L1d 缓存：          32K</span><br><span class="line">L1i 缓存：          32K</span><br><span class="line">L2 缓存：           256K</span><br><span class="line">L3 缓存：           3072K</span><br><span class="line">Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm 3dnowprefetch epb fsgsbase smep xsaveopt xsavec xgetbv1 dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>查看物理内存和交换空间的大小</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# egrep &quot;(Mem|Swap)Total&quot; /proc/meminfo</span><br><span class="line">MemTotal:        1027836 kB</span><br><span class="line">SwapTotal:       2097148 kB</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li><p>查看系统发行版本</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# cat/etc/system-release</span><br><span class="line">-bash: cat/etc/system-release: 没有那个文件或目录</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>查看系统内核版本信息</p>
+</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# uname -r</span><br><span class="line">3.10.0-693.2.2.el7.centos.plus.i686</span><br></pre></td></tr></table></figure></div>
+<ol start="5">
+<li>显示系统中的块设备</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# lsblk</span><br><span class="line">NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span><br><span class="line">fd0               2:0    1     4K  0 disk</span><br><span class="line">sda               8:0    0    20G  0 disk</span><br><span class="line">|-sda1            8:1    0     1G  0 part /boot</span><br><span class="line">`-sda2            8:2    0    19G  0 part</span><br><span class="line">  |-centos-root 253:0    0    17G  0 lvm  /</span><br><span class="line">  `-centos-swap 253:1    0     2G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 759.6M  0 rom</span><br></pre></td></tr></table></figure></div>
+<ol start="6">
+<li>显示系统中的文件系统</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# lsblk -f</span><br><span class="line">NAME   FSTYPE    LABEL         UUID                                   MOUNTPOINT</span><br><span class="line">fd0</span><br><span class="line">sda</span><br><span class="line">|-sda1 xfs                     89d05d3f-7f19-42ec-819a-01b548d55bd3   /boot</span><br><span class="line">`-sda2 LVM2_memb               N1Md0W-Do2h-l3Nc-fBG2-wGbP-105B-8CXiAH</span><br><span class="line">  |-centos-root</span><br><span class="line">       xfs                     fe5f56bf-f581-4de8-8711-542ec814a842   /</span><br><span class="line">  `-centos-swap</span><br><span class="line">       swap                    fba17fa0-af01-4866-8107-d450068cdd6d   [SWAP]</span><br><span class="line">sr0    iso9660   CentOS 7 i686 2017-10-05-16-03-31-00</span><br></pre></td></tr></table></figure></div>
+<ol start="7">
+<li>显示LVM信息</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# pvs</span><br><span class="line">  PV         VG     Fmt  Attr PSize   PFree</span><br><span class="line">  /dev/sda2  centos lvm2 a--  &lt;19.00g    0</span><br><span class="line">[root@localhost /]# vgs</span><br><span class="line">  VG     #PV #LV #SN Attr   VSize   VFree</span><br><span class="line">  centos   1   2   0 wz--n- &lt;19.00g    0</span><br><span class="line">[root@localhost /]# lvs</span><br><span class="line">  LV   VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert</span><br><span class="line">  root centos -wi-ao---- &lt;17.00g                                                </span><br><span class="line">  swap centos -wi-ao----   2.00g</span><br></pre></td></tr></table></figure></div>
+<ol start="8">
+<li>显示磁盘剩余空间</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# df -Ph</span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root   17G  994M   17G   6% /</span><br><span class="line">devtmpfs                 492M     0  492M   0% /dev</span><br><span class="line">tmpfs                    502M     0  502M   0% /dev/shm</span><br><span class="line">tmpfs                    502M  6.8M  496M   2% /run</span><br><span class="line">tmpfs                    502M     0  502M   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               1014M  124M  891M  13% /boot</span><br><span class="line">tmpfs                    101M     0  101M   0% /run/user/0</span><br></pre></td></tr></table></figure></div>
+<ol start="9">
+<li>查看已启用的软件更新源</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# yum repolist</span><br><span class="line">Failed to set locale, defaulting to C</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line">repo id                            repo name                              status</span><br><span class="line">!base/7/i386                       CentOS-7 - Base                        7575</span><br><span class="line">!extras/7/i386                     CentOS-7 - Extras                       325</span><br><span class="line">!updates/7/i386                    CentOS-7 - Updates                     1304</span><br><span class="line">repolist: 9204</span><br></pre></td></tr></table></figure></div>
+<ol start="10">
+<li>查看日期和时间</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# timedatectl</span><br><span class="line">      Local time: Wed 2019-05-08 12:26:56 CST</span><br><span class="line">  Universal time: Wed 2019-05-08 04:26:56 UTC</span><br><span class="line">        RTC time: Wed 2019-05-08 04:26:56</span><br><span class="line">       Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">     NTP enabled: yes</span><br><span class="line">NTP synchronized: yes</span><br><span class="line"> RTC in local TZ: no</span><br><span class="line">      DST active: n/a</span><br></pre></td></tr></table></figure></div>
+<ol start="11">
+<li>查看语言支持与键盘设置<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# localectl</span><br><span class="line">   System Locale: LANG=zh_CN.UTF-8</span><br><span class="line">       VC Keymap: cn</span><br><span class="line">      X11 Layout: cn</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>12.显示主机名<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# hostnamectl</span><br><span class="line">   Static hostname: localhost.localdomain</span><br><span class="line">         Icon name: computer-vm</span><br><span class="line">           Chassis: vm</span><br><span class="line">        Machine ID: 4c9982631f384c8294b10048964d69d6</span><br><span class="line">           Boot ID: 811f1e8e6b8d4e7fb9997f9d5644c12e</span><br><span class="line">    Virtualization: vmware</span><br><span class="line">  Operating System: CentOS Linux 7 (AltArch)</span><br><span class="line">       CPE OS Name: cpe:/o:centos:centos:7</span><br><span class="line">            Kernel: Linux 3.10.0-693.2.2.el7.centos.plus.i686</span><br><span class="line">      Architecture: x86</span><br></pre></td></tr></table></figure></div></p>
+<ol start="13">
+<li>显示网络接口参数</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# ip addr show</span><br><span class="line">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN qlen 1</span><br><span class="line">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">    inet 127.0.0.1/8 scope host lo</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">    inet6 ::1/128 scope host</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br><span class="line">2: ens32: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN qlen 1000</span><br><span class="line">    link/ether 00:0c:29:c6:95:f4 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">    inet 192.168.80.128/24 brd 192.168.80.255 scope global dynamic ens32</span><br><span class="line">       valid_lft 1301sec preferred_lft 1301sec</span><br><span class="line">    inet6 fe80::7444:a241:ff54:4d49/64 scope link</span><br><span class="line">       valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure></div>
+<font size="4" color="red">ifconfig也可以查看ip的信息</font>
+
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# ifconfig</span><br></pre></td></tr></table></figure></div>
+<ol start="14">
+<li>显示路由信息</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# ip route show</span><br><span class="line">default via 192.168.80.2 dev ens32 proto static metric 100</span><br><span class="line">192.168.80.0/24 dev ens32 proto kernel scope link src 192.168.80.128 metric 100</span><br></pre></td></tr></table></figure></div>
+<ol start="15">
+<li>显示防火墙规则</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# firewall-cmd --list-all</span><br><span class="line">public (active)</span><br><span class="line">  target: default</span><br><span class="line">  icmp-block-inversion: no</span><br><span class="line">  interfaces: ens32</span><br><span class="line">  sources:</span><br><span class="line">  services: ssh dhcpv6-client</span><br><span class="line">  ports:</span><br><span class="line">  protocols:</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  source-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure></div>
+<ol start="16">
+<li>查看系统支持的语言环境</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# localectl list-locales|egrep &quot;zh_CN|en_US&quot;</span><br><span class="line">en_US</span><br><span class="line">en_US.iso88591</span><br><span class="line">en_US.iso885915</span><br><span class="line">en_US.utf8</span><br><span class="line">zh_CN</span><br><span class="line">zh_CN.gb18030</span><br><span class="line">zh_CN.gb2312</span><br><span class="line">zh_CN.gbk</span><br><span class="line">zh_CN.utf8</span><br></pre></td></tr></table></figure></div>
+<ol start="17">
+<li>将语言改为英文，下次登录生效</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# localectl set-locale LANG=&quot;en_US.UTF-8&quot;</span><br></pre></td></tr></table></figure></div>
+<ol start="18">
+<li>将语言改为中文，下次登录生效</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# localectl set-locale LANG=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure></div>
+<ol start="19">
+<li>设置时区为欧洲巴黎并查看时间</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# timedatectl set-timezone Europe/Paris</span><br><span class="line">[root@localhost /]# timedatectl</span><br><span class="line">      Local time: Wed 2019-05-08 06:50:58 CEST</span><br><span class="line">  Universal time: Wed 2019-05-08 04:50:58 UTC</span><br><span class="line">        RTC time: Wed 2019-05-08 04:50:58</span><br><span class="line">       Time zone: Europe/Paris (CEST, +0200)</span><br><span class="line">     NTP enabled: yes</span><br><span class="line">NTP synchronized: yes</span><br><span class="line"> RTC in local TZ: no</span><br><span class="line">      DST active: yes</span><br><span class="line"> Last DST change: DST began at</span><br><span class="line">                  Sun 2019-03-31 01:59:59 CET</span><br><span class="line">                  Sun 2019-03-31 03:00:00 CEST</span><br><span class="line"> Next DST change: DST ends (the clock jumps one hour backwards) at</span><br><span class="line">                  Sun 2019-10-27 02:59:59 CEST</span><br><span class="line">                  Sun 2019-10-27 02:00:00 CET</span><br><span class="line">[root@localhost /]# date</span><br><span class="line">Wed May  8 06:53:44 CEST 2019</span><br></pre></td></tr></table></figure></div>
+<ol start="20">
+<li>shutdown命令<br>1）重启系统</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# shutdown -r now</span><br></pre></td></tr></table></figure></div>
+<p>2）关闭系统</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# shutdown -h now</span><br></pre></td></tr></table></figure></div>
+<p>3)15min分钟后自动关闭系统</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# shutdown -r +15</span><br></pre></td></tr></table></figure></div>
+<ol start="21">
+<li>reboot命令<br>重启系统</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# reboot</span><br></pre></td></tr></table></figure></div>
+<ol start="22">
+<li>注销/退出登录</li>
+</ol>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# exit</span><br></pre></td></tr></table></figure></div>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-VMwaree的基本使用" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -955,108 +1087,6 @@
 </article>
 
   
-    <article id="post-JSP基础、指令、动作" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/11/JSP基础、指令、动作/">JSP的基础、指令、动作</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/11/JSP基础、指令、动作/" class="article-date">
-  <time datetime="2019-03-10T16:00:00.000Z" itemprop="datePublished">2019-03-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java Web</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp语法/">jsp语法</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JSP的基础、指令、动作"><a href="#JSP的基础、指令、动作" class="headerlink" title="JSP的基础、指令、动作"></a>JSP的基础、指令、动作</h1><h2 id="jsp的简介"><a href="#jsp的简介" class="headerlink" title="jsp的简介"></a>jsp的简介</h2><p>静态网页：指没有后台数据库、不含程序、不可交互的网页。适用于不经常更改的网页。<br>动态网页：指显示的内容不是固定的，是根据服务器执行代码的结果来确定具体的显示内容。<br>主要区别：是否会随着时间，地点，用户的选择而改变。<br>JSP:<font color="red">(  java server pages  )</font> java 服务器页面，是一种服务器脚本语言，在服务器执行，返回客户端一个HTML文件。</p>
-<h2 id="jsp的执行过程"><a href="#jsp的执行过程" class="headerlink" title="jsp的执行过程"></a>jsp的执行过程</h2><ol>
-<li>当客户端<font color="red">第一次</font>请求一个jsp网页时，服务器就会将该jsp文件变成java文件（通常是一个servlet），再将java文件编译成class字节码文件。java(servlet , class)的内容就是打印出一个HTML文件，服务器将该HTML文件响应回给客户端。客户端再将HTML文件显示出来。</li>
-<li>当客户端<font color="red">非第一次</font>请求jsp网页时，服务器直接执行class文件，响应一个HTML文件给客户端。<br>所以，第一次请求时，花的时间比再次请求长。</li>
-<li><font color="red">当jsp文件更改了，必须要重新编译jsp文件，也就是按第一次执行。</font>
-
-</li>
-</ol>
-<h2 id="jsp的组成"><a href="#jsp的组成" class="headerlink" title="jsp的组成"></a>jsp的组成</h2><font color="green">JSP组成部分包括HTML、Java、JSP代码</font><br>HTML: 负责内容<br>Java: 负责行为<br>JSP: 负责行为<br><br>## jsp的注释<br><br> jsp的注释：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- 多行注释内容 --%&gt;</span><br></pre></td></tr></table></figure></div><br><br> java的注释：<br><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%/* 多行的注释内容 */%&gt;</span><br><span class="line">&lt;%// 单行的注释内容 %&gt;</span><br></pre></td></tr></table></figure></div><br><br> html的注释：<br><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 多行注释内容 --&gt;</span><br></pre></td></tr></table></figure></div><br><br><font color="red" size="4">jsp、java的注释在网页中和浏览器的源代码中都不会出现，因为它们没有传输到客户端，仅仅是给程序员读的；html的注释在网页中不会出现，但在浏览器的源代码窗口可以看得到。</font>
-
-<h2 id="jsp的常用脚本元素"><a href="#jsp的常用脚本元素" class="headerlink" title="jsp的常用脚本元素"></a>jsp的常用脚本元素</h2><h3 id="变量和方法的声明"><a href="#变量和方法的声明" class="headerlink" title="变量和方法的声明"></a>变量和方法的声明</h3><p>声明后可以在本JSP页面中的任何位置使用。（即全局变量）</p>
-<h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式:"></a>语法格式:</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%! 声明变量和方法 %&gt;</span><br></pre></td></tr></table></figure></div>
-<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul>
-<li>声明必须以“<font size="6" color="red"> ; </font>”结尾。</li>
-<li>变量和方法的命名规则与Java中的规则相同；</li>
-<li>一个声明仅在一个JSP页面中有效；如果多个页面想要用到该变量和方法，最好将他们写成一个独立的文件，然后用<code>&lt;%@include%&gt;</code>或<code>&lt;jsp:include&gt;</code>元素包含进来。</li>
-</ul>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">      &lt;%!</span><br><span class="line">       String str = &quot;JSP技术带你走进动态网页开发时代！&quot;;  //声明变量</span><br><span class="line">      %&gt;</span><br><span class="line">      &lt;%!</span><br><span class="line">        String print()&#123;         //声明方法</span><br><span class="line">          return str;</span><br><span class="line">        &#125;</span><br><span class="line">      %&gt;</span><br><span class="line">        &lt;h1&gt;&lt;%=print()%&gt;&lt;/h1&gt;   //表达式</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
-<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><p>将结果直接输出在网页中。</p>
-<h4 id="语法格式-1"><a href="#语法格式-1" class="headerlink" title="语法格式:"></a>语法格式:</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= 表达式 %&gt;</span><br></pre></td></tr></table></figure></div>
-<h4 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h4><ul>
-<li>表达式的结尾没有分号。<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4></li>
-<li>向网页输出内容。</li>
-<li>生成动态的链接地址。</li>
-<li>动态生成From表单处理页面</li>
-</ul>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">      &lt;%!</span><br><span class="line">        String name=&quot;百度&quot;;</span><br><span class="line">        String urlAddress=&quot;https://www.baidu.com&quot;;</span><br><span class="line">      %&gt;</span><br><span class="line">    &lt;p&gt;&lt;a href=&quot;&lt;%=urlAddress%&gt;&quot;&gt;&lt;%=name%&gt;&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">      &lt;form action=&quot;&lt;%=urlAddress%&gt;&quot;&gt;</span><br><span class="line">      &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
-<h3 id="脚本-java代码"><a href="#脚本-java代码" class="headerlink" title="脚本(java代码)"></a>脚本(java代码)</h3><h4 id="语法格式："><a href="#语法格式：" class="headerlink" title="语法格式："></a>语法格式：</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% 脚本语句 %&gt;</span><br></pre></td></tr></table></figure></div>
-<p>在脚本中也可以声明变量和方法，但只可以在该<code>&lt;%</code>与<code>%&gt;</code>中可用。</p>
-<h2 id="jsp的常用指令元素"><a href="#jsp的常用指令元素" class="headerlink" title="jsp的常用指令元素"></a>jsp的常用指令元素</h2><p>JSP指令元素的作用：用来提供整个JSP网页的相关信息，并用来设定JSP网页的相关属性。<br>JSP指令在客户端是不可见的，被服务器解释并执行。<br>JSP指令包括<code>include指令</code>、<code>page指令</code>、<code>taglib指令</code>。</p>
-<ul>
-<li>page指令：定义整个页面的全局属性。</li>
-<li>include指令：包含一个代码或文本文件，即在当前网页中插入include指令指定的文件。</li>
-<li>taglib指令：引入自定义的标签或第三方的标签库。</li>
-</ul>
-<h3 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h3><h4 id="page指令的主要属性及语法"><a href="#page指令的主要属性及语法" class="headerlink" title="page指令的主要属性及语法"></a>page指令的主要属性及语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page   	langueage=&quot;java&quot;		//脚本语言</span><br><span class="line">		pageEncoding=&quot;UTF-8&quot;            //页面所用编码</span><br><span class="line">		extends=&quot;继承父类名称&quot;          </span><br><span class="line">		import=&quot;导入的Java包或类的名称&quot;</span><br><span class="line">		session=“true/false&quot;            //是否参与HTTP会话</span><br><span class="line">		buffer=&quot;缓冲区大小&quot;               //设置out对象的缓冲区大小</span><br><span class="line">		autoflush=&quot;true/false&quot;          //是否自动刷新</span><br><span class="line">		isThreadSafe=&quot;true/false&quot;       //是否线程安全</span><br><span class="line">		info=&quot;页面信息&quot;</span><br><span class="line">		errorPage=&quot;发生错误时所转向的页面的相对地址&quot;  //当页面错误时，跳转的页面</span><br><span class="line">		isErrorPage=&quot;true/false&quot;        //是否是错误处理页面</span><br><span class="line">		contentType=&quot;&quot;                  //MIME类型和字符编码</span><br><span class="line">		isELIgnord=&quot;true/false&quot;         //是否忽略正则表达式</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></div>
-<p><code>pageEncoding</code>:  jsp文件自身的编码，也就是   jsp  –&gt;  java<br><code>contemtType</code>: 浏览器解析jsp的编码，通常与<code>pageEncoding</code>保持一致。</p>
-<h4 id="注意点-2"><a href="#注意点-2" class="headerlink" title="注意点"></a>注意点</h4><ul>
-<li>每个页面中可以使用多个<code>&lt;%@page%&gt;指令</code>，且区分大小写。</li>
-<li>除了<code>import指令</code>外，其他的指令只可以使用一次。</li>
-<li>一个JSP页面中，如果需要同时导入多个Java包，可以分开写，也可以合起来写。如：</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.util.Date&quot;%&gt;</span><br><span class="line">&lt;%@page import=&quot;java.io.*&quot;%&gt;</span><br></pre></td></tr></table></figure></div>
-<p>也可以写成</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@page import=&quot;java.util.Date，java.io.*&quot;%&gt;</span><br></pre></td></tr></table></figure></div>
-<h3 id="include指令"><a href="#include指令" class="headerlink" title="include指令"></a>include指令</h3><p>可以将其他文件<font color="red">静态</font>插入本JSP网页中。</p>
-<h4 id="page指令的语法"><a href="#page指令的语法" class="headerlink" title="page指令的语法"></a>page指令的语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@include file=&quot;filename&quot;%&gt;</span><br></pre></td></tr></table></figure></div>
-<h2 id="jsp的动作元素"><a href="#jsp的动作元素" class="headerlink" title="jsp的动作元素"></a>jsp的动作元素</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>用来控制JSP引擎的行为。</p>
-<h3 id="主要有以下几个："><a href="#主要有以下几个：" class="headerlink" title="主要有以下几个："></a>主要有以下几个：</h3><p><code>&lt;jsp:include&gt;</code><font color="red">动态</font>插入一个文件<br><code>&lt;jsp:forward&gt; 跳转</code>到一个新的页面<br><code>&lt;jsp:param&gt;</code>  <code>子标签</code>，传递参数，通常嵌套在include、forward动作元素中使用<br><code>&lt;jsp:plugin&gt;</code> 连接客户端的Applet或Bean插件<br><code>&lt;jsp:useBean&gt;</code> 使用JavaBean组件<br><code>&lt;jsp:setProperty&gt;</code> 设置JavaBean的属性值<br><code>&lt;jsp:getProperty&gt;</code> 获取JavaBean的<code>属性</code>值并输出</p>
-<h3 id="lt-jsp-include-gt-动作"><a href="#lt-jsp-include-gt-动作" class="headerlink" title="&lt;jsp:include&gt;动作"></a><code>&lt;jsp:include&gt;</code>动作</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page=&quot;文件名称&quot;/&gt;或</span><br><span class="line">&lt;jsp:include page=&quot;文件名称&quot;&gt;其他内容&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure></div>
-<p>注意：第1种语法，收尖括号前有一个反斜杠。</p>
-<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>当前网页中<code>动态</code>包含一个文件，当执行到该动作元素处，才加载被包含文件的字节码。</p>
-<h4 id="include指令与include动作的区别"><a href="#include指令与include动作的区别" class="headerlink" title="include指令与include动作的区别"></a><code>include指令</code>与<code>include动作</code>的区别</h4><p>include指令：是静态插入文件，先将文件加载到当前的JSP页面中，再一起编译成字节码文件，且不可以传递参数，仅仅是将两个页面放在一起。指令后接<code>file</code>。<br>include动作：是动态插入文件，先将两个文件分开编译成字节码文件，再将被加载文件的字节码文件加载到当前的JSP页面中，可以通过参数传递属性值。动作后接<code>page</code>。</p>
-<h3 id="lt-jsp-forward-gt-动作"><a href="#lt-jsp-forward-gt-动作" class="headerlink" title="&lt;jsp:forward&gt;动作"></a><code>&lt;jsp:forward&gt;</code>动作</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=&quot;文件名称&quot;/&gt;或</span><br><span class="line">&lt;jsp:forward page=&quot;文件名称&quot;&gt;其他内容&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure></div>
-<h4 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h4><p>从该动作的执行处<code>停止</code>当前网页的执行，<code>转向执行page指定的文件</code>，但浏览器中的地址栏的地址不会改变。</p>
-<h3 id="lt-jsp-param-gt-子标签"><a href="#lt-jsp-param-gt-子标签" class="headerlink" title="&lt;jsp:param&gt;子标签"></a><code>&lt;jsp:param&gt;</code>子标签</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--包含动作--&gt;</span><br><span class="line">&lt;jsp:include page=&quot;文件名称&quot;&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字1&quot; value=&quot;变量值1&quot;/&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字2&quot; value=&quot;变量值2&quot;/&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/jsp:include&gt;</span><br><span class="line">&lt;%--跳转动作--&gt;</span><br><span class="line">&lt;jsp:forward page=&quot;文件名称&quot;&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字1&quot; value=&quot;变量值1&quot;/&gt;</span><br><span class="line">	&lt;jsp:param name=&quot;变量名字2&quot; value=&quot;变量值2&quot;/&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure></div>
-<h4 id="功能-2"><a href="#功能-2" class="headerlink" title="功能"></a>功能</h4><p>将标签中的<code>变量值传递</code>给动态加载的文件。<br>不可以独立使用，只可作为include、forward的子标签使用。</p>
-<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><p>传递参数的页面————chuandi.jsp<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot; pageEncoding=&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;传递参数页面&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h3&gt;该页面传递一个参数QQ，直线下是接受参数页面的内容&lt;/h3&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;jsp:include page=&quot;jieshou.jsp&quot;&gt;</span><br><span class="line">        &lt;jsp:param name=&quot;userName&quot; value=&quot;QQ&quot;/&gt;</span><br><span class="line">    &lt;/jsp:include&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div></p>
-<p>接受参数的页面————jieshou.jsp</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;接受参数页面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">        &lt;p&gt;接受参数，并显示结果页面&lt;/p&gt;</span><br><span class="line">    &lt;%  String str=request.getParameter(&quot;userName&quot;);%&gt;</span><br><span class="line">        &lt;font color=&quot;blue&quot; size=&quot;12&quot;&gt;&lt;%=str%&gt;&lt;/font&gt;你好,欢迎你访问！</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></div>
-<p>运行结果如下:<br><img src="/2019/03/11/JSP基础、指令、动作/include动作.png" alt="include动作"><br>可见，传递参数页面中包含了接受参数页面；如果将传递参数页面中的<code>&lt;jsp:include page=&quot;&quot;&gt;</code>改成<code>&lt;jsp:forward page=&quot;&quot;/&gt;</code>,结果如下：<br><img src="/2019/03/11/JSP基础、指令、动作/forward动作.png" alt="forward动作"><br>浏览器中的地址显示的是传递参数的页面，但内容显示的是接受参数的页面<br>。</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -1129,6 +1159,10 @@
       <ul>
         
           <li>
+            <a href="/2019/10/18/JavaScript的正则表达式/">JavaScript的正则表达式</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/09/JavaScript的闭包/">JavaScript的闭包</a>
           </li>
         
@@ -1142,10 +1176,6 @@
         
           <li>
             <a href="/2019/10/07/JavaScript的函数/">JavaScript的函数</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/06/JavaScript的对象/">JavaScript的对象</a>
           </li>
         
       </ul>
