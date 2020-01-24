@@ -56,6 +56,49 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JavaScript的垃圾回收" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/09/JavaScript的垃圾回收/">JavaScript的垃圾回收（GC）</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/09/JavaScript的垃圾回收/" class="article-date">
+  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的垃圾回收（GC）"><a href="#JavaScript的垃圾回收（GC）" class="headerlink" title="JavaScript的垃圾回收（GC）"></a>JavaScript的垃圾回收（GC）</h1><h2 id="垃圾的定义"><a href="#垃圾的定义" class="headerlink" title="垃圾的定义"></a>垃圾的定义</h2><p>当一个对象没有任何的变量或属性对它进行引用（即没有变量或属性指向这个对象）了，程序就无法在操纵这个对象了，这个对象就成了垃圾。</p>
+<h2 id="垃圾的危害"><a href="#垃圾的危害" class="headerlink" title="垃圾的危害"></a>垃圾的危害</h2><p>垃圾会占用大量的内存空间，导致程序运行缓慢，所以必须回收这些垃圾。</p>
+<h5 id="JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。"><a href="#JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。" class="headerlink" title="JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。"></a>JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。</h5>
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-JavaScript的原型" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -141,49 +184,6 @@ Quick help
 About
 </code></pre><p>JavaScript的原型对象<br>JavaScript的作用域<br>JavaScript对象的方法<br>JavaScript 的对象<br>JavaScript 的函数</p>
 
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-JavaScript的垃圾回收" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/09/JavaScript的垃圾回收/">JavaScript的垃圾回收（GC）</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/09/JavaScript的垃圾回收/" class="article-date">
-  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JavaScript的垃圾回收（GC）"><a href="#JavaScript的垃圾回收（GC）" class="headerlink" title="JavaScript的垃圾回收（GC）"></a>JavaScript的垃圾回收（GC）</h1><h2 id="垃圾的定义"><a href="#垃圾的定义" class="headerlink" title="垃圾的定义"></a>垃圾的定义</h2><p>当一个对象没有任何的变量或属性对它进行引用（即没有变量或属性指向这个对象）了，程序就无法在操纵这个对象了，这个对象就成了垃圾。</p>
-<h2 id="垃圾的危害"><a href="#垃圾的危害" class="headerlink" title="垃圾的危害"></a>垃圾的危害</h2><p>垃圾会占用大量的内存空间，导致程序运行缓慢，所以必须回收这些垃圾。</p>
-<h5 id="JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。"><a href="#JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。" class="headerlink" title="JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。"></a>JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。</h5>
       
     </div>
     
@@ -1015,7 +1015,7 @@ About
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 LinHongLian &nbsp;&nbsp;
+    &copy; 2020 LinHongLian &nbsp;&nbsp;
     驱动于 <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>
