@@ -56,21 +56,21 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
-    <article id="post-JavaScript的垃圾回收" class="article global-container article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript的数组" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/09/JavaScript的垃圾回收/">JavaScript的垃圾回收（GC）</a>
+      <a class="article-title" href="/2019/10/14/JavaScript的数组/">JavaScript的数组</a>
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/10/09/JavaScript的垃圾回收/" class="article-date">
-  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
+    <a href="/2019/10/14/JavaScript的数组/" class="article-date">
+  <time datetime="2019-10-14T12:24:54.000Z" itemprop="datePublished">2019-10-14</time>
 </a>
     
   <div class="article-category">
@@ -87,9 +87,35 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h1 id="JavaScript的垃圾回收（GC）"><a href="#JavaScript的垃圾回收（GC）" class="headerlink" title="JavaScript的垃圾回收（GC）"></a>JavaScript的垃圾回收（GC）</h1><h2 id="垃圾的定义"><a href="#垃圾的定义" class="headerlink" title="垃圾的定义"></a>垃圾的定义</h2><p>当一个对象没有任何的变量或属性对它进行引用（即没有变量或属性指向这个对象）了，程序就无法在操纵这个对象了，这个对象就成了垃圾。</p>
-<h2 id="垃圾的危害"><a href="#垃圾的危害" class="headerlink" title="垃圾的危害"></a>垃圾的危害</h2><p>垃圾会占用大量的内存空间，导致程序运行缓慢，所以必须回收这些垃圾。</p>
-<h5 id="JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。"><a href="#JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。" class="headerlink" title="JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。"></a>JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。</h5>
+        <h1 id="JavaScript-的数组"><a href="#JavaScript-的数组" class="headerlink" title="JavaScript 的数组"></a>JavaScript 的数组</h1><h2 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h2><p>数组也是一个对象，不同与其他对象的是：对象是使用字符串作为属性名来操作数据的，数组是使用数字作为索引来操作元素的。<br>索引值是从 0 开始的整数。<br>优势：数组比普通对象的性能要好、效率高，推荐使用数组来存储一些数据。</p>
+<h2 id="创建数组的方法"><a href="#创建数组的方法" class="headerlink" title="创建数组的方法"></a>创建数组的方法</h2><h3 id="使用构造函数创建"><a href="#使用构造函数创建" class="headerlink" title="使用构造函数创建"></a>使用构造函数创建</h3><p>语法：<code>var 数组名 = new Array(元素值1,元素值2,...,元素值n);</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var nullArr = new Array();	//创建一个空数组</span><br><span class="line">var arr = new Array(10,23,34);	//创建数组并添加元素</span><br></pre></td></tr></table></figure></div></p>
+<p>当只传入一个参数时，并不是指创建一个只有一个元素（值为参数）的数组，而是指创建一个长度为参数值的数组。不推荐使用该方式指定数组长度，因为没有实用的意义，JavaScript 中的数组长度是可以自由伸缩的。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = new Array(10);	//创建一个长度为10的数组</span><br><span class="line">console.log(arr.length);</span><br></pre></td></tr></table></figure></div>
+<p>数组的元素可以是任意类型的数据，可以是数字、布尔、字符串、unll 、undefined、对象（包括数组、函数）。当数组的元素全是数组时，这是一个多维数组。</p>
+<h3 id="使用直接量创建"><a href="#使用直接量创建" class="headerlink" title="使用直接量创建"></a>使用直接量创建</h3><p>语法：<code>var 数组名 = [元素值1,元素值2,...,元素值n];</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nullArr = [];		//创建空数组</span><br><span class="line">var arr = [1,2,3,4,5,6];	//创建数组并添加元素</span><br><span class="line">var arrM = [[1,2,3],[4,5,6],[7,8,9]];		//创建一个多维数组</span><br><span class="line">console.log(arrM[1]);</span><br><span class="line">console.log(arrM[0][1]);</span><br></pre></td></tr></table></figure></div>
+<h2 id="向数组中添加元素"><a href="#向数组中添加元素" class="headerlink" title="向数组中添加元素"></a>向数组中添加元素</h2><h3 id="使用索引添加"><a href="#使用索引添加" class="headerlink" title="使用索引添加"></a>使用索引添加</h3><p>语法：<code>数组名[索引] = 元素值</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[0] = 12;</span><br><span class="line">arr[1] = 23;</span><br></pre></td></tr></table></figure></div>
+<p>注意：数组也是一个对象，所以除了可以使用索引来添加元素，也可以像对象一样使用字符串作为属性名来添加元素，不推荐这种方式，降低了数组的效率。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.name = &quot;lin&quot;;</span><br><span class="line">console.log(arr.name);</span><br></pre></td></tr></table></figure></div></p>
+<h4 id="每次都向数组的最后一个位置添加元素"><a href="#每次都向数组的最后一个位置添加元素" class="headerlink" title="每次都向数组的最后一个位置添加元素"></a>每次都向数组的最后一个位置添加元素</h4><p>语法：<code>数组名[数组名.length] = 元素值</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[arr.length] = 23;</span><br></pre></td></tr></table></figure></div>
+<h2 id="获取数组中的元素值"><a href="#获取数组中的元素值" class="headerlink" title="获取数组中的元素值"></a>获取数组中的元素值</h2><p>语法：<code>数组名[索引]</code></p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(arr[1]);</span><br></pre></td></tr></table></figure></div>
+<p>规则：</p>
+<ol>
+<li>如果读取不存在元素值，不会出错，返回值为 undefined。</li>
+</ol>
+<h2 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h2><h2 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h2><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(arr.length);</span><br></pre></td></tr></table></figure></div>
+<p>规则：</p>
+<ol>
+<li>对于索引连续的数组（稠密数组），使用 length 返回的值就是该数组的元素的个数；对于索引不连续的数组（稀疏数组），使用 length 返回的值为该数组最大的索引值加1。</li>
+</ol>
+<h2 id="设置数组的长度"><a href="#设置数组的长度" class="headerlink" title="设置数组的长度"></a>设置数组的长度</h2><p>语法：<code>数组名.length = 某个整数</code><br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.length = 5;</span><br></pre></td></tr></table></figure></div></p>
+<p>规则：</p>
+<ol>
+<li>如果修改的 length 值<code>大于</code>原数组的长度，则索引值大于 length-1 的元素均为空；如果修改的 length 值<code>小于</code>原数组的长度，则索引值大于 length-1 的元素均被删除。</li>
+</ol>
+
       
     </div>
     
@@ -184,6 +210,49 @@ Quick help
 About
 </code></pre><p>JavaScript的原型对象<br>JavaScript的作用域<br>JavaScript对象的方法<br>JavaScript 的对象<br>JavaScript 的函数</p>
 
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
+    <article id="post-JavaScript的垃圾回收" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/09/JavaScript的垃圾回收/">JavaScript的垃圾回收（GC）</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/09/JavaScript的垃圾回收/" class="article-date">
+  <time datetime="2019-10-09T11:01:05.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript的垃圾回收（GC）"><a href="#JavaScript的垃圾回收（GC）" class="headerlink" title="JavaScript的垃圾回收（GC）"></a>JavaScript的垃圾回收（GC）</h1><h2 id="垃圾的定义"><a href="#垃圾的定义" class="headerlink" title="垃圾的定义"></a>垃圾的定义</h2><p>当一个对象没有任何的变量或属性对它进行引用（即没有变量或属性指向这个对象）了，程序就无法在操纵这个对象了，这个对象就成了垃圾。</p>
+<h2 id="垃圾的危害"><a href="#垃圾的危害" class="headerlink" title="垃圾的危害"></a>垃圾的危害</h2><p>垃圾会占用大量的内存空间，导致程序运行缓慢，所以必须回收这些垃圾。</p>
+<h5 id="JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。"><a href="#JavaScript-中拥有自动的垃圾回收（garbage-collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为-null，这个对象就变成了垃圾，自动回收。" class="headerlink" title="JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。"></a>JavaScript 中拥有自动的垃圾回收（garbage collection）机制，当一个对象成为垃圾后，会自动销毁这个对象，释放内存空间。我们需要做的是：当一个对象在程序中已经无用了，我们就断开对这个对象的引用，即将引用这个对象的变量或属性赋值为 null，这个对象就变成了垃圾，自动回收。</h5>
       
     </div>
     
@@ -804,117 +873,6 @@ About
 </article>
 
   
-    <article id="post-JavaScript的数据类型" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/03/JavaScript的数据类型/">JavaScript的数据类型</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/03/JavaScript的数据类型/" class="article-date">
-  <time datetime="2019-10-03T05:02:52.000Z" itemprop="datePublished">2019-10-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><p>说明：虽然学习 JavaScript 已经好久了，但是都是一边学一边用的，从来都没有整理过学习笔记，导致了没有一个完整的知识体系。接下来就要找工作了，借这段时间好好复习一遍 JavaScript 的基础知识，温故而知新。以下的笔记从《 JavaScript 权威指南》中总结。</p>
-<h2 id="JavaScript的6大数据类型"><a href="#JavaScript的6大数据类型" class="headerlink" title="JavaScript的6大数据类型"></a>JavaScript的6大数据类型</h2><ol>
-<li>Number 类型–数字类型：包括整数和浮点数</li>
-<li>String 类型–字符串类型</li>
-<li>Boolean 类型–布尔类型</li>
-<li>null –空值</li>
-<li>undefined –未定义</li>
-<li>Object 类型–对象类型：是一些属性的集合<br>其中，6个数据类型分成两类：</li>
-</ol>
-<ul>
-<li>一类是基本数据类型，包括Number、String、Boolean、null、undefined。</li>
-<li>一类是引用数据类型，只包括Object。</li>
-</ul>
-<h2 id="基本数据类型与引用数据类型的区别"><a href="#基本数据类型与引用数据类型的区别" class="headerlink" title="基本数据类型与引用数据类型的区别"></a>基本数据类型与引用数据类型的区别</h2><p>JavaScript 的内存分成两类，一类叫做栈内存，一类叫做堆内存。</p>
-<ol>
-<li>栈内存是保存的是一对对键值对。键是变量命，值是变量的属性值。</li>
-<li>堆内存是一块内存空间，在该空间中存储数据。该空间有一个起始的内存空间地址。</li>
-</ol>
-<ul>
-<li>当创建一个<code>基本的数据类型变量</code>时，直接在栈内存中写入键（变量名）与值（属性值）。当把这个变量赋值给另一个变量时，是再写入一个键值对，只是两个变量的值是一样的，除此之外，没有其他的联系了。两者是独立的个体。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 123;</span><br><span class="line">var b = a;</span><br><span class="line">b = 456;</span><br><span class="line">console.log(a);		//输出 “123”，b的改变不会影响a的值</span><br></pre></td></tr></table></figure></div>
-<ul>
-<li>当创建一个<code>引用数据类型变量时（即对象）</code>，首先在堆内存中划分出一块内存空间，用来储蓄这个对象的全部属性。然后在栈内存中写入一个键值对，键是对象名，值是堆内存空间的内存地址，这个对象指向这块内存空间。当使用到这个对象时，到这块内存空间中寻找属性。当把这个对象赋值给另一个对象时，不再在堆内存中划分空间了，只是在栈内存中，写入一个键值对，键是另一个对象名，值仍是这块堆内存空间的内存地址。两个对象指向了同一块内存空间。</li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj1 = new Object();</span><br><span class="line">var obj2 = obj1;</span><br><span class="line">obj1.name = &quot;lin&quot;;</span><br><span class="line">obj2.name = &quot;linhong&quot;</span><br><span class="line">console.log(obj1.name);		//输出 “linhong”，obj1 和 obj2 指向同一块内存</span><br></pre></td></tr></table></figure></div>
-<h3 id="Number-类型"><a href="#Number-类型" class="headerlink" title="Number 类型"></a>Number 类型</h3><h4 id="四个特殊值"><a href="#四个特殊值" class="headerlink" title="四个特殊值"></a>四个特殊值</h4><p>Infinity：正无穷大，超过了最大的正数所能表示范围的正数，上溢<br>-Infinity：负无穷大，超过了最小的负数所能表示范围的负数<br>NaN：not-a-number，不是一个数字，它和任何值都不相等，包括本身也不相等。假设 x 是否等于 NaN ，只能使用：x!=x，来判断 x 是否等于 NaN。<br>-0：负零，下溢超出了最小的正数所能表示的范围的数</p>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>由于 JavaScript 采用了 IEEE-754 浮点数表示法来表示浮点数的，当涉及到比较精确的浮点数计算时，最好将数据发送到后端再进行计算，或者将浮点数扩大一定的倍数，变成整数，再进行计算，这样可以得到比较精确的计算值。</p>
-<h3 id="Boolean-类型"><a href="#Boolean-类型" class="headerlink" title="Boolean 类型"></a>Boolean 类型</h3><p>要么为真，要么为假的变量。<br>JavaScript 中，只有以下6个值为假值，其它的值都是真值。</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h3 id="null-和-undefined-类型"><a href="#null-和-undefined-类型" class="headerlink" title="null 和 undefined 类型"></a>null 和 undefined 类型</h3><p>null 和 undefined 都是 JavaScript 的两个特殊值，两者有相同之处，也用不同的地方。<br>null :  表示空的对象值，它的数据类型是 Object<br>undefined ：表示属性或元素不存在，它的数据类型是 undefined，是 undefined 类型唯一的一个值</p>
-<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="其他类型转换为-Number-类型"><a href="#其他类型转换为-Number-类型" class="headerlink" title="其他类型转换为 Number 类型"></a>其他类型转换为 Number 类型</h3><h4 id="转换方法一：使用Number（）构造函数"><a href="#转换方法一：使用Number（）构造函数" class="headerlink" title="转换方法一：使用Number（）构造函数"></a>转换方法一：使用Number（）构造函数</h4><ol>
-<li>字符串 转换为 数字</li>
-</ol>
-<ul>
-<li>如果字符串为纯数字字符，直接转换为数字</li>
-<li>如果字符串含有非数字字符，转换为NaN</li>
-<li>如果字符串是一个空串，或全是空格的字符串，转换为NaN</li>
-</ul>
-<ol start="2">
-<li>布尔 转换为 数字 </li>
-</ol>
-<ul>
-<li>true 转换为 1</li>
-<li>false 转换为 0 </li>
-</ul>
-<ol start="3">
-<li>null 转换为 0</li>
-<li>undefined 转换为 NaN</li>
-</ol>
-<h4 id="转换方式二：使用parseInt-函数和parseFloat-函数"><a href="#转换方式二：使用parseInt-函数和parseFloat-函数" class="headerlink" title="转换方式二：使用parseInt()函数和parseFloat()函数"></a>转换方式二：使用parseInt()函数和parseFloat()函数</h4><p>这种方式主要用于将字符串转换为数字。其他类型使用这种方式，则先转换成字符串，再转换成数字。parseInt() 将字符串转换成整数，parseFloat() 将字符串转换成浮点数。<br>转换过程：将一串字符串从左到右转换，遇到可以转换的字符，先将其转换成数字，遇到不可转换的字符，则剩下的字符均忽略了。</p>
-<h5 id="转换数字类型的进制"><a href="#转换数字类型的进制" class="headerlink" title="转换数字类型的进制"></a>转换数字类型的进制</h5><h6 id="进制的表示方法"><a href="#进制的表示方法" class="headerlink" title="进制的表示方法"></a>进制的表示方法</h6><p>十六进制：0x，如：10表示为0xa;<br>八进制：0，如：10表示为012；<br>二进制：0b，不是所有的浏览器都支持，如：2表示为0b10</p>
-<h6 id="转换函数-parseInt-a-10"><a href="#转换函数-parseInt-a-10" class="headerlink" title="转换函数 parseInt(a,10)"></a>转换函数 parseInt(a,10)</h6><p>a表示要转换的字符串，10表示进制数</p>
-<h3 id="其他类型转换为-String-类型"><a href="#其他类型转换为-String-类型" class="headerlink" title="其他类型转换为 String 类型"></a>其他类型转换为 String 类型</h3><h4 id="转换方法一：使用被转换类型的-toString-方法，将转换结果返回。"><a href="#转换方法一：使用被转换类型的-toString-方法，将转换结果返回。" class="headerlink" title="转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。"></a>转换方法一：使用被转换类型的 toString() 方法，将转换结果返回。</h4><p>null 和 undefined 没有该类型的 toString() 方法。</p>
-<h4 id="转换方法二：调用-String-构造函数"><a href="#转换方法二：调用-String-构造函数" class="headerlink" title="转换方法二：调用 String() 构造函数"></a>转换方法二：调用 String() 构造函数</h4><h3 id="其他类型转换为-Boolean-类型"><a href="#其他类型转换为-Boolean-类型" class="headerlink" title="其他类型转换为 Boolean 类型"></a>其他类型转换为 Boolean 类型</h3><h4 id="转换方法：使用-Boolean-构造函数"><a href="#转换方法：使用-Boolean-构造函数" class="headerlink" title="转换方法：使用 Boolean() 构造函数"></a>转换方法：使用 Boolean() 构造函数</h4><p>除了以下6种方式，将转换为 false ,其它的将转换为 true.</p>
-<ul>
-<li>undefined</li>
-<li>null</li>
-<li>0 </li>
-<li>-0</li>
-<li>NaN</li>
-<li>“”                 //空字符串</li>
-</ul>
-<h5 id="以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"><a href="#以上是强制类型转换（也叫显性类型转换）的方式，其实在-JavaScript-中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。" class="headerlink" title="以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。"></a>以上是强制类型转换（也叫显性类型转换）的方式，其实在 JavaScript 中，更常见的是隐性类型转换，可以利用各种运算符进行隐性类型转换。</h5>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -946,7 +904,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/响应式网站设计/">响应式网站设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/响应式网站设计/">响应式网站设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/系统软件安装/">系统软件安装</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
     </div>
   </div>
 
@@ -956,7 +914,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式网站设计基础/">响应式网站设计基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式网站设计基础/">响应式网站设计基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装window10系统/">安装window10系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
     </div>
   </div>
 
@@ -966,7 +924,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/响应式网站设计基础/" style="font-size: 12.5px;">响应式网站设计基础</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/响应式网站设计基础/" style="font-size: 12.5px;">响应式网站设计基础</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/安装window10系统/" style="font-size: 10px;">安装window10系统</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -975,7 +933,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
     </div>
   </div>
 
@@ -985,6 +943,10 @@ About
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/01/24/安装window10系统/">安装window10系统</a>
+          </li>
         
           <li>
             <a href="/2019/11/08/流式布局/">流式布局</a>
@@ -1000,10 +962,6 @@ About
         
           <li>
             <a href="/2019/10/18/JavaScript的String的方法/">JavaScript的String的方法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/17/JavaScript的包装类/">JavaScript的包装类</a>
           </li>
         
       </ul>

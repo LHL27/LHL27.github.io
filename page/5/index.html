@@ -56,6 +56,53 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-bfs的框架及示例" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/16/bfs的框架及示例/">bfs的框架及示例</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/16/bfs的框架及示例/" class="article-date">
+  <time datetime="2019-03-16T13:55:45.000Z" itemprop="datePublished">2019-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="bfs的框架及示例"><a href="#bfs的框架及示例" class="headerlink" title="bfs的框架及示例"></a>bfs的框架及示例</h1><h2 id="bfs的框架"><a href="#bfs的框架" class="headerlink" title="bfs的框架"></a>bfs的框架</h2><p><img src="/2019/03/16/bfs的框架及示例/bfs的框架.jpg" alt="bfs的框架"></p>
+<h2 id="bfs的示例"><a href="#bfs的示例" class="headerlink" title="bfs的示例"></a>bfs的示例</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在一个长度是n的坐标轴上，从A点移动到B点，3个移动规则如下：<br>1.向前一步，坐标加1；<br>2.向后一步，坐标减1；<br>3.跳跃一步，坐标乘2；<br>不同移动到坐标小于0，或大于n的位置。求从A点到达B点的最少步数是多少？<br>输入：<br>输入3个整数，分别代表n、A、B。()0&lt;=A, B&lt;=n&lt;=50000)<br>输出：<br>输出1个整数，代表最少的步数。</p>
+<h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct leap &#123;				//声明结构体，将下标与步数相连起来 </span><br><span class="line">	int index,step;</span><br><span class="line">	leap(int _index,int _step)&#123;		//构造结构体 </span><br><span class="line">		index = _index;</span><br><span class="line">		step = _step;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">queue&lt;leap&gt; q;		//实例化队列q </span><br><span class="line">bool vis[5005];		//记录是否已访问</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">void bfs(int n,int A,int B)&#123;		//bfs </span><br><span class="line">	q. push(leap(A,0));			//起始点插入队列 </span><br><span class="line">	vis[A]=true;				//标记起始点已访问 </span><br><span class="line">	while(!q.empty())&#123;			//队列不为空 </span><br><span class="line">		int index = q.front().index;</span><br><span class="line">		int step = q.front().step;</span><br><span class="line">		q.pop();				//删除头元素 </span><br><span class="line">//遍历该节点下的所有可能，并将所有可能加到队尾 </span><br><span class="line">		if(index==B)&#123;			//到达B </span><br><span class="line">			cout&lt;&lt;step&lt;&lt;endl;</span><br><span class="line">			return ;			//不需要等到全部遍历完，只要找到最短路径即可 </span><br><span class="line">		&#125;</span><br><span class="line">		if(index+1&lt;=n &amp;&amp; !vis[index+1])&#123;		//往前一步 </span><br><span class="line">			q.push(leap(index+1,step+1));</span><br><span class="line">			vis[index+1]=true;					//标记已访问 </span><br><span class="line">		&#125;</span><br><span class="line">		if(index-1&gt;=0 &amp;&amp; !vis[index-1])&#123;		//往后一步 </span><br><span class="line">			q.push(leap(index-1,step+1));</span><br><span class="line">			vis[index-1]=true;</span><br><span class="line">		&#125;</span><br><span class="line">		if(index*2&lt;=n &amp;&amp; !vis[index*2])&#123;		//跳跃一步 </span><br><span class="line">			q.push(leap(index*2,step+1));</span><br><span class="line">			vis[index*2]=true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int main()&#123;</span><br><span class="line">	int n,A,B;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;A&gt;&gt;B;</span><br><span class="line">	bfs(n,A,B);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="dfs与bfs的适用范围"><a href="#dfs与bfs的适用范围" class="headerlink" title="dfs与bfs的适用范围"></a>dfs与bfs的适用范围</h2><p>dfs：深度优先搜索——可以满足所有条件的总数<br>bfs：广度优先搜索——状态的转移，求层数最少、路径最短<br>其实，在遍历过程中，dfs、bfs都是可以使用的，都可以求得到答案，只是在这两种情况下，其中，某种方法更简单、合适。<br><a href="https://lhl27.github.io/2019/03/05/回溯、递归、dfs的个人总结">回溯、递归、dfs的框架及示例</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-大数加减乘除的实现" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -714,7 +761,7 @@
   <div class="widget-box">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/响应式网站设计/">响应式网站设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Bootstrap笔记/">Bootstrap笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS-基础/">HTML + CSS 基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA使用教程/">IDEA使用教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA创建maven工程/">IDEA创建maven工程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习/">JavaScript学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo-github个人博客的搭建/">hexo+github个人博客的搭建</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/响应式网站设计/">响应式网站设计</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习mybatis笔记/">学习mybatis笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/系统软件安装/">系统软件安装</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/虚拟机/">虚拟机</a></li></ul>
     </div>
   </div>
 
@@ -724,7 +771,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式网站设计基础/">响应式网站设计基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式网站设计基础/">响应式网站设计基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装window10系统/">安装window10系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
     </div>
   </div>
 
@@ -734,7 +781,7 @@
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/响应式网站设计基础/" style="font-size: 12.5px;">响应式网站设计基础</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/响应式网站设计基础/" style="font-size: 12.5px;">响应式网站设计基础</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/安装window10系统/" style="font-size: 10px;">安装window10系统</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -743,7 +790,7 @@
   <div class="widget-box">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
     </div>
   </div>
 
@@ -753,6 +800,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/01/24/安装window10系统/">安装window10系统</a>
+          </li>
         
           <li>
             <a href="/2019/11/08/流式布局/">流式布局</a>
@@ -768,10 +819,6 @@
         
           <li>
             <a href="/2019/10/18/JavaScript的String的方法/">JavaScript的String的方法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/17/JavaScript的包装类/">JavaScript的包装类</a>
           </li>
         
       </ul>
