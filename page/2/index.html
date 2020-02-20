@@ -56,6 +56,99 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-JavaScript数组的常用方法" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/15/JavaScript数组的常用方法/">JavaScript数组的常用方法</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/10/15/JavaScript数组的常用方法/" class="article-date">
+  <time datetime="2019-10-15T12:24:54.000Z" itemprop="datePublished">2019-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <h1 id="JavaScript-数组的常用方法"><a href="#JavaScript-数组的常用方法" class="headerlink" title="JavaScript 数组的常用方法"></a>JavaScript 数组的常用方法</h1><h2 id="添加或删除数组元素的方法"><a href="#添加或删除数组元素的方法" class="headerlink" title="添加或删除数组元素的方法"></a>添加或删除数组元素的方法</h2><h3 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h3><p> 可以向数组的<code>末尾</code>添加一个或多个元素,多个元素<code>一次性</code>添加（并不是一个一个添加）；<br>把要添加的元素作为方法的参数；<br>并返回数组的新长度；</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);</span><br><span class="line">var l = arr.push(&quot;lin&quot;,[23,45]);	//添加两个元素，并返回长度l</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(&quot;数组的新长度：&quot;+l);</span><br></pre></td></tr></table></figure></div>
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h3><p> 可以在数组的<code>末尾</code>删除最后一个元素，不需要参数，并返回该元素</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);		//1，2，3</span><br><span class="line">var pop1 = arr.pop();</span><br><span class="line">console.log(arr);		//1，2</span><br><span class="line">console.log(&quot;从尾部删除的元素是：&quot;+pop1);	//3</span><br></pre></td></tr></table></figure></div>
+<p>push()、pop() 方法类似于把数组当成了一个<code>栈</code>来处理了。</p>
+<h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h3><p> 可以向数组的<code>头部</code>添加一个或多个元素,多个元素<code>一次性</code>添加（并不是一个一个添加）<br> 注意：一次性添加和一个一个添加是不一样的。</p>
+<ul>
+<li>如果是一次性添加，要添加的多个元素按照原来的<code>顺序</code>添加到数组中；</li>
+<li>如果是一个一个添加，要添加的多个元素按照原顺序的<code>倒序</code>添加到数组中；</li>
+</ul>
+<p>把要添加的元素作为方法的参数。<br>并返回数组的新长度。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);</span><br><span class="line">var l = arr.unshift(&quot;lin&quot;,[23,45]);</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(&quot;数组的新长度：&quot;+l);</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h3><p> 可以在数组的<code>头部</code>删除一个元素，不需要参数，并返回该元素<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">console.log(arr);</span><br><span class="line">var shift1 = arr.shift();</span><br><span class="line">console.log(arr);		//2，3</span><br><span class="line">console.log(&quot;从头部删除的元素是: &quot;+shift1);	//1</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="遍历数组的方法"><a href="#遍历数组的方法" class="headerlink" title="遍历数组的方法"></a>遍历数组的方法</h2><h3 id="for循环遍历"><a href="#for循环遍历" class="headerlink" title="for循环遍历"></a>for循环遍历</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">	console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="forEach-方法遍历"><a href="#forEach-方法遍历" class="headerlink" title="forEach() 方法遍历"></a>forEach() 方法遍历</h3><p>注意：IE 浏览器中只有 IE 8 以上的版本才支持 forEach() 方法。<br>forEach() 方法中，要传入一个函数作为参数，通常是一个匿名函数，该函数叫回调函数。<br>回调函数：由开发者声明，由浏览器调用的函数。<br>该回调函数中可以有三个参数（也可以部分或全部省略）：</p>
+<ul>
+<li>第一个参数：表示每一个元素的值；</li>
+<li>第二个参数：表示每一个元素的索引；</li>
+<li>第三个参数：表示该数组对象本身。</li>
+</ul>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">arr.forEach(function(value,index,obj)&#123;</span><br><span class="line">	console.log(obj+&quot;数组的第&quot;+index+&quot;个元素是：&quot;+value);</span><br><span class="line">&#125;)；</span><br></pre></td></tr></table></figure></div>
+<p>可见，数组有几个元素，回调函数调用几次。</p>
+<h2 id="slice-方法"><a href="#slice-方法" class="headerlink" title="slice() 方法"></a>slice() 方法</h2><p>功能：返回一个数组的指定元素（一个或多个）。<br>slice() 方法有两个参数（可以省略一个）：</p>
+<ul>
+<li>第一个参数：表示<code>开始</code>截取的索引值，截取的元素包含该索引；</li>
+<li>第二个参数：表示<code>结束</code>截取的索引值，截取的元素不包含该索引；当省略该参数时，表示从开始的索引截取到改数组的最后一个元素。</li>
+</ul>
+<p>参数值可以是负数，表示倒数第几个元素。</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,78,9];</span><br><span class="line">newArr1 = arr.slice(0,2);	//获取索引0到2的元素，不包括索引为2的元素</span><br><span class="line">console.log(newArr1);</span><br><span class="line">newArr2 = arr.slice(1);		//获取索引大于等于1的元素</span><br><span class="line">console.log(newArr2);</span><br><span class="line">newArr3 = arr.slice(-3,-1);	//获取倒数第3到倒数第1的索引的元素，不包括倒数第1的元素</span><br><span class="line">console.log(newArr3);</span><br><span class="line">console.log(arr);		//原数组不变</span><br></pre></td></tr></table></figure></div>
+<h2 id="splice-方法"><a href="#splice-方法" class="headerlink" title="splice() 方法"></a>splice() 方法</h2><p>功能：从数组中删除元素，并返回删除的元素，同时可以添加元素。<br>splice() 方法参数：</p>
+<ul>
+<li>第一个参数：表示开始删除元素或添加元素的<code>索引</code>位置。</li>
+<li>第二个参数：表示要删除的元素的<code>数量</code>。</li>
+<li>第三个参数及以上：表示要<code>添加的元素</code>，<code>一次性</code>添加到第一个参数的位置，后面的元素往后移。</li>
+</ul>
+<p>表示只删除元素不添加（省略第三个参数），如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">var result = arr.splice(1,2);		//从索引1开始，删除2个元素</span><br><span class="line">console.log(arr);			//删除元素后的数组</span><br><span class="line">console.log(result);			//删除的元素</span><br></pre></td></tr></table></figure></div>
+<p>表示只添加不删除（删除的元素数量为0），如：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">var result = arr.splice(2,0,&quot;lin&quot;,&quot;hong&quot;);	//从索引为2的位置开始，删除0个元素（不删除），并在索引2的位置开始添加&quot;lin&quot;、&quot;hong&quot;2个元素</span><br><span class="line">console.log(arr);</span><br><span class="line">console.log(result);	//不删除，返回空字符串</span><br></pre></td></tr></table></figure></div>
+<h2 id="concat-方法"><a href="#concat-方法" class="headerlink" title="concat() 方法"></a>concat() 方法</h2><p>功能：将数组与一个或多个数组或元素连接起来，返回一个新的数组。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [123,456,789];</span><br><span class="line">var arr2 = [&quot;lin&quot;,&quot;hong&quot;];</span><br><span class="line">var arr3 = [true,145,[147,[258,369]]];</span><br><span class="line">var result = arr1.concat(arr2,arr3,&quot;lian&quot;);</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="join-方法"><a href="#join-方法" class="headerlink" title="join() 方法"></a>join() 方法</h2><p>功能：将数组转换成<code>字符串</code>并返回。<br>参数：数据类型：字符串；将该字符串作为分隔符，分隔开元素。<br>当省略参数时，默认分隔符为逗号；当不需要分隔符时，可以以<code>空串</code>作为分隔符。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">var result = arr.join(&quot;-&quot;);	//以-为分隔符</span><br><span class="line">console.log(result);</span><br><span class="line">result = arr.join(&quot;&quot;);		//不需要分隔符</span><br><span class="line">console.log(result);</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="reverse-方法"><a href="#reverse-方法" class="headerlink" title="reverse() 方法"></a>reverse() 方法</h2><p>功能：将数组倒序。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [123,456,789];</span><br><span class="line">arr.reverse();		//倒序</span><br><span class="line">console.log(arr);	//789，456，123</span><br></pre></td></tr></table></figure></div></p>
+<h2 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort() 方法"></a>sort() 方法</h2><p>功能：将数组排序。<br>参数：传入一个回调函数，回调函数中传入两个元素，根据返回值指定排序规则。<br>浏览器会使用数组中的元素去调用回调函数：</p>
+<ul>
+<li>如果返回大于 0 的值，则两个元素交换位置；</li>
+<li>如果返回小于或等于 0 的值，则两个元素不交换位置。</li>
+</ul>
+<p>如果没有参数，默认按照 Unicode 编码进行排序。纯数字元素也是按照编码排序，并不是按照数值大小排序。<br>默认情况下：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [456,147,78,123];</span><br><span class="line">arr.sort();</span><br><span class="line">console.log(arr);	//123，147，456，78</span><br></pre></td></tr></table></figure></div></p>
+<p>传入回调函数，指定升序排序：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [456,147,78,123];</span><br><span class="line">arr.sort(function(a,b)&#123;</span><br><span class="line">	if(a&gt;b)&#123;</span><br><span class="line">		return 1;     </span><br><span class="line">	&#125;else if(a&lt;b)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(arr);	//78，123，147，456</span><br></pre></td></tr></table></figure></div>
+<p>以上代码可以简化为：</p>
+<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [456,147,78,123];</span><br><span class="line">arr.sort(function(a,b)&#123;</span><br><span class="line">	return a-b;   //当a&gt;b时，返回值&gt;0；当a&lt;b时，返回值&lt;0；当a==b时，返回值等于0</span><br><span class="line">&#125;);</span><br><span class="line">console.log(arr);</span><br></pre></td></tr></table></figure></div>
+<p>记忆：<code>a-b ：升序；b-a：降序</code>。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-JavaScript的数组" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -717,167 +810,11 @@ About
 </article>
 
   
-    <article id="post-JavaScript的运算符" class="article global-container article-type-post" itemscope itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/04/JavaScript的运算符/">JavaScript的运算符</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/10/04/JavaScript的运算符/" class="article-date">
-  <time datetime="2019-10-04T05:02:52.000Z" itemprop="datePublished">2019-10-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript学习/">JavaScript学习</a>
-  </div>
-
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="JavaScript的运算符"><a href="#JavaScript的运算符" class="headerlink" title="JavaScript的运算符"></a>JavaScript的运算符</h1><h2 id="运算符的分类："><a href="#运算符的分类：" class="headerlink" title="运算符的分类："></a>运算符的分类：</h2><ol>
-<li>算术运算符</li>
-<li>逻辑运算符</li>
-<li>赋值运算符</li>
-<li>关系运算符</li>
-<li>条件运算符</li>
-</ol>
-<h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><h3 id="二元算术运算符"><a href="#二元算术运算符" class="headerlink" title="二元算术运算符"></a>二元算术运算符</h3><h4 id="运算符"><a href="#运算符" class="headerlink" title="+ 运算符"></a>+ 运算符</h4><p>可以用于数字的加运算，也可以用于字符串的拼接。优先用于字符串的拼接。<br>使用规则：</p>
-<ol>
-<li>任何值与字符串作“+”运算，先转换为字符串，再拼接。结果类型为字符串。</li>
-<li>除字符串外的任何值作“+”运算，先转换为数字（通常转换为0或1或NaN），再相加。结果类型为数字。</li>
-<li>NaN与任何数字相加，结果都为NaN。结果类型为数字。</li>
-<li>其他类型与空串作“+”运算，结果类型为字符串。利用这一特性，可作为隐性类型转换。如：</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">123 + &quot;&quot;         //“123”，数字123转换为字符串“123”</span><br><span class="line">true + &quot;&quot;		 //&quot;true&quot;,布尔 true 转换为字符串 &quot;true&quot;</span><br></pre></td></tr></table></figure></div>
-<h4 id="、-、-、-运算符"><a href="#、-、-、-运算符" class="headerlink" title="-、*、/、% 运算符"></a>-、*、/、% 运算符</h4><p>-、*、/、%分别表示数学运算中的减、乘、除、模运算，主要用于数字的运算中。使用规则与 Java 中类似，主要区别：</p>
-<ol>
-<li><p>JavaScript 中，所有的数字都是浮点型的，除法的结果也是浮点型的，如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 / 2 = 2.5		//并不同于Java中，5 / 2 = 2</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>浮点数也可以取模，如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6.5 % 2.1 = 0.2</span><br><span class="line">-6.5 % 2.1 = -0.2		//结果的符号与第一个操作数的符号保持一致</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>其他类型数据作 -、*、/、% 运算，先转换为数字类型，再进行运算。利用这一特性，可作为隐性类型转换。如：</p>
-</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;123&quot; - 0 = 123;     //字符串&quot;123&quot;转换成数字123；</span><br><span class="line">true * 1 = 1;        //布尔true,转换成数字1，再乘以1，结果为数字1；</span><br><span class="line">&quot;456&quot; / 1 = 456;</span><br></pre></td></tr></table></figure></div>
-<h3 id="一元算术运算符"><a href="#一元算术运算符" class="headerlink" title="一元算术运算符"></a>一元算术运算符</h3><h4 id="运算符-1"><a href="#运算符-1" class="headerlink" title="+ 运算符"></a>+ 运算符</h4><p>作用：把操作数转换成数字（或者NaN）。如果操作数本身为数字，返回这个数字。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">+x = 1;</span><br><span class="line">+y = 1;</span><br><span class="line">+z = -123;</span><br><span class="line">+p = 0 ;</span><br><span class="line">+q = NaN;</span><br></pre></td></tr></table></figure></div></p>
-<h4 id="运算符-2"><a href="#运算符-2" class="headerlink" title="- 运算符"></a>- 运算符</h4><p>作用：相当于 0 - 操作数 的值。<br>隐性转换：<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = 1 , y = true , z = &quot;-123&quot; , p = null , q；</span><br><span class="line">-x = -1;</span><br><span class="line">-y = -1;</span><br><span class="line">-z = +123;</span><br><span class="line">-p = 0 ;</span><br><span class="line">-q = NaN;</span><br></pre></td></tr></table></figure></div></p>
-<h4 id="与-运算符的区别"><a href="#与-运算符的区别" class="headerlink" title="- 与 ~ 运算符的区别"></a>- 与 ~ 运算符的区别</h4><p>~ 运算符叫按位非，相当于改变变量的符号并减一。如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x = 4;</span><br><span class="line">console.log(-x);	//输出-4</span><br><span class="line">console.log(~x);	//输出-5</span><br></pre></td></tr></table></figure></div>
-<h4 id="自增运算符"><a href="#自增运算符" class="headerlink" title="++ 自增运算符"></a>++ 自增运算符</h4><p>作用：原变量在自身的基础上立即增加1<br>分类：</p>
-<ol>
-<li>后++（a++）</li>
-<li>前++（++a）<br>无论前++，还是后++，变量的值会立即加1。<br>a++的值等于原来变量的值（这里把a++、++a当成了一个整体，更容易理解）<br>++a的值等于新变量的值</li>
-</ol>
-<h4 id="自减运算符"><a href="#自减运算符" class="headerlink" title="-- 自减运算符"></a><code>--</code> 自减运算符</h4><p>作用：原变量在自身的基础上立即增减1<br>分类：</p>
-<ol>
-<li>后<code>--</code>（a<code>--</code>）</li>
-<li>前<code>--</code>（<code>--</code>a）<br>无论前- -，还是后- -，变量的值会立即减1。<br>a<code>--</code> 的值等于原来变量的值（这里把 a<code>--</code>、<code>--</code>a 当成了一个整体，更容易理解）<br><code>--</code>a 的值等于新变量的值<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">var a = 10;</span><br><span class="line">a1 = a++;		//a1等于原来的值为10,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a2 = ++a;		//a2等于新值为11,a=11</span><br><span class="line">var a = 10;</span><br><span class="line">a3 = a++ + ++a + a;		//过程：a++ = 10,a=11;++a=12,a=12;10+12+12=44</span><br></pre></td></tr></table></figure></div>
-</li>
-</ol>
-<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>包括：</p>
-<ol>
-<li>逻辑与（&amp;&amp;）</li>
-<li>逻辑或（||）</li>
-<li>逻辑非（!）</li>
-</ol>
-<h3 id="逻辑与-amp-amp"><a href="#逻辑与-amp-amp" class="headerlink" title="逻辑与 &amp;&amp;"></a>逻辑与 &amp;&amp;</h3><p>作用：只有当两端的操作数（包括表达式）均为 true，才返回 true，其余均返回 false。</p>
-<p>逻辑与的短路效应：只有当第一个操作数为 true 时，才去计算第二个操作数，否则直接返回 false。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 10 , y = 20 ;</span><br><span class="line">true &amp;&amp; x++;	//第一个操作数为 true，运行第二个表达式,x 加1</span><br><span class="line">false &amp;&amp; y++;	//第一个操作数为 false，直接返回第一个值，不运行第二个表达式,y 不变</span><br><span class="line">console.log(x);		//输出 11</span><br><span class="line">console.log(y);		//输出 20</span><br></pre></td></tr></table></figure></div>
-<p>如果操作数不是布尔类型，其他类型先自动转换成布尔类型，作逻辑与运算，并返回原类型的值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;</span><br><span class="line">console.log( true &amp;&amp; x );		//输出&quot;123&quot;</span><br></pre></td></tr></table></figure></div></p>
-<ol>
-<li>如果第一个操作数的值为 true , 返回第二个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 &amp;&amp; 1 );		//输出 1</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li>如果第一个操作数的值为 false , 返回第一个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN &amp;&amp; &quot;123&quot; );	//输出 NaN</span><br></pre></td></tr></table></figure></div>
-<h3 id="逻辑或"><a href="#逻辑或" class="headerlink" title="逻辑或 ||"></a>逻辑或 ||</h3><p>作用：只用当两端的操作数均为 false，才返回 false，其余均返回 true。</p>
-<p>逻辑或的短路效应：只有当第一个操作数为 false时，才去计算第二个操作数，否则直接返回 true。</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var x = 10 , y = 20 ;</span><br><span class="line">true || x++;	//第一个操作数为 true，直接返回 true，不运行第二个表达式,x 不变</span><br><span class="line">false || y++;	//第一个操作数为 false，运行第二个表达式,y 加1</span><br><span class="line">console.log(x);		//输出 10</span><br><span class="line">console.log(y);		//输出 21</span><br></pre></td></tr></table></figure></div>
-<p>如果操作数不是布尔类型，其它类型先自动转换成布尔类型，作逻辑或运算，并返回原类型的值。<br><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;</span><br><span class="line">console.log( false || x );		//输出&quot;123&quot;</span><br></pre></td></tr></table></figure></div></p>
-<ol>
-<li>如果第一个操作数的值为 true , 返回第一个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( 2 &amp;&amp; 1 );		//输出 2</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li>如果第一个操作数的值为 false , 返回第二个操作数的值。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( NaN &amp;&amp; &quot;123&quot; );	//输出 &quot;123&quot;</span><br></pre></td></tr></table></figure></div>
-<h3 id="逻辑非-！"><a href="#逻辑非-！" class="headerlink" title="逻辑非 ！"></a>逻辑非 ！</h3><p>作用：对一个布尔值进行取反操作。true 变 false，false 变 true。<br>如果操作数不是布尔类型的，先自动转换成布尔类型，再进行取反。可以利用这一特性，将其他类型的数据进行两次非运算，实现隐性类型转换成布尔类型，如：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;123&quot;;</span><br><span class="line">console.log(!!x); 	//输出true，字符串&quot;123&quot;转换成布尔true</span><br></pre></td></tr></table></figure></div>
-<h3 id="逻辑运算符的优先级"><a href="#逻辑运算符的优先级" class="headerlink" title="逻辑运算符的优先级"></a>逻辑运算符的优先级</h3><p>逻辑非 &gt; 逻辑与 &gt; 逻辑或</p>
-<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><h3 id="赋值运算"><a href="#赋值运算" class="headerlink" title="= 赋值运算"></a>= 赋值运算</h3><p>作用：将右值赋以左变量。从右往左运算。<br>除此之外，还有以下常见的带操作的赋值运算：</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+=	a+=5	等价于	a=a+5</span><br><span class="line">-=	a-=5	等价于	a=a-5</span><br><span class="line">*=	a*=5	等价于	a=a*5</span><br><span class="line">/=	a/=5	等价于	a=a/5</span><br><span class="line">%=	a%=5	等价于	a=a%5</span><br></pre></td></tr></table></figure></div>
-<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>意义：比较两个操作数的大小。如果关系成立，返回 true ；如果关系不成立，返回 false。<br>关系运算符有：<code>==、===、!=、!==、&lt;、&lt;=、&lt;==、&gt;、&gt;=、&gt;==;</code><br>规则：</p>
-<ol>
-<li>如果两个操作数都是数字，会按照数学上的大小，进行比较，返回相应的关系。</li>
-<li>如果两个操作数都是字符串，会根据字符的 Unicode 编码的<code>字典序</code>进行比较。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log( &quot;123&quot; &lt; &quot;4&quot;);	//输出 true，字符&quot;1&quot;与字符&quot;4&quot;比较，&quot;1&quot;小，所以:&quot;123&quot;小于&quot;4&quot;</span><br><span class="line">console.log( &quot;abc&quot; &lt; &quot;ab&quot;);	//输出 false，一个字符一个字符比较，a==a,b==b,第二个字符串已经没有了，所以第二个字符串小</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li>只要两个操作数不全是字符串，先自动转换成数字，再进行比较。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log( false &gt; true);	//输出 false，false 自动转换为数字0，true 自动转换为数字1，0&lt;1</span><br></pre></td></tr></table></figure></div>
-<ol start="4">
-<li>NaN 与任何值比较，都返回 false 。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log( 5 &lt;= undefined);</span><br><span class="line">console.log( 5 &gt;= undefined);</span><br><span class="line">//两个输出都是 false ，因为undefined 转换成数字类型的NaN</span><br></pre></td></tr></table></figure></div>
-<ol start="5">
-<li>尽量不要使用中文字符串进行关系运算，容易出现错误。</li>
-</ol>
-<h3 id="等于（-）与恒等（-）的区别"><a href="#等于（-）与恒等（-）的区别" class="headerlink" title="等于（==）与恒等（===）的区别"></a><code>等于（==）与恒等（===）的区别</code></h3><ol>
-<li>等于（<code>==</code>）与不等于（<code>!=</code>）运算符作关系运算时，如果两个值的类型不同，会自动转换成相同的数据类型（通常转换成数字）。只要数据相等，则相等。</li>
-<li>恒等（<code>===</code>）与不恒等（<code>!==</code>）运算符作关系运算时，不会作自动类型转换。只有类型相等，数据也相等，才会恒等。</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;123&quot; == 123);	//true ，&quot;123&quot;自动转成123</span><br><span class="line">console.log(&quot;123&quot; === 123);	//false ， 数据类型不等</span><br><span class="line"></span><br><span class="line">//特殊情况</span><br><span class="line">//尽管 null 自动类型转换为0，但 null 与 0 不等于</span><br><span class="line">console.log( null == 0 );	//false </span><br><span class="line">//null 与 undefined 相等不恒等</span><br><span class="line">console.log( null == undefined );	//true</span><br><span class="line">console.log( null == undefined );	//false</span><br><span class="line">//NaN 与 任何值不相等，包括它本身，可以使用isNaN()函数来判断是否是NaN</span><br><span class="line">var x = NaN ;</span><br><span class="line">console.log( x==x );		//false</span><br><span class="line">//以下是判断 x 是否是 NaN 的两种常见的方式</span><br><span class="line">console.log( x != x );		//true</span><br><span class="line">console.log( isNaN(x) );	//true</span><br></pre></td></tr></table></figure></div>
-<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>唯一一个三元运算符 <code>？：</code><br>语法：<code>条件语句？语句1：语句2</code><br>执行流程：先判断条件语句，为 true，执行语句1，为 false，执行语句2。<br>如果条件语句不是布尔类型，先转换为布尔类型，再判断 true 或 false。</p>
-<h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><ol>
-<li>JavaScript 的运算符的优先级按照下表的顺序，越在上边，优先级越高。<br><img src="/2019/10/04/JavaScript的运算符/优先级.jpg" alt="优先级"></li>
-<li>如果优先级相同的，从左往右算。</li>
-<li>添加圆括号可以改变优先级。</li>
-</ol>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>++、==、&lt;=等由多个符号组成的运算符是一个整体，不可分开来写（中间添加空格等都是不可以的）。</p>
-<h2 id="拓展：如何使用-Unicode-编码"><a href="#拓展：如何使用-Unicode-编码" class="headerlink" title="拓展：如何使用 Unicode 编码"></a>拓展：如何使用 Unicode 编码</h2><ol>
-<li>JavaScript中使用，格式：<code>\u四位十六进制编码</code>，如：</li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;\u2634&quot;);		//输出 ☴</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li>网页中使用，格式：<code>&amp;#十进制编码</code>，这里的十进制是，Unicode 编码表中的四位十六进制转换成的十进制。大小可通过<code>font-size</code>属性来控制，如： </li>
-</ol>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt; &amp;#4568&lt;/h1&gt;</span><br></pre></td></tr></table></figure></div>
-<p>显示结果，如下：<img src="/2019/10/04/JavaScript的运算符/编码的使用.png" alt="编码的使用"></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
   </nav>
 
 
@@ -914,7 +851,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式网站设计基础/">响应式网站设计基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装window10系统/">安装window10系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap笔记/">Bootstrap笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript的基础学习/">JavaScript的基础学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bfs/">bfs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp语法/">jsp语法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内置对象/">内置对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式网站设计基础/">响应式网站设计基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/域名的绑定/">域名的绑定</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础知识/">基础知识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习mybatis笔记/">学习mybatis笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装window10系统/">安装window10系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常识/">常识</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搭建Apache服务器/">搭建Apache服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/激活window10系统/">激活window10系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案例/">经典案例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/经典案列/">经典案列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件使用/">软件使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件安装/">软件安装</a></li></ul>
     </div>
   </div>
 
@@ -924,7 +861,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/响应式网站设计基础/" style="font-size: 12.5px;">响应式网站设计基础</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/安装window10系统/" style="font-size: 10px;">安装window10系统</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
+      <a href="/tags/Bootstrap笔记/" style="font-size: 10px;">Bootstrap笔记</a> <a href="/tags/JavaScript的基础学习/" style="font-size: 20px;">JavaScript的基础学习</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/jsp语法/" style="font-size: 10px;">jsp语法</a> <a href="/tags/内置对象/" style="font-size: 12.5px;">内置对象</a> <a href="/tags/响应式网站设计基础/" style="font-size: 12.5px;">响应式网站设计基础</a> <a href="/tags/域名的绑定/" style="font-size: 10px;">域名的绑定</a> <a href="/tags/基础知识/" style="font-size: 12.5px;">基础知识</a> <a href="/tags/学习mybatis笔记/" style="font-size: 12.5px;">学习mybatis笔记</a> <a href="/tags/安装window10系统/" style="font-size: 10px;">安装window10系统</a> <a href="/tags/常识/" style="font-size: 10px;">常识</a> <a href="/tags/搭建Apache服务器/" style="font-size: 10px;">搭建Apache服务器</a> <a href="/tags/激活window10系统/" style="font-size: 10px;">激活window10系统</a> <a href="/tags/经典案例/" style="font-size: 10px;">经典案例</a> <a href="/tags/经典案列/" style="font-size: 10px;">经典案列</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a> <a href="/tags/软件使用/" style="font-size: 17.5px;">软件使用</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a>
     </div>
   </div>
 
@@ -933,7 +870,7 @@ About
   <div class="widget-box">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
     </div>
   </div>
 
@@ -943,6 +880,10 @@ About
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/02/20/window-10-激活教程/">window 10 激活教程</a>
+          </li>
         
           <li>
             <a href="/2020/01/24/安装window10系统/">安装window10系统</a>
@@ -958,10 +899,6 @@ About
         
           <li>
             <a href="/2019/10/18/JavaScript的正则表达式/">JavaScript的正则表达式</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/18/JavaScript的String的方法/">JavaScript的String的方法</a>
           </li>
         
       </ul>
